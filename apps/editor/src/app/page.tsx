@@ -1,4 +1,5 @@
-import dynamic from "next/dynamic";
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -19,15 +20,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { toast } from "sonner";
-
-const MonacoTest = dynamic(() => import("@/components/editor/MonacoTest"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex h-[280px] items-center justify-center rounded-xl border bg-muted/20 text-sm text-muted-foreground">
-      Loading Monaco...
-    </div>
-  ),
-});
+import MonacoDynamic from "@/components/editor/MonacoDynamic";
 
 export default function Page() {
   return (
@@ -47,7 +40,7 @@ export default function Page() {
       {/* Monaco — browser-only, dynamically imported */}
       <section className="mb-8">
         <h2 className="mb-3 text-sm font-semibold tracking-wide text-muted-foreground">MONACO TEST (client-only, ssr: false)</h2>
-        <MonacoTest />
+        <MonacoDynamic />
         <p className="mt-2 text-xs text-muted-foreground">Type in the editor above — changes are held in client state and don’t break the server build.</p>
       </section>
 
