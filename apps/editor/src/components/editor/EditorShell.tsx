@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import dynamic from "next/dynamic";
-import { combineFiles } from "@/lib/preview";
 import {
   Files,
   Search,
@@ -21,12 +20,17 @@ import {
   Palette,
   Braces,
   BookOpen,
+  Terminal,
+  AlertTriangle,
+  AlertCircle,
+  Trash2,
 } from "lucide-react";
 import { Group as PanelGroup, Panel, Separator as PanelResizeHandle } from "react-resizable-panels";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { DEFAULT_FILES, STORAGE_KEY, type EditorFile } from "@/lib/editorDefaults";
+import { combineFiles } from "@/lib/preview";
 
 // Dynamically import Monaco wrapper — browser only
 const CodeEditor = dynamic(() => import("./CodeEditor"), {
@@ -40,6 +44,13 @@ const LANGUAGE_MAP: Record<EditorFile, string> = {
   "index.html": "html",
   "styles.css": "css",
   "script.js": "javascript",
+};
+
+type ConsoleEntry = {
+  id: string;
+  level: "log" | "warn" | "error";
+  message: string;
+  timestamp: number;
 };
 
 function IconButton({
@@ -77,6 +88,17 @@ export default function EditorShell() {
   const [activeTab, setActiveTab] = useState<EditorFile>("index.html");
   const [files, setFiles] = useState<Record<EditorFile, string>>(DEFAULT_FILES);
 
+  // Console state
+  const [consoleEntries, setConsoleEntries] = useState<ConsoleEntry[]>([]);
+  const [unreadCount, setUnreadCount] = useState(0);
+  const consoleContainerRef = useRef<HTMLDivElement>(null);
+  const isAtBottomRef = useRef(true);
+  const consoleOpenRef = useRef(consoleOpen);
+  useEffect(() => {
+    consoleOpenRef.current = consoleOpen;
+    if (consoleOpen) setUnreadCount(0);
+  }, [consoleOpen]);
+
   // Keep latest files in ref for flush on tab switch
   const filesRef = useRef(files);
   useEffect(() => {
@@ -94,7 +116,6 @@ export default function EditorShell() {
       if (raw) {
         const parsed = JSON.parse(raw) as Partial<Record<EditorFile, string>>;
         if (parsed && typeof parsed === "object") {
-          // Only accept known keys and string values
           const next: Record<EditorFile, string> = { ...DEFAULT_FILES };
           let hasValid = false;
           (Object.keys(DEFAULT_FILES) as EditorFile[]).forEach((k) => {
@@ -111,7 +132,7 @@ export default function EditorShell() {
     }
   }, []);
 
-  // Persist to localStorage debounced on files change (separate debounce from editor typing)
+  // Persist to localStorage debounced on files change
   useEffect(() => {
     const id = setTimeout(() => {
       try {
@@ -141,7 +162,6 @@ export default function EditorShell() {
   const handleEditorChange = useCallback(
     (value: string | undefined) => {
       const nextValue = value ?? "";
-      // Store pending debounced update
       pendingRef.current = { tab: activeTab, value: nextValue };
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
@@ -157,32 +177,105 @@ export default function EditorShell() {
   );
 
   const handleTabSwitch = (tab: EditorFile) => {
-    // Flush any pending edit for the previous tab before switching
     flushPending();
     setActiveTab(tab);
   };
 
-  // Cleanup pending on unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
 
-  // Preview — derived from debounced files state (reuses same 400ms debounce as editor)
-  // No second debounce here; preview updates whenever `files` commits.
+  // Preview — derived from debounced files state (reuses same 400ms debounce)
   const previewHtml = useMemo(
     () => combineFiles(files["index.html"], files["styles.css"], files["script.js"]),
     [files]
   );
-  // Key to force full iframe remount on Run
   const [previewRevision, setPreviewRevision] = useState(0);
+
+  const clearConsole = useCallback(() => {
+    setConsoleEntries([]);
+    setUnreadCount(0);
+  }, []);
+
   const handleRun = useCallback(() => {
-    // Flush any pending typed content immediately (bypass debounce)
     flushPending();
-    // Even if no pending, force full srcDoc replacement for manual Run
+    // Clear console on each fresh run (matches OneCompiler fresh-console behavior)
+    clearConsole();
     setPreviewRevision((v) => v + 1);
-  }, [flushPending]);
+  }, [flushPending, clearConsole]);
+
+  // Clear console automatically when preview re-renders (debounced files change)
+  // This matches playgrounds that reset console per run
+  useEffect(() => {
+    // Don't clear on initial mount — only when files actually change after mount
+    // Use a ref to skip first render
+  }, []);
+
+  // Actually clear on previewHtml change — but avoid clearing on initial mount
+  const isFirstPreview = useRef(true);
+  useEffect(() => {
+    if (isFirstPreview.current) {
+      isFirstPreview.current = false;
+      return;
+    }
+    clearConsole();
+    // Also reset unread if open
+    if (consoleOpenRef.current) setUnreadCount(0);
+  }, [previewHtml, clearConsole]);
+
+  // postMessage bridge — parent side
+  useEffect(() => {
+    const handler = (event: MessageEvent) => {
+      const data = event.data as unknown;
+      if (!data || typeof data !== "object") return;
+      const d = data as Record<string, unknown>;
+      if (d.source !== "ladecompile-preview") return;
+      if (d.type !== "console") return;
+      const level = d.level as string;
+      if (!["log", "warn", "error"].includes(level)) return;
+      const message = typeof d.message === "string" ? d.message : String(d.message ?? "");
+      const timestamp = typeof d.timestamp === "number" ? d.timestamp : Date.now();
+
+      const entry: ConsoleEntry = {
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        level: level as ConsoleEntry["level"],
+        message: message.length > 2000 ? message.slice(0, 2000) + "… (truncated)" : message,
+        timestamp,
+      };
+
+      setConsoleEntries((prev) => {
+        const next = [...prev, entry];
+        if (next.length > 500) return next.slice(-500);
+        return next;
+      });
+
+      if (!consoleOpenRef.current) {
+        setUnreadCount((c) => Math.min(c + 1, 99));
+      }
+    };
+
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, []);
+
+  // Auto-scroll unless user scrolled up
+  useEffect(() => {
+    if (!consoleOpen) return;
+    if (!isAtBottomRef.current) return;
+    const el = consoleContainerRef.current;
+    if (el) {
+      el.scrollTop = el.scrollHeight;
+    }
+  }, [consoleEntries, consoleOpen]);
+
+  const handleConsoleScroll = () => {
+    const el = consoleContainerRef.current;
+    if (!el) return;
+    const threshold = 24;
+    isAtBottomRef.current = el.scrollTop + el.clientHeight >= el.scrollHeight - threshold;
+  };
 
   const tabs: { name: EditorFile; icon: React.ComponentType<{ className?: string }> }[] = [
     { name: "index.html", icon: FileCode },
@@ -216,7 +309,12 @@ export default function EditorShell() {
               <span className="hidden text-xs text-muted-foreground sm:inline">HTML / CSS / JS — no login required</span>
             </div>
             <div className="flex items-center gap-1">
-              <Button size="sm" className="h-7 gap-1 bg-[#6366f1] px-3 text-xs hover:bg-[#5456e5]" onClick={handleRun} aria-label="Run preview">
+              <Button
+                size="sm"
+                className="h-7 gap-1 bg-[#6366f1] px-3 text-xs hover:bg-[#5456e5]"
+                onClick={handleRun}
+                aria-label="Run preview"
+              >
                 <Play className="h-3.5 w-3.5" />
                 Run
               </Button>
@@ -323,28 +421,87 @@ export default function EditorShell() {
                     />
                   </div>
 
-                  {/* Collapsible console — bottom of editor area */}
-                  <div className={cn("shrink-0 border-t bg-background transition-all", consoleOpen ? "h-36" : "h-9")}>
-                    <div className="flex h-9 items-center justify-between border-b bg-muted/20 px-3">
+                  {/* Console */}
+                  <div className={cn("flex shrink-0 flex-col border-t bg-background", consoleOpen ? "h-36" : "h-9")}>
+                    <div className="flex h-9 shrink-0 items-center justify-between border-b bg-muted/20 px-3">
                       <span className="flex items-center gap-1.5 text-xs font-semibold">
                         <span className="h-2 w-2 rounded-full bg-emerald-500" />
                         Console
+                        {!consoleOpen && unreadCount > 0 && (
+                          <span className="ml-1 inline-flex min-w-[18px] justify-center rounded-full bg-red-500 px-1 py-0.5 text-[10px] font-bold leading-none text-white">
+                            {unreadCount > 99 ? "99+" : unreadCount}
+                          </span>
+                        )}
                       </span>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="h-6 w-6"
-                        aria-label={consoleOpen ? "Collapse console" : "Expand console"}
-                        onClick={() => setConsoleOpen((v) => !v)}
-                      >
-                        {consoleOpen ? <ChevronDown className="h-3.5 w-3.5" /> : <ChevronUp className="h-3.5 w-3.5" />}
-                      </Button>
-                    </div>
-                    {consoleOpen && (
-                      <div className="flex h-[calc(100%-36px)] items-center justify-center bg-muted/10 p-3 text-xs text-muted-foreground">
-                        <span>Console output will stream here in Prompt 8. Placeholder — no logic yet.</span>
+                      <div className="flex items-center gap-1">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-6 w-6"
+                          aria-label="Clear console"
+                          onClick={clearConsole}
+                        >
+                          <Trash2 className="h-3.5 w-3.5" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-6 w-6"
+                          aria-label={consoleOpen ? "Collapse console" : "Expand console"}
+                          onClick={() => setConsoleOpen((v) => !v)}
+                        >
+                          {consoleOpen ? <ChevronDown className="h-3.5 w-3.5" /> : <ChevronUp className="h-3.5 w-3.5" />}
+                        </Button>
                       </div>
-                    )}
+                    </div>
+                    {consoleOpen ? (
+                      <div
+                        ref={consoleContainerRef}
+                        onScroll={handleConsoleScroll}
+                        className="flex-1 overflow-y-auto bg-zinc-950 p-2 font-mono text-xs"
+                      >
+                        {consoleEntries.length === 0 ? (
+                          <div className="flex h-full items-center justify-center text-zinc-500">
+                            <span className="flex items-center gap-1.5">
+                              <Terminal className="h-3.5 w-3.5" />
+                              Console — Click Run to start · logs clear per run
+                            </span>
+                          </div>
+                        ) : (
+                          <div className="space-y-1">
+                            {consoleEntries.map((entry) => (
+                              <div
+                                key={entry.id}
+                                className={cn(
+                                  "flex gap-2 rounded px-1 py-0.5",
+                                  entry.level === "error" && "bg-red-950/40 text-red-300",
+                                  entry.level === "warn" && "bg-amber-950/30 text-amber-300",
+                                  entry.level === "log" && "text-zinc-100"
+                                )}
+                              >
+                                <span className="mt-0.5 shrink-0">
+                                  {entry.level === "error" ? (
+                                    <AlertCircle className="h-3.5 w-3.5 text-red-400" />
+                                  ) : entry.level === "warn" ? (
+                                    <AlertTriangle className="h-3.5 w-3.5 text-amber-400" />
+                                  ) : (
+                                    <Terminal className="h-3.5 w-3.5 text-zinc-400" />
+                                  )}
+                                </span>
+                                <span className="min-w-0 flex-1 break-words whitespace-pre-wrap">{entry.message}</span>
+                                <span className="shrink-0 text-[10px] text-zinc-500">
+                                  {new Date(entry.timestamp).toLocaleTimeString([], {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                    second: "2-digit",
+                                  })}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </Panel>
