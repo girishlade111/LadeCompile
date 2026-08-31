@@ -6,15 +6,17 @@ type Props = {
   language: string;
   path: string;
   value: string;
+  theme: "light" | "dark";
   onChange: (value: string | undefined) => void;
 };
 
-export default function CodeEditor({ language, path, value, onChange }: Props) {
+export default function CodeEditor({ language, path, value, theme, onChange }: Props) {
   return (
     <Editor
       path={path}
       language={language}
       value={value}
+      theme={theme === "dark" ? "vs-dark" : "vs"}
       onChange={onChange}
       options={{
         minimap: { enabled: false },

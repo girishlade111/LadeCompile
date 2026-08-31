@@ -75,3 +75,10 @@ body {
   outline: 2px solid #6366f1;
   outline-offset: 2px;
 }
+
+/* Smooth theme transition — only after initial paint to avoid flash-of-transition */
+html.theme-ready,
+html.theme-ready body,
+html.theme-ready body * {
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}

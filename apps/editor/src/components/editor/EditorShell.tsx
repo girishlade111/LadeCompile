@@ -31,6 +31,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { DEFAULT_FILES, STORAGE_KEY, type EditorFile } from "@/lib/editorDefaults";
 import { combineFiles } from "@/lib/preview";
+import { useTheme } from "@/components/theme-provider";
 
 // Dynamically import Monaco wrapper — browser only
 const CodeEditor = dynamic(() => import("./CodeEditor"), {
@@ -84,7 +85,8 @@ function IconButton({
 
 export default function EditorShell() {
   const [consoleOpen, setConsoleOpen] = useState(true);
-  const [isDark, setIsDark] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
   const [activeTab, setActiveTab] = useState<EditorFile>("index.html");
   const [files, setFiles] = useState<Record<EditorFile, string>>(DEFAULT_FILES);
 
@@ -329,12 +331,12 @@ export default function EditorShell() {
                     size="icon"
                     className="h-7 w-7"
                     aria-label="Toggle theme"
-                    onClick={() => setIsDark((v) => !v)}
+                    onClick={toggleTheme}
                   >
                     {isDark ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Theme</TooltipContent>
+                <TooltipContent>Theme — {isDark ? "Dark" : "Light"}</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -417,6 +419,7 @@ export default function EditorShell() {
                       path={activeTab}
                       language={LANGUAGE_MAP[activeTab]}
                       value={files[activeTab]}
+                      theme={theme}
                       onChange={handleEditorChange}
                     />
                   </div>
@@ -530,10 +533,14 @@ export default function EditorShell() {
 
           {/* Status bar */}
           <div className="flex h-6 shrink-0 items-center justify-between border-t bg-[#6366f1] px-3 text-[11px] font-medium text-white dark:bg-[#4f52e0]">
-            <span className="flex items-center gap-1.5">
-              <Sun className="h-3 w-3" />
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="flex items-center gap-1.5 rounded px-1 hover:bg-white/20"
+            >
+              {isDark ? <Moon className="h-3 w-3" /> : <Sun className="h-3 w-3" />}
               {isDark ? "Dark" : "Light"}
-            </span>
+            </button>
             <a
               href="/blog"
               className="inline-flex items-center gap-1 hover:underline"
