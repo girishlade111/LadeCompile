@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ladecompile-editor",
+  "compatibility_date": "2025-08-01",
+  "compatibility_flags": ["nodejs_compat"],
+  // Placeholder domain — swap to real domain when ready.
+  // More specific than web's /* so Cloudflare routes /editor/* here first.
+  "routes": [
+    {
+      "pattern": "compile.ladestack.in/editor/*",
+      "zone_name": "ladestack.in"
+    }
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

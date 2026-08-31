@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.next/
+.open-next/
+out/
+.vercel/
+.turbo/
+
+# Cloudflare / Wrangler
+.dev.vars
+.wrangler/
+wrangler.toml.bak
+
+# Astro
+.astro/
+
+# OS
+.DS_Store
+Thumbs.db
+*.log

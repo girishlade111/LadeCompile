@@ -1,0 +1,332 @@
+onecompiler.com HTML
+
+
+
+<!DOCTYPE html><!--31da312290325fb3e878d6d3-->
+<html lang="en" class="light" style="color-scheme: light;">
+
+<body>
+    <div><!--$--><!--/$--></div>
+    <div id="_rht_toaster" style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><!--$--><!--/$-->
+    <div class="flex h-screen flex-col bg-background">
+        <div class="hidden sm:block"></div>
+        <div class="hidden sm:block flex-1 overflow-hidden">
+            <div class="flex h-full flex-col">
+                <div data-slot="resizable-panel-group" class="flex h-full w-full data-[panel-group-direction=vertical]:flex-col flex-1" id="editorx-vertical-group" data-panel-group="" data-panel-group-direction="vertical" data-panel-group-id="editorx-vertical-group" style="display: flex; flex-direction: column; height: 100%; overflow: hidden; width: 100%;">
+                    <div data-slot="resizable-panel" class="!outline-none" id="editorx-main-panel" data-panel-group-id="editorx-vertical-group" data-panel="" data-panel-id="editorx-main-panel" data-panel-size="1.0" style="flex: 1 1 0px; overflow: hidden;">
+                        <div class="flex h-full overflow-hidden">
+                            <div class="flex h-full w-10 flex-col items-center border-r bg-muted/30 py-2">
+                                <div class="flex flex-col gap-1"><button class="flex h-8 w-8 items-center justify-center rounded-md transition-colors text-muted-foreground hover:bg-accent/50 hover:text-foreground" data-state="closed" data-slot="tooltip-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-files h-5 w-5" aria-hidden="true">
+                                            <path d="M15 2h-4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"></path>
+                                            <path d="M16.706 2.706A2.4 2.4 0 0 0 15 2v5a1 1 0 0 0 1 1h5a2.4 2.4 0 0 0-.706-1.706z"></path>
+                                            <path d="M5 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 1.732-1"></path>
+                                        </svg></button><button class="flex h-8 w-8 items-center justify-center rounded-md transition-colors text-muted-foreground hover:bg-accent/50 hover:text-foreground" data-state="closed" data-slot="tooltip-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search h-5 w-5" aria-hidden="true">
+                                            <path d="m21 21-4.34-4.34"></path>
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                        </svg></button></div>
+                                <div class="mt-auto flex flex-col gap-1"><button class="flex h-8 w-8 items-center justify-center rounded-md transition-colors text-muted-foreground hover:bg-accent/50 hover:text-foreground" data-state="closed" data-slot="tooltip-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history h-5 w-5" aria-hidden="true">
+                                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                                            <path d="M3 3v5h5"></path>
+                                            <path d="M12 7v5l4 2"></path>
+                                        </svg></button><button class="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground" data-state="closed" data-slot="tooltip-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings h-5 w-5" aria-hidden="true">
+                                            <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg></button></div>
+                            </div>
+                            <div data-slot="resizable-panel-group" class="flex h-full w-full data-[panel-group-direction=vertical]:flex-col flex-1" id="editorx-main-group" data-panel-group="" data-panel-group-direction="horizontal" data-panel-group-id="editorx-main-group" style="display: flex; flex-direction: row; height: 100%; overflow: hidden; width: 100%;">
+                                <div data-slot="resizable-panel" class="!outline-none" id="editorx-explorer-panel" data-panel-group-id="editorx-main-group" data-panel="" data-panel-collapsible="true" data-panel-id="editorx-explorer-panel" data-panel-size="0.0" style="flex: 0 1 0px; overflow: hidden;"></div>
+                                <div data-slot="resizable-handle" class="bg-border focus-visible:ring-ring relative flex items-center justify-center after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:outline-hidden data-[panel-group-direction=vertical]:h-px data-[panel-group-direction=vertical]:w-full data-[panel-group-direction=vertical]:after:left-0 data-[panel-group-direction=vertical]:after:h-1 data-[panel-group-direction=vertical]:after:w-full data-[panel-group-direction=vertical]:after:translate-x-0 data-[panel-group-direction=vertical]:after:-translate-y-1/2 [&amp;[data-panel-group-direction=vertical]>div]:rotate-90 pointer-events-none w-0 opacity-0" role="separator" tabindex="0" data-panel-group-direction="horizontal" data-panel-group-id="editorx-main-group" data-resize-handle="" data-panel-resize-handle-enabled="false" data-panel-resize-handle-id="_r_s_" data-resize-handle-state="inactive" aria-controls="editorx-explorer-panel" aria-valuemax="30" aria-valuemin="10" aria-valuenow="0" style="touch-action: none; user-select: none;"></div>
+                                <div data-slot="resizable-panel" class="!outline-none" id="editorx-content-panel" data-panel-group-id="editorx-main-group" data-panel="" data-panel-id="editorx-content-panel" data-panel-size="100.0" style="flex: 100 1 0px; overflow: hidden;">
+                                    <div data-slot="resizable-panel-group" class="flex h-full w-full data-[panel-group-direction=vertical]:flex-col" id="editorx-editor-output-group" data-panel-group="" data-panel-group-direction="horizontal" data-panel-group-id="editorx-editor-output-group" style="display: flex; flex-direction: row; height: 100%; overflow: hidden; width: 100%;">
+                                        <div data-slot="resizable-panel" class="!outline-none" id="editorx-editor-panel" data-panel-group-id="editorx-editor-output-group" data-panel="" data-panel-id="editorx-editor-panel" data-panel-size="50.0" style="flex: 50 1 0px; overflow: hidden;">
+                                            <div class="flex h-full flex-col">
+                                                <div class="bg-muted/30 relative z-10 flex items-stretch h-[35px] min-h-[35px]">
+                                                    <div class="absolute bottom-0 left-0 right-0 h-px bg-border"></div>
+                                                    <div class="tabs-scroll flex-1 min-w-0 h-full overflow-x-auto">
+                                                        <div class="flex w-max h-[35px]">
+                                                            <div class="group flex items-center gap-2 border-r px-3 text-sm relative cursor-pointer h-[35px] bg-background z-10"><span class="flex items-center gap-2"><span style="font-family: seti; font-size: 20px; color: rgb(227, 121, 51); width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0; -webkit-font-smoothing: antialiased;"></span><span class="text-foreground">index.html</span></span><button class="flex items-center justify-center h-5 w-5 rounded-sm hover:bg-muted-foreground/20 text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
+                                                                        <path d="M18 6 6 18"></path>
+                                                                        <path d="m6 6 12 12"></path>
+                                                                    </svg></button></div>
+                                                            <div class="group flex items-center gap-2 border-r px-3 text-sm relative cursor-pointer h-[35px] bg-muted/50 hover:bg-muted"><span class="flex items-center gap-2"><span style="font-family: seti; font-size: 20px; color: rgb(81, 154, 186); width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0; -webkit-font-smoothing: antialiased;"></span><span class="text-muted-foreground">styles.css</span></span><button class="flex items-center justify-center h-5 w-5 rounded-sm hover:bg-muted-foreground/20 text-muted-foreground/60"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
+                                                                        <path d="M18 6 6 18"></path>
+                                                                        <path d="m6 6 12 12"></path>
+                                                                    </svg></button></div>
+                                                            <div class="group flex items-center gap-2 border-r px-3 text-sm relative cursor-pointer h-[35px] bg-muted/50 hover:bg-muted"><span class="flex items-center gap-2"><span style="font-family: seti; font-size: 20px; color: rgb(203, 203, 65); width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0; -webkit-font-smoothing: antialiased;"></span><span class="text-muted-foreground">script.js</span></span><button class="flex items-center justify-center h-5 w-5 rounded-sm hover:bg-muted-foreground/20 text-muted-foreground/60"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
+                                                                        <path d="M18 6 6 18"></path>
+                                                                        <path d="m6 6 12 12"></path>
+                                                                    </svg></button></div><button class="flex items-center justify-center shrink-0 h-[35px] w-[35px] text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" type="button" id="radix-_r_10_" aria-haspopup="menu" aria-expanded="false" data-state="closed" data-slot="dropdown-menu-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus h-4 w-4" aria-hidden="true">
+                                                                    <path d="M5 12h14"></path>
+                                                                    <path d="M12 5v14"></path>
+                                                                </svg></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="min-h-0 flex-1 overflow-hidden">
+                                                    <div class="subpixel-antialiased h-full w-full" style="">
+                                                        <section style="display: flex; position: relative; text-align: initial; width: 100%; height: 100%;">
+                                                            <div style="display: flex; height: 100%; width: 100%; justify-content: center; align-items: center;">Loading...</div>
+                                                            <div style="width: 100%; display: none;"></div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-slot="resizable-handle" class="bg-border focus-visible:ring-ring relative flex w-px items-center justify-center after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:outline-hidden data-[panel-group-direction=vertical]:h-px data-[panel-group-direction=vertical]:w-full data-[panel-group-direction=vertical]:after:left-0 data-[panel-group-direction=vertical]:after:h-1 data-[panel-group-direction=vertical]:after:w-full data-[panel-group-direction=vertical]:after:translate-x-0 data-[panel-group-direction=vertical]:after:-translate-y-1/2 [&amp;[data-panel-group-direction=vertical]>div]:rotate-90" role="separator" tabindex="0" data-panel-group-direction="horizontal" data-panel-group-id="editorx-editor-output-group" data-resize-handle="" data-panel-resize-handle-enabled="true" data-panel-resize-handle-id="_r_15_" data-resize-handle-state="inactive" aria-controls="editorx-editor-panel" aria-valuemax="95" aria-valuemin="5" aria-valuenow="50" style="touch-action: none; user-select: none;"></div>
+                                        <div data-slot="resizable-panel" class="!outline-none" id="editorx-output-panel" data-panel-group-id="editorx-editor-output-group" data-panel="" data-panel-id="editorx-output-panel" data-panel-size="50.0" style="flex: 50 1 0px; overflow: hidden;">
+                                            <div class="flex h-full flex-col">
+                                                <div class="flex items-center justify-between bg-muted/30 relative h-[35px]">
+                                                    <div class="absolute bottom-0 left-0 right-0 h-px bg-border"></div>
+                                                    <div class="flex h-full"><button class="flex items-center gap-1.5 px-3 text-[13px] border-r select-none relative h-[35px] font-[system-ui,sans-serif] transition-none bg-background text-foreground z-10 border-r-border"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye h-[14px] w-[14px]" aria-hidden="true">
+                                                                <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+                                                                <circle cx="12" cy="12" r="3"></circle>
+                                                            </svg><span>Preview</span></button><button class="flex items-center gap-1.5 px-3 text-[13px] border-r select-none relative h-[35px] font-[system-ui,sans-serif] transition-none bg-muted/50 text-muted-foreground hover:bg-muted/80 border-r-border"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles h-[14px] w-[14px]" aria-hidden="true">
+                                                                <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
+                                                                <path d="M20 2v4"></path>
+                                                                <path d="M22 4h-4"></path>
+                                                                <circle cx="4" cy="20" r="2"></circle>
+                                                            </svg><span>AI Agent</span></button></div>
+                                                    <div class="flex items-center gap-2 pr-2"></div>
+                                                </div>
+                                                <div class="flex-1 overflow-hidden">
+                                                    <div class="h-full">
+                                                        <div class="relative flex h-full flex-col bg-background">
+                                                            <div class="relative flex-1 overflow-hidden">
+                                                                <div title="Web Preview" src="https://glasspane.pages.dev/?parentOrigin=https%3A%2F%2Fonecompiler.com" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts" allow="fullscreen" class="absolute inset-0 h-full w-full border-0" style="background: white;" data-original-tag="iframe">
+
+
+                                                                    <title>preview-engine</title>
+
+
+
+
+                                                                    <div id="app">
+                                                                        <div title="preview-app" sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups allow-pointer-lock allow-downloads" allow="fullscreen" src="https://glasspane.pages.dev/__vfs__/d6ccce17-212b-4433-bced-688b22b8215e/index.html?v=1" style="width: 100%; height: 100%; border: 0px; display: block;" data-original-tag="iframe">
+                                                                            <title>Hello, World!</title>
+                                                                            <link rel="stylesheet" href="https://glasspane.pages.dev/__vfs__/d6ccce17-212b-4433-bced-688b22b8215e/styles.css">
+
+
+                                                                            <h1 class="title">Hello World!</h1>
+                                                                            <p id="currentTime">Mon, 31 Aug 2026 18:24:43 GMT</p>
+
+
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="border-t bg-background h-6">
+                                                                <div class="flex h-6 items-center justify-between px-3"><button class="flex items-center gap-1.5 text-[11px] text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up h-3 w-3" aria-hidden="true">
+                                                                            <path d="m18 15-6-6-6 6"></path>
+                                                                        </svg><span>Console</span></button>
+                                                                    <div class="flex items-center gap-2"><button class="text-muted-foreground hover:text-foreground" title="Console settings" type="button" aria-haspopup="dialog" aria-expanded="false" data-state="closed" data-slot="popover-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings2 lucide-settings-2 h-3 w-3" aria-hidden="true">
+                                                                                <path d="M14 17H5"></path>
+                                                                                <path d="M19 7h-9"></path>
+                                                                                <circle cx="17" cy="17" r="3"></circle>
+                                                                                <circle cx="7" cy="7" r="3"></circle>
+                                                                            </svg></button></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="h-full hidden">
+                                                        <div class="flex h-full flex-col items-center justify-center gap-2 text-muted-foreground"><svg viewBox="0 0 24 24" class="h-10 w-10 opacity-40" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                                <path d="M5 7l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                <path d="M13 17h6" stroke-linecap="round"></path>
+                                                            </svg>
+                                                            <p class="text-sm font-medium">Live Console</p>
+                                                            <p class="text-xs opacity-70">Click Run to start</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="h-full hidden">
+                                                        <div class="flex h-full flex-col">
+                                                            <div dir="ltr" data-slot="scroll-area" class="relative flex-1 overflow-hidden p-4 [&amp;_[data-slot=scroll-area-viewport]>div]:!block" style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;">
+                                                                <div data-radix-scroll-area-viewport="" data-slot="scroll-area-viewport" class="focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1" style="overflow: hidden scroll;">
+                                                                    <div style="min-width: 100%; display: table;">
+                                                                        <div class="flex flex-col items-center py-8 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles mb-4 h-12 w-12 text-muted-foreground" aria-hidden="true">
+                                                                                <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
+                                                                                <path d="M20 2v4"></path>
+                                                                                <path d="M22 4h-4"></path>
+                                                                                <circle cx="4" cy="20" r="2"></circle>
+                                                                            </svg>
+                                                                            <h3 class="mb-2 text-lg font-semibold">AI Agent</h3>
+                                                                            <p class="mb-6 text-sm text-muted-foreground">I can help you understand, debug, and improve your code</p>
+                                                                            <div class="flex max-w-md flex-col gap-3">
+                                                                                <div class="flex flex-wrap justify-center gap-2"><button class="rounded-full border px-4 py-1.5 text-sm transition-colors hover:border-primary hover:bg-accent hover:text-accent-foreground">Explain this code</button><button class="rounded-full border px-4 py-1.5 text-sm transition-colors hover:border-primary hover:bg-accent hover:text-accent-foreground">Find bugs in my code</button><button class="rounded-full border px-4 py-1.5 text-sm transition-colors hover:border-primary hover:bg-accent hover:text-accent-foreground">Add comments to my code</button></div>
+                                                                                <div class="flex flex-wrap justify-center gap-2"><button class="rounded-full border px-4 py-1.5 text-sm transition-colors hover:border-primary hover:bg-accent hover:text-accent-foreground">Optimize this code</button><button class="rounded-full border px-4 py-1.5 text-sm transition-colors hover:border-primary hover:bg-accent hover:text-accent-foreground">Review my code</button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="px-3 pt-1 pb-1.5">
+                                                                <div class="flex flex-col rounded-lg border bg-background focus-within:border-ring"><textarea data-slot="textarea" class="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex w-full rounded-md py-2 transition-[color,box-shadow] outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm field-sizing-content min-h-0 max-h-[200px] resize-none border-0 bg-transparent px-3 pt-3.5 text-sm leading-5 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0" placeholder="Ask, Search or Chat..." rows="1"></textarea>
+                                                                    <div class="flex items-center justify-between pl-1 pr-2 pt-1 pb-1.5">
+                                                                        <div class="flex items-center gap-1"><button data-slot="dropdown-menu-trigger" data-variant="ghost" data-size="sm" class="inline-flex items-center justify-center whitespace-nowrap transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 has-[>svg]:px-2.5 h-7 gap-1.5 rounded-full px-2 text-xs font-medium text-muted-foreground hover:text-foreground" type="button" id="radix-_r_18_" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="inline-block size-2.5 shrink-0 rounded-full" aria-hidden="true" style="background: rgb(16, 163, 127);"></span>GPT 5.6 Luna<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down size-3 opacity-60" aria-hidden="true">
+                                                                                    <path d="m6 9 6 6 6-6"></path>
+                                                                                </svg></button></div><button data-slot="button" data-variant="default" data-size="default" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 has-[>svg]:px-3 size-6 shrink-0 rounded-full p-0 [&amp;_svg]:size-3.5" disabled=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up" aria-hidden="true">
+                                                                                <path d="m5 12 7-7 7 7"></path>
+                                                                                <path d="M12 19V5"></path>
+                                                                            </svg></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex h-6 items-center justify-between border-t bg-muted/30 px-4 text-xs text-muted-foreground">
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big h-3 w-3 text-green-500" aria-hidden="true">
+                                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                <path d="m9 11 3 3L22 4"></path>
+                            </svg><span>Ready</span></div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-1.5"><button type="button" class="hover:text-foreground transition-colors cursor-pointer" aria-haspopup="dialog" aria-expanded="false" data-state="closed" data-slot="popover-trigger">Light</button><button type="button" class="flex items-center hover:text-foreground transition-colors cursor-pointer" data-state="closed" data-slot="tooltip-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat2 lucide-repeat-2 h-3 w-3" aria-hidden="true">
+                                    <path d="m2 9 3-3 3 3"></path>
+                                    <path d="M13 18H7a2 2 0 0 1-2-2V6"></path>
+                                    <path d="m22 15-3 3-3-3"></path>
+                                    <path d="M11 6h6a2 2 0 0 1 2 2v10"></path>
+                                </svg></button></div><button class="flex items-center gap-1 hover:text-foreground transition-colors cursor-pointer"><span>Wiki</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-3 w-3" aria-hidden="true">
+                                <path d="M12 7v14"></path>
+                                <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path>
+                            </svg></button><span>HTML</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex sm:hidden flex-col flex-1 overflow-hidden">
+            <div class="flex flex-1 flex-col overflow-hidden">
+                <div class="flex items-center justify-between bg-muted px-2 py-1.5 gap-1.5">
+                    <div class="flex items-center gap-1.5">
+                        <div class="inline-flex border border-border rounded overflow-hidden"><button data-slot="button" data-variant="ghost" data-size="sm" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 gap-1.5 has-[>svg]:px-2.5 h-8 rounded-none text-muted-foreground px-3 bg-gray-300">Code</button><button data-slot="button" data-variant="ghost" data-size="sm" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 gap-1.5 has-[>svg]:px-2.5 h-8 rounded-none border-l border-border text-muted-foreground px-3">Output</button></div>
+                    </div>
+                    <div class="flex items-center gap-1.5"><button data-slot="button" data-variant="default" data-size="sm" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive rounded-md has-[>svg]:px-2.5 h-8 bg-emerald-500 hover:bg-emerald-600 text-white gap-1 px-2.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles h-3.5 w-3.5" aria-hidden="true">
+                                <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
+                                <path d="M20 2v4"></path>
+                                <path d="M22 4h-4"></path>
+                                <circle cx="4" cy="20" r="2"></circle>
+                            </svg>AI</button><button data-slot="button" data-variant="default" data-size="sm" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive rounded-md has-[>svg]:px-2.5 h-8 gap-1 bg-[#E91E63] hover:bg-[#C2185B] text-white px-3">RUN<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play h-3.5 w-3.5 fill-current" aria-hidden="true">
+                                <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
+                            </svg></button><button data-slot="dropdown-menu-trigger" data-variant="ghost" data-size="icon" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 h-8 w-8" type="button" id="radix-_r_24_" aria-haspopup="menu" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-vertical h-5 w-5" aria-hidden="true">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="12" cy="5" r="1"></circle>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </svg></button></div>
+                </div>
+                <div class="flex-1 overflow-hidden">
+                    <div class="flex h-full flex-col">
+                        <div class="bg-muted/30 relative z-10 flex items-stretch h-[35px] min-h-[35px]">
+                            <div class="absolute bottom-0 left-0 right-0 h-px bg-border"></div>
+                            <div class="tabs-scroll flex-1 min-w-0 h-full overflow-x-auto">
+                                <div class="flex w-max h-[35px]">
+                                    <div class="group flex items-center gap-2 border-r px-3 text-sm relative cursor-pointer h-[35px] bg-background z-10"><span class="flex items-center gap-2"><span style="font-family: seti; font-size: 20px; color: rgb(227, 121, 51); width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0; -webkit-font-smoothing: antialiased;"></span><span class="text-foreground">index.html</span></span><button class="flex items-center justify-center h-5 w-5 rounded-sm hover:bg-muted-foreground/20 text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
+                                                <path d="M18 6 6 18"></path>
+                                                <path d="m6 6 12 12"></path>
+                                            </svg></button></div>
+                                    <div class="group flex items-center gap-2 border-r px-3 text-sm relative cursor-pointer h-[35px] bg-muted/50 hover:bg-muted"><span class="flex items-center gap-2"><span style="font-family: seti; font-size: 20px; color: rgb(81, 154, 186); width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0; -webkit-font-smoothing: antialiased;"></span><span class="text-muted-foreground">styles.css</span></span><button class="flex items-center justify-center h-5 w-5 rounded-sm hover:bg-muted-foreground/20 text-muted-foreground/60"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
+                                                <path d="M18 6 6 18"></path>
+                                                <path d="m6 6 12 12"></path>
+                                            </svg></button></div>
+                                    <div class="group flex items-center gap-2 border-r px-3 text-sm relative cursor-pointer h-[35px] bg-muted/50 hover:bg-muted"><span class="flex items-center gap-2"><span style="font-family: seti; font-size: 20px; color: rgb(203, 203, 65); width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0; -webkit-font-smoothing: antialiased;"></span><span class="text-muted-foreground">script.js</span></span><button class="flex items-center justify-center h-5 w-5 rounded-sm hover:bg-muted-foreground/20 text-muted-foreground/60"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
+                                                <path d="M18 6 6 18"></path>
+                                                <path d="m6 6 12 12"></path>
+                                            </svg></button></div><button class="flex items-center justify-center shrink-0 h-[35px] w-[35px] text-muted-foreground hover:text-foreground hover:bg-muted transition-colors" type="button" id="radix-_r_26_" aria-haspopup="menu" aria-expanded="false" data-state="closed" data-slot="dropdown-menu-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus h-4 w-4" aria-hidden="true">
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5v14"></path>
+                                        </svg></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="h-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sm:hidden">
+        <div class="border-t border-border"></div>
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 mt-8">
+            <div class="prose dark:prose-invert max-w-none md-view oc-theme-light">
+                <h1>HTML Online Editor &amp; Compiler</h1>
+                <p>Write, Run &amp; Share HTML code online using OneCompiler's HTML online Code editor for free. It's one of the robust, feature-rich online Code editor for HTML language, running on HTML5. Getting started with the OneCompiler's HTML compiler is simple and pretty fast. The editor shows sample boilerplate code when you choose language as <code node="[object Object]">HTML</code>. You can also specify the stylesheet information in <code node="[object Object]">styles.css</code> tab and scripts information in <code node="[object Object]">scripts.js</code> tab and start coding.</p>
+                <h1>About HTML</h1>
+                <p>HTML(Hyper Text Markup language) is the standard markup language for Web pages, was created by Berners-Lee in the year 1991. Almost every web page over internet might be using HTML.</p>
+                <h1>Syntax help</h1>
+                <h2>Fundamentals</h2>
+                <ul>
+                    <li>Any HTML document must start with document declaration <code node="[object Object]">&lt;!DOCTYPE html&gt;</code></li>
+                    <li>HTML documents begin with <code node="[object Object]">&lt;html&gt;</code> and ends with <code node="[object Object]">&lt;/html&gt;</code></li>
+                    <li>Headings are defined with <code node="[object Object]">&lt;h1&gt;</code> to <code node="[object Object]">&lt;h6&gt;</code> where <code node="[object Object]">&lt;h1&gt;</code> is the highest important heading and <code node="[object Object]">&lt;h6&gt;</code> is the least important sub-heading.</li>
+                    <li>Paragraphs are defined in <code node="[object Object]">&lt;p&gt;..&lt;/p&gt;</code> tag.</li>
+                    <li>Links are defined in <code node="[object Object]">&lt;a&gt;</code> tag.<!-- -->
+                        <h4>Example:</h4>
+                        <pre style="background-color:#f5f5f5;padding:12px;border-radius:4px;overflow-x:auto"><code class="plaintext hljs" node="[object Object]">&lt;a href="https://onecompiler.com/html"&gt;HTML online compiler&lt;/a&gt;
+</code></pre>
+                    </li>
+                    <li>Images are defined in <code node="[object Object]">&lt;img&gt;</code> tag, where <code node="[object Object]">src</code> attribute consists of image name.</li>
+                    <li>Buttons are defined in <code node="[object Object]">&lt;button&gt;..&lt;/button&gt;</code> tag</li>
+                    <li>Lists are defined in <code node="[object Object]">&lt;ul&gt;</code> for unordered/bullet list and <code node="[object Object]">&lt;ol&gt;</code> for ordered/number list, and the list items are defined in <code node="[object Object]">&lt;li&gt;</code>.</li>
+                </ul>
+                <h2>HTML Elements and Attributes</h2>
+                <ul>
+                    <li>HTML element is everything present from start tag to end tag.</li>
+                    <li>The text present between start and end tag is called HTML element content.</li>
+                    <li>Anything can be a tagname but it's preferred to put the meaningful title to the content present as tag name.</li>
+                    <li>Do not forget the end tag.</li>
+                    <li>Elements with no content are called empty elements.</li>
+                    <li>Elements can have attributes which provides additional information about the element.</li>
+                    <li>In the below example, href is an attribute and a is the tag name.<!-- -->
+                        <h4>Example:</h4>
+                        <pre style="background-color:#f5f5f5;padding:12px;border-radius:4px;overflow-x:auto"><code class="plaintext hljs" node="[object Object]">&lt;a href="https://onecompiler.com/html"&gt;HTML online compiler&lt;/a&gt;
+</code></pre>
+                    </li>
+                </ul>
+                <h2>CSS</h2>
+                <p>CSS(cascading style sheets) describes how HTML elements will look on the web page like color, font-style, font-size, background color etc.</p>
+                <h3>Example:</h3>
+                <p>Below is a sample style sheet which displays heading in green and in Candara font with padding space of 25px.</p>
+                <pre style="background-color:#f5f5f5;padding:12px;border-radius:4px;overflow-x:auto"><code class="css hljs" node="[object Object]"><span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">25px</span>;
+}
+<span class="hljs-selector-class">.title</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#228b22</span>;
+  <span class="hljs-attribute">font-family</span>: Candara;
+}
+</code></pre>
+                <h2>HTML Tables</h2>
+                <ul>
+                    <li>HTML Tables are defined in <code node="[object Object]">&lt;table&gt;</code> tag.</li>
+                    <li>Table row should be defined in <code node="[object Object]">&lt;tr&gt;</code> tag</li>
+                    <li>Table header should be defined in <code node="[object Object]">&lt;th&gt;</code> tag</li>
+                    <li>Table data should be defined in <code node="[object Object]">&lt;td&gt;</code> tag</li>
+                    <li>Table caption should be defined in <code node="[object Object]">&lt;caption&gt;</code> tag</li>
+                </ul>
+                <h2>HTML-Javascript</h2>
+                <ul>
+                    <li>Javascript is used in HTML pages to make them more interactive.</li>
+                    <li><code node="[object Object]">&lt;script&gt;</code> is the tag used to write scripts in HTML</li>
+                    <li>You can either reference a external script or write script code in this tag.</li>
+                </ul>
+                <h3>Example</h3>
+                <pre style="background-color:#f5f5f5;padding:12px;border-radius:4px;overflow-x:auto"><code class="html hljs xml" node="[object Object]"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"script.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+            </div>
+        </div>
+    </div><!--$--><!--/$--><next-route-announcer style="position: absolute;">
+        <div aria-live="assertive" id="__next-route-announcer__" role="alert" style="position: absolute; border: 0px; height: 1px; margin: -1px; padding: 0px; width: 1px; clip: rect(0px, 0px, 0px, 0px); overflow: hidden; white-space: nowrap; overflow-wrap: normal;"></div>
+    </next-route-announcer>
+</body>
+
+</html>

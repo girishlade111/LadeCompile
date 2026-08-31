@@ -1,0 +1,165 @@
+LadeCompile PRD
+
+# LadeCompile — Product Requirements Document (PRD)
+
+## 1. Product Overview
+LadeCompile is a free, no-login, enterprise-grade online HTML/CSS/JS compiler and live editor. It lets any developer write HTML, CSS, and JavaScript in a browser-based editor and instantly see a live preview — no account, no signup, no paywall, ever. It is built as a direct competitor to OneCompiler's HTML editor, matching its core editing experience feature-for-feature while removing every friction point OneCompiler gates behind login or a paid "Upgrade": AI-assisted code actions, saving, and sharing all work without an account. It is part of the LadeStack suite of free, no-login, AI-powered developer tools, sitting alongside GB Coder (LadeStack's more advanced AI code editor) as a lighter-weight, faster, quick-snippet-focused sibling product.
+
+## 2. Problem Statement
+- **Core Problem**: Existing online HTML/CSS/JS playgrounds (OneCompiler, JSFiddle, CodePen, PlayCode) each force a trade-off — either login is required to save/share work, AI help is paywalled, or the interface feels dated and cluttered with upgrade prompts.
+- **Who Feels This Pain**: Developers, students, and educators who want to write and test a quick HTML/CSS/JS snippet, debug an issue, or prototype UI — fast, without creating an account or hitting a paywall mid-task.
+- **Current Alternatives & Why They Fall Short**: OneCompiler's own AI Agent (Explain/Debug/Optimize/Review) sits behind an "Upgrade" button. PlayCode requires sign-in to persist work. JSFiddle's UI hasn't meaningfully evolved and lacks privacy controls. CodePen gates private pens behind a $12/mo Pro plan.
+- **Why Now**: The AI code editor market is growing at 25% CAGR — users increasingly expect AI assistance as a baseline feature, not a premium add-on. A tool that gives this away free, with zero login friction, directly undercuts the entire competitive set on the exact feature they're monetizing.
+
+## 3. Target Users & Use Cases
+
+### Primary User
+- **Who**: Any developer — from students learning HTML to professional frontend engineers — regardless of experience level.
+- **Goal**: Write, test, debug, or prototype a small HTML/CSS/JS snippet instantly, and optionally get AI help or share the result.
+- **Frustration**: Being asked to sign in or upgrade just to save, share, or get AI assistance on a five-minute task.
+
+### Use Case 1: Quick Bug Reproduction
+**Scenario**: A developer hits a CSS layout bug and wants to isolate it to share on Stack Overflow or with a teammate.
+**What they do**: Opens LadeCompile, pastes HTML/CSS/JS, sees live preview update instantly, copies the share URL.
+**What they get**: A shareable, no-login link reproducing the exact bug — no account needed on either end.
+
+### Use Case 2: Learning HTML/CSS Fundamentals
+**Scenario**: A student is following a tutorial and wants to try out HTML tags and CSS rules without installing anything.
+**What they do**: Opens the editor, picks a starter template, edits code, sees results live, uses "Explain this code" AI action when confused.
+**What they get**: Immediate visual feedback and free AI explanations — no signup wall blocking the learning process.
+
+### Use Case 3: Fast UI Prototyping
+**Scenario**: A developer wants to quickly mock up a UI component before implementing it in their real project.
+**What they do**: Writes HTML/CSS/JS, uses "Build with AI" to generate a starting point from a text prompt, refines manually, exports as ZIP or copies code.
+**What they get**: A working prototype in minutes, exportable directly into their real codebase.
+
+## 4. Core Features & How They Work
+
+### Feature 1: Three-File Live Editor (HTML/CSS/JS)
+- **What it does**: Provides three tabbed code editors (index.html, styles.css, script.js) with syntax highlighting and a live preview pane.
+- **Why it exists**: This is the baseline expectation set by every competitor (OneCompiler, JSFiddle, CodePen) — must match or exceed it.
+- **How it works (logic)**: Monaco Editor instance per tab; on code change (debounced), the three files are combined into a single HTML document and injected into a sandboxed iframe via `srcdoc`.
+- **User-facing behavior**: Typing in any tab updates the live preview automatically (or via Run button, matching OneCompiler's toggle). Tabs are closable and reorderable.
+- **Edge cases to handle**: Invalid/incomplete HTML should still render what it can; JS runtime errors must be caught and shown in Console, not crash the preview.
+
+### Feature 2: Console Panel
+- **What it does**: Captures `console.log`, `console.error`, and JS runtime errors from the preview iframe and displays them in a dedicated panel.
+- **Why it exists**: Essential debugging feature present in every competitor.
+- **How it works (logic)**: `postMessage` bridge between the sandboxed iframe and parent window relays console calls and uncaught errors to the panel.
+- **User-facing behavior**: Real-time log stream, clearable, with error/warning/info visual distinction.
+- **Edge cases to handle**: Infinite loops or excessive logging must not freeze the main UI — throttle/cap displayed log entries.
+
+### Feature 3: No-Login Save & Share
+- **What it does**: Lets users save their current code state and generate a shareable URL, without any account.
+- **Why it exists**: Directly targets the login-wall friction present in PlayCode and CodePen's private-pen gating.
+- **How it works (logic)**: Code state is compressed (lz-string or similar) and encoded into the URL hash or a short-lived KV-backed short link (Cloudflare KV) if URL length becomes impractical.
+- **User-facing behavior**: One-click "Share" button copies a URL that reproduces the exact code state when opened by anyone.
+- **Edge cases to handle**: Very large code files may exceed URL length limits — fall back to KV-backed short URLs transparently.
+
+### Feature 4: Export (ZIP, Copy, Screenshot)
+- **What it does**: Lets users download their project as a ZIP, copy code to clipboard, or capture a screenshot of the live preview.
+- **Why it exists**: Matches OneCompiler and GB Coder's existing export feature set — table stakes for a "take my work elsewhere" flow.
+- **How it works (logic)**: Client-side ZIP generation (JSZip) bundling the three files; screenshot capture via `html2canvas` on the preview iframe content.
+- **User-facing behavior**: Export dropdown with ZIP/Copy/Screenshot(PNG/JPEG) options, all instant, no server round-trip.
+- **Edge cases to handle**: Screenshot capture of cross-origin embedded content (e.g. external images) may fail silently — show a clear error if capture is blocked.
+
+### Feature 5: Templates Library
+- **What it does**: Provides a set of starter boilerplates (e.g. landing page, portfolio, form) users can load with one click.
+- **Why it exists**: Lowers the barrier for new users and matches GB Coder's existing Templates Library pattern.
+- **How it works (logic)**: Static JSON/TS array of template definitions (HTML/CSS/JS strings), loaded into the editor on selection, replacing current content after a confirm prompt if unsaved changes exist.
+- **User-facing behavior**: Searchable, categorized template picker modal.
+- **Edge cases to handle**: Warn before overwriting unsaved user code.
+
+### Feature 6: Dark/Light Theme Toggle
+- **What it does**: Switches the entire editor UI (and Monaco theme) between light and dark modes.
+- **Why it exists**: Standard expectation, present in OneCompiler's status bar.
+- **How it works (logic)**: CSS variable/Tailwind dark-mode class toggle, persisted in localStorage, applied to both app shell and Monaco theme config.
+- **User-facing behavior**: Single click toggle, instant switch, remembered on return visits.
+- **Edge cases to handle**: Respect system preference (`prefers-color-scheme`) on first visit if no stored preference exists.
+
+### Feature 7: AI Quick Actions (free, no paywall)
+- **What it does**: Explain this code, Find bugs, Add comments, Optimize this code, Review my code — five one-click AI actions on selected or full code.
+- **Why it exists**: This is the core competitive wedge — OneCompiler paywalls this exact feature set behind "Upgrade."
+- **How it works (logic)**: Selected/full code sent to a Cloudflare Worker AI proxy endpoint, which forwards a scoped prompt (reused/adapted from GB Coder's existing prompt logic) to the LLM and streams the response back.
+- **User-facing behavior**: Hover toolbar or AI panel with the five action buttons; response streams into a side panel or inline annotation.
+- **Edge cases to handle**: Rate-limit exceeded → clear message with reset time, not a silent failure; LLM timeout → graceful fallback message.
+
+## 5. User Flows
+
+### Flow 1: Onboarding
+User lands on the homepage (Astro-served), sees a clear value prop ("Free HTML/CSS/JS compiler — no login, ever"), clicks "Open Editor" → routed to `/editor` path (Next.js Worker) → editor loads instantly with a default Hello World template pre-filled, live preview already rendering.
+
+### Flow 2: Core Action (write & run code)
+User edits HTML/CSS/JS in the tabbed editor → live preview updates automatically → user opens Console to check for errors → user optionally selects code and clicks an AI Quick Action → gets AI response in-panel → user clicks Share or Export when satisfied.
+
+### Flow 3: Upgrade / Monetization Trigger
+None — there is no paywall or upgrade trigger anywhere in this product. The only soft monetization touchpoint is an optional, non-intrusive "Support LadeStack" donation link in the footer/settings, never blocking any feature.
+
+## 6. Product Specifications
+
+### Pages / Screens
+| Page | Purpose | Key Elements |
+|------|---------|--------------|
+| Homepage (Astro, `/`) | Convert visitors, explain value prop, SEO/AEO target for "onecompiler alternative" keywords | Hero, feature highlights, "Open Editor" CTA, comparison-to-competitors section |
+| Blog (Astro, `/blog/*`) | SEO content, drive organic traffic | Article list, individual posts, llms.txt/AEO metadata |
+| Editor App (Next.js, `/editor/*`) | Core product — write/run/debug/share code | Tabbed editor, live preview, console, AI panel, templates modal, export dropdown, theme toggle |
+
+### Key Behaviors & Rules
+- No feature is ever gated behind login or payment — this is the product's entire identity.
+- AI Quick Actions are rate-limited per IP/session (e.g. 10 actions/hour) via Cloudflare KV/Durable Objects to control LLM cost, since there's no BYOK or account system to shift cost to users.
+- All user code persists in localStorage between sessions automatically; Share URLs are the only way to transfer code across devices/people.
+- Live preview must run in a sandboxed iframe (`sandbox` attribute) to prevent user code from accessing parent-page context.
+
+### What the Product Does NOT Do (Scope Boundaries)
+- Does not support login/accounts in MVP (or ever, per current plan).
+- Does not support languages beyond HTML/CSS/JS in MVP (unlike OneCompiler's 60+ language support) — deliberate scope narrowing to ship fast and own this niche well first.
+- Does not support real-time multi-user collaboration in MVP.
+- Does not support multi-file projects beyond the three core files (index.html/styles.css/script.js) in MVP — file explorer/multi-file is a Phase 2 item.
+- Does not require or store any payment information — there is no paid tier.
+
+## 7. AI Features
+
+### AI Feature: Quick Actions (Explain / Find Bugs / Add Comments / Optimize / Review)
+- **What it does for the user**: Gives instant AI feedback on their code without any cost, login, or usage-based paywall.
+- **Input**: Selected code snippet, or full file content if nothing is selected.
+- **Output**: Streamed text response — explanation, bug list, commented code, optimized code, or a structured review — rendered in the AI panel.
+- **How it should behave**: Concise, technically accurate, developer-toned responses; code suggestions returned in properly formatted code blocks; adapted from GB Coder's existing prompt logic but simplified for this app's single-page (non-multi-file, non-sandbox) scope.
+- **Fallback**: On rate-limit, show remaining-time-until-reset clearly. On LLM/API failure, show a retry option rather than a generic error.
+
+## 8. Success Metrics
+- User can go from landing on homepage to running their first live-previewed code in under 15 seconds (zero-friction claim validated).
+- AI Quick Action usage rate among active editor sessions (validates the core differentiator is actually used, not just marketed).
+- Organic search traffic to homepage/blog from "onecompiler alternative" and related no-login/free-compiler keyword clusters within 60 days of launch.
+
+## 9. AI Coding Brief (paste this into Claude Code to start building)
+
+> You are helping me build **LadeCompile** — a free, no-login, enterprise-grade HTML/CSS/JS online compiler competing directly with OneCompiler, built as part of the LadeStack product suite.
+>
+> **Stack**: Monorepo with two apps deployed to Cloudflare Workers under one domain via path-based Wrangler routing. `apps/web` = Astro (homepage + blog, `@astrojs/cloudflare` adapter, native SEO/AEO tooling, targets `/` and `/blog/*`). `apps/editor` = Next.js (App Router) deployed via OpenNext (`@opennextjs/cloudflare`), targets `/editor/*`. Editor uses Monaco Editor for code editing, Tailwind + shadcn/ui for UI, JSZip for export, html2canvas for screenshots, lz-string for URL-hash state sharing. AI Quick Actions call a Cloudflare Worker proxy endpoint with rate-limiting via Cloudflare KV or Durable Objects.
+>
+> **What we're building**: A three-file (HTML/CSS/JS) live code editor with instant preview, console output, no-login save/share via compressed URL state, export options (ZIP/copy/screenshot), a templates library, dark/light theme, and five free AI Quick Actions (Explain/Find Bugs/Add Comments/Optimize/Review) reusing prompt logic adapted from our existing GB Coder product.
+>
+> **Target user**: Any developer — students to professionals — who wants to write, test, or debug a quick HTML/CSS/JS snippet without creating an account.
+>
+> **MVP scope** (build only this for now):
+> - Three-tab Monaco editor (HTML/CSS/JS) with live sandboxed-iframe preview
+> - Console panel capturing logs/errors via postMessage bridge
+> - No-login Save/Share via URL-hash-encoded (lz-string) state, falling back to KV short-links for large payloads
+> - Export: ZIP download, copy to clipboard, screenshot (PNG/JPEG)
+> - Templates library (starter boilerplates, static JSON-defined)
+> - Dark/light theme toggle (persisted in localStorage, respects `prefers-color-scheme` on first load)
+> - Five AI Quick Actions via rate-limited Cloudflare Worker AI proxy
+>
+> **Key rules**:
+> - Never gate any feature behind login or payment — zero exceptions.
+> - Rate-limit AI Quick Actions per IP/session (~10/hour) since there's no account system to shift LLM cost to.
+> - Preview iframe must be sandboxed — user code should never access parent-page context.
+> - Build using Cloudflare Workers-compatible APIs only — no Vercel-specific Next.js features (e.g. default `next/image` loader).
+>
+> **Do NOT build** (out of scope for MVP):
+> - Login/accounts system (not planned at all, current or future)
+> - Support for languages beyond HTML/CSS/JS
+> - Real-time multi-user collaboration
+> - Multi-file support beyond the three core files
+>
+> Start by scaffolding the monorepo structure (`apps/web` Astro, `apps/editor` Next.js), set up Wrangler path-based routing between them under one domain, and get a bare-bones three-file Monaco editor with live preview working end-to-end before adding AI or export features. Ask me before making any assumptions.

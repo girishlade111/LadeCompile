@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ladecompile-web",
+  "type": "javascript",
+  "compatibility_date": "2025-08-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./dist/_worker.js",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  },
+  // Placeholder domain — swap to real domain when ready.
+  // Cloudflare route specificity: /editor/* (more specific) wins over /*.
+  "routes": [
+    {
+      "pattern": "compile.ladestack.in/*",
+      "zone_name": "ladestack.in"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
