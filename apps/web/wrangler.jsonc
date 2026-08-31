@@ -1,12 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ladecompile-web",
-  "type": "javascript",
   "compatibility_date": "2025-08-01",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "./dist/_worker.js",
+  "main": "./dist/_worker.js/index.js",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "not_found_handling": "single-page-application"
   },
   // Placeholder domain — swap to real domain when ready.
