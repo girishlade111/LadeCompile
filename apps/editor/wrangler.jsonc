@@ -3,6 +3,7 @@
   "name": "ladecompile-editor",
   "compatibility_date": "2025-08-01",
   "compatibility_flags": ["nodejs_compat"],
+  "main": ".open-next/worker.js",
   // Placeholder domain — swap to real domain when ready.
   // More specific than web's /* so Cloudflare routes /editor/* here first.
   "routes": [

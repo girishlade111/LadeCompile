@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "LadeCompile — free, no-login HTML/CSS/JS online compiler. Monorepo for LadeStack.",
   "type": "module",
-  "packageManager": "pnpm@11.8.0",
+  "packageManager": "npm@11.17.0",
   "engines": {
     "node": ">=20.0.0"
   },
@@ -12,13 +12,16 @@
     "apps/*"
   ],
   "scripts": {
-    "dev:web": "pnpm --filter web dev",
-    "dev:editor": "pnpm --filter editor dev",
-    "build": "pnpm -r build",
-    "build:web": "pnpm --filter web build",
-    "build:editor": "pnpm --filter editor build",
-    "deploy:web": "pnpm --filter web deploy",
-    "deploy:editor": "pnpm --filter editor deploy",
-    "deploy": "pnpm -r deploy"
+    "dev:web": "npm run dev --workspace=web",
+    "dev:editor": "npm run dev --workspace=editor",
+    "build": "npm run build --workspaces --if-present",
+    "build:web": "npm run build --workspace=web",
+    "build:editor": "npm run build --workspace=editor",
+    "build:editor:cloudflare": "npm run preview --workspace=editor",
+    "deploy:web": "npm run deploy --workspace=web",
+    "deploy:editor": "npm run deploy --workspace=editor",
+    "deploy": "npm run deploy --workspace=web && npm run deploy --workspace=editor",
+    "preview:web": "npm run preview --workspace=web",
+    "preview:editor": "npx --workspace=editor opennextjs-cloudflare build && npx --workspace=editor opennextjs-cloudflare preview"
   }
 }

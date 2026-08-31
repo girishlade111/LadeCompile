@@ -10,10 +10,7 @@ initOpenNextCloudflareForDev();
 const nextConfig = {
   // Silence multi-lockfile warning: parent dir contains a stray package-lock.json
   outputFileTracingRoot: path.join(__dirname, "../../"),
-  // Disable file tracing copy on Windows (requires symlink privilege / Developer Mode).
-  // OpenNext can still bundle without the trace; this unblocks `next build` + OpenNext on win32.
-  // If deploying from CI/Linux, you may remove this and rely on tracing.
-  outputFileTracing: false,
+
   // Mount editor at /editor to match Wrangler path-based routing.
   // Wrangler routes compile.ladestack.in/editor/* → this Worker,
   // and Next's basePath makes "/" inside the app correspond to "/editor" externally.
