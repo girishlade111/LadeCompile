@@ -25,16 +25,39 @@ import {
   AlertCircle,
   Trash2,
   LayoutTemplate,
+  Copy,
+  FileArchive,
+  Image as ImageIcon,
+  FileText,
 } from "lucide-react";
 import { Group as PanelGroup, Panel, Separator as PanelResizeHandle } from "react-resizable-panels";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { DEFAULT_FILES, STORAGE_KEY, type EditorFile } from "@/lib/editorDefaults";
 import { combineFiles } from "@/lib/preview";
 import { useTheme } from "@/components/theme-provider";
 import { TEMPLATES, type Template } from "@/lib/templates";
+import JSZip from "jszip";
+import { toast } from "sonner";
 
 // Dynamically import Monaco wrapper — browser only
 const CodeEditor = dynamic(() => import("./CodeEditor"), {
@@ -97,6 +120,7 @@ export default function EditorShell() {
   const [activeTab, setActiveTab] = useState<EditorFile>("index.html");
   const [files, setFiles] = useState<Record<EditorFile, string>>(DEFAULT_FILES);
   const [baselineFiles, setBaselineFiles] = useState<Record<EditorFile, string>>(DEFAULT_FILES);
+  const previewRef = useRef<HTMLIFrameElement>(null);
 
   // Templates modal state
   const [templatesOpen, setTemplatesOpen] = useState(false);
@@ -310,6 +334,114 @@ export default function EditorShell() {
       );
   }, [filteredTemplates]);
 
+  // Export — ZIP, Copy, Screenshot (all client-side)
+  const getCurrentFilesForExport = useCallback((): Record<EditorFile, string> => {
+    // Include pending typed content (flush not yet committed) so export reflects latest keystrokes
+    if (pendingRef.current) {
+      return { ...filesRef.current, [pendingRef.current.tab]: pendingRef.current.value };
+    }
+    return filesRef.current;
+  }, []);
+
+  const handleDownloadZip = useCallback(async () => {
+    try {
+      const current = getCurrentFilesForExport();
+      const zip = new JSZip();
+      zip.file("index.html", current["index.html"]);
+      zip.file("styles.css", current["styles.css"]);
+      zip.file("script.js", current["script.js"]);
+      const blob = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "LadeCompile-export.zip";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      toast.success("ZIP downloaded", { description: "LadeCompile-export.zip — 3 files" });
+    } catch (e) {
+      console.error(e);
+      toast.error("ZIP download failed", { description: String(e) });
+    }
+  }, [getCurrentFilesForExport]);
+
+  const handleCopyActive = useCallback(async () => {
+    // Flush pending so clipboard has latest active tab content
+    let content: string;
+    if (pendingRef.current && pendingRef.current.tab === activeTab) {
+      content = pendingRef.current.value;
+    } else {
+      content = getCurrentFilesForExport()[activeTab];
+    }
+    try {
+      await navigator.clipboard.writeText(content);
+      toast.success("Copied to clipboard", { description: `${activeTab} — ${content.length} chars` });
+    } catch (e) {
+      console.error(e);
+      toast.error("Copy failed — clipboard permission denied", { description: String(e) });
+    }
+  }, [activeTab, getCurrentFilesForExport]);
+
+  const handleCopyCombined = useCallback(async () => {
+    try {
+      const current = getCurrentFilesForExport();
+      const combined = combineFiles(current["index.html"], current["styles.css"], current["script.js"]);
+      await navigator.clipboard.writeText(combined);
+      toast.success("Copied combined HTML", { description: "Full preview document copied" });
+    } catch (e) {
+      console.error(e);
+      toast.error("Copy failed — clipboard permission denied", { description: String(e) });
+    }
+  }, [getCurrentFilesForExport]);
+
+  const handleScreenshot = useCallback(
+    async (format: "png" | "jpeg") => {
+      const iframe = previewRef.current;
+      if (!iframe) {
+        toast.error("Screenshot capture failed — preview not ready");
+        return;
+      }
+      let target: HTMLElement | null = null;
+      try {
+        const doc = iframe.contentDocument;
+        if (!doc) throw new Error("No contentDocument");
+        target = doc.body;
+        if (!target) throw new Error("No body in preview");
+      } catch (e) {
+        toast.error("Screenshot capture failed — preview may contain content that can't be captured", {
+          description: String(e),
+        });
+        return;
+      }
+      try {
+        const { default: html2canvas } = await import("html2canvas");
+        const canvas = await html2canvas(target as HTMLElement, {
+          backgroundColor: null,
+          scale: 2,
+          useCORS: true,
+          allowTaint: false,
+        } as unknown as Record<string, unknown>);
+        const mime = format === "png" ? "image/png" : "image/jpeg";
+        const ext = format === "png" ? "png" : "jpg";
+        const dataUrl = canvas.toDataURL(mime, format === "jpeg" ? 0.92 : undefined);
+        const a = document.createElement("a");
+        a.href = dataUrl;
+        a.download = `LadeCompile-preview.${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        toast.success(`Screenshot downloaded as ${ext.toUpperCase()}`, { description: "LadeCompile-preview." + ext });
+      } catch (e) {
+        console.error(e);
+        toast.error("Screenshot capture failed — preview may contain content that can't be captured", {
+          description: String(e),
+        });
+      }
+    },
+    []
+  );
+
   // postMessage bridge — parent side
   useEffect(() => {
     const handler = (event: MessageEvent) => {
@@ -451,14 +583,45 @@ export default function EditorShell() {
                 </TooltipTrigger>
                 <TooltipContent>Share</TooltipContent>
               </Tooltip>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Export">
-                    <Download className="h-4 w-4" />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>Export</TooltipContent>
-              </Tooltip>
+              <DropdownMenu>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Export">
+                        <Download className="h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent>Export</TooltipContent>
+                </Tooltip>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuLabel>Export</DropdownMenuLabel>
+                  <DropdownMenuItem onClick={handleDownloadZip}>
+                    <FileArchive className="mr-2 h-4 w-4" />
+                    Download ZIP
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleCopyActive}>
+                    <Copy className="mr-2 h-4 w-4" />
+                    Copy {activeTab}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleCopyCombined}>
+                    <FileText className="mr-2 h-4 w-4" />
+                    Copy combined HTML
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
+                      <ImageIcon className="mr-2 h-4 w-4" />
+                      Screenshot
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent className="w-48">
+                      <DropdownMenuItem onClick={() => handleScreenshot("png")}>Screenshot as PNG</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleScreenshot("jpeg")}>Screenshot as JPEG</DropdownMenuItem>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuSub>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
 
@@ -614,6 +777,7 @@ export default function EditorShell() {
                   </div>
                   <div className="flex flex-1 bg-white dark:bg-zinc-950">
                     <iframe
+                      ref={previewRef}
                       key={previewRevision}
                       title="Live preview"
                       srcDoc={previewHtml}
