@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import dynamic from "next/dynamic";
+import { combineFiles } from "@/lib/preview";
 import {
   Files,
   Search,
@@ -168,6 +169,21 @@ export default function EditorShell() {
     };
   }, []);
 
+  // Preview — derived from debounced files state (reuses same 400ms debounce as editor)
+  // No second debounce here; preview updates whenever `files` commits.
+  const previewHtml = useMemo(
+    () => combineFiles(files["index.html"], files["styles.css"], files["script.js"]),
+    [files]
+  );
+  // Key to force full iframe remount on Run
+  const [previewRevision, setPreviewRevision] = useState(0);
+  const handleRun = useCallback(() => {
+    // Flush any pending typed content immediately (bypass debounce)
+    flushPending();
+    // Even if no pending, force full srcDoc replacement for manual Run
+    setPreviewRevision((v) => v + 1);
+  }, [flushPending]);
+
   const tabs: { name: EditorFile; icon: React.ComponentType<{ className?: string }> }[] = [
     { name: "index.html", icon: FileCode },
     { name: "styles.css", icon: Palette },
@@ -200,7 +216,7 @@ export default function EditorShell() {
               <span className="hidden text-xs text-muted-foreground sm:inline">HTML / CSS / JS — no login required</span>
             </div>
             <div className="flex items-center gap-1">
-              <Button size="sm" className="h-7 gap-1 bg-[#6366f1] px-3 text-xs hover:bg-[#5456e5]">
+              <Button size="sm" className="h-7 gap-1 bg-[#6366f1] px-3 text-xs hover:bg-[#5456e5]" onClick={handleRun} aria-label="Run preview">
                 <Play className="h-3.5 w-3.5" />
                 Run
               </Button>
@@ -335,16 +351,20 @@ export default function EditorShell() {
               <PanelResizeHandle className="w-1.5 bg-border transition-colors hover:bg-[#6366f1]/30 data-[resize-handle-state=drag]:bg-[#6366f1]/40" />
               <Panel defaultSize={45} minSize={25}>
                 <div className="flex h-full flex-col bg-muted/5">
-                  <div className="flex h-9 items-center border-b bg-muted/20 px-3 text-xs font-semibold">Preview</div>
-                  <div className="flex flex-1 items-center justify-center p-4">
-                    <div className="w-full max-w-sm rounded-xl border bg-white p-6 text-center shadow-sm dark:bg-zinc-900">
-                      <div className="mx-auto flex h-9 w-9 items-center justify-center rounded-lg bg-[#6366f1]/10 text-[#6366f1]">
-                        <Play className="h-5 w-5" />
-                      </div>
-                      <p className="mt-3 text-sm font-semibold">Preview</p>
-                      <p className="mt-1 text-xs text-muted-foreground">Live sandboxed preview will render here in Prompt 7.</p>
-                      <p className="mt-2 text-[11px] text-muted-foreground">Drag the divider to resize editor ↔ preview</p>
-                    </div>
+                  <div className="flex h-9 items-center justify-between border-b bg-muted/20 px-3">
+                    <span className="text-xs font-semibold">Preview</span>
+                    <span className="hidden text-[11px] text-muted-foreground sm:inline">sandboxed iframe · srcDoc — auto-updates after 400ms · Run to force</span>
+                  </div>
+                  <div className="flex flex-1 bg-white dark:bg-zinc-950">
+                    <iframe
+                      key={previewRevision}
+                      title="Live preview"
+                      srcDoc={previewHtml}
+                      sandbox="allow-scripts allow-same-origin"
+                      className="h-full w-full border-0"
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                 </div>
               </Panel>
