@@ -24,14 +24,17 @@ import {
   AlertTriangle,
   AlertCircle,
   Trash2,
+  LayoutTemplate,
 } from "lucide-react";
 import { Group as PanelGroup, Panel, Separator as PanelResizeHandle } from "react-resizable-panels";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { DEFAULT_FILES, STORAGE_KEY, type EditorFile } from "@/lib/editorDefaults";
 import { combineFiles } from "@/lib/preview";
 import { useTheme } from "@/components/theme-provider";
+import { TEMPLATES, type Template } from "@/lib/templates";
 
 // Dynamically import Monaco wrapper — browser only
 const CodeEditor = dynamic(() => import("./CodeEditor"), {
@@ -83,12 +86,23 @@ function IconButton({
   );
 }
 
+function isEqualFiles(a: Record<EditorFile, string>, b: Record<EditorFile, string>) {
+  return a["index.html"] === b["index.html"] && a["styles.css"] === b["styles.css"] && a["script.js"] === b["script.js"];
+}
+
 export default function EditorShell() {
   const [consoleOpen, setConsoleOpen] = useState(true);
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
   const [activeTab, setActiveTab] = useState<EditorFile>("index.html");
   const [files, setFiles] = useState<Record<EditorFile, string>>(DEFAULT_FILES);
+  const [baselineFiles, setBaselineFiles] = useState<Record<EditorFile, string>>(DEFAULT_FILES);
+
+  // Templates modal state
+  const [templatesOpen, setTemplatesOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [pendingTemplate, setPendingTemplate] = useState<Template | null>(null);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   // Console state
   const [consoleEntries, setConsoleEntries] = useState<ConsoleEntry[]>([]);
@@ -126,7 +140,10 @@ export default function EditorShell() {
               hasValid = true;
             }
           });
-          if (hasValid) setFiles(next);
+          if (hasValid) {
+            setFiles(next);
+            // Do not update baseline — baseline stays default so unsaved check works after restore
+          }
         }
       }
     } catch (e) {
@@ -203,19 +220,10 @@ export default function EditorShell() {
 
   const handleRun = useCallback(() => {
     flushPending();
-    // Clear console on each fresh run (matches OneCompiler fresh-console behavior)
     clearConsole();
     setPreviewRevision((v) => v + 1);
   }, [flushPending, clearConsole]);
 
-  // Clear console automatically when preview re-renders (debounced files change)
-  // This matches playgrounds that reset console per run
-  useEffect(() => {
-    // Don't clear on initial mount — only when files actually change after mount
-    // Use a ref to skip first render
-  }, []);
-
-  // Actually clear on previewHtml change — but avoid clearing on initial mount
   const isFirstPreview = useRef(true);
   useEffect(() => {
     if (isFirstPreview.current) {
@@ -223,9 +231,84 @@ export default function EditorShell() {
       return;
     }
     clearConsole();
-    // Also reset unread if open
     if (consoleOpenRef.current) setUnreadCount(0);
   }, [previewHtml, clearConsole]);
+
+  // Templates logic
+  const getEffectiveFiles = useCallback((): Record<EditorFile, string> => {
+    if (pendingRef.current) {
+      return { ...filesRef.current, [pendingRef.current.tab]: pendingRef.current.value };
+    }
+    return filesRef.current;
+  }, []);
+
+  const applyTemplate = useCallback(
+    (template: Template) => {
+      const next: Record<EditorFile, string> = {
+        "index.html": template.html,
+        "styles.css": template.css,
+        "script.js": template.js,
+      };
+      // Flush any pending edit first to avoid race
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+      pendingRef.current = null;
+      setFiles(next);
+      setBaselineFiles(next);
+      setActiveTab("index.html");
+      setTemplatesOpen(false);
+      setSearchQuery("");
+      setPendingTemplate(null);
+      setConfirmOpen(false);
+      // Preview will auto-update via files → previewHtml, console clears via effect
+    },
+    []
+  );
+
+  const handleTemplateSelect = (template: Template) => {
+    // Ensure pending typed content is considered
+    const effective = getEffectiveFiles();
+    const isDefault = isEqualFiles(effective, DEFAULT_FILES);
+    const isBaseline = isEqualFiles(effective, baselineFiles);
+    const needsConfirm = !isDefault && !isBaseline;
+    if (needsConfirm) {
+      setPendingTemplate(template);
+      setConfirmOpen(true);
+    } else {
+      applyTemplate(template);
+    }
+  };
+
+  const filteredTemplates = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return TEMPLATES;
+    return TEMPLATES.filter(
+      (t) =>
+        t.name.toLowerCase().includes(q) ||
+        t.category.toLowerCase().includes(q) ||
+        t.description.toLowerCase().includes(q)
+    );
+  }, [searchQuery]);
+
+  const groupedTemplates = useMemo(() => {
+    const groups: Record<string, Template[]> = {};
+    for (const t of filteredTemplates) {
+      if (!groups[t.category]) groups[t.category] = [];
+      groups[t.category].push(t);
+    }
+    // Keep category order: Starters, Layouts, Components, Forms
+    const order = ["Starters", "Layouts", "Components", "Forms"];
+    return order
+      .filter((cat) => groups[cat])
+      .map((cat) => ({ category: cat, items: groups[cat] }))
+      .concat(
+        Object.keys(groups)
+          .filter((cat) => !order.includes(cat))
+          .map((cat) => ({ category: cat, items: groups[cat] }))
+      );
+  }, [filteredTemplates]);
 
   // postMessage bridge — parent side
   useEffect(() => {
@@ -311,6 +394,20 @@ export default function EditorShell() {
               <span className="hidden text-xs text-muted-foreground sm:inline">HTML / CSS / JS — no login required</span>
             </div>
             <div className="flex items-center gap-1">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-7 w-7"
+                    aria-label="Templates"
+                    onClick={() => setTemplatesOpen(true)}
+                  >
+                    <LayoutTemplate className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Templates</TooltipContent>
+              </Tooltip>
               <Button
                 size="sm"
                 className="h-7 gap-1 bg-[#6366f1] px-3 text-xs hover:bg-[#5456e5]"
@@ -554,6 +651,86 @@ export default function EditorShell() {
           </div>
         </div>
       </div>
+
+      {/* Templates Library Dialog */}
+      <Dialog open={templatesOpen} onOpenChange={(open) => { setTemplatesOpen(open); if (!open) setSearchQuery(""); }}>
+        <DialogContent className="max-h-[80vh] max-w-3xl overflow-hidden p-0">
+          <DialogHeader className="border-b px-6 py-4">
+            <DialogTitle className="flex items-center gap-2">
+              <LayoutTemplate className="h-5 w-5 text-[#6366f1]" />
+              Templates Library
+            </DialogTitle>
+            <DialogDescription>Choose a starter — search by name, category, or description. Preview updates automatically.</DialogDescription>
+          </DialogHeader>
+          <div className="px-6 pt-4">
+            <div className="relative">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <input
+                autoFocus
+                placeholder="Search templates (e.g. landing, flexbox, form...)"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full rounded-md border bg-background py-2 pl-9 pr-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
+          </div>
+          <div className="max-h-[50vh] overflow-y-auto px-6 pb-6 pt-4">
+            {filteredTemplates.length === 0 ? (
+              <p className="py-8 text-center text-sm text-muted-foreground">No templates match “{searchQuery}”.</p>
+            ) : (
+              <div className="space-y-6">
+                {groupedTemplates.map(({ category, items }) => (
+                  <div key={category}>
+                    <h3 className="mb-2 text-xs font-bold tracking-widest text-muted-foreground">{category.toUpperCase()}</h3>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {items.map((t) => (
+                        <button
+                          key={t.id}
+                          onClick={() => handleTemplateSelect(t)}
+                          className="text-left rounded-xl border bg-card p-4 hover:border-[#6366f1]/50 hover:shadow-sm transition"
+                        >
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-sm font-semibold">{t.name}</span>
+                            <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-bold tracking-wide text-muted-foreground">
+                              {t.category}
+                            </span>
+                          </div>
+                          <p className="mt-1 text-xs leading-5 text-muted-foreground line-clamp-2">{t.description}</p>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Unsaved changes confirmation */}
+      <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Replace your current code?</DialogTitle>
+            <DialogDescription>
+              This will replace your current HTML, CSS, and JavaScript with “{pendingTemplate?.name}”. Your current edits will be lost.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end gap-2 pt-2">
+            <Button variant="outline" onClick={() => { setConfirmOpen(false); setPendingTemplate(null); }}>
+              Cancel
+            </Button>
+            <Button
+              className="bg-[#6366f1] hover:bg-[#5456e5]"
+              onClick={() => {
+                if (pendingTemplate) applyTemplate(pendingTemplate);
+              }}
+            >
+              Continue
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </TooltipProvider>
   );
 }
