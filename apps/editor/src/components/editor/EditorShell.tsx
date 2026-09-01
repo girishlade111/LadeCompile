@@ -1150,6 +1150,7 @@ export default function EditorShell() {
                       value={files[activeTab]}
                       theme={theme}
                       minimap={minimapEnabled}
+                      fontSize={fontSize}
                       onMount={handleEditorMount}
                       onChange={handleEditorChange}
                     />
