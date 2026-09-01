@@ -855,18 +855,52 @@ export default function EditorShell() {
                 </TooltipTrigger>
                 <TooltipContent>Templates</TooltipContent>
               </Tooltip>
-              <Button
-                size="sm"
-                className="h-7 gap-1 bg-[#6366f1] px-3 text-xs hover:bg-[#5456e5]"
-                onClick={handleRun}
-                aria-label="Run preview"
-              >
-                <Play className="h-3.5 w-3.5" />
-                Run
-              </Button>
-              <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="More options">
-                <MoreVertical className="h-4 w-4" />
-              </Button>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="sm"
+                    className="h-7 gap-1 bg-[#6366f1] px-3 text-xs hover:bg-[#5456e5]"
+                    onClick={handleRun}
+                    aria-label="Run"
+                  >
+                    <Play className="h-3.5 w-3.5" />
+                    Run
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Run</TooltipContent>
+              </Tooltip>
+              <DropdownMenu>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="More options">
+                        <MoreVertical className="h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent>More options</TooltipContent>
+                </Tooltip>
+                <DropdownMenuContent align="end" className="w-52">
+                  <DropdownMenuItem onClick={handleFormatCode}>
+                    <Code2 className="mr-2 h-4 w-4" />
+                    Format Code
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleResetToDefault}>
+                    <RotateCcw className="mr-2 h-4 w-4" />
+                    Reset to Default
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuCheckboxItem checked={minimapEnabled} onCheckedChange={handleToggleMinimap}>
+                    <Map className="mr-2 h-4 w-4" />
+                    Minimap
+                  </DropdownMenuCheckboxItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => setShortcutsOpen(true)}>
+                    <Keyboard className="mr-2 h-4 w-4" />
+                    Keyboard Shortcuts
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <div className="mx-1 h-4 w-px bg-border" />
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -880,7 +914,7 @@ export default function EditorShell() {
                     {isDark ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Theme — {isDark ? "Dark" : "Light"}</TooltipContent>
+                <TooltipContent>Toggle theme</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -1002,6 +1036,8 @@ export default function EditorShell() {
                       language={LANGUAGE_MAP[activeTab]}
                       value={files[activeTab]}
                       theme={theme}
+                      minimap={minimapEnabled}
+                      onMount={handleEditorMount}
                       onChange={handleEditorChange}
                     />
                   </div>
