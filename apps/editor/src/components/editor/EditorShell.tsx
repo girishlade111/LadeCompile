@@ -131,7 +131,7 @@ function isEqualFiles(a: Record<EditorFile, string>, b: Record<EditorFile, strin
 
 export default function EditorShell() {
   const [consoleOpen, setConsoleOpen] = useState(true);
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
   const [activeTab, setActiveTab] = useState<EditorFile>("index.html");
   const [files, setFiles] = useState<Record<EditorFile, string>>(DEFAULT_FILES);
