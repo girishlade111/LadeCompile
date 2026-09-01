@@ -1,16 +1,26 @@
 "use client";
 
-import Editor from "@monaco-editor/react";
+import Editor, { type OnMount } from "@monaco-editor/react";
 
 type Props = {
   language: string;
   path: string;
   value: string;
   theme: "light" | "dark";
+  minimap?: boolean;
+  onMount?: OnMount;
   onChange: (value: string | undefined) => void;
 };
 
-export default function CodeEditor({ language, path, value, theme, onChange }: Props) {
+export default function CodeEditor({
+  language,
+  path,
+  value,
+  theme,
+  minimap = false,
+  onMount,
+  onChange,
+}: Props) {
   return (
     <Editor
       path={path}
@@ -18,8 +28,9 @@ export default function CodeEditor({ language, path, value, theme, onChange }: P
       value={value}
       theme={theme === "dark" ? "vs-dark" : "vs"}
       onChange={onChange}
+      onMount={onMount}
       options={{
-        minimap: { enabled: false },
+        minimap: { enabled: minimap },
         fontSize: 13,
         wordWrap: "on",
         scrollBeyondLastLine: false,
