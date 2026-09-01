@@ -2,4 +2,5 @@
 // Run `pnpm --filter editor cf-typegen` to regenerate after adding bindings.
 interface CloudflareEnv {
   ASSETS: Fetcher;
+  SHARE_KV: KVNamespace;
 }

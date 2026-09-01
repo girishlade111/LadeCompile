@@ -17,6 +17,12 @@
     "binding": "ASSETS",
     "not_found_handling": "single-page-application"
   },
+  "kv_namespaces": [
+    {
+      "binding": "SHARE_KV",
+      "id": "SHARE_KV_NAMESPACE_ID"
+    }
+  ],
   "observability": {
     "enabled": true
   }
