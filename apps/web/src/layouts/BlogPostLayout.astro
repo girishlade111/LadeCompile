@@ -1,0 +1,112 @@
+---
+import type { BlogPost } from "../utils/blog";
+import { getPostSlug, calculateReadingTime, getAdjacentPosts } from "../utils/blog";
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BlogHeader from "../components/blog/BlogHeader.astro";
+import TableOfContents from "../components/blog/TableOfContents.astro";
+import SaaSCta from "../components/blog/SaaSCta.astro";
+import PrevNextNav from "../components/blog/PrevNextNav.astro";
+import RelatedPosts from "../components/blog/RelatedPosts.astro";
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  post: BlogPost;
+  headings: Heading[];
+  allPosts: BlogPost[];
+}
+
+const { post, headings, allPosts } = Astro.props;
+const slug = getPostSlug(post);
+const site = Astro.site?.toString() ?? "https://compile.ladestack.in";
+const canonical = post.data.canonicalURL || new URL(`/blog/${slug}/`, site).href;
+const pubDate = post.data.pubDate ?? post.data.publishDate ?? new Date();
+const image = post.data.image ?? post.data.heroImage ?? "/favicon.svg";
+const fullImageUrl = image.startsWith("http") ? image : new URL(image, site).href;
+const readingTime = calculateReadingTime(post.body);
+const pageTitle = `${post.data.title} | LadeCompile`;
+
+const { prevPost, nextPost } = getAdjacentPosts(post, allPosts);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: pubDate instanceof Date ? pubDate.toISOString() : new Date(pubDate).toISOString(),
+  ...(post.data.updatedDate
+    ? {
+        dateModified:
+          post.data.updatedDate instanceof Date
+            ? post.data.updatedDate.toISOString()
+            : new Date(post.data.updatedDate).toISOString(),
+      }
+    : {}),
+  author: {
+    "@type": "Person",
+    name: post.data.author || "LadeStack Team",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "LadeCompile",
+    logo: {
+      "@type": "ImageObject",
+      url: new URL("/favicon.svg", site).href,
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonical,
+  },
+  image: fullImageUrl,
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={post.data.description}
+  canonical={canonical}
+  image={image}
+  imageAlt={post.data.imageAlt}
+  type="article"
+  publishedTime={pubDate instanceof Date ? pubDate.toISOString() : new Date(pubDate).toISOString()}
+  modifiedTime={post.data.updatedDate ? (post.data.updatedDate instanceof Date ? post.data.updatedDate.toISOString() : new Date(post.data.updatedDate).toISOString()) : undefined}
+  author={post.data.author}
+  tags={post.data.tags}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-[1280px] px-6 py-10 lg:px-12 sm:py-14">
+    <div class="mx-auto max-w-3xl">
+      <article>
+        <BlogHeader post={post} readingTime={readingTime} />
+
+        <TableOfContents headings={headings} />
+
+        <div
+          class="prose prose-zinc mt-8 max-w-none prose-headings:text-[#181d26] prose-headings:font-normal prose-headings:tracking-tight prose-h2:text-[26px] prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-[20px] prose-h3:mt-8 prose-h3:mb-3 prose-p:text-[#333840] prose-p:leading-[1.75] prose-p:text-[16px] prose-p:mb-5 prose-li:text-[#333840] prose-li:text-[16px] prose-a:text-[#1b61c9] prose-a:font-medium prose-a:underline-offset-2 hover:prose-a:underline prose-strong:text-[#181d26] prose-strong:font-semibold prose-blockquote:border-l-2 prose-blockquote:border-[#181d26] prose-blockquote:bg-[#f8fafc] prose-blockquote:py-2 prose-blockquote:px-5 prose-blockquote:rounded-r-[8px] prose-blockquote:not-italic prose-blockquote:text-[#333840] prose-code:rounded-[6px] prose-code:bg-[#f8fafc] prose-code:border prose-code:border-[#dddddd] prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[13px] prose-code:font-mono prose-code:text-[#181d26] prose-code:before:content-none prose-code:after:content-none prose-pre:overflow-x-auto prose-pre:rounded-[10px] prose-pre:border prose-pre:border-[#dddddd] prose-pre:bg-[#181d26] prose-pre:p-5 prose-img:rounded-[10px] prose-img:border prose-img:border-[#dddddd] prose-table:border prose-table:border-[#dddddd] prose-th:bg-[#f8fafc] prose-th:p-3 prose-td:p-3 prose-td:border-t prose-td:border-[#dddddd]"
+        >
+          <slot />
+        </div>
+
+        <SaaSCta />
+
+        <PrevNextNav prevPost={prevPost} nextPost={nextPost} />
+
+        <RelatedPosts currentPost={post} allPosts={allPosts} />
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
