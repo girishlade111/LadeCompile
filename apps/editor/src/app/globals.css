@@ -2,57 +2,57 @@
 @plugin "tailwindcss-animate";
 
 @theme {
-  --color-brand: #6366f1;
-  --color-brand-hover: #5456e5;
-  --color-brand-light: #eef0ff;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --color-brand: #181d26;
+  --color-brand-hover: #0d1218;
+  --color-brand-light: #f8fafc;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
   --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
+  --foreground: 220 22% 12%;
   --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
+  --card-foreground: 220 22% 12%;
   --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 239 84% 67%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
+  --popover-foreground: 220 22% 12%;
+  --primary: 220 22% 12%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 20% 98%;
+  --secondary-foreground: 220 22% 12%;
+  --muted: 210 20% 96%;
+  --muted-foreground: 220 8% 28%;
+  --accent: 210 20% 96%;
+  --accent-foreground: 220 22% 12%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 239 84% 67%;
-  --radius: 0.5rem;
+  --border: 0 0% 86.7%;
+  --input: 0 0% 86.7%;
+  --ring: 221 64% 41%;
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 239 84% 67%;
-  --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
+  --background: 220 22% 12%;
+  --foreground: 0 0% 100%;
+  --card: 220 22% 12%;
+  --card-foreground: 0 0% 100%;
+  --popover: 220 22% 14%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 220 22% 12%;
+  --secondary: 220 18% 18%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 220 18% 18%;
+  --muted-foreground: 220 10% 70%;
+  --accent: 220 18% 20%;
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 239 84% 67%;
+  --border: 220 15% 22%;
+  --input: 220 15% 22%;
+  --ring: 217 91% 60%;
 }
 
 * {
@@ -72,7 +72,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid #6366f1;
+  outline: 2px solid #254fad;
   outline-offset: 2px;
 }
 
