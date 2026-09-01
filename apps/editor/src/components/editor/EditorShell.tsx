@@ -1285,6 +1285,132 @@ export default function EditorShell() {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Reset to Default confirmation dialog */}
+      <Dialog open={resetConfirmOpen} onOpenChange={setResetConfirmOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Reset to default?</DialogTitle>
+            <DialogDescription>
+              This will replace your current HTML, CSS, and JavaScript with the default starter template. Your current edits will be lost.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end gap-2 pt-2">
+            <Button
+              variant="outline"
+              onClick={() => setResetConfirmOpen(false)}
+            >
+              Cancel
+            </Button>
+            <Button
+              className="bg-[#6366f1] hover:bg-[#5456e5]"
+              onClick={applyResetToDefault}
+            >
+              Reset
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Keyboard Shortcuts Dialog */}
+      <Dialog open={shortcutsOpen} onOpenChange={setShortcutsOpen}>
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Keyboard className="h-5 w-5 text-[#6366f1]" />
+              Keyboard Shortcuts
+            </DialogTitle>
+            <DialogDescription>
+              Quick reference for editor and navigation keyboard shortcuts.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="max-h-[60vh] space-y-4 overflow-y-auto pr-1 text-xs">
+            <div>
+              <h4 className="mb-2 font-semibold uppercase tracking-wider text-muted-foreground text-[10px]">
+                General & Actions
+              </h4>
+              <div className="space-y-1.5 rounded-lg border bg-muted/20 p-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Save code</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Ctrl / ⌘ + S
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Format document</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Shift + Alt + F
+                  </kbd>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="mb-2 font-semibold uppercase tracking-wider text-muted-foreground text-[10px]">
+                Search & Navigation
+              </h4>
+              <div className="space-y-1.5 rounded-lg border bg-muted/20 p-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Find</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Ctrl / ⌘ + F
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Replace</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Ctrl / ⌘ + H
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Go to Line</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Ctrl / ⌘ + G
+                  </kbd>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="mb-2 font-semibold uppercase tracking-wider text-muted-foreground text-[10px]">
+                Code Editing
+              </h4>
+              <div className="space-y-1.5 rounded-lg border bg-muted/20 p-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Toggle Line Comment</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Ctrl / ⌘ + /
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Select Next Match</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Ctrl / ⌘ + D
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Move Line Up / Down</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Alt + ↑ / ↓
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Copy Line Up / Down</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Shift + Alt + ↑ / ↓
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-foreground">Undo / Redo</span>
+                  <kbd className="inline-flex items-center gap-0.5 rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px] font-semibold text-foreground">
+                    Ctrl / ⌘ + Z / Y
+                  </kbd>
+                </div>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </TooltipProvider>
   );
 }
