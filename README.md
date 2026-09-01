@@ -127,6 +127,45 @@ Notes:
 - Both configs set `compatibility_date: 2025-08-01` + `compatibility_flags: ["nodejs_compat"]`.
 - Both have `observability.enabled: true`.
 
+## Cloudflare KV Setup (Save/Share Fallback)
+
+LadeCompile includes zero-login Save & Share:
+1. **URL-Hash State (Primary Path)**: Code snippets whose compressed state is under ~2000 characters are encoded directly into the URL hash fragment (`/editor#code=<lz-string-compressed-data>`) with client-side compression (`lz-string`). No server requests needed.
+2. **KV Short-Link State (Secondary Path)**: Code snippets exceeding 2000 characters automatically fall back to Cloudflare KV storage under a random 8-character ID (`/editor?share=<short-id>`) with a 30-day TTL.
+3. **Abuse Protection**: The `/api/share` endpoint enforces a 500 KB payload cap and per-IP rate limiting (20 shares/hour/IP).
+
+### Creating & Binding the KV Namespace
+
+1. **Create the KV Namespace via Wrangler**:
+   ```bash
+   # Production KV namespace
+   npx wrangler kv namespace create SHARE_KV
+   # Output example: { binding = "SHARE_KV", id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" }
+
+   # Preview/Dev KV namespace (optional)
+   npx wrangler kv namespace create SHARE_KV --preview
+   ```
+
+2. **Bind in `apps/editor/wrangler.jsonc`**:
+   Add the generated KV namespace ID to `apps/editor/wrangler.jsonc`:
+   ```jsonc
+   "kv_namespaces": [
+     {
+       "binding": "SHARE_KV",
+       "id": "YOUR_KV_NAMESPACE_ID"
+     }
+   ]
+   ```
+
+3. **Regenerate TypeScript Types**:
+   ```bash
+   npm run --workspace=editor cf-typegen
+   ```
+
+4. **Local Development Behavior**:
+   During local development (`npm run dev:editor`), if the KV namespace is not configured or bound, the app transparently uses an in-memory fallback store and rate-limiter, ensuring full functionality with zero crashes. In Cloudflare Workers environments (`wrangler dev` or deployed), it uses the bound Cloudflare KV store.
+
+
 ## Verification — Acceptance Criteria
 
 | Check | Command | Expected |
