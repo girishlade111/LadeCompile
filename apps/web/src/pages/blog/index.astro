@@ -12,6 +12,8 @@ const title = "Blog — LadeCompile: Free HTML CSS JS Compiler & OneCompiler Alt
 const description =
   "Guides, comparisons, and practical how-tos for free online HTML/CSS/JS compilers — no login required. OneCompiler alternatives, live preview tips, and export workflows from LadeCompile by LadeStack.";
 
+const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+
 function formatDate(d: Date) {
   return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
 }
@@ -30,7 +32,7 @@ function formatDate(d: Date) {
       </p>
       <div class="mt-8 flex justify-center gap-3">
         <a href="/" class="btn-secondary">← Back to Home</a>
-        <a href="/editor" class="btn-primary">Open Web Editor</a>
+        <a href={editorUrl} class="btn-primary">Open Web Editor</a>
       </div>
     </div>
 

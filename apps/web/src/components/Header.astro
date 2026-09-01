@@ -1,4 +1,5 @@
 ---
+const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
 ---
 <header class="sticky top-0 z-40 w-full border-b border-[#dddddd] bg-[#ffffff]">
   <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6 lg:px-12">
@@ -22,7 +23,7 @@
       <a href="/#starters" class="hidden sm:inline-flex items-center justify-center rounded-[12px] border border-[#dddddd] bg-[#ffffff] px-4 py-2 text-[14px] font-medium text-[#181d26] hover:bg-[#f8fafc] transition-colors">
         Templates
       </a>
-      <a href="/editor" class="inline-flex items-center justify-center rounded-[12px] bg-[#181d26] px-5 py-2 text-[14px] font-medium text-white hover:bg-[#0d1218] transition-colors shadow-sm">
+      <a href={editorUrl} class="inline-flex items-center justify-center rounded-[12px] bg-[#181d26] px-5 py-2 text-[14px] font-medium text-white hover:bg-[#0d1218] transition-colors shadow-sm">
         Open Editor
       </a>
     </div>
