@@ -171,6 +171,26 @@ export default function EditorShell() {
   // Monaco editor reference
   const editorRef = useRef<any>(null);
 
+  // Explorer sidebar & settings dialog state
+  const [explorerOpen, setExplorerOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+
+  // Font size preference state
+  const [fontSize, setFontSize] = useState<number>(13);
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("ladecompile:editor:fontSize:v1");
+      if (saved) {
+        const n = parseInt(saved, 10);
+        if (!isNaN(n) && n >= 10 && n <= 24) {
+          setFontSize(n);
+        }
+      }
+    } catch (e) {
+      console.warn("[LadeCompile] Failed to read font size preference:", e);
+    }
+  }, []);
+
   // Console state
   const [consoleEntries, setConsoleEntries] = useState<ConsoleEntry[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
