@@ -33,6 +33,7 @@ import {
   Code2,
   Map,
   Keyboard,
+  Monitor,
 } from "lucide-react";
 import { Group as PanelGroup, Panel, Separator as PanelResizeHandle } from "react-resizable-panels";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -79,6 +80,12 @@ const LANGUAGE_MAP: Record<EditorFile, string> = {
   "script.js": "javascript",
 };
 
+const TAB_MIME_MAP: Record<EditorFile, string> = {
+  "index.html": "text/html",
+  "styles.css": "text/css",
+  "script.js": "text/javascript",
+};
+
 type ConsoleEntry = {
   id: string;
   level: "log" | "warn" | "error";
@@ -90,16 +97,19 @@ function IconButton({
   icon: Icon,
   label,
   active,
+  onClick,
 }: {
   icon: React.ComponentType<{ className?: string }>;
   label: string;
   active?: boolean;
+  onClick?: () => void;
 }) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <button
           aria-label={label}
+          onClick={onClick}
           className={cn(
             "flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground",
             active && "bg-accent text-accent-foreground"

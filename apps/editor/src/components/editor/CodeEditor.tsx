@@ -8,6 +8,7 @@ type Props = {
   value: string;
   theme: "light" | "dark";
   minimap?: boolean;
+  fontSize?: number;
   onMount?: OnMount;
   onChange: (value: string | undefined) => void;
 };
@@ -18,6 +19,7 @@ export default function CodeEditor({
   value,
   theme,
   minimap = false,
+  fontSize = 13,
   onMount,
   onChange,
 }: Props) {
@@ -31,7 +33,7 @@ export default function CodeEditor({
       onMount={onMount}
       options={{
         minimap: { enabled: minimap },
-        fontSize: 13,
+        fontSize: fontSize,
         wordWrap: "on",
         scrollBeyondLastLine: false,
         automaticLayout: true,
