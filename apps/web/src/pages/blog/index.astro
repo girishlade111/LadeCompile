@@ -1,77 +1,83 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { getCollection } from "astro:content";
+import BlogGrid from "../../components/blog/BlogGrid.astro";
+import { filterPublishedPosts } from "../../utils/blog";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-);
+const allPosts = await getCollection("blog");
+const posts = filterPublishedPosts(allPosts, false);
 
-const title = "Blog — LadeCompile: Free HTML CSS JS Compiler & OneCompiler Alternative";
+const title = "Blog & Guides — Free Online HTML/CSS/JS Compilers | LadeCompile";
 const description =
-  "Guides, comparisons, and practical how-tos for free online HTML/CSS/JS compilers — no login required. OneCompiler alternatives, live preview tips, and export workflows from LadeCompile by LadeStack.";
+  "In-depth guides, architecture breakdowns, and tool comparisons for free HTML/CSS/JS compilers, sandboxed live previews, and zero-login developer tools by LadeStack.";
 
-const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+const editorUrl =
+  import.meta.env.PUBLIC_EDITOR_URL ||
+  (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
 
-function formatDate(d: Date) {
-  return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-}
+// Extract distinct categories from published posts
+const uniqueCategories = Array.from(
+  new Set(posts.map((p) => p.data.category).filter(Boolean))
+);
 ---
 
 <BaseLayout title={title} description={description} type="website">
   <Header />
-  <main id="main-content" class="mx-auto max-w-[1280px] px-6 py-16 lg:px-12 sm:py-24">
+
+  <main id="main-content" class="mx-auto max-w-[1280px] px-6 py-12 lg:px-12 sm:py-16">
+    <!-- Hero Header -->
     <div class="mx-auto max-w-3xl text-center">
-      <p class="text-[12px] font-semibold uppercase tracking-wider text-[#aa2d00]">LadeCompile Articles</p>
-      <h1 class="mt-3 text-[32px] sm:text-[42px] font-normal leading-[1.15] tracking-tight text-[#181d26]">
-        Notes on free, no-login editing
+      <div class="inline-flex items-center gap-2 rounded-[4px] border border-[#aa2d00]/20 bg-[#aa2d00]/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#aa2d00]">
+        LadeCompile Publication
+      </div>
+      <h1 class="mt-4 text-[34px] sm:text-[46px] font-normal leading-[1.15] tracking-tight text-[#181d26]">
+        Engineering, tooling & sandbox guides
       </h1>
-      <p class="mt-4 text-[16px] leading-relaxed text-[#333840]">
-        Practical guides and deep-dives into the <span class="font-medium text-[#181d26]">free HTML CSS JS compiler</span> ecosystem, sandbox architectures, and how zero-login client-side state compression works.
+      <p class="mt-4 text-[16px] sm:text-[18px] leading-relaxed text-[#333840]">
+        Practical articles on building with <span class="font-medium text-[#181d26]">free HTML CSS JS compilers</span>, browser execution security, and zero-login web developer tooling.
       </p>
-      <div class="mt-8 flex justify-center gap-3">
-        <a href="/" class="btn-secondary">← Back to Home</a>
-        <a href={editorUrl} class="btn-primary">Open Web Editor</a>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/" class="btn-secondary text-[14px] py-2.5 px-4 rounded-[10px]">
+          ← Back to Home
+        </a>
+        <a href={editorUrl} class="btn-primary text-[14px] py-2.5 px-4 rounded-[10px]">
+          Open Web Editor
+        </a>
       </div>
     </div>
 
-    <div class="mx-auto mt-16 max-w-3xl">
-      {posts.length === 0 ? (
-        <p class="rounded-[10px] border border-[#dddddd] bg-[#f8fafc] p-8 text-center text-[14px] text-[#41454d]">No posts yet — check back soon.</p>
-      ) : (
-        <div class="grid gap-6">
-          {posts.map((post) => (
-            <article class="rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-6 sm:p-7 shadow-xs hover:border-[#181d26]/40 transition-colors">
-              <div class="flex flex-wrap items-center gap-2 text-[12px] text-[#41454d]">
-                <time datetime={post.data.publishDate.toISOString()} class="font-medium text-[#181d26]">{formatDate(post.data.publishDate)}</time>
-                {post.data.updatedDate && (
-                  <span class="text-[#41454d]">· Updated {formatDate(post.data.updatedDate)}</span>
-                )}
-                <span class="hidden sm:inline">·</span>
-                <span class="inline-flex items-center gap-1.5">
-                  {post.data.tags.slice(0, 3).map((tag) => (
-                    <span class="rounded-[6px] border border-[#dddddd] bg-[#f8fafc] px-2 py-0.5 text-[11px] font-medium text-[#41454d]">{tag}</span>
-                  ))}
-                </span>
-              </div>
-              <h2 class="mt-3 text-[20px] font-medium leading-snug text-[#181d26] hover:text-[#1b61c9] transition-colors">
-                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-              </h2>
-              <p class="mt-2 text-[14px] leading-relaxed text-[#333840]">{post.data.description}</p>
-              <a href={`/blog/${post.slug}/`} class="mt-4 inline-flex items-center text-[13px] font-medium text-[#1b61c9] hover:underline">
-                Read full article
-                <svg class="ml-1.5 h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </article>
-          ))}
-        </div>
-      )}
+    <!-- Category Pills -->
+    {uniqueCategories.length > 0 && (
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-2 border-y border-[#dddddd] py-4">
+        <span class="text-[12px] font-semibold uppercase tracking-wider text-[#41454d] mr-2">Categories:</span>
+        <span class="rounded-[6px] bg-[#181d26] px-3 py-1 text-[12px] font-medium text-white shadow-xs">
+          All ({posts.length})
+        </span>
+        {uniqueCategories.map((cat) => {
+          const count = posts.filter((p) => p.data.category === cat).length;
+          return (
+            <span class="rounded-[6px] border border-[#dddddd] bg-[#ffffff] px-3 py-1 text-[12px] font-medium text-[#41454d]">
+              {cat} ({count})
+            </span>
+          );
+        })}
+      </div>
+    )}
 
-      <div class="mt-12 rounded-[10px] border border-[#dddddd] bg-[#f8fafc] p-5 text-[13px] leading-relaxed text-[#41454d]">
-        All posts are Markdown files in <code class="rounded bg-white border border-[#dddddd] px-1 py-0.5 text-[12px] text-[#181d26]">src/content/blog/</code> — no CMS, just git. Sitemap and <code class="rounded bg-white border border-[#dddddd] px-1 py-0.5 text-[12px] text-[#181d26]">llms.txt</code> pick up new posts automatically on build.
+    <!-- Posts Grid -->
+    <div class="mx-auto mt-12 max-w-4xl">
+      <BlogGrid posts={posts} showFeaturedFirst={true} />
+
+      <div class="mt-16 rounded-[12px] border border-[#dddddd] bg-[#f8fafc] p-6 text-center text-[13px] leading-relaxed text-[#41454d]">
+        <p>
+          Want to write for the LadeStack ecosystem or suggest a tutorial? All articles are stored as Markdown files in <code class="rounded bg-white border border-[#dddddd] px-1.5 py-0.5 text-[12px] font-mono text-[#181d26]">src/content/blog/</code> and automatically built into static pages.
+        </p>
       </div>
     </div>
   </main>
+
   <Footer />
 </BaseLayout>

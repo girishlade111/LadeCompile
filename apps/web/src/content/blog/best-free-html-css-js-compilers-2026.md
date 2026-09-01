@@ -1,10 +1,21 @@
 ---
 title: "Best Free Online HTML/CSS/JS Compilers in 2026 (No Login Required)"
 description: "A practical roundup of the fastest free HTML CSS JS compilers you can use without an account in 2026 — live preview, share links, export, and what actually matters beyond the homepage promise."
-publishDate: 2026-08-28
+pubDate: 2026-08-28
 updatedDate: 2026-08-29
-tags: ["html", "css", "javascript", "compilers", "no-login", "online-editor"]
-heroImage: "/blog/html-compilers-2026.svg"
+author: "Girish Lade"
+image: "/blog/html-compilers-2026.svg"
+imageAlt: "Comparison of top free online HTML CSS JS compilers in 2026"
+category: "Compilers"
+tags:
+  - html
+  - css
+  - javascript
+  - compilers
+  - no-login
+  - online-editor
+draft: false
+featured: true
 ---
 
 ## The five-minute test every editor should pass
