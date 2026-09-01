@@ -538,6 +538,109 @@ export default function EditorShell() {
     []
   );
 
+  // Apply shared code from link
+  const applySharedFiles = useCallback((shared: Record<EditorFile, string>) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    pendingRef.current = null;
+    setFiles(shared);
+    setBaselineFiles(shared);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(shared));
+    } catch (e) {
+      console.warn("[LadeCompile] Failed to persist shared code to localStorage:", e);
+    }
+    setActiveTab("index.html");
+    setPendingShareFiles(null);
+    setShareConfirmOpen(false);
+    toast.success("Loaded shared code", { description: "Restored code from share link" });
+  }, []);
+
+  // Save to browser localStorage with toast confirmation
+  const handleSave = useCallback(() => {
+    const current = getCurrentFilesForExport();
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
+      setBaselineFiles(current);
+      toast.success("Saved to browser storage", {
+        description: "Your code is preserved in your local browser storage.",
+      });
+    } catch (e) {
+      console.error("[LadeCompile] Save failed:", e);
+      toast.error("Save failed", { description: String(e) });
+    }
+  }, [getCurrentFilesForExport]);
+
+  // Share — URL hash (lz-string) for <= 2000 chars, KV fallback for large payloads
+  const handleShare = useCallback(async () => {
+    if (isSharing) return;
+    const current = getCurrentFilesForExport();
+    const encoded = encodeShareState(current);
+    const origin = typeof window !== "undefined" ? window.location.origin : "";
+    const pathname = typeof window !== "undefined" ? window.location.pathname : "/editor";
+
+    const needsKv = shouldUseKvFallback(encoded, origin + pathname);
+
+    if (!needsKv) {
+      // Primary path: URL-hash based sharing
+      const shareUrl = `${origin}${pathname}#code=${encoded}`;
+      try {
+        window.history.replaceState(null, "", shareUrl);
+        await navigator.clipboard.writeText(shareUrl);
+        toast.success("Share link copied to clipboard", {
+          description: "URL-hash link copied — no login needed",
+        });
+      } catch {
+        toast.success("Share link generated", {
+          description: shareUrl,
+        });
+      }
+    } else {
+      // Secondary path: Cloudflare KV fallback for large payloads
+      setIsSharing(true);
+      const toastId = toast.loading("Generating share link...");
+      try {
+        const apiEndpoint = pathname.startsWith("/editor") ? "/editor/api/share" : "/api/share";
+        const res = await fetch(apiEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ files: current }),
+        });
+
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          throw new Error(data.error || "Failed to generate share link.");
+        }
+
+        const shareUrl = `${origin}${pathname}?share=${data.id}`;
+        window.history.replaceState(null, "", shareUrl);
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          toast.success("Share link copied to clipboard", {
+            id: toastId,
+            description: "Short link created via Cloudflare KV — no login needed",
+          });
+        } catch {
+          toast.success("Share link generated", {
+            id: toastId,
+            description: shareUrl,
+          });
+        }
+      } catch (err: unknown) {
+        console.error("[LadeCompile] Share error:", err);
+        const msg = err instanceof Error ? err.message : "Failed to create share link.";
+        toast.error("Share failed", {
+          id: toastId,
+          description: msg,
+        });
+      } finally {
+        setIsSharing(false);
+      }
+    }
+  }, [isSharing, getCurrentFilesForExport]);
+
   // postMessage bridge — parent side
   useEffect(() => {
     const handler = (event: MessageEvent) => {
@@ -665,7 +768,7 @@ export default function EditorShell() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Save">
+                  <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Save" onClick={handleSave}>
                     <Save className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
@@ -673,7 +776,14 @@ export default function EditorShell() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Share">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-7 w-7"
+                    aria-label="Share"
+                    onClick={handleShare}
+                    disabled={isSharing}
+                  >
                     <Share2 className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
