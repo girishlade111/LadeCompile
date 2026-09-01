@@ -24,15 +24,15 @@ const image = post.data.image ?? post.data.heroImage;
     />
   </div>
 
-  <h1 class="mt-4 text-[32px] sm:text-[42px] font-normal leading-[1.18] tracking-tight text-[#181d26]">
+  <h1 class="mt-4 text-[32px] sm:text-[42px] font-normal leading-[1.18] tracking-tight text-[#24292f]">
     {post.data.title}
   </h1>
 
-  <p class="mt-4 text-[17px] sm:text-[19px] leading-relaxed text-[#333840]">
+  <p class="mt-4 text-[17px] sm:text-[19px] leading-relaxed text-[#32383f]">
     {post.data.description}
   </p>
 
-  <div class="mt-6 border-y border-[#dddddd] py-3.5">
+  <div class="mt-6 border-y border-[#d0d7de] py-3.5">
     <BlogMeta
       author={post.data.author}
       pubDate={date}
@@ -44,7 +44,7 @@ const image = post.data.image ?? post.data.heroImage;
   </div>
 
   {image && (
-    <div class="relative z-10 mt-8 overflow-hidden rounded-[12px] border border-[#dddddd] bg-[#f8fafc]">
+    <div class="relative z-10 mt-8 overflow-hidden rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa]">
       <img
         src={image}
         alt={post.data.imageAlt || post.data.title}

@@ -29,14 +29,11 @@ const uniqueCategories = Array.from(
   <main id="main-content" class="relative isolate overflow-hidden mx-auto max-w-[1280px] px-6 py-12 lg:px-12 sm:py-16">
     <!-- Hero Header -->
     <div class="relative z-10 mx-auto max-w-3xl text-center">
-      <div class="inline-flex items-center gap-2 rounded-[4px] border border-[#aa2d00]/20 bg-[#aa2d00]/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#aa2d00]">
-        LadeCompile Publication
-      </div>
-      <h1 class="mt-4 text-[34px] sm:text-[46px] font-normal leading-[1.15] tracking-tight text-[#181d26]">
+      <h1 class="text-[34px] sm:text-[46px] font-normal leading-[1.15] tracking-tight text-[#24292f]">
         Engineering, tooling & sandbox guides
       </h1>
-      <p class="mt-4 text-[16px] sm:text-[18px] leading-relaxed text-[#333840]">
-        Practical articles on building with <span class="font-medium text-[#181d26]">free HTML CSS JS compilers</span>, browser execution security, and zero-login web developer tooling.
+      <p class="mt-4 text-[16px] sm:text-[18px] leading-relaxed text-[#32383f]">
+        Practical articles on building with <span class="font-medium text-[#24292f]">free HTML CSS JS compilers</span>, browser execution security, and zero-login web developer tooling.
       </p>
 
       <div class="mt-8 flex flex-wrap justify-center gap-3">
@@ -51,15 +48,15 @@ const uniqueCategories = Array.from(
 
     <!-- Category Pills -->
     {uniqueCategories.length > 0 && (
-      <div class="relative z-10 mt-12 flex flex-wrap items-center justify-center gap-2 border-y border-[#dddddd] py-4">
-        <span class="text-[12px] font-semibold uppercase tracking-wider text-[#41454d] mr-2">Categories:</span>
-        <span class="rounded-[6px] bg-[#181d26] px-3 py-1 text-[12px] font-medium text-white shadow-xs">
+      <div class="relative z-10 mt-12 flex flex-wrap items-center justify-center gap-2 border-y border-[#d0d7de] py-4">
+        <span class="text-[13px] font-medium text-[#656d76] mr-2">Categories</span>
+        <span class="rounded-[6px] bg-[#24292f] px-3 py-1 text-[12px] font-medium text-white shadow-xs">
           All ({posts.length})
         </span>
         {uniqueCategories.map((cat) => {
           const count = posts.filter((p) => p.data.category === cat).length;
           return (
-            <span class="rounded-[6px] border border-[#dddddd] bg-[#ffffff] px-3 py-1 text-[12px] font-medium text-[#41454d]">
+            <span class="rounded-[6px] border border-[#d0d7de] bg-[#ffffff] px-3 py-1 text-[12px] font-medium text-[#656d76]">
               {cat} ({count})
             </span>
           );
@@ -71,9 +68,9 @@ const uniqueCategories = Array.from(
     <div class="relative z-10 mx-auto mt-12 max-w-4xl">
       <BlogGrid posts={posts} showFeaturedFirst={true} />
 
-      <div class="relative z-10 mt-16 rounded-[12px] border border-[#dddddd] bg-[#f8fafc] p-6 text-center text-[13px] leading-relaxed text-[#41454d]">
+      <div class="relative z-10 mt-16 rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-6 text-center text-[13px] leading-relaxed text-[#656d76]">
         <p>
-          Want to write for the LadeStack ecosystem or suggest a tutorial? All articles are stored as Markdown files in <code class="rounded bg-white border border-[#dddddd] px-1.5 py-0.5 text-[12px] font-mono text-[#181d26]">src/content/blog/</code> and automatically built into static pages.
+          Want to write for the LadeStack ecosystem or suggest a tutorial? All articles are stored as Markdown files in <code class="rounded bg-white border border-[#d0d7de] px-1.5 py-0.5 text-[12px] font-mono text-[#24292f]">src/content/blog/</code> and automatically built into static pages.
         </p>
       </div>
     </div>

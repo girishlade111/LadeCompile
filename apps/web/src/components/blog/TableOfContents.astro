@@ -18,13 +18,13 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 {tocHeadings.length > 1 && (
   <nav
     aria-label="Table of contents"
-    class="relative isolate overflow-hidden my-8 rounded-[10px] border border-[#dddddd] bg-[#f8fafc] p-5 sm:p-6"
+    class="relative isolate overflow-hidden my-8 rounded-[10px] border border-[#d0d7de] bg-[#f6f8fa] p-5 sm:p-6"
   >
-    <div class="flex items-center gap-2 text-[13px] font-semibold text-[#181d26] tracking-tight uppercase">
-      <svg class="h-4 w-4 text-[#41454d]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <div class="flex items-center gap-2 text-[13px] font-semibold text-[#24292f] tracking-tight">
+      <svg class="h-4 w-4 text-[#656d76]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path d="M2 3.5H14M2 8H10M2 12.5H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
       </svg>
-      Table of Contents
+      Table of contents
     </div>
 
     <ul class="mt-3.5 space-y-2 text-[14px] list-none p-0 m-0">
@@ -32,7 +32,7 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
         <li class={heading.depth === 3 ? "ml-4 text-[13px]" : "font-normal"}>
           <a
             href={`#${heading.slug}`}
-            class="text-[#41454d] hover:text-[#1b61c9] hover:underline transition-colors block py-0.5"
+            class="text-[#656d76] hover:text-[#0969da] hover:underline transition-colors block py-0.5"
           >
             {heading.text}
           </a>

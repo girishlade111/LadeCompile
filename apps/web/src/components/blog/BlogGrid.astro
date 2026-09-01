@@ -20,8 +20,8 @@ const regularPosts = featuredPost
   {featuredPost && (
     <div class="relative isolate overflow-hidden mb-10">
       <div class="relative z-10 mb-3 flex items-center gap-2">
-        <span class="inline-block h-2 w-2 rounded-full bg-[#aa2d00]" />
-        <span class="text-[12px] font-semibold uppercase tracking-wider text-[#aa2d00]">Featured Story</span>
+        <span class="inline-block h-2 w-2 rounded-full bg-[#1a7f37]" />
+        <span class="text-[13px] font-medium text-[#656d76]">Featured story</span>
       </div>
       <div class="relative z-10">
         <BlogCard post={featuredPost} featured={true} />
@@ -30,9 +30,9 @@ const regularPosts = featuredPost
   )}
 
   {regularPosts.length === 0 && !featuredPost ? (
-    <div class="rounded-[12px] border border-[#dddddd] bg-[#f8fafc] p-12 text-center">
-      <p class="text-[15px] font-medium text-[#181d26]">No articles found</p>
-      <p class="mt-1 text-[13px] text-[#41454d]">Check back soon for new guides and deep-dives.</p>
+    <div class="rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-12 text-center">
+      <p class="text-[15px] font-medium text-[#24292f]">No articles found</p>
+      <p class="mt-1 text-[13px] text-[#656d76]">Check back soon for new guides and deep-dives.</p>
     </div>
   ) : (
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">

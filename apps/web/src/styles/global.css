@@ -2,36 +2,47 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-primary: #181d26;
-  --color-primary-active: #0d1218;
-  --color-ink: #181d26;
-  --color-body: #333840;
-  --color-muted: #41454d;
-  --color-hairline: #dddddd;
-  --color-border-strong: #9297a0;
+  /* ── Palette Option B — Light IDE-neutral (GitHub Light / VS Code Light) ──
+     1. #ffffff canvas — true white editor canvas (VS Code Light default). Keeps hero snapshot authentic.
+     2. #f6f8fa surface-soft — GitHub Light canvas.subtle, the file-explorer/sidebar grey.
+     3. #24292f ink/primary — GitHub Light fgDefault, actual code text color (neutral blue-black).
+     4. #d0d7de hairline — GitHub Light borderDefault, precise pane divider from real editor UI.
+     5. #0969da accent — GitHub primer blue / VS Code keyword blue, the universal syntax keyword color. Single restrained accent for links/badges/focus.
+     6. #1a7f37 success — GitHub success green, the string-literal green in most light editor themes.
+     Replaces previous cream #f5e9d4 + terracotta #aa2d00 + violet-on-black palettes. */
+  --color-primary: #24292f;
+  --color-primary-active: #1f2328;
+  --color-ink: #24292f;
+  --color-body: #32383f;
+  --color-muted: #656d76;
+  --color-hairline: #d0d7de;
+  --color-border-strong: #afb8c1;
   --color-canvas: #ffffff;
-  --color-surface-soft: #f8fafc;
-  --color-surface-strong: #e0e2e6;
-  --color-surface-dark: #181d26;
-  --color-surface-dark-elevated: #1d1f25;
+  --color-surface-soft: #f6f8fa;
+  --color-surface-strong: #eaeef2;
+  --color-surface-dark: #24292f;
+  --color-surface-dark-elevated: #1f2328;
 
-  --color-signature-coral: #aa2d00;
-  --color-signature-forest: #0a2e0e;
-  --color-signature-cream: #f5e9d4;
-  --color-signature-peach: #fcab79;
-  --color-signature-mint: #a8d8c4;
-  --color-signature-yellow: #f4d35e;
-  --color-signature-mustard: #d9a441;
+  --color-signature-coral: #0969da;
+  --color-signature-forest: #24292f;
+  --color-signature-cream: #f6f8fa;
+  --color-signature-peach: #ddf4ff;
+  --color-signature-mint: #dafbe1;
+  --color-signature-yellow: #ddf4ff;
+  --color-signature-mustard: #0969da;
 
   --color-on-primary: #ffffff;
   --color-on-dark: #ffffff;
-  --color-link: #1b61c9;
-  --color-link-active: #1a3866;
-  --color-info: #254fad;
-  --color-info-border: #458fff;
-  --color-success: #006400;
-  --color-success-border: #39bf45;
-  --color-pricing-ink: #1d1f25;
+  --color-link: #0969da;
+  --color-link-active: #0550ae;
+  --color-accent: #0969da;
+  --color-accent-subtle: #ddf4ff;
+  --color-info: #0969da;
+  --color-info-border: #54aeff;
+  --color-success: #1a7f37;
+  --color-success-border: #4ac26b;
+  --color-success-subtle: #dafbe1;
+  --color-pricing-ink: #24292f;
 
   --radius-xs: 2px;
   --radius-sm: 6px;
@@ -48,13 +59,13 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--color-canvas, #ffffff);
-  color: var(--color-body, #333840);
+  color: var(--color-body, #32383f);
 }
 
 body {
   font-family: var(--font-sans);
   background-color: var(--color-canvas, #ffffff);
-  color: var(--color-body, #333840);
+  color: var(--color-body, #32383f);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -64,7 +75,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #181d26;
+  background-color: #24292f;
   color: #ffffff;
   font-size: 16px;
   font-weight: 500;
@@ -77,7 +88,7 @@ body {
 }
 
 .btn-primary:active {
-  background-color: #0d1218;
+  background-color: #1f2328;
 }
 
 .btn-secondary {
@@ -85,20 +96,20 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
-  color: #181d26;
+  color: #24292f;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
   padding: 16px 24px;
   border-radius: 12px;
-  border: 1px solid #dddddd;
+  border: 1px solid #d0d7de;
   transition: background-color 0.15s ease, border-color 0.15s ease;
   cursor: pointer;
   text-decoration: none;
 }
 
 .btn-secondary:active {
-  background-color: #f8fafc;
+  background-color: #f6f8fa;
 }
 
 .btn-secondary-on-dark {
@@ -106,7 +117,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
-  color: #181d26;
+  color: #24292f;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
@@ -118,12 +129,12 @@ body {
 }
 
 .btn-secondary-on-dark:active {
-  background-color: #f8fafc;
+  background-color: #f6f8fa;
 }
 
 /* Focus visible for accessibility */
 :focus-visible {
-  outline: 2px solid #254fad;
+  outline: 2px solid #0969da;
   outline-offset: 2px;
 }
 

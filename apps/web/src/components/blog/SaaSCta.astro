@@ -16,16 +16,16 @@ const editorUrl =
   (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
 ---
 
-<div class="relative isolate overflow-hidden my-12 rounded-[12px] border border-[#dddddd] bg-[#f5e9d4] p-7 sm:p-8 text-[#181d26]">
+<div class="relative isolate overflow-hidden my-12 rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-7 sm:p-8 text-[#24292f]">
   <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
     <div class="max-w-xl">
-      <div class="inline-flex items-center gap-2 rounded-[4px] bg-[#181d26]/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[#181d26]">
-        Zero Friction Tool
+      <div class="inline-flex items-center gap-2 rounded-[4px] bg-[#ddf4ff] border border-[#0969da]/20 px-2 py-0.5 text-[11px] font-medium text-[#0969da]">
+        Zero friction tool
       </div>
-      <h3 class="mt-2 text-[20px] sm:text-[22px] font-medium leading-snug tracking-tight text-[#181d26]">
+      <h3 class="mt-2 text-[20px] sm:text-[22px] font-medium leading-snug tracking-tight text-[#24292f]">
         {title}
       </h3>
-      <p class="mt-2 text-[14px] leading-relaxed text-[#333840]">
+      <p class="mt-2 text-[14px] leading-relaxed text-[#32383f]">
         {description}
       </p>
     </div>
@@ -33,7 +33,7 @@ const editorUrl =
     <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 shrink-0">
       <a
         href={editorUrl}
-        class="inline-flex items-center justify-center rounded-[12px] bg-[#181d26] px-5 py-3 text-[14px] font-medium text-white shadow-sm hover:bg-[#0d1218] transition-colors"
+        class="inline-flex items-center justify-center rounded-[12px] bg-[#24292f] px-5 py-3 text-[14px] font-medium text-white shadow-sm hover:bg-[#0d1218] transition-colors"
       >
         {buttonText}
         <svg class="ml-2 h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -42,7 +42,7 @@ const editorUrl =
       </a>
       <a
         href="/#starters"
-        class="inline-flex items-center justify-center rounded-[12px] border border-[#181d26]/20 bg-white/70 px-4 py-3 text-[14px] font-medium text-[#181d26] hover:bg-white transition-colors"
+        class="inline-flex items-center justify-center rounded-[12px] border border-[#24292f]/20 bg-white/70 px-4 py-3 text-[14px] font-medium text-[#24292f] hover:bg-white transition-colors"
       >
         Browse Templates
       </a>

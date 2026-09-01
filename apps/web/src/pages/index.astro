@@ -20,22 +20,22 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
         <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <!-- Clean kicker pill -->
-            <div class="inline-flex items-center gap-2 rounded-full border border-[#dddddd] bg-[#f8fafc] px-3.5 py-1 text-[13px] font-medium text-[#181d26]">
-              <span class="h-2 w-2 rounded-full bg-[#006400]"></span>
+            <div class="inline-flex items-center gap-2 rounded-full border border-[#d0d7de] bg-[#f6f8fa] px-3.5 py-1 text-[13px] font-medium text-[#24292f]">
+              <span class="h-2 w-2 rounded-full bg-[#1a7f37]"></span>
               Free · No login · No paywall — ever
             </div>
 
             <!-- Display LG Headline: weight 400/500, never overly bold -->
-            <h1 id="hero-heading" class="mt-5 text-[36px] sm:text-[46px] lg:text-[50px] font-normal leading-[1.12] tracking-tight text-[#181d26]">
+            <h1 id="hero-heading" class="mt-5 text-[36px] sm:text-[46px] lg:text-[50px] font-normal leading-[1.12] tracking-tight text-[#24292f]">
               Free HTML, CSS & JS compiler, <br class="hidden sm:inline" />
-              <span class="text-[#181d26] font-medium">no login required.</span>
+              <span class="text-[#24292f] font-medium">no login required.</span>
             </h1>
 
-            <p class="mt-5 max-w-[54ch] text-[16px] leading-[1.5] text-[#333840]">
-              LadeCompile is the quiet, enterprise-grade <strong class="font-medium text-[#181d26]">online code compiler</strong> for developers, students, and educators. Write HTML, CSS, and JavaScript in one tabbed editor and see your sandboxed live preview instantly — the clean <strong class="font-medium text-[#181d26]">OneCompiler alternative</strong> without the signup wall.
+            <p class="mt-5 max-w-[54ch] text-[16px] leading-[1.5] text-[#32383f]">
+              LadeCompile is the quiet, enterprise-grade <strong class="font-medium text-[#24292f]">online code compiler</strong> for developers, students, and educators. Write HTML, CSS, and JavaScript in one tabbed editor and see your sandboxed live preview instantly — the clean <strong class="font-medium text-[#24292f]">OneCompiler alternative</strong> without the signup wall.
             </p>
 
-            <p class="mt-3 max-w-[54ch] text-[14px] leading-relaxed text-[#41454d]">
+            <p class="mt-3 max-w-[54ch] text-[14px] leading-relaxed text-[#656d76]">
               Part of the LadeStack suite of free developer tools. Prototype responsive layouts, debug JavaScript logic, or export standalone files in seconds.
             </p>
 
@@ -52,24 +52,24 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
               </a>
             </div>
 
-            <p class="mt-3 text-[13px] text-[#41454d]">No account needed to write, save, or share. Local-first execution in your browser.</p>
+            <p class="mt-3 text-[13px] text-[#656d76]">No account needed to write, save, or share. Local-first execution in your browser.</p>
 
             <!-- Trust Points -->
-            <div class="mt-8 flex flex-wrap items-center gap-6 text-[13px] text-[#333840] border-t border-[#dddddd] pt-6">
+            <div class="mt-8 flex flex-wrap items-center gap-6 text-[13px] text-[#32383f] border-t border-[#d0d7de] pt-6">
               <span class="inline-flex items-center gap-2">
-                <svg class="h-4 w-4 text-[#006400]" viewBox="0 0 16 16" fill="none">
+                <svg class="h-4 w-4 text-[#1a7f37]" viewBox="0 0 16 16" fill="none">
                   <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 Zero-Login URL Sharing
               </span>
               <span class="inline-flex items-center gap-2">
-                <svg class="h-4 w-4 text-[#006400]" viewBox="0 0 16 16" fill="none">
+                <svg class="h-4 w-4 text-[#1a7f37]" viewBox="0 0 16 16" fill="none">
                   <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 400ms Debounced Preview
               </span>
               <span class="inline-flex items-center gap-2">
-                <svg class="h-4 w-4 text-[#006400]" viewBox="0 0 16 16" fill="none">
+                <svg class="h-4 w-4 text-[#1a7f37]" viewBox="0 0 16 16" fill="none">
                   <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 Client-Side ZIP Export
@@ -79,21 +79,21 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
           <!-- Code Snapshot Frame (Airtable-style clean editorial mockup) -->
           <div class="relative">
-            <div class="overflow-hidden rounded-[12px] border border-[#dddddd] bg-[#ffffff] shadow-sm">
+            <div class="overflow-hidden rounded-[12px] border border-[#d0d7de] bg-[#ffffff] shadow-sm">
               <!-- Window header -->
-              <div class="flex items-center justify-between border-b border-[#dddddd] bg-[#f8fafc] px-4 py-2.5">
+              <div class="flex items-center justify-between border-b border-[#d0d7de] bg-[#f6f8fa] px-4 py-2.5">
                 <div class="flex items-center gap-2">
-                  <span class="h-3 w-3 rounded-full bg-[#e0e2e6] border border-[#dddddd]"></span>
-                  <span class="h-3 w-3 rounded-full bg-[#e0e2e6] border border-[#dddddd]"></span>
-                  <span class="h-3 w-3 rounded-full bg-[#e0e2e6] border border-[#dddddd]"></span>
+                  <span class="h-3 w-3 rounded-full bg-[#eaeef2] border border-[#d0d7de]"></span>
+                  <span class="h-3 w-3 rounded-full bg-[#eaeef2] border border-[#d0d7de]"></span>
+                  <span class="h-3 w-3 rounded-full bg-[#eaeef2] border border-[#d0d7de]"></span>
                 </div>
                 <div class="flex items-center gap-1.5 text-[12px]">
-                  <span class="rounded-[6px] bg-[#ffffff] px-2.5 py-1 font-medium text-[#181d26] border border-[#dddddd]">index.html</span>
-                  <span class="px-2 py-1 text-[#41454d]">styles.css</span>
-                  <span class="px-2 py-1 text-[#41454d]">script.js</span>
+                  <span class="rounded-[6px] bg-[#ffffff] px-2.5 py-1 font-medium text-[#24292f] border border-[#d0d7de]">index.html</span>
+                  <span class="px-2 py-1 text-[#656d76]">styles.css</span>
+                  <span class="px-2 py-1 text-[#656d76]">script.js</span>
                 </div>
-                <div class="flex items-center gap-1.5 text-[11px] font-medium text-[#41454d]">
-                  <span class="h-2 w-2 rounded-full bg-[#006400]"></span> Live
+                <div class="flex items-center gap-1.5 text-[11px] font-medium text-[#656d76]">
+                  <span class="h-2 w-2 rounded-full bg-[#1a7f37]"></span> Live
                 </div>
               </div>
 
@@ -108,29 +108,29 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
   <span class="text-[#1b61c9]">&lt;/button&gt;</span>
 <span class="text-[#1b61c9]">&lt;/div&gt;</span></code></pre>
 
-                <div class="bg-[#f8fafc] p-4 flex flex-col justify-between">
-                  <div class="rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-4">
-                    <h3 class="text-[15px] font-medium text-[#181d26]">Fast Prototyping</h3>
-                    <p class="mt-1 text-[13px] text-[#41454d]">Zero login. 400ms compile.</p>
-                    <button class="mt-3 inline-flex items-center justify-center rounded-[6px] bg-[#181d26] px-3 py-1.5 text-[12px] font-medium text-white shadow-xs">
+                <div class="bg-[#f6f8fa] p-4 flex flex-col justify-between">
+                  <div class="rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-4">
+                    <h3 class="text-[15px] font-medium text-[#24292f]">Fast Prototyping</h3>
+                    <p class="mt-1 text-[13px] text-[#656d76]">Zero login. 400ms compile.</p>
+                    <button class="mt-3 inline-flex items-center justify-center rounded-[6px] bg-[#24292f] px-3 py-1.5 text-[12px] font-medium text-white shadow-xs">
                       Run Component
                     </button>
                   </div>
-                  <p class="mt-3 text-center text-[11px] text-[#41454d]">Sandboxed preview rendered at 60fps</p>
+                  <p class="mt-3 text-center text-[11px] text-[#656d76]">Sandboxed preview rendered at 60fps</p>
                 </div>
               </div>
 
               <!-- Console status footer -->
-              <div class="flex items-center justify-between border-t border-[#dddddd] bg-[#ffffff] px-4 py-2 text-[12px] text-[#41454d]">
+              <div class="flex items-center justify-between border-t border-[#d0d7de] bg-[#ffffff] px-4 py-2 text-[12px] text-[#656d76]">
                 <div class="flex items-center gap-2">
-                  <span class="font-medium text-[#181d26]">Console:</span>
-                  <span class="text-[#006400] font-medium">Ready</span> — 0 warnings, 0 errors
+                  <span class="font-medium text-[#24292f]">Console:</span>
+                  <span class="text-[#1a7f37] font-medium">Ready</span> — 0 warnings, 0 errors
                 </div>
-                <span class="text-[11px] text-[#41454d]">PostMessage Bridge Active</span>
+                <span class="text-[11px] text-[#656d76]">PostMessage Bridge Active</span>
               </div>
             </div>
-            <p class="mt-3 text-center text-[13px] text-[#41454d]">
-              Looking for full Monaco code features? <a href={editorUrl} class="font-medium text-[#1b61c9] hover:underline">Open the complete web editor</a>.
+            <p class="mt-3 text-center text-[13px] text-[#656d76]">
+              Looking for full Monaco code features? <a href={editorUrl} class="font-medium text-[#0969da] hover:underline">Open the complete web editor</a>.
             </p>
           </div>
         </div>
@@ -138,34 +138,34 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
     </section>
 
     <!-- Monochrome Standards & Tech Strip: 32px padding, clean muted typography -->
-    <section class="relative isolate overflow-hidden border-y border-[#dddddd] bg-[#ffffff] py-8" aria-label="Supported Standards">
+    <section class="relative isolate overflow-hidden border-y border-[#d0d7de] bg-[#ffffff] py-8" aria-label="Supported Standards">
       <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
-        <p class="text-center text-[11px] font-semibold uppercase tracking-wider text-[#41454d]">
-          Built with open web standards & modern cloud infrastructure
+        <p class="text-center text-[13px] text-[#656d76]">
+          Built with open web standards &amp; modern cloud infrastructure
         </p>
-        <div class="mt-5 flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-[14px] font-medium text-[#333840]">
+        <div class="mt-5 flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-[14px] font-medium text-[#32383f]">
           <span class="flex items-center gap-2">
-            <span class="h-2 w-2 rounded-full bg-[#181d26]"></span>
+            <span class="h-2 w-2 rounded-full bg-[#24292f]"></span>
             HTML5 Living Standard
           </span>
           <span class="flex items-center gap-2">
-            <span class="h-2 w-2 rounded-full bg-[#181d26]"></span>
+            <span class="h-2 w-2 rounded-full bg-[#24292f]"></span>
             CSS3 Grid & Flexbox
           </span>
           <span class="flex items-center gap-2">
-            <span class="h-2 w-2 rounded-full bg-[#181d26]"></span>
+            <span class="h-2 w-2 rounded-full bg-[#24292f]"></span>
             ECMAScript 2024
           </span>
           <span class="flex items-center gap-2">
-            <span class="h-2 w-2 rounded-full bg-[#181d26]"></span>
+            <span class="h-2 w-2 rounded-full bg-[#24292f]"></span>
             Monaco Engine
           </span>
           <span class="flex items-center gap-2">
-            <span class="h-2 w-2 rounded-full bg-[#181d26]"></span>
+            <span class="h-2 w-2 rounded-full bg-[#24292f]"></span>
             Sandboxed Iframe
           </span>
           <span class="flex items-center gap-2">
-            <span class="h-2 w-2 rounded-full bg-[#181d26]"></span>
+            <span class="h-2 w-2 rounded-full bg-[#24292f]"></span>
             Cloudflare Edge
           </span>
         </div>
@@ -175,13 +175,10 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
     <!-- Signature Coral Card: The brand voltage section from DESIGN.md -->
     <section class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]">
       <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
-        <div class="relative isolate overflow-hidden rounded-[12px] bg-[#aa2d00] p-8 sm:p-12 lg:p-14 text-white shadow-sm">
+        <div class="relative isolate overflow-hidden rounded-[12px] bg-[#24292f] p-8 sm:p-12 lg:p-14 text-white shadow-sm">
           <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <span class="inline-flex rounded-[6px] bg-white/20 px-3 py-1 text-[12px] font-medium tracking-wide uppercase text-white backdrop-blur-xs">
-                Instant Execution Architecture
-              </span>
-              <h2 class="mt-4 text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-white">
+              <h2 class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-white">
                 Zero-login code execution with instant live preview.
               </h2>
               <p class="mt-4 text-[15px] sm:text-[16px] leading-[1.5] text-white/90">
@@ -230,48 +227,47 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
     <section id="features" class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]" aria-labelledby="demo-grid-heading">
       <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="max-w-2xl">
-          <p class="text-[13px] font-semibold uppercase tracking-wider text-[#aa2d00]">Engineered For Flow</p>
-          <h2 id="demo-grid-heading" class="mt-2 text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#181d26]">
+          <h2 id="demo-grid-heading" class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
             Every feature you need — none of the paywalls.
           </h2>
-          <p class="mt-3 text-[16px] leading-[1.5] text-[#333840]">
+          <p class="mt-3 text-[16px] leading-[1.5] text-[#32383f]">
             A focused developer workbench that eliminates the friction of traditional web playgrounds.
           </p>
         </div>
 
         <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Card 1: Mint Surface (#a8d8c4) -->
-          <article class="rounded-[10px] bg-[#a8d8c4] p-6 text-[#181d26] flex flex-col justify-between shadow-xs">
+          <!-- Card 1: Editor-neutral surface -->
+          <article class="rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-6 text-[#24292f] flex flex-col justify-between shadow-xs">
             <div>
-              <span class="text-[12px] font-semibold uppercase tracking-wider text-[#181d26]/70">Zero-Storage Sharing</span>
-              <h3 class="mt-2 text-[20px] font-medium leading-snug text-[#181d26]">Instant State Compression</h3>
-              <p class="mt-3 text-[14px] leading-relaxed text-[#181d26]/90">
+              <span class="text-[12px] font-semibold uppercase tracking-wider text-[#24292f]/70">Zero-Storage Sharing</span>
+              <h3 class="mt-2 text-[20px] font-medium leading-snug text-[#24292f]">Instant State Compression</h3>
+              <p class="mt-3 text-[14px] leading-relaxed text-[#24292f]/90">
                 Your code is compressed straight into the browser URL hash using LZ-String. Share snippets with colleagues without creating an account or sending data to a database.
               </p>
             </div>
-            <div class="mt-6 rounded-[8px] border border-[#181d26]/15 bg-white/70 p-3 text-[12px] font-mono text-[#181d26]">
+            <div class="mt-6 rounded-[8px] border border-[#24292f]/15 bg-white/70 p-3 text-[12px] font-mono text-[#24292f]">
               compile.ladestack.in/#code=H4sIAAAAAAA...
             </div>
           </article>
 
-          <!-- Card 2: Peach Surface (#fcab79) -->
-          <article class="rounded-[10px] bg-[#fcab79] p-6 text-[#181d26] flex flex-col justify-between shadow-xs">
+          <!-- Card 2: Editor-neutral surface -->
+          <article class="rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-6 text-[#24292f] flex flex-col justify-between shadow-xs">
             <div>
-              <span class="text-[12px] font-semibold uppercase tracking-wider text-[#181d26]/70">Export Suite</span>
-              <h3 class="mt-2 text-[20px] font-medium leading-snug text-[#181d26]">ZIP, HTML & Screenshot</h3>
-              <p class="mt-3 text-[14px] leading-relaxed text-[#181d26]/90">
+              <span class="text-[12px] font-semibold uppercase tracking-wider text-[#24292f]/70">Export Suite</span>
+              <h3 class="mt-2 text-[20px] font-medium leading-snug text-[#24292f]">ZIP, HTML & Screenshot</h3>
+              <p class="mt-3 text-[14px] leading-relaxed text-[#24292f]/90">
                 Download your HTML, CSS, and JS bundle as a ready-to-deploy ZIP, copy standalone single-file HTML, or snap a crisp high-res screenshot of your rendered UI.
               </p>
             </div>
             <div class="mt-6 flex gap-2">
-              <span class="rounded-[6px] bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-[#181d26]">.ZIP</span>
-              <span class="rounded-[6px] bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-[#181d26]">HTML</span>
-              <span class="rounded-[6px] bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-[#181d26]">PNG</span>
+              <span class="rounded-[6px] bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-[#24292f]">.ZIP</span>
+              <span class="rounded-[6px] bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-[#24292f]">HTML</span>
+              <span class="rounded-[6px] bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-[#24292f]">PNG</span>
             </div>
           </article>
 
-          <!-- Card 3: Forest Signature Card (#0a2e0e) -->
-          <article class="relative isolate overflow-hidden rounded-[12px] bg-[#0a2e0e] p-6 text-white flex flex-col justify-between shadow-xs lg:row-span-2">
+          <!-- Card 3: Forest Signature Card (#24292f) -->
+          <article class="relative isolate overflow-hidden rounded-[12px] bg-[#24292f] p-6 text-white flex flex-col justify-between shadow-xs lg:row-span-2">
             <div>
               <span class="text-[12px] font-semibold uppercase tracking-wider text-white/70">Monaco Engine</span>
               <h3 class="mt-2 text-[22px] font-medium leading-snug text-white">VS Code Precision in Your Browser</h3>
@@ -302,21 +298,21 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
             </div>
           </article>
 
-          <!-- Card 4: Cream Surface (#f5e9d4) -->
-          <article class="rounded-[10px] bg-[#f5e9d4] p-6 text-[#181d26] flex flex-col justify-between shadow-xs md:col-span-2 lg:col-span-2">
+          <!-- Card 4: Editor-neutral subtle surface -->
+          <article class="rounded-[10px] border border-[#d0d7de] bg-[#f6f8fa] p-6 text-[#24292f] flex flex-col justify-between shadow-xs md:col-span-2 lg:col-span-2">
             <div>
-              <span class="text-[12px] font-semibold uppercase tracking-wider text-[#181d26]/70">Curated Starters</span>
-              <h3 class="mt-2 text-[20px] font-medium leading-snug text-[#181d26]">10 Production-Grade Starter Boilerplates</h3>
-              <p class="mt-3 text-[14px] leading-relaxed text-[#181d26]/90">
+              <span class="text-[12px] font-semibold uppercase tracking-wider text-[#24292f]/70">Curated Starters</span>
+              <h3 class="mt-2 text-[20px] font-medium leading-snug text-[#24292f]">10 Production-Grade Starter Boilerplates</h3>
+              <p class="mt-3 text-[14px] leading-relaxed text-[#24292f]/90">
                 Start from a blank canvas or choose from verified templates: modern CSS Grid dashboards, responsive landing pages, interactive forms with client validation, dark mode cards, HTML5 canvas animations, and weather API widgets.
               </p>
             </div>
             <div class="mt-6 flex flex-wrap gap-2">
-              <span class="rounded-[6px] border border-[#181d26]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#181d26]">CSS Grid</span>
-              <span class="rounded-[6px] border border-[#181d26]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#181d26]">Flexbox Hero</span>
-              <span class="rounded-[6px] border border-[#181d26]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#181d26]">Canvas Animation</span>
-              <span class="rounded-[6px] border border-[#181d26]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#181d26]">Fetch API Weather</span>
-              <span class="rounded-[6px] border border-[#181d26]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#181d26]">Form Validation</span>
+              <span class="rounded-[6px] border border-[#24292f]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#24292f]">CSS Grid</span>
+              <span class="rounded-[6px] border border-[#24292f]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#24292f]">Flexbox Hero</span>
+              <span class="rounded-[6px] border border-[#24292f]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#24292f]">Canvas Animation</span>
+              <span class="rounded-[6px] border border-[#24292f]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#24292f]">Fetch API Weather</span>
+              <span class="rounded-[6px] border border-[#24292f]/10 bg-white/80 px-2.5 py-1 text-[12px] font-medium text-[#24292f]">Form Validation</span>
             </div>
           </article>
         </div>
@@ -327,82 +323,93 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
     <section class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]" aria-labelledby="workflow-heading">
       <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="max-w-2xl">
-          <p class="text-[13px] font-semibold uppercase tracking-wider text-[#1b61c9]">Deliberate Simplicity</p>
-          <h2 id="workflow-heading" class="mt-2 text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#181d26]">
+          <h2 id="workflow-heading" class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
             Engineered for uncluttered focus.
           </h2>
-          <p class="mt-3 text-[16px] leading-[1.5] text-[#333840]">
+          <p class="mt-3 text-[16px] leading-[1.5] text-[#32383f]">
             Explore how each part of LadeCompile fits together to give you a clean, reliable coding workflow.
           </p>
         </div>
 
-        <div class="mt-12 rounded-[12px] border border-[#dddddd] bg-[#f8fafc] p-6 sm:p-10">
+        <div class="mt-12 rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-6 sm:p-10">
           <div class="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-center">
-            <!-- Left Tab Navigation -->
+            <!-- Left Tab Navigation — unnumbered feature list (independent features, not sequential steps) -->
             <div class="flex flex-col gap-2" role="tablist" aria-label="Feature Tabs">
               <button
                 type="button"
                 role="tab"
                 aria-selected="true"
-                class="tab-btn text-left rounded-[10px] border border-[#dddddd] bg-white p-4 transition-all"
+                class="tab-btn text-left rounded-[10px] border border-[#d0d7de] bg-white p-4 transition-all"
                 data-tab="tab-1"
               >
-                <div class="text-[16px] font-medium text-[#181d26]">1. Three-File Harmony</div>
-                <div class="mt-1 text-[13px] text-[#41454d]">Independent HTML, CSS, and JS tabs with automatic syntax formatting.</div>
+                <div class="flex items-center gap-2 text-[16px] font-medium text-[#24292f]">
+                  <svg class="h-4 w-4 shrink-0 text-[#0969da]" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 3.5H10.5L12 5V12.5H4V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M10.5 3.5V5H12" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 8H10M6 10.5H10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  Three-File Harmony
+                </div>
+                <div class="mt-1 text-[13px] text-[#656d76]">Independent HTML, CSS, and JS tabs with automatic syntax formatting.</div>
               </button>
 
               <button
                 type="button"
                 role="tab"
                 aria-selected="false"
-                class="tab-btn text-left rounded-[10px] border border-transparent hover:border-[#dddddd] bg-transparent p-4 transition-all"
+                class="tab-btn text-left rounded-[10px] border border-transparent hover:border-[#d0d7de] bg-transparent p-4 transition-all"
                 data-tab="tab-2"
               >
-                <div class="text-[16px] font-medium text-[#181d26]">2. Sandboxed Console Bridge</div>
-                <div class="mt-1 text-[13px] text-[#41454d]">Live postMessage error and log forwarding with unread count badges.</div>
+                <div class="flex items-center gap-2 text-[16px] font-medium text-[#24292f]">
+                  <svg class="h-4 w-4 shrink-0 text-[#0969da]" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="4" width="10" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 7.5L6.5 9L8.5 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 7V9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  Sandboxed Console Bridge
+                </div>
+                <div class="mt-1 text-[13px] text-[#656d76]">Live postMessage error and log forwarding with unread count badges.</div>
               </button>
 
               <button
                 type="button"
                 role="tab"
                 aria-selected="false"
-                class="tab-btn text-left rounded-[10px] border border-transparent hover:border-[#dddddd] bg-transparent p-4 transition-all"
+                class="tab-btn text-left rounded-[10px] border border-transparent hover:border-[#d0d7de] bg-transparent p-4 transition-all"
                 data-tab="tab-3"
               >
-                <div class="text-[16px] font-medium text-[#181d26]">3. Local-First Storage</div>
-                <div class="mt-1 text-[13px] text-[#41454d]">Changes persist automatically in localStorage; work survives reloads.</div>
+                <div class="flex items-center gap-2 text-[16px] font-medium text-[#24292f]">
+                  <svg class="h-4 w-4 shrink-0 text-[#0969da]" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 5.5H13V11.5C13 12.3 12.3 13 11.5 13H4.5C3.67 13 3 12.3 3 11.5V5.5Z" stroke="currentColor" stroke-width="1.3"/><path d="M3 5.5C3 4.67 3.67 4 4.5 4H11.5C12.3 4 13 4.67 13 5.5" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="8.5" r="1" fill="currentColor"/></svg>
+                  Local-First Storage
+                </div>
+                <div class="mt-1 text-[13px] text-[#656d76]">Changes persist automatically in localStorage; work survives reloads.</div>
               </button>
 
               <button
                 type="button"
                 role="tab"
                 aria-selected="false"
-                class="tab-btn text-left rounded-[10px] border border-transparent hover:border-[#dddddd] bg-transparent p-4 transition-all"
+                class="tab-btn text-left rounded-[10px] border border-transparent hover:border-[#d0d7de] bg-transparent p-4 transition-all"
                 data-tab="tab-4"
               >
-                <div class="text-[16px] font-medium text-[#181d26]">4. Unsaved Work Protection</div>
-                <div class="mt-1 text-[13px] text-[#41454d]">Confirmation guards prevent accidental loss when loading starters or resetting.</div>
+                <div class="flex items-center gap-2 text-[16px] font-medium text-[#24292f]">
+                  <svg class="h-4 w-4 shrink-0 text-[#0969da]" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3L3.5 5.25V8C3.5 10.4 5.3 12.6 8 13.5C10.7 12.6 12.5 10.4 12.5 8V5.25L8 3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 8L7.5 9.5L10.2 6.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Unsaved Work Protection
+                </div>
+                <div class="mt-1 text-[13px] text-[#656d76]">Confirmation guards prevent accidental loss when loading starters or resetting.</div>
               </button>
             </div>
 
             <!-- Right Tab Display Pane -->
-            <div class="rounded-[10px] border border-[#dddddd] bg-white p-6 shadow-xs">
+            <div class="rounded-[10px] border border-[#d0d7de] bg-white p-6 shadow-xs">
               <div id="tab-content" class="min-h-[260px] flex flex-col justify-between">
                 <div>
-                  <div class="inline-flex items-center gap-2 rounded-[4px] bg-[#f8fafc] border border-[#dddddd] px-2.5 py-1 text-[11px] font-medium text-[#181d26]">
+                  <div class="inline-flex items-center gap-2 rounded-[4px] bg-[#f6f8fa] border border-[#d0d7de] px-2.5 py-1 text-[11px] font-medium text-[#24292f]">
                     Active Capability
                   </div>
-                  <h3 id="tab-title" class="mt-3 text-[20px] font-medium text-[#181d26]">
+                  <h3 id="tab-title" class="mt-3 text-[20px] font-medium text-[#24292f]">
                     Dedicated Tabbed Editor Environment
                   </h3>
-                  <p id="tab-desc" class="mt-2 text-[14px] leading-relaxed text-[#333840]">
-                    Switch smoothly between <code class="rounded bg-[#f8fafc] px-1 py-0.5 text-[12px] border border-[#dddddd]">index.html</code>, <code class="rounded bg-[#f8fafc] px-1 py-0.5 text-[12px] border border-[#dddddd]">styles.css</code>, and <code class="rounded bg-[#f8fafc] px-1 py-0.5 text-[12px] border border-[#dddddd]">script.js</code> without clutter. Each tab runs full Monaco IntelliSense and error markers.
+                  <p id="tab-desc" class="mt-2 text-[14px] leading-relaxed text-[#32383f]">
+                    Switch smoothly between <code class="rounded bg-[#f6f8fa] px-1 py-0.5 text-[12px] border border-[#d0d7de]">index.html</code>, <code class="rounded bg-[#f6f8fa] px-1 py-0.5 text-[12px] border border-[#d0d7de]">styles.css</code>, and <code class="rounded bg-[#f6f8fa] px-1 py-0.5 text-[12px] border border-[#d0d7de]">script.js</code> without clutter. Each tab runs full Monaco IntelliSense and error markers.
                   </p>
                 </div>
 
-                <div class="mt-6 flex items-center justify-between border-t border-[#dddddd] pt-4 text-[13px]">
-                  <span class="text-[#41454d]">Ready to write code?</span>
-                  <a href={editorUrl} class="font-medium text-[#1b61c9] hover:underline">
+                <div class="mt-6 flex items-center justify-between border-t border-[#d0d7de] pt-4 text-[13px]">
+                  <span class="text-[#656d76]">Ready to write code?</span>
+                  <a href={editorUrl} class="font-medium text-[#0969da] hover:underline">
                     Open Editor →
                   </a>
                 </div>
@@ -418,8 +425,7 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
       <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <div>
-            <p class="text-[13px] font-semibold uppercase tracking-wider text-[#aa2d00]">Templates Library</p>
-            <h2 id="starters-heading" class="mt-2 text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#181d26]">
+            <h2 id="starters-heading" class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
               Curated starters for immediate prototyping.
             </h2>
           </div>
@@ -429,46 +435,46 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
         </div>
 
         <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-5 hover:border-[#181d26]/40 transition-colors">
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#41454d]">Layout</span>
-            <h3 class="mt-2 text-[16px] font-medium text-[#181d26]">CSS Grid Dashboard</h3>
-            <p class="mt-1 text-[13px] leading-relaxed text-[#41454d]">Responsive multi-column metric cards with modern CSS grid gap and media queries.</p>
-            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#1b61c9] hover:underline">Load template →</a>
+          <div class="rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-5 hover:border-[#24292f]/40 transition-colors">
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#656d76]">Layout</span>
+            <h3 class="mt-2 text-[16px] font-medium text-[#24292f]">CSS Grid Dashboard</h3>
+            <p class="mt-1 text-[13px] leading-relaxed text-[#656d76]">Responsive multi-column metric cards with modern CSS grid gap and media queries.</p>
+            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#0969da] hover:underline">Load template →</a>
           </div>
 
-          <div class="rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-5 hover:border-[#181d26]/40 transition-colors">
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#41454d]">Marketing</span>
-            <h3 class="mt-2 text-[16px] font-medium text-[#181d26]">Flexbox Landing Page</h3>
-            <p class="mt-1 text-[13px] leading-relaxed text-[#41454d]">Clean hero band, navigation bar, responsive pricing grid, and accessible form.</p>
-            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#1b61c9] hover:underline">Load template →</a>
+          <div class="rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-5 hover:border-[#24292f]/40 transition-colors">
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#656d76]">Marketing</span>
+            <h3 class="mt-2 text-[16px] font-medium text-[#24292f]">Flexbox Landing Page</h3>
+            <p class="mt-1 text-[13px] leading-relaxed text-[#656d76]">Clean hero band, navigation bar, responsive pricing grid, and accessible form.</p>
+            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#0969da] hover:underline">Load template →</a>
           </div>
 
-          <div class="rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-5 hover:border-[#181d26]/40 transition-colors">
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#41454d]">Interaction</span>
-            <h3 class="mt-2 text-[16px] font-medium text-[#181d26]">Form Validation Engine</h3>
-            <p class="mt-1 text-[13px] leading-relaxed text-[#41454d]">Real-time email and password regex validation with clear visual feedback states.</p>
-            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#1b61c9] hover:underline">Load template →</a>
+          <div class="rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-5 hover:border-[#24292f]/40 transition-colors">
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#656d76]">Interaction</span>
+            <h3 class="mt-2 text-[16px] font-medium text-[#24292f]">Form Validation Engine</h3>
+            <p class="mt-1 text-[13px] leading-relaxed text-[#656d76]">Real-time email and password regex validation with clear visual feedback states.</p>
+            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#0969da] hover:underline">Load template →</a>
           </div>
 
-          <div class="rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-5 hover:border-[#181d26]/40 transition-colors">
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#41454d]">Canvas</span>
-            <h3 class="mt-2 text-[16px] font-medium text-[#181d26]">Particle Animation</h3>
-            <p class="mt-1 text-[13px] leading-relaxed text-[#41454d]">Interactive 60fps HTML5 canvas particles reacting smoothly to cursor movement.</p>
-            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#1b61c9] hover:underline">Load template →</a>
+          <div class="rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-5 hover:border-[#24292f]/40 transition-colors">
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#656d76]">Canvas</span>
+            <h3 class="mt-2 text-[16px] font-medium text-[#24292f]">Particle Animation</h3>
+            <p class="mt-1 text-[13px] leading-relaxed text-[#656d76]">Interactive 60fps HTML5 canvas particles reacting smoothly to cursor movement.</p>
+            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#0969da] hover:underline">Load template →</a>
           </div>
 
-          <div class="rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-5 hover:border-[#181d26]/40 transition-colors">
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#41454d]">API / Async</span>
-            <h3 class="mt-2 text-[16px] font-medium text-[#181d26]">Weather API Widget</h3>
-            <p class="mt-1 text-[13px] leading-relaxed text-[#41454d]">Asynchronous Fetch API implementation with loading states and error handling.</p>
-            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#1b61c9] hover:underline">Load template →</a>
+          <div class="rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-5 hover:border-[#24292f]/40 transition-colors">
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#656d76]">API / Async</span>
+            <h3 class="mt-2 text-[16px] font-medium text-[#24292f]">Weather API Widget</h3>
+            <p class="mt-1 text-[13px] leading-relaxed text-[#656d76]">Asynchronous Fetch API implementation with loading states and error handling.</p>
+            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#0969da] hover:underline">Load template →</a>
           </div>
 
-          <div class="rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-5 hover:border-[#181d26]/40 transition-colors">
-            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#41454d]">Application</span>
-            <h3 class="mt-2 text-[16px] font-medium text-[#181d26]">Todo App with LocalStorage</h3>
-            <p class="mt-1 text-[13px] leading-relaxed text-[#41454d]">Complete CRUD list with filter tabs and client-side persistence.</p>
-            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#1b61c9] hover:underline">Load template →</a>
+          <div class="rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-5 hover:border-[#24292f]/40 transition-colors">
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#656d76]">Application</span>
+            <h3 class="mt-2 text-[16px] font-medium text-[#24292f]">Todo App with LocalStorage</h3>
+            <p class="mt-1 text-[13px] leading-relaxed text-[#656d76]">Complete CRUD list with filter tabs and client-side persistence.</p>
+            <a href={editorUrl} class="mt-4 inline-flex text-[13px] font-medium text-[#0969da] hover:underline">Load template →</a>
           </div>
         </div>
       </div>
@@ -477,13 +483,12 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
     <!-- Cream Callout Card from DESIGN.md -->
     <section class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]">
       <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
-        <div class="relative isolate overflow-hidden rounded-[10px] border border-[#dddddd] bg-[#f5e9d4] p-8 sm:p-12 text-[#181d26]">
+        <div class="relative isolate overflow-hidden rounded-[10px] border border-[#d0d7de] bg-[#f6f8fa] p-8 sm:p-12 text-[#24292f]">
           <div class="max-w-3xl">
-            <span class="text-[12px] font-semibold uppercase tracking-wider text-[#181d26]/70">Classroom & Prototyping Ready</span>
-            <h2 class="mt-2 text-[24px] sm:text-[32px] font-normal leading-[1.25] tracking-tight text-[#181d26]">
+            <h2 class="text-[24px] sm:text-[32px] font-normal leading-[1.25] tracking-tight text-[#24292f]">
               The path to 10× faster prototyping for developers, educators, and students.
             </h2>
-            <p class="mt-4 text-[15px] leading-relaxed text-[#333840]">
+            <p class="mt-4 text-[15px] leading-relaxed text-[#32383f]">
               Whether teaching a frontend bootcamp or quickly demonstrating a bug fix on a call, requiring users to log in before they can see or edit code creates avoidable friction. LadeCompile keeps the entire loop zero-login: open the link, edit immediately, share the new URL.
             </p>
           </div>
@@ -495,59 +500,58 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
     <section id="comparison" class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]" aria-labelledby="compare-heading">
       <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="max-w-2xl">
-          <p class="text-[13px] font-semibold uppercase tracking-wider text-[#181d26]">Why LadeCompile</p>
-          <h2 id="compare-heading" class="mt-2 text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#181d26]">
+          <h2 id="compare-heading" class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
             A free OneCompiler alternative — without the asterisks.
           </h2>
-          <p class="mt-3 text-[16px] leading-[1.5] text-[#333840]">
+          <p class="mt-3 text-[16px] leading-[1.5] text-[#32383f]">
             OneCompiler and CodePen are great tools. The difference is the business model: LadeCompile provides the core editing experience without accounts, paywalls, or gated actions.
           </p>
         </div>
 
-        <div class="mt-10 overflow-hidden rounded-[10px] border border-[#dddddd]">
-          <div class="grid grid-cols-[1.3fr_1fr_1fr] bg-[#f8fafc] border-b border-[#dddddd] text-[12px] font-semibold text-[#181d26]">
-            <div class="p-4 uppercase tracking-wider text-[#41454d]">Capability</div>
-            <div class="p-4 uppercase tracking-wider text-[#181d26] bg-[#e0e2e6]/50">LadeCompile</div>
-            <div class="p-4 uppercase tracking-wider text-[#41454d]">OneCompiler*</div>
+        <div class="mt-10 overflow-hidden rounded-[10px] border border-[#d0d7de]">
+          <div class="grid grid-cols-[1.3fr_1fr_1fr] bg-[#f6f8fa] border-b border-[#d0d7de] text-[12px] font-semibold text-[#24292f]">
+            <div class="p-4 text-[#656d76]">Capability</div>
+            <div class="p-4 text-[#24292f] bg-[#eaeef2]/50">LadeCompile</div>
+            <div class="p-4 text-[#656d76]">OneCompiler*</div>
           </div>
 
-          <div class="divide-y divide-[#dddddd] bg-[#ffffff] text-[14px]">
+          <div class="divide-y divide-[#d0d7de] bg-[#ffffff] text-[14px]">
             <div class="grid grid-cols-[1.3fr_1fr_1fr] p-4 items-center">
-              <div class="font-medium text-[#181d26]">Save & Share Without Login</div>
-              <div class="font-semibold text-[#006400] flex items-center gap-1.5">
+              <div class="font-medium text-[#24292f]">Save & Share Without Login</div>
+              <div class="font-semibold text-[#1a7f37] flex items-center gap-1.5">
                 <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 100% Free (URL / KV)
               </div>
-              <div class="text-[#41454d]">Login required</div>
+              <div class="text-[#656d76]">Login required</div>
             </div>
 
             <div class="grid grid-cols-[1.3fr_1fr_1fr] p-4 items-center">
-              <div class="font-medium text-[#181d26]">Paywalled Features</div>
-              <div class="font-semibold text-[#006400]">None — All Free</div>
-              <div class="text-[#41454d]">AI Agent behind Upgrade</div>
+              <div class="font-medium text-[#24292f]">Paywalled Features</div>
+              <div class="font-semibold text-[#1a7f37]">None — All Free</div>
+              <div class="text-[#656d76]">AI Agent behind Upgrade</div>
             </div>
 
             <div class="grid grid-cols-[1.3fr_1fr_1fr] p-4 items-center">
-              <div class="font-medium text-[#181d26]">Live Preview & Console</div>
-              <div class="font-semibold text-[#006400]">Included (Sandboxed)</div>
-              <div class="text-[#41454d]">Included</div>
+              <div class="font-medium text-[#24292f]">Live Preview & Console</div>
+              <div class="font-semibold text-[#1a7f37]">Included (Sandboxed)</div>
+              <div class="text-[#656d76]">Included</div>
             </div>
 
             <div class="grid grid-cols-[1.3fr_1fr_1fr] p-4 items-center">
-              <div class="font-medium text-[#181d26]">Export Suite (ZIP / HTML / PNG)</div>
-              <div class="font-semibold text-[#006400]">Client-Side Instant</div>
-              <div class="text-[#41454d]">Standard Download</div>
+              <div class="font-medium text-[#24292f]">Export Suite (ZIP / HTML / PNG)</div>
+              <div class="font-semibold text-[#1a7f37]">Client-Side Instant</div>
+              <div class="text-[#656d76]">Standard Download</div>
             </div>
 
             <div class="grid grid-cols-[1.3fr_1fr_1fr] p-4 items-center">
-              <div class="font-medium text-[#181d26]">Privacy & Data Tracking</div>
-              <div class="font-semibold text-[#006400]">Local-First (No Telemetry)</div>
-              <div class="text-[#41454d]">Account-Based Tracking</div>
+              <div class="font-medium text-[#24292f]">Privacy & Data Tracking</div>
+              <div class="font-semibold text-[#1a7f37]">Local-First (No Telemetry)</div>
+              <div class="text-[#656d76]">Account-Based Tracking</div>
             </div>
           </div>
         </div>
 
-        <p class="mt-4 text-[12px] text-[#41454d]">
+        <p class="mt-4 text-[12px] text-[#656d76]">
           *Comparison based on publicly available web editor features as of 2026. LadeCompile is built to provide an unencumbered free alternative for modern web developers.
         </p>
       </div>
@@ -556,12 +560,12 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
     <!-- CTA Band Light (cta-band-light from DESIGN.md) -->
     <section class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]">
       <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
-        <div class="relative isolate overflow-hidden rounded-[12px] bg-[#e0e2e6] p-8 sm:p-14 text-[#181d26]">
+        <div class="relative isolate overflow-hidden rounded-[12px] bg-[#eaeef2] p-8 sm:p-14 text-[#24292f]">
           <div class="max-w-2xl">
-            <h2 class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#181d26]">
+            <h2 class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
               Start building with LadeCompile right now.
             </h2>
-            <p class="mt-4 text-[16px] leading-[1.5] text-[#333840]">
+            <p class="mt-4 text-[16px] leading-[1.5] text-[#32383f]">
               No signup forms, no verification emails, and no credit card. Jump straight into the Monaco editor and begin writing HTML, CSS, and JavaScript.
             </p>
             <div class="mt-8 flex flex-wrap items-center gap-4">
@@ -614,13 +618,13 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
       // Update button states
       tabButtons.forEach((b) => {
         b.setAttribute("aria-selected", "false");
-        b.classList.remove("bg-white", "border-[#dddddd]");
+        b.classList.remove("bg-white", "border-[#d0d7de]");
         b.classList.add("bg-transparent", "border-transparent");
       });
 
       btn.setAttribute("aria-selected", "true");
       btn.classList.remove("bg-transparent", "border-transparent");
-      btn.classList.add("bg-white", "border-[#dddddd]");
+      btn.classList.add("bg-white", "border-[#d0d7de]");
 
       // Update content
       if (tabTitle) tabTitle.textContent = tabData[tabKey].title;

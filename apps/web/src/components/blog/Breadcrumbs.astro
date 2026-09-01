@@ -23,7 +23,7 @@ const breadcrumbJsonLd = {
 };
 ---
 
-<nav aria-label="Breadcrumbs" class="text-[13px] text-[#41454d]">
+<nav aria-label="Breadcrumbs" class="text-[13px] text-[#656d76]">
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   <ol class="flex flex-wrap items-center gap-1.5 list-none p-0 m-0">
     {items.map((item, index) => (
@@ -34,11 +34,11 @@ const breadcrumbJsonLd = {
           </svg>
         )}
         {item.href ? (
-          <a href={item.href} class="hover:text-[#181d26] transition-colors underline-offset-2 hover:underline">
+          <a href={item.href} class="hover:text-[#24292f] transition-colors underline-offset-2 hover:underline">
             {item.label}
           </a>
         ) : (
-          <span class="font-medium text-[#181d26] line-clamp-1 max-w-[280px] sm:max-w-md" aria-current="page">
+          <span class="font-medium text-[#24292f] line-clamp-1 max-w-[280px] sm:max-w-md" aria-current="page">
             {item.label}
           </span>
         )}

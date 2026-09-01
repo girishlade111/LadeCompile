@@ -22,31 +22,31 @@ const {
 } = Astro.props;
 ---
 
-<div class={`flex flex-wrap items-center gap-y-2 gap-x-3 text-[13px] text-[#41454d] ${className}`}>
+<div class={`flex flex-wrap items-center gap-y-2 gap-x-3 text-[13px] text-[#656d76] ${className}`}>
   {category && (
-    <span class="inline-flex items-center rounded-[6px] border border-[#aa2d00]/20 bg-[#aa2d00]/5 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[#aa2d00]">
+    <span class="inline-flex items-center rounded-[6px] border border-[#0969da]/20 bg-[#0969da]/5 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[#0969da]">
       {category}
     </span>
   )}
 
-  <div class="inline-flex items-center gap-1.5 font-medium text-[#181d26]">
-    <svg class="h-3.5 w-3.5 text-[#41454d]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+  <div class="inline-flex items-center gap-1.5 font-medium text-[#24292f]">
+    <svg class="h-3.5 w-3.5 text-[#656d76]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z" stroke="currentColor" stroke-width="1.3" />
       <path d="M2.5 14C2.5 11.5 5 9.5 8 9.5C11 9.5 13.5 11.5 13.5 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
     </svg>
     <span>{author}</span>
   </div>
 
-  <span class="text-[#dddddd]">·</span>
+  <span class="text-[#d0d7de]">·</span>
 
-  <time datetime={pubDate instanceof Date ? pubDate.toISOString() : new Date(pubDate).toISOString()} class="text-[#41454d]">
+  <time datetime={pubDate instanceof Date ? pubDate.toISOString() : new Date(pubDate).toISOString()} class="text-[#656d76]">
     {formatBlogDate(pubDate)}
   </time>
 
   {updatedDate && (
     <>
-      <span class="text-[#dddddd]">·</span>
-      <span class="text-[#41454d]">
+      <span class="text-[#d0d7de]">·</span>
+      <span class="text-[#656d76]">
         Updated <time datetime={updatedDate instanceof Date ? updatedDate.toISOString() : new Date(updatedDate).toISOString()}>{formatBlogDate(updatedDate)}</time>
       </span>
     </>
@@ -54,8 +54,8 @@ const {
 
   {readingTime && (
     <>
-      <span class="text-[#dddddd]">·</span>
-      <span class="inline-flex items-center gap-1 text-[#41454d]">
+      <span class="text-[#d0d7de]">·</span>
+      <span class="inline-flex items-center gap-1 text-[#656d76]">
         <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3" />
           <path d="M8 4.5V8L10.5 9.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
@@ -68,7 +68,7 @@ const {
   {tags.length > 0 && (
     <div class="hidden sm:inline-flex items-center gap-1.5 ml-auto">
       {tags.slice(0, 3).map((tag) => (
-        <span class="rounded-[4px] border border-[#dddddd] bg-[#f8fafc] px-2 py-0.5 text-[11px] font-medium text-[#41454d]">
+        <span class="rounded-[4px] border border-[#d0d7de] bg-[#f6f8fa] px-2 py-0.5 text-[11px] font-medium text-[#656d76]">
           #{tag}
         </span>
       ))}

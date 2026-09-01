@@ -1,62 +1,62 @@
 ---
 const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
 ---
-<footer class="relative isolate overflow-hidden border-t border-[#dddddd] bg-[#ffffff]" aria-labelledby="footer-heading">
+<footer class="relative isolate overflow-hidden border-t border-[#d0d7de] bg-[#ffffff]" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
   <div class="relative z-10 mx-auto max-w-[1280px] px-6 py-16 lg:px-12">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
       <div>
         <a href="/" class="inline-flex items-center gap-2.5">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-[6px] bg-[#181d26] text-[12px] font-bold tracking-wider text-white">LC</span>
-          <span class="text-[16px] font-medium tracking-tight text-[#181d26]">LadeCompile</span>
-          <span class="text-[12px] text-[#41454d]">by LadeStack</span>
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-[6px] bg-[#24292f] text-[12px] font-bold tracking-wider text-white">LC</span>
+          <span class="text-[16px] font-medium tracking-tight text-[#24292f]">LadeCompile</span>
+          <span class="text-[12px] text-[#656d76]">by LadeStack</span>
         </a>
-        <p class="mt-4 max-w-sm text-[14px] leading-relaxed text-[#333840]">
+        <p class="mt-4 max-w-sm text-[14px] leading-relaxed text-[#32383f]">
           Free, no-login HTML/CSS/JS online compiler. Built for developers, educators, and students who want fast, zero-friction prototyping without an account or paywall.
         </p>
-        <p class="mt-3 text-[13px] leading-normal text-[#41454d]">
+        <p class="mt-3 text-[13px] leading-normal text-[#656d76]">
           Part of the LadeStack ecosystem of open developer utilities.
         </p>
       </div>
 
       <div>
-        <h3 class="text-[14px] font-medium text-[#181d26]">Product</h3>
-        <ul class="mt-4 space-y-2.5 text-[14px] text-[#41454d]">
-          <li><a href={editorUrl} class="hover:text-[#181d26] transition-colors">Web Editor</a></li>
-          <li><a href="/#features" class="hover:text-[#181d26] transition-colors">Core Capabilities</a></li>
-          <li><a href="/#starters" class="hover:text-[#181d26] transition-colors">Starter Templates</a></li>
-          <li><a href="/#comparison" class="hover:text-[#181d26] transition-colors">Comparison Matrix</a></li>
-          <li><a href="/blog" class="hover:text-[#181d26] transition-colors">Articles & Guides</a></li>
+        <h3 class="text-[14px] font-medium text-[#24292f]">Product</h3>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-[#656d76]">
+          <li><a href={editorUrl} class="hover:text-[#24292f] transition-colors">Web Editor</a></li>
+          <li><a href="/#features" class="hover:text-[#24292f] transition-colors">Core Capabilities</a></li>
+          <li><a href="/#starters" class="hover:text-[#24292f] transition-colors">Starter Templates</a></li>
+          <li><a href="/#comparison" class="hover:text-[#24292f] transition-colors">Comparison Matrix</a></li>
+          <li><a href="/blog" class="hover:text-[#24292f] transition-colors">Articles & Guides</a></li>
         </ul>
       </div>
 
       <div>
-        <h3 class="text-[14px] font-medium text-[#181d26]">LadeStack Suite</h3>
-        <ul class="mt-4 space-y-2.5 text-[14px] text-[#41454d]">
-          <li><a href="https://ladestack.in" class="hover:text-[#181d26] transition-colors">LadeStack Hub</a></li>
-          <li><a href="/" class="font-medium text-[#181d26]">LadeCompile</a></li>
-          <li><span class="text-[#41454d]">GB Coder <span class="rounded-[4px] bg-[#f8fafc] border border-[#dddddd] px-1.5 py-0.5 text-[10px] font-medium text-[#41454d]">SOON</span></span></li>
-          <li><span class="text-[#41454d]">API Playground <span class="rounded-[4px] bg-[#f8fafc] border border-[#dddddd] px-1.5 py-0.5 text-[10px] font-medium text-[#41454d]">SOON</span></span></li>
+        <h3 class="text-[14px] font-medium text-[#24292f]">LadeStack Suite</h3>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-[#656d76]">
+          <li><a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">LadeStack Hub</a></li>
+          <li><a href="/" class="font-medium text-[#24292f]">LadeCompile</a></li>
+          <li><span class="text-[#656d76]">GB Coder <span class="rounded-[4px] bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[10px] font-medium text-[#656d76]">SOON</span></span></li>
+          <li><span class="text-[#656d76]">API Playground <span class="rounded-[4px] bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[10px] font-medium text-[#656d76]">SOON</span></span></li>
         </ul>
       </div>
 
       <div>
-        <h3 class="text-[14px] font-medium text-[#181d26]">Resources & Open Spec</h3>
-        <ul class="mt-4 space-y-2.5 text-[14px] text-[#41454d]">
-          <li><a href="/sitemap-index.xml" class="hover:text-[#181d26] transition-colors">Sitemap XML</a></li>
-          <li><a href="/robots.txt" class="hover:text-[#181d26] transition-colors">Robots.txt</a></li>
-          <li><a href="/llms.txt" class="hover:text-[#181d26] transition-colors">LLMs.txt Spec</a></li>
-          <li><a href="mailto:hello@ladestack.in" class="hover:text-[#181d26] transition-colors">hello@ladestack.in</a></li>
+        <h3 class="text-[14px] font-medium text-[#24292f]">Resources & Open Spec</h3>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-[#656d76]">
+          <li><a href="/sitemap-index.xml" class="hover:text-[#24292f] transition-colors">Sitemap XML</a></li>
+          <li><a href="/robots.txt" class="hover:text-[#24292f] transition-colors">Robots.txt</a></li>
+          <li><a href="/llms.txt" class="hover:text-[#24292f] transition-colors">LLMs.txt Spec</a></li>
+          <li><a href="mailto:hello@ladestack.in" class="hover:text-[#24292f] transition-colors">hello@ladestack.in</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="mt-12 flex flex-col gap-4 border-t border-[#dddddd] pt-8 text-[13px] text-[#41454d] sm:flex-row sm:items-center sm:justify-between">
+    <div class="mt-12 flex flex-col gap-4 border-t border-[#d0d7de] pt-8 text-[13px] text-[#656d76] sm:flex-row sm:items-center sm:justify-between">
       <p>© {new Date().getFullYear()} LadeStack · LadeCompile. Free, no-login, sandboxed execution. Zero telemetry tracking, no paywalls.</p>
       <div class="flex gap-6">
-        <a href="https://ladestack.in" class="hover:text-[#181d26] transition-colors">Privacy</a>
-        <a href="https://ladestack.in" class="hover:text-[#181d26] transition-colors">Terms</a>
-        <a href="https://github.com" class="hover:text-[#181d26] transition-colors">GitHub</a>
+        <a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">Privacy</a>
+        <a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">Terms</a>
+        <a href="https://github.com" class="hover:text-[#24292f] transition-colors">GitHub</a>
       </div>
     </div>
   </div>
