@@ -56,6 +56,7 @@ import { DEFAULT_FILES, STORAGE_KEY, type EditorFile } from "@/lib/editorDefault
 import { combineFiles } from "@/lib/preview";
 import { useTheme } from "@/components/theme-provider";
 import { TEMPLATES, type Template } from "@/lib/templates";
+import { encodeShareState, decodeShareState, shouldUseKvFallback } from "@/lib/share";
 import JSZip from "jszip";
 import { toast } from "sonner";
 
@@ -128,6 +129,11 @@ export default function EditorShell() {
   const [pendingTemplate, setPendingTemplate] = useState<Template | null>(null);
   const [confirmOpen, setConfirmOpen] = useState(false);
 
+  // Share state & overwrite confirmation
+  const [isSharing, setIsSharing] = useState(false);
+  const [shareConfirmOpen, setShareConfirmOpen] = useState(false);
+  const [pendingShareFiles, setPendingShareFiles] = useState<Record<EditorFile, string> | null>(null);
+
   // Console state
   const [consoleEntries, setConsoleEntries] = useState<ConsoleEntry[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
@@ -149,8 +155,9 @@ export default function EditorShell() {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pendingRef = useRef<{ tab: EditorFile; value: string } | null>(null);
 
-  // Rehydrate from localStorage on mount
+  // Rehydrate from localStorage & check URL for share state on mount
   useEffect(() => {
+    let storedFiles: Record<EditorFile, string> | null = null;
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
@@ -165,13 +172,102 @@ export default function EditorShell() {
             }
           });
           if (hasValid) {
-            setFiles(next);
-            // Do not update baseline — baseline stays default so unsaved check works after restore
+            storedFiles = next;
           }
         }
       }
     } catch (e) {
       console.warn("[LadeCompile] Failed to read editor state from localStorage, using defaults", e);
+    }
+
+    const initialFiles = storedFiles || DEFAULT_FILES;
+    const hasUnsavedCustomWork = storedFiles !== null && !isEqualFiles(storedFiles, DEFAULT_FILES);
+
+    // Check URL hash for #code=
+    const hash = typeof window !== "undefined" ? window.location.hash : "";
+    let hashCode: string | null = null;
+    if (hash.startsWith("#code=")) {
+      hashCode = hash.slice(6);
+    } else if (hash.includes("code=")) {
+      const params = new URLSearchParams(hash.replace(/^#/, ""));
+      hashCode = params.get("code");
+    }
+
+    // Check URL query parameters for ?share= or ?id=
+    const search = typeof window !== "undefined" ? window.location.search : "";
+    const searchParams = new URLSearchParams(search);
+    const shareId = searchParams.get("share") || searchParams.get("id");
+
+    if (hashCode) {
+      const decoded = decodeShareState(hashCode);
+      if (!decoded) {
+        toast.warning("Could not load shared code — showing default template");
+        if (storedFiles) setFiles(storedFiles);
+        return;
+      }
+
+      if (hasUnsavedCustomWork && !isEqualFiles(initialFiles, decoded)) {
+        if (storedFiles) setFiles(storedFiles);
+        setPendingShareFiles(decoded);
+        setShareConfirmOpen(true);
+      } else {
+        setFiles(decoded);
+        setBaselineFiles(decoded);
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(decoded));
+        } catch (e) {
+          console.warn(e);
+        }
+        setActiveTab("index.html");
+        toast.success("Loaded shared code", { description: "Restored code from share link" });
+      }
+    } else if (shareId) {
+      const apiEndpoint =
+        typeof window !== "undefined" && window.location.pathname.startsWith("/editor")
+          ? `/editor/api/share?id=${encodeURIComponent(shareId)}`
+          : `/api/share?id=${encodeURIComponent(shareId)}`;
+
+      fetch(apiEndpoint)
+        .then((res) => {
+          if (!res.ok) throw new Error("Share link not found or expired");
+          return res.json();
+        })
+        .then((data) => {
+          if (data && data.files) {
+            const loadedFiles: Record<EditorFile, string> = {
+              "index.html": data.files["index.html"] ?? DEFAULT_FILES["index.html"],
+              "styles.css": data.files["styles.css"] ?? DEFAULT_FILES["styles.css"],
+              "script.js": data.files["script.js"] ?? DEFAULT_FILES["script.js"],
+            };
+
+            if (hasUnsavedCustomWork && !isEqualFiles(initialFiles, loadedFiles)) {
+              if (storedFiles) setFiles(storedFiles);
+              setPendingShareFiles(loadedFiles);
+              setShareConfirmOpen(true);
+            } else {
+              setFiles(loadedFiles);
+              setBaselineFiles(loadedFiles);
+              try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(loadedFiles));
+              } catch (e) {
+                console.warn(e);
+              }
+              setActiveTab("index.html");
+              toast.success("Loaded shared code", { description: "Restored code from share link" });
+            }
+          } else {
+            throw new Error("Invalid response format");
+          }
+        })
+        .catch((err) => {
+          console.warn("[LadeCompile] Failed to load share from KV:", err);
+          toast.warning("Could not load shared code — showing default template");
+          if (storedFiles) setFiles(storedFiles);
+        });
+    } else {
+      if (storedFiles) {
+        setFiles(storedFiles);
+      }
     }
   }, []);
 
