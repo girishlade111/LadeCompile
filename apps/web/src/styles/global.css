@@ -2,25 +2,127 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-brand: #6366f1;
-  --color-brand-hover: #5456e5;
-  --color-brand-light: #eef0ff;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --color-primary: #181d26;
+  --color-primary-active: #0d1218;
+  --color-ink: #181d26;
+  --color-body: #333840;
+  --color-muted: #41454d;
+  --color-hairline: #dddddd;
+  --color-border-strong: #9297a0;
+  --color-canvas: #ffffff;
+  --color-surface-soft: #f8fafc;
+  --color-surface-strong: #e0e2e6;
+  --color-surface-dark: #181d26;
+  --color-surface-dark-elevated: #1d1f25;
+
+  --color-signature-coral: #aa2d00;
+  --color-signature-forest: #0a2e0e;
+  --color-signature-cream: #f5e9d4;
+  --color-signature-peach: #fcab79;
+  --color-signature-mint: #a8d8c4;
+  --color-signature-yellow: #f4d35e;
+  --color-signature-mustard: #d9a441;
+
+  --color-on-primary: #ffffff;
+  --color-on-dark: #ffffff;
+  --color-link: #1b61c9;
+  --color-link-active: #1a3866;
+  --color-info: #254fad;
+  --color-info-border: #458fff;
+  --color-success: #006400;
+  --color-success-border: #39bf45;
+  --color-pricing-ink: #1d1f25;
+
+  --radius-xs: 2px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* Base resets complementing Tailwind preflight */
+/* Base resets adhering to Airtable editorial spec */
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-canvas, #ffffff);
+  color: var(--color-body, #333840);
 }
 
 body {
   font-family: var(--font-sans);
+  background-color: var(--color-canvas, #ffffff);
+  color: var(--color-body, #333840);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Focus visible for a11y */
+/* Button & Link Component Tokens from DESIGN.md */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #181d26;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 16px 24px;
+  border-radius: 12px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary:active {
+  background-color: #0d1218;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #181d26;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 1px solid #dddddd;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-secondary:active {
+  background-color: #f8fafc;
+}
+
+.btn-secondary-on-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #181d26;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-secondary-on-dark:active {
+  background-color: #f8fafc;
+}
+
+/* Focus visible for accessibility */
 :focus-visible {
-  outline: 2px solid #6366f1;
+  outline: 2px solid #254fad;
   outline-offset: 2px;
 }

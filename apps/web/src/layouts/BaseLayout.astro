@@ -21,10 +21,12 @@ const { title, description, canonical, image, type, noindex } = Astro.props as P
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;475;500;600&display=swap" rel="stylesheet" />
     <SEO title={title} description={description} canonical={canonical} image={image} type={type} noindex={noindex} />
     <slot name="head" />
   </head>
-  <body class="min-h-screen bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-50">
+  <body class="min-h-screen bg-[#ffffff] text-[#333840] antialiased">
     <slot />
   </body>
 </html>
