@@ -5,10 +5,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider, themeInlineScript } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "LadeCompile — Free HTML CSS JS Editor",
+  title: "LadeCompile — Free Online HTML/CSS/JS Editor",
   description:
-    "Free, no-login, enterprise-grade HTML/CSS/JS online compiler — write, preview, and share code instantly. Part of LadeStack.",
+    "Fast, free, and distraction-free HTML, CSS, and JavaScript online editor with instant live preview and zero setup. Part of LadeStack.",
   metadataBase: new URL("https://compile.ladestack.in"),
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -19,23 +24,41 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <script dangerouslySetInnerHTML={{ __html: themeInlineScript }} />
       </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider>
           <TooltipProvider>
-            {/* Minimal header placeholder — full top bar comes in Prompt 13 */}
-            <header className="sticky top-0 z-40 flex h-14 items-center border-b bg-background/80 px-4 backdrop-blur">
-              <div className="flex items-center gap-2">
-                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#6366f1] text-[11px] font-extrabold tracking-widest text-white">
-                  LC
-                </span>
-                <span className="text-sm font-bold tracking-tight">LadeCompile</span>
-                <span className="hidden rounded-full border px-2 py-0.5 text-[10px] font-semibold tracking-widest text-muted-foreground sm:inline-flex">
+            {/* Global navigation header */}
+            <header className="sticky top-0 z-40 flex h-14 items-center justify-between border-b bg-background/95 px-4 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+              <div className="flex items-center gap-3">
+                <a href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#6366f1] text-[11px] font-extrabold tracking-widest text-white shadow-sm">
+                    LC
+                  </span>
+                  <span className="text-sm font-bold tracking-tight">LadeCompile</span>
+                </a>
+                <span className="hidden rounded-full border bg-muted/30 px-2 py-0.5 text-[10px] font-semibold tracking-widest text-muted-foreground sm:inline-flex">
                   LADESTACK
                 </span>
               </div>
-              <span className="ml-auto text-xs text-muted-foreground">Editor scaffold — Prompt 4</span>
+              <nav className="flex items-center gap-4 text-xs font-medium text-muted-foreground">
+                <a href="/" className="transition-colors hover:text-foreground">
+                  Home
+                </a>
+                <a href="/blog" className="transition-colors hover:text-foreground">
+                  Blog
+                </a>
+                <a
+                  href="https://ladestack.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden transition-colors hover:text-foreground md:inline-block"
+                >
+                  LadeStack Ecosystem ↗
+                </a>
+              </nav>
             </header>
             {children}
             <Toaster />
