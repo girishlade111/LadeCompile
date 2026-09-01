@@ -139,6 +139,28 @@ export default function EditorShell() {
   const [shareConfirmOpen, setShareConfirmOpen] = useState(false);
   const [pendingShareFiles, setPendingShareFiles] = useState<Record<EditorFile, string> | null>(null);
 
+  // Minimap preference state
+  const [minimapEnabled, setMinimapEnabled] = useState(false);
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("ladecompile:editor:minimap:v1");
+      if (saved !== null) {
+        setMinimapEnabled(saved === "true");
+      }
+    } catch (e) {
+      console.warn("[LadeCompile] Failed to read minimap preference:", e);
+    }
+  }, []);
+
+  // Reset to default confirmation state
+  const [resetConfirmOpen, setResetConfirmOpen] = useState(false);
+
+  // Keyboard shortcuts dialog state
+  const [shortcutsOpen, setShortcutsOpen] = useState(false);
+
+  // Monaco editor reference
+  const editorRef = useRef<any>(null);
+
   // Console state
   const [consoleEntries, setConsoleEntries] = useState<ConsoleEntry[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
