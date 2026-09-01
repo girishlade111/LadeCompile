@@ -34,7 +34,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;475;500;600&display=swap" rel="stylesheet" />
         <script dangerouslySetInnerHTML={{ __html: themeInlineScript }} />
       </head>
-      <body className="min-h-screen bg-background font-sans antialiased text-foreground">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen bg-background font-sans antialiased text-foreground"
+      >
         <ThemeProvider>
           <TooltipProvider>
             {/* Global navigation header matching Airtable top-nav specification */}
