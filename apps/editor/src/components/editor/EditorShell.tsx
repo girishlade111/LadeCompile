@@ -719,6 +719,36 @@ export default function EditorShell() {
     });
   }, []);
 
+  // Set font size preference and persist to localStorage
+  const handleSetFontSize = useCallback((size: number) => {
+    setFontSize(size);
+    try {
+      localStorage.setItem("ladecompile:editor:fontSize:v1", String(size));
+    } catch (e) {
+      console.warn("[LadeCompile] Failed to persist font size preference:", e);
+    }
+    toast.success(`Font size: ${size}px`);
+  }, []);
+
+  // Search in editor action (triggers Monaco find widget)
+  const handleSearchClick = useCallback(() => {
+    if (editorRef.current) {
+      try {
+        editorRef.current.focus();
+        const action = editorRef.current.getAction("actions.find");
+        if (action) {
+          action.run();
+        } else {
+          editorRef.current.trigger("keyboard", "actions.find", null);
+        }
+      } catch (e) {
+        console.warn("[LadeCompile] Search trigger error:", e);
+      }
+    } else {
+      toast.info("Editor is loading...");
+    }
+  }, []);
+
   // Share — URL hash (lz-string) for <= 2000 chars, KV fallback for large payloads
   const handleShare = useCallback(async () => {
     if (isSharing) return;
