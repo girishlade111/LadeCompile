@@ -1,0 +1,51 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+}
+
+const {
+  title = "Try LadeCompile live — no account required",
+  description = "Write HTML, CSS, and JavaScript in an isolated sandbox with instant preview, console output, and one-click share links. 100% free, zero signup friction.",
+  buttonText = "Open Free Web Editor",
+} = Astro.props;
+
+const editorUrl =
+  import.meta.env.PUBLIC_EDITOR_URL ||
+  (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+---
+
+<div class="my-12 rounded-[12px] border border-[#dddddd] bg-[#f5e9d4] p-7 sm:p-8 text-[#181d26]">
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div class="max-w-xl">
+      <div class="inline-flex items-center gap-2 rounded-[4px] bg-[#181d26]/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[#181d26]">
+        Zero Friction Tool
+      </div>
+      <h3 class="mt-2 text-[20px] sm:text-[22px] font-medium leading-snug tracking-tight text-[#181d26]">
+        {title}
+      </h3>
+      <p class="mt-2 text-[14px] leading-relaxed text-[#333840]">
+        {description}
+      </p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 shrink-0">
+      <a
+        href={editorUrl}
+        class="inline-flex items-center justify-center rounded-[12px] bg-[#181d26] px-5 py-3 text-[14px] font-medium text-white shadow-sm hover:bg-[#0d1218] transition-colors"
+      >
+        {buttonText}
+        <svg class="ml-2 h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <a
+        href="/#starters"
+        class="inline-flex items-center justify-center rounded-[12px] border border-[#181d26]/20 bg-white/70 px-4 py-3 text-[14px] font-medium text-[#181d26] hover:bg-white transition-colors"
+      >
+        Browse Templates
+      </a>
+    </div>
+  </div>
+</div>

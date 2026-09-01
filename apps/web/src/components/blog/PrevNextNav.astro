@@ -1,0 +1,53 @@
+---
+import type { BlogPost } from "../../utils/blog";
+import { getPostSlug } from "../../utils/blog";
+
+interface Props {
+  prevPost?: BlogPost;
+  nextPost?: BlogPost;
+}
+
+const { prevPost, nextPost } = Astro.props;
+---
+
+{(prevPost || nextPost) && (
+  <nav aria-label="Article navigation" class="my-10 grid gap-4 sm:grid-cols-2 border-t border-[#dddddd] pt-8">
+    {prevPost ? (
+      <a
+        href={`/blog/${getPostSlug(prevPost)}/`}
+        class="group flex flex-col justify-between rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-5 text-left transition-colors hover:border-[#181d26]/40 hover:bg-[#f8fafc]"
+      >
+        <span class="inline-flex items-center gap-1.5 text-[12px] font-medium text-[#41454d] group-hover:text-[#181d26]">
+          <svg class="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Previous Article
+        </span>
+        <span class="mt-2 text-[15px] font-medium leading-snug text-[#181d26] group-hover:text-[#1b61c9] line-clamp-2">
+          {prevPost.data.title}
+        </span>
+      </a>
+    ) : (
+      <div class="hidden sm:block" />
+    )}
+
+    {nextPost ? (
+      <a
+        href={`/blog/${getPostSlug(nextPost)}/`}
+        class="group flex flex-col justify-between rounded-[10px] border border-[#dddddd] bg-[#ffffff] p-5 text-right transition-colors hover:border-[#181d26]/40 hover:bg-[#f8fafc]"
+      >
+        <span class="inline-flex items-center justify-end gap-1.5 text-[12px] font-medium text-[#41454d] group-hover:text-[#181d26]">
+          Next Article
+          <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+        <span class="mt-2 text-[15px] font-medium leading-snug text-[#181d26] group-hover:text-[#1b61c9] line-clamp-2">
+          {nextPost.data.title}
+        </span>
+      </a>
+    ) : (
+      <div class="hidden sm:block" />
+    )}
+  </nav>
+)}

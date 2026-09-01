@@ -1,0 +1,42 @@
+---
+import type { BlogPost } from "../../utils/blog";
+import BlogCard from "./BlogCard.astro";
+
+interface Props {
+  posts: BlogPost[];
+  showFeaturedFirst?: boolean;
+}
+
+const { posts, showFeaturedFirst = true } = Astro.props;
+
+// If showFeaturedFirst is true and we have at least one post marked featured, highlight it
+const featuredPost = showFeaturedFirst ? posts.find((p) => p.data.featured) : undefined;
+const regularPosts = featuredPost
+  ? posts.filter((p) => p.id !== featuredPost.id)
+  : posts;
+---
+
+<div class="space-y-8">
+  {featuredPost && (
+    <div class="mb-10">
+      <div class="mb-3 flex items-center gap-2">
+        <span class="inline-block h-2 w-2 rounded-full bg-[#aa2d00]" />
+        <span class="text-[12px] font-semibold uppercase tracking-wider text-[#aa2d00]">Featured Story</span>
+      </div>
+      <BlogCard post={featuredPost} featured={true} />
+    </div>
+  )}
+
+  {regularPosts.length === 0 && !featuredPost ? (
+    <div class="rounded-[12px] border border-[#dddddd] bg-[#f8fafc] p-12 text-center">
+      <p class="text-[15px] font-medium text-[#181d26]">No articles found</p>
+      <p class="mt-1 text-[13px] text-[#41454d]">Check back soon for new guides and deep-dives.</p>
+    </div>
+  ) : (
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+      {regularPosts.map((post) => (
+        <BlogCard post={post} />
+      ))}
+    </div>
+  )}
+</div>
