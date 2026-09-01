@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181d26"/>
+      <stop offset="100%" stop-color="#0d1218"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect x="50" y="50" width="700" height="350" rx="16" fill="#1e2430" stroke="#dddddd" stroke-opacity="0.2"/>
+  <circle cx="280" cy="225" r="90" fill="#aa2d00" fill-opacity="0.85"/>
+  <rect x="420" y="135" width="180" height="180" rx="12" fill="#254fad" fill-opacity="0.85"/>
+  <text x="400" y="380" fill="#ffffff" font-family="system-ui, sans-serif" font-size="22" font-weight="600" text-anchor="middle">HTML5 Canvas vs SVG — Architecture & Performance</text>
+  <text x="400" y="80" fill="#a8d8c4" font-family="system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle" letter-spacing="2">LADECOMPILE TECHNICAL GUIDE</text>
+</svg>

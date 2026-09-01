@@ -1,9 +1,20 @@
 ---
 title: "OneCompiler Alternatives: What to Look For in a Free Code Editor"
 description: "Shopping for a OneCompiler alternative? Here’s a practical checklist for free code editors — login friction, paywalled AI, preview isolation, sharing, and export — with a no-signup option that covers the basics for free."
-publishDate: 2026-08-21
-tags: ["onecompiler", "alternatives", "free-editor", "html", "tooling"]
-heroImage: "/blog/onecompiler-alternatives.svg"
+pubDate: 2026-08-21
+updatedDate: 2026-08-22
+author: "Girish Lade"
+image: "/blog/onecompiler-alternatives.svg"
+imageAlt: "OneCompiler alternatives evaluation and comparison guide"
+category: "Comparisons"
+tags:
+  - onecompiler
+  - alternatives
+  - free-editor
+  - html
+  - tooling
+draft: false
+featured: false
 ---
 
 ## Why people look for an alternative in the first place

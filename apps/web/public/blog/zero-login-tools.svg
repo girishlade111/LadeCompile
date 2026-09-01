@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181d26"/>
+      <stop offset="100%" stop-color="#1a202c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg2)"/>
+  <rect x="60" y="60" width="680" height="330" rx="16" fill="#252b38" stroke="#dddddd" stroke-opacity="0.25"/>
+  <path d="M 260 225 L 360 145 L 360 305 Z" fill="#fcab79" fill-opacity="0.9"/>
+  <circle cx="500" cy="225" r="75" fill="#f4d35e" fill-opacity="0.85"/>
+  <text x="400" y="360" fill="#ffffff" font-family="system-ui, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Why Zero-Login Developer Tools Are the Future</text>
+  <text x="400" y="95" fill="#fcab79" font-family="system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle" letter-spacing="2">LADESTACK PERSPECTIVES</text>
+</svg>
