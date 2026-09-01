@@ -4,9 +4,12 @@
   "compatibility_date": "2025-08-01",
   "compatibility_flags": ["nodejs_compat"],
   "main": ".open-next/worker.js",
-  // Placeholder domain — swap to real domain when ready.
-  // More specific than web's /* so Cloudflare routes /editor/* here first.
+  // Cloudflare Route Specificity: /editor* takes precedence over web's /*
   "routes": [
+    {
+      "pattern": "compile.ladestack.in/editor*",
+      "zone_name": "ladestack.in"
+    },
     {
       "pattern": "compile.ladestack.in/editor/*",
       "zone_name": "ladestack.in"
@@ -20,7 +23,8 @@
   "kv_namespaces": [
     {
       "binding": "SHARE_KV",
-      "id": "SHARE_KV_NAMESPACE_ID"
+      "id": "SHARE_KV_NAMESPACE_ID",
+      "preview_id": "SHARE_KV_PREVIEW_NAMESPACE_ID"
     }
   ],
   "observability": {
