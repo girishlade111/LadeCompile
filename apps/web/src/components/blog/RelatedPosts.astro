@@ -14,8 +14,8 @@ const relatedPosts = getRelatedPosts(currentPost, allPosts, limit);
 ---
 
 {relatedPosts.length > 0 && (
-  <section class="mt-16 border-t border-[#dddddd] pt-12" aria-labelledby="related-posts-heading">
-    <div class="mb-6 flex items-center justify-between">
+  <section class="relative isolate overflow-hidden mt-16 border-t border-[#dddddd] pt-12" aria-labelledby="related-posts-heading">
+    <div class="relative z-10 mb-6 flex items-center justify-between">
       <div>
         <p class="text-[11px] font-semibold uppercase tracking-wider text-[#aa2d00]">Keep Reading</p>
         <h2 id="related-posts-heading" class="mt-1 text-[22px] font-medium tracking-tight text-[#181d26]">

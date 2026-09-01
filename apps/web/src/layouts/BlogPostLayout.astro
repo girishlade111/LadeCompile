@@ -86,9 +86,9 @@ const jsonLd = {
 
   <Header />
 
-  <main id="main-content" class="mx-auto max-w-[1280px] px-6 py-10 lg:px-12 sm:py-14">
-    <div class="mx-auto max-w-3xl">
-      <article>
+  <main id="main-content" class="relative isolate overflow-hidden mx-auto max-w-[1280px] px-6 py-10 lg:px-12 sm:py-14">
+    <div class="relative z-10 mx-auto max-w-3xl">
+      <article class="relative z-10">
         <BlogHeader post={post} readingTime={readingTime} />
 
         <TableOfContents headings={headings} />

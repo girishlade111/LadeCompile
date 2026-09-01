@@ -126,3 +126,48 @@ body {
   outline: 2px solid #254fad;
   outline-offset: 2px;
 }
+
+/* ── Decorative background shape hardening (Fix Prompt 1) ──
+   Ensures any decorative blob/pill/gradient shape added inside a section
+   always renders strictly behind foreground content, never bleeds into
+   adjacent sections, and never blocks interaction.
+   Stacking strategy: isolated section container (relative + isolate +
+   overflow-hidden) creates a local stacking context; decorative layer at
+   z-index 0, content layer at z-index 10. */
+.decorative-shape,
+[data-decorative="true"],
+.bg-blob,
+.bg-shape,
+[class*="decoration-blob"],
+[class*="bg-decorative"] {
+  position: absolute !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  /* never affect document flow */
+}
+
+.decorative-shape[aria-hidden="false"],
+[data-decorative="true"] {
+  /* decorative elements are always aria-hidden */
+  pointer-events: none !important;
+}
+
+/* Utility: section-level containment for decorative shapes */
+.section-decorative-container {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section-decorative-content {
+  position: relative;
+  z-index: 10;
+}
+
+.section-decorative-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}

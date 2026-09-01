@@ -1,9 +1,9 @@
 ---
 const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
 ---
-<footer class="border-t border-[#dddddd] bg-[#ffffff]" aria-labelledby="footer-heading">
+<footer class="relative isolate overflow-hidden border-t border-[#dddddd] bg-[#ffffff]" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
-  <div class="mx-auto max-w-[1280px] px-6 py-16 lg:px-12">
+  <div class="relative z-10 mx-auto max-w-[1280px] px-6 py-16 lg:px-12">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
       <div>
         <a href="/" class="inline-flex items-center gap-2.5">

@@ -18,7 +18,7 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 {tocHeadings.length > 1 && (
   <nav
     aria-label="Table of contents"
-    class="my-8 rounded-[10px] border border-[#dddddd] bg-[#f8fafc] p-5 sm:p-6"
+    class="relative isolate overflow-hidden my-8 rounded-[10px] border border-[#dddddd] bg-[#f8fafc] p-5 sm:p-6"
   >
     <div class="flex items-center gap-2 text-[13px] font-semibold text-[#181d26] tracking-tight uppercase">
       <svg class="h-4 w-4 text-[#41454d]" viewBox="0 0 16 16" fill="none" aria-hidden="true">

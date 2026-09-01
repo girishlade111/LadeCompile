@@ -13,7 +13,7 @@ const date = post.data.pubDate ?? post.data.publishDate ?? new Date();
 const image = post.data.image ?? post.data.heroImage;
 ---
 
-<header class="mb-8 sm:mb-10">
+<header class="relative isolate overflow-hidden mb-8 sm:mb-10">
   <div class="mb-6">
     <Breadcrumbs
       items={[
@@ -44,7 +44,7 @@ const image = post.data.image ?? post.data.heroImage;
   </div>
 
   {image && (
-    <div class="mt-8 overflow-hidden rounded-[12px] border border-[#dddddd] bg-[#f8fafc]">
+    <div class="relative z-10 mt-8 overflow-hidden rounded-[12px] border border-[#dddddd] bg-[#f8fafc]">
       <img
         src={image}
         alt={post.data.imageAlt || post.data.title}
