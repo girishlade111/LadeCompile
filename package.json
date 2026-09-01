@@ -12,6 +12,8 @@
     "apps/*"
   ],
   "scripts": {
+    "dev": "npm run dev:editor",
+    "dev:all": "npm run dev --workspaces --parallel",
     "dev:web": "npm run dev --workspace=web",
     "dev:editor": "npm run dev --workspace=editor",
     "build": "npm run build --workspaces --if-present",
