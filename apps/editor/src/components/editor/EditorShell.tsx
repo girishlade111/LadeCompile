@@ -63,7 +63,6 @@ import { combineFiles } from "@/lib/preview";
 import { useTheme } from "@/components/theme-provider";
 import { TEMPLATES, type Template } from "@/lib/templates";
 import { encodeShareState, decodeShareState, shouldUseKvFallback } from "@/lib/share";
-import JSZip from "jszip";
 import { toast } from "sonner";
 
 // Dynamically import Monaco wrapper — browser only
@@ -497,8 +496,10 @@ export default function EditorShell() {
   }, []);
 
   const handleDownloadZip = useCallback(async () => {
+    const toastId = toast.loading("Generating ZIP archive...");
     try {
       const current = getCurrentFilesForExport();
+      const { default: JSZip } = await import("jszip");
       const zip = new JSZip();
       zip.file("index.html", current["index.html"]);
       zip.file("styles.css", current["styles.css"]);
@@ -512,10 +513,10 @@ export default function EditorShell() {
       a.click();
       a.remove();
       URL.revokeObjectURL(url);
-      toast.success("ZIP downloaded", { description: "LadeCompile-export.zip — 3 files" });
+      toast.success("ZIP downloaded", { id: toastId, description: "LadeCompile-export.zip — 3 files" });
     } catch (e) {
-      console.error(e);
-      toast.error("ZIP download failed", { description: String(e) });
+      console.error("[LadeCompile] ZIP export error:", e);
+      toast.error("ZIP download failed", { id: toastId, description: String(e) });
     }
   }, [getCurrentFilesForExport]);
 
@@ -562,11 +563,12 @@ export default function EditorShell() {
         target = doc.body;
         if (!target) throw new Error("No body in preview");
       } catch (e) {
-        toast.error("Screenshot capture failed — preview may contain content that can't be captured", {
+        toast.error("Screenshot capture failed — preview may contain external content", {
           description: String(e),
         });
         return;
       }
+      const toastId = toast.loading(`Capturing preview as ${format.toUpperCase()}...`);
       try {
         const { default: html2canvas } = await import("html2canvas");
         const canvas = await html2canvas(target as HTMLElement, {
@@ -584,10 +586,14 @@ export default function EditorShell() {
         document.body.appendChild(a);
         a.click();
         a.remove();
-        toast.success(`Screenshot downloaded as ${ext.toUpperCase()}`, { description: "LadeCompile-preview." + ext });
+        toast.success(`Screenshot downloaded as ${ext.toUpperCase()}`, {
+          id: toastId,
+          description: "LadeCompile-preview." + ext,
+        });
       } catch (e) {
-        console.error(e);
-        toast.error("Screenshot capture failed — preview may contain content that can't be captured", {
+        console.error("[LadeCompile] Screenshot error:", e);
+        toast.error("Screenshot capture failed", {
+          id: toastId,
           description: String(e),
         });
       }
