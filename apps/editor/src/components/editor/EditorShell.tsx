@@ -1077,7 +1077,7 @@ export default function EditorShell() {
         </DialogContent>
       </Dialog>
 
-      {/* Unsaved changes confirmation */}
+      {/* Unsaved changes confirmation for Templates */}
       <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
         <DialogContent className="max-w-md">
           <DialogHeader>
@@ -1094,6 +1094,38 @@ export default function EditorShell() {
               className="bg-[#6366f1] hover:bg-[#5456e5]"
               onClick={() => {
                 if (pendingTemplate) applyTemplate(pendingTemplate);
+              }}
+            >
+              Continue
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Unsaved changes confirmation for Shared Code */}
+      <Dialog open={shareConfirmOpen} onOpenChange={setShareConfirmOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Replace your current code?</DialogTitle>
+            <DialogDescription>
+              Loading this shared code will replace your current work. Continue?
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end gap-2 pt-2">
+            <Button
+              variant="outline"
+              onClick={() => {
+                setShareConfirmOpen(false);
+                setPendingShareFiles(null);
+                toast.info("Shared code not loaded — kept your current work");
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              className="bg-[#6366f1] hover:bg-[#5456e5]"
+              onClick={() => {
+                if (pendingShareFiles) applySharedFiles(pendingShareFiles);
               }}
             >
               Continue
