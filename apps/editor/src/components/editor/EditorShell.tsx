@@ -587,18 +587,107 @@ export default function EditorShell() {
 
   // Save to browser localStorage with toast confirmation
   const handleSave = useCallback(() => {
+    flushPending();
     const current = getCurrentFilesForExport();
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
       setBaselineFiles(current);
-      toast.success("Saved to browser storage", {
-        description: "Your code is preserved in your local browser storage.",
-      });
+      toast.success("Saved");
     } catch (e) {
       console.error("[LadeCompile] Save failed:", e);
       toast.error("Save failed", { description: String(e) });
     }
+  }, [flushPending, getCurrentFilesForExport]);
+
+  const handleSaveRef = useRef(handleSave);
+  useEffect(() => {
+    handleSaveRef.current = handleSave;
+  }, [handleSave]);
+
+  // Global keyboard shortcut Ctrl/Cmd + S
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") {
+        e.preventDefault();
+        handleSaveRef.current();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Monaco mount callback
+  const handleEditorMount = useCallback((editorInstance: any, monaco: any) => {
+    editorRef.current = editorInstance;
+    if (monaco && editorInstance?.addCommand) {
+      editorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
+        handleSaveRef.current();
+      });
+    }
+  }, []);
+
+  // Format code using Monaco's built-in document formatter
+  const handleFormatCode = useCallback(() => {
+    if (editorRef.current) {
+      try {
+        const action = editorRef.current.getAction("editor.action.formatDocument");
+        if (action) {
+          action.run();
+          toast.success("Code formatted");
+        } else {
+          toast.info("Formatting not available for this file");
+        }
+      } catch (e) {
+        console.warn("[LadeCompile] Format error:", e);
+      }
+    } else {
+      toast.info("Editor not ready for formatting");
+    }
+  }, []);
+
+  // Reset to default action with unsaved changes confirmation
+  const handleResetToDefault = useCallback(() => {
+    const effective = getCurrentFilesForExport();
+    const isDefault = isEqualFiles(effective, DEFAULT_FILES);
+    if (isDefault) {
+      toast.info("Already showing default starter template");
+      return;
+    }
+    setResetConfirmOpen(true);
   }, [getCurrentFilesForExport]);
+
+  const applyResetToDefault = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    pendingRef.current = null;
+    setFiles(DEFAULT_FILES);
+    setBaselineFiles(DEFAULT_FILES);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_FILES));
+    } catch (e) {
+      console.warn("[LadeCompile] Failed to reset localStorage:", e);
+    }
+    setActiveTab("index.html");
+    setResetConfirmOpen(false);
+    toast.success("Reset to default template");
+  }, []);
+
+  // Toggle Minimap and persist to localStorage
+  const handleToggleMinimap = useCallback(() => {
+    setMinimapEnabled((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem("ladecompile:editor:minimap:v1", String(next));
+      } catch (e) {
+        console.warn("[LadeCompile] Failed to persist minimap preference:", e);
+      }
+      toast.success(next ? "Minimap enabled" : "Minimap disabled");
+      return next;
+    });
+  }, []);
 
   // Share — URL hash (lz-string) for <= 2000 chars, KV fallback for large payloads
   const handleShare = useCallback(async () => {
