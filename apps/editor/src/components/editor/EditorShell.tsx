@@ -881,13 +881,66 @@ export default function EditorShell() {
         {/* Left icon rail */}
         <aside className="flex w-12 shrink-0 flex-col items-center justify-between border-r bg-muted/20 py-3 dark:bg-zinc-900/40">
           <div className="flex flex-col items-center gap-1">
-            <IconButton icon={Files} label="Explorer" active />
-            <IconButton icon={Search} label="Search" />
+            <IconButton
+              icon={Files}
+              label="Explorer"
+              active={explorerOpen}
+              onClick={() => setExplorerOpen((prev) => !prev)}
+            />
+            <IconButton
+              icon={Search}
+              label="Search (Ctrl+F)"
+              onClick={handleSearchClick}
+            />
           </div>
           <div className="flex flex-col items-center gap-1">
-            <IconButton icon={Settings} label="Settings" />
+            <IconButton
+              icon={Settings}
+              label="Settings"
+              active={settingsOpen}
+              onClick={() => setSettingsOpen(true)}
+            />
           </div>
         </aside>
+
+        {/* Explorer collapsible sidebar */}
+        {explorerOpen && (
+          <aside className="flex w-48 shrink-0 flex-col border-r bg-muted/10 dark:bg-zinc-900/30">
+            <div className="flex h-10 items-center justify-between border-b px-3 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+              <span>Explorer</span>
+              <button
+                onClick={() => setExplorerOpen(false)}
+                className="rounded p-0.5 text-muted-foreground hover:bg-muted hover:text-foreground"
+                aria-label="Close Explorer"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            </div>
+            <div className="space-y-0.5 p-2">
+              <div className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                Project Files
+              </div>
+              {tabs.map((tab) => {
+                const isActive = activeTab === tab.name;
+                return (
+                  <button
+                    key={tab.name}
+                    onClick={() => handleTabSwitch(tab.name)}
+                    className={cn(
+                      "flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors",
+                      isActive
+                        ? "bg-accent text-accent-foreground font-semibold"
+                        : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                    )}
+                  >
+                    <tab.icon className={cn("h-4 w-4 shrink-0", isActive ? "text-[#6366f1]" : "text-muted-foreground")} />
+                    <span className="truncate">{tab.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </aside>
+        )}
 
         {/* Main column */}
         <div className="flex min-w-0 flex-1 flex-col">
