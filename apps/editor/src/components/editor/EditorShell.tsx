@@ -190,6 +190,9 @@ export default function EditorShell() {
     }
   }, []);
 
+  // Mobile viewport message dismissal state
+  const [dismissMobileWarning, setDismissMobileWarning] = useState(false);
+
   // Console state
   const [consoleEntries, setConsoleEntries] = useState<ConsoleEntry[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
@@ -883,7 +886,39 @@ export default function EditorShell() {
 
   return (
     <TooltipProvider>
-      <div className="flex h-[calc(100vh-3.5rem)] min-h-[540px] overflow-hidden bg-background">
+      {/* Mobile viewport barrier (< 768px) */}
+      {!dismissMobileWarning && (
+        <div className="flex md:hidden h-[calc(100vh-3.5rem)] min-h-[460px] w-full flex-col items-center justify-center bg-background p-6 text-center">
+          <div className="mx-auto flex max-w-sm flex-col items-center gap-4 rounded-xl border bg-card/60 p-6 shadow-lg backdrop-blur">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#6366f1]/10 text-[#6366f1]">
+              <Monitor className="h-6 w-6" />
+            </div>
+            <div className="space-y-1.5">
+              <h2 className="text-base font-bold tracking-tight text-foreground">Desktop Experience Recommended</h2>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                LadeCompile works best on a larger screen. Switch to desktop or rotate your tablet to landscape mode for multi-tab code editing and live preview.
+              </p>
+            </div>
+            <div className="flex w-full flex-col gap-2 pt-2">
+              <Button asChild size="sm" className="w-full bg-[#6366f1] text-xs hover:bg-[#5456e5]">
+                <a href="/">Back to Homepage</a>
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="w-full text-xs"
+                onClick={() => setDismissMobileWarning(true)}
+              >
+                Continue to Mobile Editor
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Main editor workspace */}
+      <div className={cn("h-[calc(100vh-3.5rem)] min-h-[540px] overflow-hidden bg-background", !dismissMobileWarning ? "hidden md:flex" : "flex")}>
         {/* Left icon rail */}
         <aside className="flex w-12 shrink-0 flex-col items-center justify-between border-r bg-muted/20 py-3 dark:bg-zinc-900/40">
           <div className="flex flex-col items-center gap-1">
