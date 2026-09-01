@@ -1525,6 +1525,103 @@ export default function EditorShell() {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Settings / Preferences Dialog */}
+      <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Settings className="h-5 w-5 text-[#6366f1]" />
+              Preferences
+            </DialogTitle>
+            <DialogDescription>
+              Customize your editor workspace and appearance.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 pt-2 text-xs">
+            {/* Theme selector */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-foreground">Theme</label>
+              <div className="grid grid-cols-3 gap-2">
+                <Button
+                  type="button"
+                  variant={theme === "light" ? "default" : "outline"}
+                  size="sm"
+                  className={cn("h-9 gap-1.5 text-xs", theme === "light" && "bg-[#6366f1] text-white hover:bg-[#5456e5]")}
+                  onClick={() => setTheme("light")}
+                >
+                  <Sun className="h-3.5 w-3.5" />
+                  Light
+                </Button>
+                <Button
+                  type="button"
+                  variant={theme === "dark" ? "default" : "outline"}
+                  size="sm"
+                  className={cn("h-9 gap-1.5 text-xs", theme === "dark" && "bg-[#6366f1] text-white hover:bg-[#5456e5]")}
+                  onClick={() => setTheme("dark")}
+                >
+                  <Moon className="h-3.5 w-3.5" />
+                  Dark
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="h-9 gap-1.5 text-xs"
+                  onClick={() => {
+                    const isSystemDark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    setTheme(isSystemDark ? "dark" : "light");
+                    toast.success("Theme set to system default");
+                  }}
+                >
+                  <Monitor className="h-3.5 w-3.5" />
+                  System
+                </Button>
+              </div>
+            </div>
+
+            {/* Minimap toggle */}
+            <div className="flex items-center justify-between rounded-lg border p-3">
+              <div className="space-y-0.5">
+                <div className="text-xs font-semibold text-foreground">Code Minimap</div>
+                <div className="text-[11px] text-muted-foreground">Show overview minimap on the right of the editor</div>
+              </div>
+              <Button
+                type="button"
+                variant={minimapEnabled ? "default" : "outline"}
+                size="sm"
+                className={cn("h-8 text-xs", minimapEnabled && "bg-[#6366f1] text-white hover:bg-[#5456e5]")}
+                onClick={handleToggleMinimap}
+              >
+                {minimapEnabled ? "Enabled" : "Disabled"}
+              </Button>
+            </div>
+
+            {/* Font size selector */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-foreground">Editor Font Size</label>
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { label: "Small (12px)", size: 12 },
+                  { label: "Medium (13px)", size: 13 },
+                  { label: "Large (16px)", size: 16 },
+                ].map((opt) => (
+                  <Button
+                    key={opt.size}
+                    type="button"
+                    variant={fontSize === opt.size ? "default" : "outline"}
+                    size="sm"
+                    className={cn("h-9 text-xs", fontSize === opt.size && "bg-[#6366f1] text-white hover:bg-[#5456e5]")}
+                    onClick={() => handleSetFontSize(opt.size)}
+                  >
+                    {opt.label}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </TooltipProvider>
   );
 }
