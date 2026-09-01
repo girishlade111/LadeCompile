@@ -1,0 +1,57 @@
+---
+import type { BlogPost } from "../../utils/blog";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import BlogMeta from "./BlogMeta.astro";
+
+interface Props {
+  post: BlogPost;
+  readingTime: string;
+}
+
+const { post, readingTime } = Astro.props;
+const date = post.data.pubDate ?? post.data.publishDate ?? new Date();
+const image = post.data.image ?? post.data.heroImage;
+---
+
+<header class="mb-8 sm:mb-10">
+  <div class="mb-6">
+    <Breadcrumbs
+      items={[
+        { label: "Home", href: "/" },
+        { label: "Blog", href: "/blog" },
+        { label: post.data.title },
+      ]}
+    />
+  </div>
+
+  <h1 class="mt-4 text-[32px] sm:text-[42px] font-normal leading-[1.18] tracking-tight text-[#181d26]">
+    {post.data.title}
+  </h1>
+
+  <p class="mt-4 text-[17px] sm:text-[19px] leading-relaxed text-[#333840]">
+    {post.data.description}
+  </p>
+
+  <div class="mt-6 border-y border-[#dddddd] py-3.5">
+    <BlogMeta
+      author={post.data.author}
+      pubDate={date}
+      updatedDate={post.data.updatedDate}
+      category={post.data.category}
+      tags={post.data.tags}
+      readingTime={readingTime}
+    />
+  </div>
+
+  {image && (
+    <div class="mt-8 overflow-hidden rounded-[12px] border border-[#dddddd] bg-[#f8fafc]">
+      <img
+        src={image}
+        alt={post.data.imageAlt || post.data.title}
+        class="aspect-[16/9] w-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  )}
+</header>

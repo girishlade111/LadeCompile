@@ -1,0 +1,36 @@
+---
+import type { BlogPost } from "../../utils/blog";
+import { getRelatedPosts } from "../../utils/blog";
+import BlogCard from "./BlogCard.astro";
+
+interface Props {
+  currentPost: BlogPost;
+  allPosts: BlogPost[];
+  limit?: number;
+}
+
+const { currentPost, allPosts, limit = 2 } = Astro.props;
+const relatedPosts = getRelatedPosts(currentPost, allPosts, limit);
+---
+
+{relatedPosts.length > 0 && (
+  <section class="mt-16 border-t border-[#dddddd] pt-12" aria-labelledby="related-posts-heading">
+    <div class="mb-6 flex items-center justify-between">
+      <div>
+        <p class="text-[11px] font-semibold uppercase tracking-wider text-[#aa2d00]">Keep Reading</p>
+        <h2 id="related-posts-heading" class="mt-1 text-[22px] font-medium tracking-tight text-[#181d26]">
+          Related Articles
+        </h2>
+      </div>
+      <a href="/blog" class="text-[13px] font-medium text-[#1b61c9] hover:underline">
+        All articles →
+      </a>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {relatedPosts.map((post) => (
+        <BlogCard post={post} />
+      ))}
+    </div>
+  </section>
+)}
