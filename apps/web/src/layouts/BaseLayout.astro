@@ -7,11 +7,28 @@ interface Props {
   description?: string;
   canonical?: string;
   image?: string;
+  imageAlt?: string;
   type?: "website" | "article";
   noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  tags?: string[];
 }
 
-const { title, description, canonical, image, type, noindex } = Astro.props as Props;
+const {
+  title,
+  description,
+  canonical,
+  image,
+  imageAlt,
+  type,
+  noindex,
+  publishedTime,
+  modifiedTime,
+  author,
+  tags,
+} = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -22,11 +39,23 @@ const { title, description, canonical, image, type, noindex } = Astro.props as P
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;475;500;600&display=swap" rel="stylesheet" />
-    <SEO title={title} description={description} canonical={canonical} image={image} type={type} noindex={noindex} />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;475;500;600;700&display=swap" rel="stylesheet" />
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonical}
+      image={image}
+      imageAlt={imageAlt}
+      type={type}
+      noindex={noindex}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      author={author}
+      tags={tags}
+    />
     <slot name="head" />
   </head>
-  <body class="min-h-screen bg-[#ffffff] text-[#333840] antialiased">
+  <body class="min-h-screen bg-[#ffffff] text-[#333840] antialiased selection:bg-[#f5e9d4] selection:text-[#181d26]">
     <slot />
   </body>
 </html>

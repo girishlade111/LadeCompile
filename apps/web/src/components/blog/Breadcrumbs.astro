@@ -1,0 +1,48 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+const site = Astro.site?.toString() ?? "https://compile.ladestack.in";
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.label,
+    item: item.href ? new URL(item.href, site).href : undefined,
+  })),
+};
+---
+
+<nav aria-label="Breadcrumbs" class="text-[13px] text-[#41454d]">
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+  <ol class="flex flex-wrap items-center gap-1.5 list-none p-0 m-0">
+    {items.map((item, index) => (
+      <li class="inline-flex items-center gap-1.5">
+        {index > 0 && (
+          <svg class="h-3.5 w-3.5 text-[#9297a0]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        )}
+        {item.href ? (
+          <a href={item.href} class="hover:text-[#181d26] transition-colors underline-offset-2 hover:underline">
+            {item.label}
+          </a>
+        ) : (
+          <span class="font-medium text-[#181d26] line-clamp-1 max-w-[280px] sm:max-w-md" aria-current="page">
+            {item.label}
+          </span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
