@@ -28,7 +28,7 @@ const ui = await getUiMessages(locale);
 const title = t(ui as any, "meta.siteTitle");
 const description = t(ui as any, "meta.siteDescription");
 
-const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+const editorUrl = localePath(locale, import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor"));
 ---
 
 <BaseLayout title={title} description={description} type="website">

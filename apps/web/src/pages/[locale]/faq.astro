@@ -22,7 +22,7 @@ const locale = normalizeLocale(((Astro.params as any).locale as string) ?? (Astr
 const bcp47 = toBcp47(locale);
 const faqCatalog = await getFaqMessages(locale);
 const uiCatalog = await getUiMessages(locale);
-const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+const editorUrl = localePath(locale, import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor"));
 
 // Visible + JSON-LD share the same loaded source — no divergence.
 interface FaqItem { id: string; question: string; answer: string; }
