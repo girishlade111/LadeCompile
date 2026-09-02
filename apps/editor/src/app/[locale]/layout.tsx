@@ -57,14 +57,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const locale = (params.locale as Locale) ?? "en";
+  const { locale: raw } = await params;
+  const locale = (raw as Locale) ?? "en";
   const bcp47 = LOCALE_TO_BCP47[locale] ?? "en";
   // html lang is set in root layout via header, but we ensure data attribute for client JS
   return <div lang={bcp47} data-locale={locale}>{children}</div>;
