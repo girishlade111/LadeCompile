@@ -1406,7 +1406,7 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={toggleTheme}>
                     {isDark ? <Sun className="mr-2 h-4 w-4" /> : <Moon className="mr-2 h-4 w-4" />}
-                    {isDark ? "{tr("drawer.lightTheme")}" : "{tr("drawer.darkTheme")}"}
+                    {isDark ? tr("drawer.lightTheme") : tr("drawer.darkTheme")}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
