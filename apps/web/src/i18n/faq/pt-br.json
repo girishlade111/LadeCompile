@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "locale": "pt-br",
+    "title": "FAQ — Compilador HTML Online Grátis | LadeCompile",
+    "description": "Perguntas frequentes sobre o compilador HTML online grátis do LadeCompile",
+    "keywordIntent": "Busca BR: \"compilador HTML online / compilador online HTML / editor HTML online\" — termo localizado \"compilador HTML online\" (não tradução literal de \"html compiler\")",
+    "translationTier": "MT_WITH_HUMAN_REVIEW",
+    "mtProvider": "DeepL API — rascunho + revisão humana",
+    "lastReviewed": "2026-09-02"
+  },
+  "items": [
+    {
+      "id": "q1",
+      "question": "O que é um compilador HTML?",
+      "answer": "Um compilador HTML (mais precisamente um editor HTML ou compilador HTML online) é uma ferramenta que permite escrever código HTML, CSS e JavaScript no navegador e ver o resultado renderizado instantaneamente — sem configuração local, sem downloads. O LadeCompile é um <a href=\"/\" class=\"text-[#0969da] hover:underline\">compilador HTML online grátis</a> que executa seu código ao vivo em uma prévia em sandbox."
+    },
+    {
+      "id": "q2",
+      "question": "Para que serve o HTML?",
+      "answer": "HTML (HyperText Markup Language) é a linguagem de marcação padrão para estruturar conteúdo na web — títulos, parágrafos, links, imagens, formulários e layout. Toda página que você visita usa HTML como base, combinado com CSS para estilo e JavaScript para interatividade."
+    },
+    {
+      "id": "q3",
+      "question": "O que é um compilador online?",
+      "answer": "Um compilador online é uma ferramenta web que compila ou executa código diretamente no seu navegador sem instalar software localmente. Para HTML/CSS/JS, \"compilar\" na prática significa renderizar — a ferramenta analisa seu código e mostra uma prévia ao vivo instantaneamente."
+    },
+    {
+      "id": "q4",
+      "question": "O que é um compilador?",
+      "answer": "Um compilador traduz código-fonte para uma forma que a máquina ou navegador pode executar. Para HTML, CSS e JavaScript não há etapa tradicional de compilação — os navegadores interpretam diretamente — mas ferramentas como o LadeCompile ainda são chamadas de \"compiladores HTML\" por oferecerem essa experiência instantânea de escrever e visualizar."
+    },
+    {
+      "id": "q5",
+      "question": "Qual ferramenta é usada para HTML?",
+      "answer": "Você pode escrever HTML em qualquer editor de texto (VS Code, Sublime, Notepad++) e abrir no navegador, ou usar um <a href=\"/\" class=\"text-[#0969da] hover:underline\">compilador HTML online</a> como o LadeCompile, que combina editor de código e prévia ao vivo em um só lugar — sem configuração."
+    },
+    {
+      "id": "q6",
+      "question": "HTML precisa de compilador?",
+      "answer": "Não. HTML não precisa de compilação — os navegadores renderizam diretamente. Um \"compilador HTML online\" é na verdade um combo de editor de código + prévia ao vivo, útil para testes rápidos, aprendizado e compartilhamento de snippets sem configurar um ambiente local."
+    },
+    {
+      "id": "q7",
+      "question": "Como executo código HTML em um compilador online?",
+      "answer": "Cole ou digite seu HTML na aba do editor, adicione CSS e JS nas respectivas abas se precisar, e a prévia ao vivo atualiza automaticamente (ou clique em Executar). Sem login, sem downloads — roda instantaneamente no seu navegador. <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">Abra o editor LadeCompile</a> para testar."
+    },
+    {
+      "id": "q8",
+      "question": "Como adiciono uma imagem no compilador HTML online?",
+      "answer": "Use a tag <code>&lt;img&gt;</code> com uma URL de imagem hospedada: <code>&lt;img src=\"https://example.com/image.jpg\" alt=\"descrição\"&gt;</code>. Como a maioria dos compiladores HTML online (incluindo o LadeCompile) não suporta upload de arquivos locais para o sandbox, use uma imagem hospedada online (ex.: Imgur, Cloudinary ou seu próprio CDN) como <code>src</code>."
+    },
+    {
+      "id": "q9",
+      "question": "Existe um compilador HTML online grátis?",
+      "answer": "Sim — o LadeCompile é um <a href=\"/\" class=\"text-[#0969da] hover:underline\">compilador HTML online totalmente grátis</a> sem login e sem recursos com paywall. Escreva HTML, CSS e JavaScript, visualize ao vivo, exporte seu código ou compartilhe via link."
+    },
+    {
+      "id": "q10",
+      "question": "Existe um modo de compilador HTML em tela cheia?",
+      "answer": "Sim, o LadeCompile suporta uma visão de editor em tela cheia para focar em código e prévia sem distrações do navegador ou barra lateral — útil para demos, aulas ou sessões de foco profundo."
+    },
+    {
+      "id": "q11",
+      "question": "Posso usar um compilador para HTML, CSS e JavaScript juntos?",
+      "answer": "Sim — o LadeCompile é um compilador combinado de HTML, CSS e JavaScript com três abas em um único editor, para escrever e visualizar os três juntos em tempo real sem trocar de ferramenta."
+    },
+    {
+      "id": "q12",
+      "question": "Como o LadeCompile se compara ao compilador HTML do Programiz ou Great Learning?",
+      "answer": "Programiz e Great Learning oferecem compiladores HTML voltados principalmente a estudantes e tutoriais, muitas vezes dentro de uma plataforma de cursos mais ampla. O LadeCompile é um compilador HTML/CSS/JS standalone, gratuito e sem login, focado puramente em codificação ao vivo rápida e compartilhamento — sem criar conta ou navegar em plataforma de ensino."
+    },
+    {
+      "id": "q13",
+      "question": "Preciso baixar algo para usar um compilador HTML?",
+      "answer": "Não. O LadeCompile roda inteiramente no seu navegador — não há download ou instalação. Essa é a principal vantagem de um compilador HTML online sobre uma configuração local."
+    },
+    {
+      "id": "q14",
+      "question": "Como escrevo \"eu te amo\" usando HTML?",
+      "answer": "Exemplo simples: <code>&lt;p&gt;eu te amo&lt;/p&gt;</code>. Estilize com CSS (cor, tamanho, animações) — teste ao vivo no <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">editor LadeCompile</a> para ver o resultado instantaneamente."
+    }
+  ]
+}

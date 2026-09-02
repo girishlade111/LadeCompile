@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "locale": "zh",
+    "title": "常见问题 — 免费在线 HTML 编译器 | LadeCompile",
+    "description": "关于 LadeCompile 免费在线 HTML 编译器的常见问题",
+    "keywordIntent": "中文用户搜索 \"HTML在线编译器 / HTML在线编辑器 / 在线HTML运行\" — 本地化关键词为 \"HTML在线编译器\" 与 \"在线HTML编辑器\"，而非直译 \"HTML compiler\"",
+    "translationTier": "MT_WITH_HUMAN_REVIEW",
+    "mtProvider": "DeepL API — 初译 + 人工审校",
+    "lastReviewed": "2026-09-02"
+  },
+  "items": [
+    {
+      "id": "q1",
+      "question": "什么是 HTML 编译器？",
+      "answer": "HTML 编译器（更准确地说是 HTML 在线编辑器 / HTML在线编译器）是一款让你在浏览器中直接编写 HTML、CSS 与 JavaScript 并即时查看渲染效果的工具 — 无需本地环境，无需下载。LadeCompile 是一款 <a href=\"/\" class=\"text-[#0969da] hover:underline\">免费在线 HTML 编译器</a>，在沙盒预览中实时运行你的代码。"
+    },
+    {
+      "id": "q2",
+      "question": "HTML 是用来做什么的？",
+      "answer": "HTML（超文本标记语言）是构建网页内容的标准标记语言 — 标题、段落、链接、图片、表单与布局。你访问的每个网页都以 HTML 为基础，配合 CSS 负责样式、JavaScript 负责交互。"
+    },
+    {
+      "id": "q3",
+      "question": "什么是在线编译器？",
+      "answer": "在线编译器是一款无需在本地安装任何软件、直接在浏览器中编译或运行代码的网页工具。对于 HTML/CSS/JS 来说，“编译”实际上就是渲染 — 工具解析你的代码并即时显示实时预览。"
+    },
+    {
+      "id": "q4",
+      "question": "什么是编译器？",
+      "answer": "编译器将源代码转换为机器或浏览器可执行的形式。对于 HTML、CSS 与 JavaScript，并没有传统的编译步骤 — 浏览器直接解释执行 — 但像 LadeCompile 这样的工具仍被称为“HTML 编译器”，因为它们提供了即写即预览的体验。"
+    },
+    {
+      "id": "q5",
+      "question": "写 HTML 要用什么工具？",
+      "answer": "你可以在任意文本编辑器（VS Code、Sublime、记事本）中编写 HTML 并在浏览器中打开，也可以使用像 LadeCompile 这样的 <a href=\"/\" class=\"text-[#0969da] hover:underline\">在线 HTML 编译器</a>，它将代码编辑器与实时预览合二为一 — 无需配置。"
+    },
+    {
+      "id": "q6",
+      "question": "HTML 需要编译器吗？",
+      "answer": "不需要。HTML 不需要编译 — 浏览器直接渲染。所谓“在线 HTML 编译器”其实是代码编辑器 + 实时预览的组合，适合快速测试、学习与分享代码片段，无需搭建本地开发环境。"
+    },
+    {
+      "id": "q7",
+      "question": "如何在在线编译器中运行 HTML 代码？",
+      "answer": "在编辑器的 HTML 标签页中粘贴或输入你的 HTML，如需 CSS 与 JS 也可在对应标签页中添加，实时预览会自动更新（或点击运行）。无需登录，无需下载 — 在浏览器中即时运行。<a href=\"/editor\" class=\"text-[#0969da] hover:underline\">打开 LadeCompile 编辑器</a>试试。"
+    },
+    {
+      "id": "q8",
+      "question": "如何在 HTML 在线编译器中添加图片？",
+      "answer": "使用 <code>&lt;img&gt;</code> 标签并填入在线图片地址：<code>&lt;img src=\"https://example.com/image.jpg\" alt=\"描述\"&gt;</code>。由于大多数在线 HTML 编译器（包括 LadeCompile）不支持将本地文件上传到沙盒，请使用在线托管的图片（如 Imgur、Cloudinary 或你自己的 CDN）作为 <code>src</code>。"
+    },
+    {
+      "id": "q9",
+      "question": "有免费的在线 HTML 编译器吗？",
+      "answer": "有 — LadeCompile 就是一款完全 <a href=\"/\" class=\"text-[#0969da] hover:underline\">免费在线 HTML 编译器</a>，无需登录、没有付费功能。编写 HTML、CSS 与 JavaScript 并实时预览、导出代码或通过链接分享。"
+    },
+    {
+      "id": "q10",
+      "question": "有全屏的 HTML 编译器模式吗？",
+      "answer": "有，LadeCompile 支持全屏编辑器视图，让你可以专注于代码与预览，不受浏览器外壳或侧边栏干扰 — 适合演示、教学或深度专注的编码场景。"
+    },
+    {
+      "id": "q11",
+      "question": "可以用一个编译器同时写 HTML、CSS 和 JavaScript 吗？",
+      "answer": "可以 — LadeCompile 就是一款集成的 HTML、CSS 与 JavaScript 编译器，在同一个编辑器中提供三个标签，让你实时一起编写与预览三者，无需切换工具。"
+    },
+    {
+      "id": "q12",
+      "question": "LadeCompile 与 Programiz 或 Great Learning 的 HTML 编译器相比如何？",
+      "answer": "Programiz 与 Great Learning 的 HTML 编译器主要面向学生与教程，通常隶属于更广的课程平台。LadeCompile 是一款独立的、免费、免登录的 HTML/CSS/JS 编译器，专注于快速的实时编码与分享 — 无需创建账号或在学习平台中导航。"
+    },
+    {
+      "id": "q13",
+      "question": "使用 HTML 编译器需要下载东西吗？",
+      "answer": "不需要。LadeCompile 完全在浏览器中运行 — 无需下载或安装。这是在线 HTML 编译器相比本地开发环境的主要优势。"
+    },
+    {
+      "id": "q14",
+      "question": "如何用 HTML 写“我爱你”？",
+      "answer": "简单示例：<code>&lt;p&gt;我爱你&lt;/p&gt;</code>。再用 CSS 进一步美化（颜色、字号、动画）— 在 <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">LadeCompile 编辑器</a>中实时尝试查看即时效果。"
+    }
+  ]
+}

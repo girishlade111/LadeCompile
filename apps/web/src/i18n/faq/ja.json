@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "locale": "ja",
+    "title": "FAQ — 無料オンライン HTML コンパイラ | LadeCompile",
+    "description": "LadeCompile の無料オンライン HTML コンパイラに関するよくある質問",
+    "keywordIntent": "JP検索: \"HTML コンパイラ オンライン / オンライン HTML エディタ / HTML 実行 環境\" — ローカライズは \"オンライン HTML コンパイラ\" と \"HTML エディタ オンライン\"。直訳 \"html compiler\" より自然な検索語を優先",
+    "translationTier": "MT_WITH_HUMAN_REVIEW",
+    "mtProvider": "DeepL API — 初訳 + 人手レビュー",
+    "lastReviewed": "2026-09-02"
+  },
+  "items": [
+    {
+      "id": "q1",
+      "question": "HTML コンパイラとは何ですか？",
+      "answer": "HTML コンパイラ（より正確には HTML エディタ、オンライン HTML コンパイラ）は、ブラウザで HTML、CSS、JavaScript のコードを書き、レンダリング結果を即座に確認できるツールです — ローカル環境の構築やダウンロードは不要です。LadeCompile はサンドボックスのプレビューでコードをライブ実行する <a href=\"/\" class=\"text-[#0969da] hover:underline\">無料のオンライン HTML コンパイラ</a>です。"
+    },
+    {
+      "id": "q2",
+      "question": "HTML は何に使われますか？",
+      "answer": "HTML（HyperText Markup Language）は、Web 上のコンテンツを構造化するための標準的なマークアップ言語です — 見出し、段落、リンク、画像、フォーム、レイアウトなど。あなたが訪れるすべての Web ページは HTML を土台とし、CSS でスタイル、JavaScript でインタラクションを担っています。"
+    },
+    {
+      "id": "q3",
+      "question": "オンラインコンパイラとは何ですか？",
+      "answer": "オンラインコンパイラは、ローカルにソフトウェアをインストールすることなく、ブラウザ上で直接コードをコンパイルまたは実行する Web ツールです。HTML/CSS/JS の場合、「コンパイル」は実質的にレンダリングを意味します — ツールがコードを解析し、即座にライブプレビューを表示します。"
+    },
+    {
+      "id": "q4",
+      "question": "コンパイラとは何ですか？",
+      "answer": "コンパイラはソースコードをマシンやブラウザが実行できる形式に変換します。HTML、CSS、JavaScript には従来のコンパイルステップはありません — ブラウザが直接解釈します — しかし LadeCompile のようなツールは、即座に書いてプレビューできる体験から今でも「HTML コンパイラ」と呼ばれています。"
+    },
+    {
+      "id": "q5",
+      "question": "HTML にはどのツールを使いますか？",
+      "answer": "任意のテキストエディタ（VS Code、Sublime、メモ帳）で HTML を書いてブラウザで開くことも、<a href=\"/\" class=\"text-[#0969da] hover:underline\">オンライン HTML コンパイラ</a>である LadeCompile を使うこともできます。コードエディタとライブプレビューが一体化しており、セットアップは不要です。"
+    },
+    {
+      "id": "q6",
+      "question": "HTML にコンパイラは必要ですか？",
+      "answer": "いいえ。HTML はコンパイルを必要としません — ブラウザが直接レンダリングします。「オンライン HTML コンパイラ」は実質的にはコードエディタ + ライブプレビューの組み合わせであり、ローカル開発環境を構築せずに素早くテスト、学習、スニペットを共有するのに便利です。"
+    },
+    {
+      "id": "q7",
+      "question": "オンラインコンパイラで HTML コードを実行するにはどうしますか？",
+      "answer": "エディタタブに HTML を貼り付けまたは入力し、必要に応じて CSS と JS をそれぞれのタブに追加すると、ライブプレビューが自動的に更新されます（または「実行」をクリック）。ログイン不要、ダウンロード不要 — ブラウザですぐに動作します。<a href=\"/editor\" class=\"text-[#0969da] hover:underline\">LadeCompile エディタを開く</a>してお試しください。"
+    },
+    {
+      "id": "q8",
+      "question": "オンライン HTML コンパイラで画像を追加するにはどうしますか？",
+      "answer": "ホストされている画像 URL とともに <code>&lt;img&gt;</code> タグを使用します：<code>&lt;img src=\"https://example.com/image.jpg\" alt=\"説明\"&gt;</code>。LadeCompile を含むほとんどのオンライン HTML コンパイラはローカルファイルのサンドボックスへのアップロードをサポートしていないため、Imgur や Cloudinary、独自の CDN などでホストされた画像を <code>src</code> として使用してください。"
+    },
+    {
+      "id": "q9",
+      "question": "無料のオンライン HTML コンパイラはありますか？",
+      "answer": "はい — LadeCompile は <a href=\"/\" class=\"text-[#0969da] hover:underline\">完全無料のオンライン HTML コンパイラ</a>で、ログイン不要、ペイウォール機能なしです。HTML、CSS、JavaScript を書いてライブプレビューし、コードをエクスポートしたりリンクで共有したりできます。"
+    },
+    {
+      "id": "q10",
+      "question": "全画面の HTML コンパイラモードはありますか？",
+      "answer": "はい、LadeCompile は全画面エディタビューをサポートしており、ブラウザのクロームやサイドバーの邪魔なくコードとプレビューに集中できます — デモ、授業、集中コーディングに便利です。"
+    },
+    {
+      "id": "q11",
+      "question": "HTML、CSS、JavaScript を一つのコンパイラでまとめて使えますか？",
+      "answer": "はい — LadeCompile は 3 つのタブを持つ統合された HTML、CSS、JavaScript コンパイラで、ツールを切り替えることなく 3 つをリアルタイムで一緒に書いてプレビューできます。"
+    },
+    {
+      "id": "q12",
+      "question": "LadeCompile は Programiz や Great Learning の HTML コンパイラと比べてどうですか？",
+      "answer": "Programiz や Great Learning の HTML コンパイラは主に学生やチュートリアル向けで、より広範なコースプラットフォームの一部であることが多いです。LadeCompile はスタンドアロンで無料、ログイン不要の HTML/CSS/JS コンパイラであり、高速なライブコーディングと共有に純粋に焦点を当てています — アカウント作成や学習プラットフォームの操作は不要です。"
+    },
+    {
+      "id": "q13",
+      "question": "HTML コンパイラを使うのに何かダウンロードは必要ですか？",
+      "answer": "いいえ。LadeCompile は完全にブラウザで動作します — ダウンロードやインストールはありません。これがローカル開発環境に対するオンライン HTML コンパイラの主な利点です。"
+    },
+    {
+      "id": "q14",
+      "question": "HTML で「愛してる」と書くにはどうしますか？",
+      "answer": "簡単な例：<code>&lt;p&gt;愛してる&lt;/p&gt;</code>。さらに CSS で装飾しましょう（色、フォントサイズ、アニメーション）— <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">LadeCompile エディタ</a>でライブに試して即座に結果を確認できます。"
+    }
+  ]
+}

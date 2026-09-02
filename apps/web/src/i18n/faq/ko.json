@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "locale": "ko",
+    "title": "FAQ — 무료 온라인 HTML 컴파일러 | LadeCompile",
+    "description": "LadeCompile 무료 온라인 HTML 컴파일러에 대한 자주 묻는 질문",
+    "keywordIntent": "KR 검색: \"온라인 HTML 컴파일러 / HTML 컴파일러 온라인 / 온라인 HTML 에디터\" — 현지화 키워드 \"온라인 HTML 컴파일러\" (\"html compiler\" 직역보다 자연스러움)",
+    "translationTier": "MT_WITH_HUMAN_REVIEW",
+    "mtProvider": "DeepL API — 초안 + 사람 검토",
+    "lastReviewed": "2026-09-02"
+  },
+  "items": [
+    {
+      "id": "q1",
+      "question": "HTML 컴파일러란 무엇인가요?",
+      "answer": "HTML 컴파일러(더 정확히는 HTML 에디터 또는 온라인 HTML 컴파일러)는 브라우저에서 HTML, CSS, JavaScript 코드를 작성하고 렌더링된 출력을 즉시 확인할 수 있게 하는 도구입니다 — 로컬 설정이나 다운로드가 필요 없습니다. LadeCompile은 샌드박스 미리보기에서 코드를 라이브로 실행하는 <a href=\"/\" class=\"text-[#0969da] hover:underline\">무료 온라인 HTML 컴파일러</a>입니다."
+    },
+    {
+      "id": "q2",
+      "question": "HTML은 무엇에 사용되나요?",
+      "answer": "HTML(HyperText Markup Language)은 웹에서 콘텐츠를 구조화하는 데 사용되는 표준 마크업 언어입니다 — 제목, 단락, 링크, 이미지, 폼, 레이아웃 등. 방문하는 모든 웹페이지는 HTML을 기반으로 하며, 스타일은 CSS, 상호작용은 JavaScript가 담당합니다."
+    },
+    {
+      "id": "q3",
+      "question": "온라인 컴파일러란 무엇인가요?",
+      "answer": "온라인 컴파일러는 로컬에 소프트웨어를 설치하지 않고 브라우저에서 직접 코드를 컴파일하거나 실행하는 웹 기반 도구입니다. HTML/CSS/JS에서 \"컴파일\"은 실제로 렌더링을 의미합니다 — 도구가 코드를 파싱하고 즉시 라이브 미리보기를 보여줍니다."
+    },
+    {
+      "id": "q4",
+      "question": "컴파일러란 무엇인가요?",
+      "answer": "컴파일러는 소스 코드를 기계나 브라우저가 실행할 수 있는 형태로 변환합니다. HTML, CSS, JavaScript에는 전통적인 컴파일 단계가 없습니다 — 브라우저가 직접 해석합니다 — 하지만 LadeCompile 같은 도구는 즉시 작성-미리보기 경험을 제공하기 때문에 여전히 \"HTML 컴파일러\"라고 불립니다."
+    },
+    {
+      "id": "q5",
+      "question": "HTML에 어떤 도구를 사용하나요?",
+      "answer": "모든 텍스트 에디터(VS Code, Sublime, 메모장)에서 HTML을 작성하고 브라우저에서 열 수 있으며, 또는 <a href=\"/\" class=\"text-[#0969da] hover:underline\">온라인 HTML 컴파일러</a>인 LadeCompile을 사용할 수 있습니다. 코드 에디터와 라이브 미리보기를 한 곳에 결합하며 설정이 필요 없습니다."
+    },
+    {
+      "id": "q6",
+      "question": "HTML에 컴파일러가 필요한가요?",
+      "answer": "아니요. HTML은 컴파일이 필요하지 않습니다 — 브라우저가 직접 렌더링합니다. \"온라인 HTML 컴파일러\"는 실제로 코드 에디터 + 라이브 미리보기 조합이며, 로컬 개발 환경을 설정하지 않고 빠른 테스트, 학습, 스니펫 공유에 유용합니다."
+    },
+    {
+      "id": "q7",
+      "question": "온라인 컴파일러에서 HTML 코드를 어떻게 실행하나요?",
+      "answer": "에디터 탭에 HTML을 붙여넣거나 입력하고, 필요하면 CSS와 JS를 각각의 탭에 추가하면 라이브 미리보기가 자동으로 업데이트됩니다(또는 실행을 클릭). 로그인 없음, 다운로드 없음 — 브라우저에서 즉시 실행됩니다. <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">LadeCompile 에디터를 열어</a> 시도해 보세요."
+    },
+    {
+      "id": "q8",
+      "question": "HTML 온라인 컴파일러에서 이미지를 어떻게 추가하나요?",
+      "answer": "호스팅된 이미지 URL과 함께 <code>&lt;img&gt;</code> 태그를 사용하세요: <code>&lt;img src=\"https://example.com/image.jpg\" alt=\"설명\"&gt;</code>. LadeCompile을 포함한 대부분의 온라인 HTML 컴파일러는 로컬 파일을 샌드박스에 업로드하는 것을 지원하지 않으므로, 온라인에 호스팅된 이미지(예: Imgur, Cloudinary 또는 자체 CDN)를 <code>src</code>로 사용하세요."
+    },
+    {
+      "id": "q9",
+      "question": "무료 온라인 HTML 컴파일러가 있나요?",
+      "answer": "네 — LadeCompile은 로그인 없이 페이월 기능 없이 완전히 <a href=\"/\" class=\"text-[#0969da] hover:underline\">무료 온라인 HTML 컴파일러</a>입니다. HTML, CSS, JavaScript를 작성하고 라이브로 미리보고, 코드를 내보내거나 링크로 공유하세요."
+    },
+    {
+      "id": "q10",
+      "question": "전체 화면 HTML 컴파일러 모드가 있나요?",
+      "answer": "네, LadeCompile은 전체 화면 에디터 뷰를 지원하므로 브라우저 크롬이나 사이드바 방해 없이 코드와 미리보기에 집중할 수 있습니다 — 데모, 강의 또는 집중 코딩 세션에 유용합니다."
+    },
+    {
+      "id": "q11",
+      "question": "HTML, CSS, JavaScript를 하나의 컴파일러로 함께 사용할 수 있나요?",
+      "answer": "네 — LadeCompile은 단일 에디터에 세 개의 탭을 갖춘 통합 HTML, CSS, JavaScript 컴파일러로, 도구를 전환하지 않고 세 가지를 실시간으로 함께 작성하고 미리볼 수 있습니다."
+    },
+    {
+      "id": "q12",
+      "question": "LadeCompile은 Programiz나 Great Learning의 HTML 컴파일러와 어떻게 비교되나요?",
+      "answer": "Programiz와 Great Learning은 주로 학생과 튜토리얼을 대상으로 하며, 종종 더 넓은 코스 플랫폼의 일부로 HTML 컴파일러를 제공합니다. LadeCompile은 빠르고 라이브 코딩과 공유에만 집중하는 독립형 무료 무로그인 HTML/CSS/JS 컴파일러입니다 — 계정을 만들거나 학습 플랫폼을 탐색할 필요가 없습니다."
+    },
+    {
+      "id": "q13",
+      "question": "HTML 컴파일러를 사용하려면 뭔가를 다운로드해야 하나요?",
+      "answer": "아니요. LadeCompile은 브라우저에서 완전히 실행됩니다 — 다운로드나 설치가 없습니다. 이것이 로컬 개발 설정 대비 온라인 HTML 컴파일러의 주요 장점입니다."
+    },
+    {
+      "id": "q14",
+      "question": "HTML로 \"사랑해\"를 어떻게 작성하나요?",
+      "answer": "간단한 예: <code>&lt;p&gt;사랑해&lt;/p&gt;</code>. CSS로 더 꾸며보세요(색상, 글꼴 크기, 애니메이션) — <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">LadeCompile 에디터</a>에서 라이브로 시도해 즉시 결과를 확인하세요."
+    }
+  ]
+}

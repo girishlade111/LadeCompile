@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "locale": "tr",
+    "title": "SSS — Ücretsiz Çevrimiçi HTML Derleyici | LadeCompile",
+    "description": "LadeCompile ücretsiz çevrimiçi HTML derleyicisi hakkında sık sorulan sorular",
+    "keywordIntent": "TR arama: \"online HTML derleyici / HTML derleyici online / HTML editör online\" — lokalize anahtar kelime \"HTML derleyici online\" (\"html compiler\"ın düz çevirisinden daha doğal)",
+    "translationTier": "MT_WITH_HUMAN_REVIEW",
+    "mtProvider": "DeepL API — ilk çeviri + insan incelemesi",
+    "lastReviewed": "2026-09-02"
+  },
+  "items": [
+    {
+      "id": "q1",
+      "question": "HTML derleyici nedir?",
+      "answer": "HTML derleyici (daha doğru adıyla HTML düzenleyici veya çevrimiçi HTML derleyici), tarayıcıda HTML, CSS ve JavaScript kodu yazıp işlenmiş çıktıyı anında görmenizi sağlayan bir araçtır — yerel kurulum veya indirme gerekmez. LadeCompile, kodunuzu korumalı önizlemede canlı çalıştıran <a href=\"/\" class=\"text-[#0969da] hover:underline\">ücretsiz çevrimiçi HTML derleyici</a>dir."
+    },
+    {
+      "id": "q2",
+      "question": "HTML ne için kullanılır?",
+      "answer": "HTML (HyperText Markup Language), web'deki içeriği yapılandırmak için kullanılan standart işaretleme dilidir — başlıklar, paragraflar, bağlantılar, resimler, formlar ve düzen. Ziyaret ettiğiniz her web sayfası temel olarak HTML kullanır; stil için CSS, etkileşim için JavaScript ile birlikte."
+    },
+    {
+      "id": "q3",
+      "question": "Çevrimiçi derleyici nedir?",
+      "answer": "Çevrimiçi derleyici, yerel olarak yazılım yüklemeden doğrudan tarayıcınızda kod derleyen veya çalıştıran web tabanlı bir araçtır. HTML/CSS/JS için \"derleme\" aslında oluşturma (rendering) anlamına gelir — araç kodunuzu ayrıştırır ve anında canlı önizleme gösterir."
+    },
+    {
+      "id": "q4",
+      "question": "Derleyici nedir?",
+      "answer": "Derleyici, kaynak kodu bir makinenin veya tarayıcının yürütebileceği bir biçime çevirir. HTML, CSS ve JavaScript için geleneksel bir derleme adımı yoktur — tarayıcılar doğrudan yorumlar — ancak LadeCompile gibi araçlar, anında yaz-ve-önizle deneyimi sundukları için hâlâ \"HTML derleyici\" olarak anılır."
+    },
+    {
+      "id": "q5",
+      "question": "HTML için hangi araç kullanılır?",
+      "answer": "Herhangi bir metin düzenleyicide (VS Code, Sublime, Notepad++) HTML yazıp tarayıcıda açabilir veya <a href=\"/\" class=\"text-[#0969da] hover:underline\">çevrimiçi HTML derleyici</a> olan LadeCompile'i kullanabilirsiniz; kod düzenleyici ve canlı önizlemeyi tek yerde birleştirir — kurulum gerekmez."
+    },
+    {
+      "id": "q6",
+      "question": "HTML'in derleyiciye ihtiyacı var mı?",
+      "answer": "Hayır. HTML derleme gerektirmez — tarayıcılar doğrudan oluşturur. \"Çevrimiçi HTML derleyici\" aslında bir kod düzenleyici + canlı önizleme birleşimidir; yerel geliştirme ortamı kurmadan hızlı test, öğrenme ve snippet paylaşımı için kullanışlıdır."
+    },
+    {
+      "id": "q7",
+      "question": "Bir çevrimiçi derleyicide HTML kodunu nasıl çalıştırırım?",
+      "answer": "HTML'inizi editör sekmesine yapıştırın veya yazın, gerekirse CSS ve JS'i ilgili sekmelere ekleyin ve canlı önizleme otomatik olarak güncellenir (veya Çalıştır'a tıklayın). Giriş yok, indirme yok — tarayıcınızda anında çalışır. Denemek için <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">LadeCompile editörünü açın</a>."
+    },
+    {
+      "id": "q8",
+      "question": "Bir HTML çevrimiçi derleyicide nasıl resim eklerim?",
+      "answer": "Barındırılan bir resim URL'si ile <code>&lt;img&gt;</code> etiketini kullanın: <code>&lt;img src=\"https://example.com/image.jpg\" alt=\"açıklama\"&gt;</code>. LadeCompile dahil çoğu çevrimiçi HTML derleyici, yerel dosya yüklemeyi sandbox'a desteklemediğinden, <code>src</code> olarak çevrimiçi barındırılan bir resmi (ör. Imgur, Cloudinary veya kendi CDN'iniz) kullanın."
+    },
+    {
+      "id": "q9",
+      "question": "Ücretsiz bir çevrimiçi HTML derleyici var mı?",
+      "answer": "Evet — LadeCompile, giriş gerektirmeyen ve paywall'lı özelliği olmayan tamamen <a href=\"/\" class=\"text-[#0969da] hover:underline\">ücretsiz bir çevrimiçi HTML derleyici</a>dir. HTML, CSS ve JavaScript yazın, canlı önizleyin, kodunuzu dışa aktarın veya bağlantı ile paylaşın."
+    },
+    {
+      "id": "q10",
+      "question": "Tam ekran HTML derleyici modu var mı?",
+      "answer": "Evet, LadeCompile tam ekran editör görünümünü destekler; böylece tarayıcı kromu veya kenar çubuğu dikkat dağıtmadan koda ve önizlemeye odaklanabilirsiniz — demolar, öğretim veya derin odak kodlama oturumları için kullanışlıdır."
+    },
+    {
+      "id": "q11",
+      "question": "HTML, CSS ve JavaScript için tek bir derleyici kullanabilir miyim?",
+      "answer": "Evet — LadeCompile, tek bir editörde üç sekmeli birleşik bir HTML, CSS ve JavaScript derleyicisidir; araç değiştirmeden üçünü birlikte gerçek zamanlı yazıp önizleyebilirsiniz."
+    },
+    {
+      "id": "q12",
+      "question": "LadeCompile, Programiz veya Great Learning'in HTML derleyicisiyle nasıl karşılaştırılır?",
+      "answer": "Programiz ve Great Learning, öncelikle öğrencilere ve öğreticilere yönelik, genellikle daha geniş bir kurs platformunun parçası olan HTML derleyicileri sunar. LadeCompile, tamamen hızlı canlı kodlama ve paylaşıma odaklanan bağımsız, ücretsiz, giriş gerektirmeyen bir HTML/CSS/JS derleyicisidir — hesap oluşturmadan veya bir öğrenme platformunda gezinmeden."
+    },
+    {
+      "id": "q13",
+      "question": "Bir HTML derleyici kullanmak için bir şey indirmem gerekiyor mu?",
+      "answer": "Hayır. LadeCompile tamamen tarayıcınızda çalışır — indirme veya kurulum yoktur. Bu, yerel geliştirme kurulumuna kıyasla çevrimiçi bir HTML derleyicinin ana avantajıdır."
+    },
+    {
+      "id": "q14",
+      "question": "HTML kullanarak \"seni seviyorum\" nasıl yazarım?",
+      "answer": "Basit örnek: <code>&lt;p&gt;seni seviyorum&lt;/p&gt;</code>. CSS ile daha da süsleyin (renk, yazı boyutu, animasyonlar) — <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">LadeCompile editöründe</a> canlı deneyerek anında sonucu görün."
+    }
+  ]
+}
