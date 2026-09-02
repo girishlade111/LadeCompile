@@ -821,7 +821,7 @@ export default function EditorShell() {
       setIsSharing(true);
       const toastId = toast.loading("Generating share link...");
       try {
-        const apiEndpoint = pathname.startsWith("/editor") ? "/editor/api/share" : "/api/share";
+        const apiEndpoint = pathname.includes("/editor") ? "/editor/api/share" : "/api/share";
         const res = await fetch(apiEndpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
