@@ -68,20 +68,10 @@ async function loadCatalog(catalog: CatalogName, locale: Locale): Promise<Messag
   if (locale === DEFAULT_LOCALE) {
     loaded = EN_CATALOGS[catalog];
   } else {
-    try {
-      // Dynamic import keeps non-English catalogs out of the default bundle
-      if (catalog === "ui") {
-        const mod = await import(`./ui/${locale}.json`);
-        loaded = (mod.default ?? mod) as Messages;
-      } else {
-        const mod = await import(`./faq/${locale}.json`);
-        loaded = (mod.default ?? mod) as unknown as Messages;
-      }
-    } catch {
-      loaded = {} as Messages;
-    }
+    const map = catalog === "ui" ? UI_MAP : FAQ_MAP;
+    const raw = map[locale] ?? ({} as Messages);
     // Fallback merge: missing keys fall back to English
-    loaded = deepMergeWithFallback(EN_CATALOGS[catalog], loaded);
+    loaded = deepMergeWithFallback(EN_CATALOGS[catalog], raw as Messages);
   }
 
   cache.set(key, loaded);
