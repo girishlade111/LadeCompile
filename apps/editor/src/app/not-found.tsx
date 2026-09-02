@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { normalizeLocale, localePath } from "@/i18n/locales";
 
 // Error pages should never be indexed.
 export const metadata: Metadata = {
