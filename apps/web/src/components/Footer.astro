@@ -25,44 +25,44 @@ const year = new Date().getFullYear();
       </div>
 
       <div>
-        <h3 class="text-[14px] font-medium text-[#24292f]">Product</h3>
+        <h3 class="text-[14px] font-medium text-[#24292f]">{t(ui as any, "footer.headings.product")}</h3>
         <ul class="mt-4 space-y-2.5 text-[14px] text-[#656d76]">
-          <li><a href={editorUrl} class="hover:text-[#24292f] transition-colors">Web Editor</a></li>
-          <li><a href="/#features" class="hover:text-[#24292f] transition-colors">Core Capabilities</a></li>
-          <li><a href="/#starters" class="hover:text-[#24292f] transition-colors">Starter Templates</a></li>
-          <li><a href="/#comparison" class="hover:text-[#24292f] transition-colors">Comparison Matrix</a></li>
-          <li><a href="/blog" class="hover:text-[#24292f] transition-colors">Articles & Guides</a></li>
-          <li><a href="/faq" class="hover:text-[#24292f] transition-colors">FAQ</a></li>
+          <li><a href={editorUrl} class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.webEditor")}</a></li>
+          <li><a href="/#features" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.coreCapabilities")}</a></li>
+          <li><a href="/#starters" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.starterTemplates")}</a></li>
+          <li><a href="/#comparison" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.comparisonMatrix")}</a></li>
+          <li><a href="/blog" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.articles")}</a></li>
+          <li><a href="/faq" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.faq")}</a></li>
         </ul>
       </div>
 
       <div>
-        <h3 class="text-[14px] font-medium text-[#24292f]">LadeStack Suite</h3>
+        <h3 class="text-[14px] font-medium text-[#24292f]">{t(ui as any, "footer.headings.ladestackSuite")}</h3>
         <ul class="mt-4 space-y-2.5 text-[14px] text-[#656d76]">
-          <li><a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">LadeStack Hub</a></li>
+          <li><a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.ladestackHub")}</a></li>
           <li><a href="/" class="font-medium text-[#24292f]">LadeCompile</a></li>
-          <li><span class="text-[#656d76]">GB Coder <span class="rounded-[4px] bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[10px] font-medium text-[#656d76]">SOON</span></span></li>
-          <li><span class="text-[#656d76]">API Playground <span class="rounded-[4px] bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[10px] font-medium text-[#656d76]">SOON</span></span></li>
+          <li><span class="text-[#656d76]">GB Coder <span class="rounded-[4px] bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[10px] font-medium text-[#656d76]">{t(ui as any, "footer.links.soon")}</span></span></li>
+          <li><span class="text-[#656d76]">API Playground <span class="rounded-[4px] bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[10px] font-medium text-[#656d76]">{t(ui as any, "footer.links.soon")}</span></span></li>
         </ul>
       </div>
 
       <div>
-        <h3 class="text-[14px] font-medium text-[#24292f]">Resources & Open Spec</h3>
+        <h3 class="text-[14px] font-medium text-[#24292f]">{t(ui as any, "footer.headings.resources")}</h3>
         <ul class="mt-4 space-y-2.5 text-[14px] text-[#656d76]">
-          <li><a href="/sitemap-index.xml" class="hover:text-[#24292f] transition-colors">Sitemap XML</a></li>
-          <li><a href="/robots.txt" class="hover:text-[#24292f] transition-colors">Robots.txt</a></li>
-          <li><a href="/llms.txt" class="hover:text-[#24292f] transition-colors">LLMs.txt Spec</a></li>
+          <li><a href="/sitemap-index.xml" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.sitemap")}</a></li>
+          <li><a href="/robots.txt" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.robots")}</a></li>
+          <li><a href="/llms.txt" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.llms")}</a></li>
           <li><a href="mailto:hello@ladestack.in" class="hover:text-[#24292f] transition-colors">hello@ladestack.in</a></li>
         </ul>
       </div>
     </div>
 
     <div class="mt-12 flex flex-col gap-4 border-t border-[#d0d7de] pt-8 text-[13px] text-[#656d76] sm:flex-row sm:items-center sm:justify-between">
-      <p>© {new Date().getFullYear()} LadeStack · LadeCompile. Free, no-login, sandboxed execution. Zero telemetry tracking, no paywalls.</p>
+      <p>{t(ui as any, "footer.copyright", { year: String(year) })}</p>
       <div class="flex gap-6">
-        <a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">Privacy</a>
-        <a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">Terms</a>
-        <a href="https://github.com" class="hover:text-[#24292f] transition-colors">GitHub</a>
+        <a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.privacy")}</a>
+        <a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.terms")}</a>
+        <a href="https://github.com" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.github")}</a>
       </div>
     </div>
   </div>
