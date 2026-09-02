@@ -1,53 +1,43 @@
 ---
-export const prerender = true;
+export const prerender = false;
 import { getCollection, render } from "astro:content";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
 import { filterPublishedPosts, getPostSlug, getPostLocale } from "../../utils/blog";
+import { normalizeLocale } from "../../i18n/locales";
 
-export async function getStaticPaths() {
-  const allPosts = await getCollection("blog");
-  const publishedPosts = filterPublishedPosts(allPosts, false);
+const currentLocale = normalizeLocale((Astro.currentLocale as string) ?? "en");
+const slugParam = Astro.params.slug as string | string[] | undefined;
+const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam ?? "";
 
-  // Deduplicate: only first occurrence per (locale, slug) wins
+// Load all posts and find the requested one, with fallback to English if locale has no translation
+const allPostsRaw = await getCollection("blog");
+const publishedAll = filterPublishedPosts(allPostsRaw, false);
+const allDeduped = (() => {
   const seen = new Set<string>();
-  const deduped = publishedPosts.filter((post) => {
-    const locale = getPostLocale(post);
-    const slug = getPostSlug(post);
-    const key = `${locale}:${slug}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
+  return publishedAll.filter((p) => {
+    const k = `${getPostLocale(p)}:${getPostSlug(p)}`;
+    if (seen.has(k)) return false;
+    seen.add(k);
     return true;
   });
+})();
 
-  // For English-only content, generate static paths for every locale so /zh/blog/slug etc
-  // do not 404 — they will render the English post with a translation-pending notice (better UX than 404).
-  // This also ensures LanguageSwitcher locale swaps on blog posts stay on the same slug instead of 404.
-  const SUPPORTED = ["en", "zh", "pt-br", "ru", "ja", "tr", "ko"] as const;
-  const paths: Array<{ params: { slug: string }; props: { post: typeof deduped[number]; allPosts: typeof deduped; locale: string } }> = [];
-  for (const post of deduped) {
-    // Only English posts need cross-locale fallback; non-English already have their own locale
-    if (getPostLocale(post) === "en") {
-      for (const loc of SUPPORTED) {
-        paths.push({ params: { slug: getPostSlug(post) }, props: { post, allPosts: deduped, locale: loc } });
-      }
-    } else {
-      paths.push({ params: { slug: getPostSlug(post) }, props: { post, allPosts: deduped, locale: getPostLocale(post) } });
-    }
+let post = allDeduped.find((p) => getPostSlug(p) === slug && getPostLocale(p) === currentLocale);
+let isFallback = false;
+if (!post) {
+  // No post for this locale+slug — fallback to English if exists
+  const enPost = allDeduped.find((p) => getPostSlug(p) === slug && getPostLocale(p) === "en");
+  if (enPost) {
+    post = enPost;
+    isFallback = currentLocale !== "en";
   }
-  // Deduplicate paths by (locale, slug) to avoid duplicate generation for same locale+slug
-  const seenPaths = new Set<string>();
-  return paths.filter((p) => {
-    const key = `${p.props.locale}:${p.params.slug}`;
-    if (seenPaths.has(key)) return false;
-    seenPaths.add(key);
-    return true;
-  });
 }
-
-const { post, allPosts, locale: staticLocale } = Astro.props as { post: any; allPosts: any[]; locale: string };
-const currentLocale = (Astro.currentLocale as string) ?? staticLocale ?? getPostLocale(post) ?? "en";
+if (!post) {
+  // Still not found — let Astro render 404
+  throw new Error(`Blog post not found: ${slug} for locale ${currentLocale}`);
+}
 const postLocale = getPostLocale(post);
-const isFallback = currentLocale.toLowerCase() !== postLocale.toLowerCase() && postLocale === "en";
+const allPosts = allDeduped.filter((p) => getPostLocale(p) === currentLocale || getPostLocale(p) === "en");
 const { Content, headings } = await render(post);
 ---
 
