@@ -11,9 +11,21 @@
 import type { Locale } from "./locales";
 import { DEFAULT_LOCALE } from "./locales";
 
-// Vite/ Astro JSON imports — static for bundling; dynamic fallback below.
+// Static imports for all locales — ensures build-time inclusion for SSG per locale
 import enUi from "./ui/en.json";
+import zhUi from "./ui/zh.json";
+import ptBrUi from "./ui/pt-br.json";
+import ruUi from "./ui/ru.json";
+import jaUi from "./ui/ja.json";
+import trUi from "./ui/tr.json";
+import koUi from "./ui/ko.json";
 import enFaq from "./faq/en.json";
+import zhFaq from "./faq/zh.json";
+import ptBrFaq from "./faq/pt-br.json";
+import ruFaq from "./faq/ru.json";
+import jaFaq from "./faq/ja.json";
+import trFaq from "./faq/tr.json";
+import koFaq from "./faq/ko.json";
 
 type Messages = Record<string, unknown>;
 
@@ -23,6 +35,26 @@ export type CatalogName = "ui" | "faq";
 const EN_CATALOGS: Record<CatalogName, Messages> = {
   ui: enUi as Messages,
   faq: enFaq as unknown as Messages,
+};
+
+const UI_MAP: Record<string, Messages> = {
+  en: enUi as Messages,
+  zh: zhUi as Messages,
+  "pt-br": ptBrUi as Messages,
+  ru: ruUi as Messages,
+  ja: jaUi as Messages,
+  tr: trUi as Messages,
+  ko: koUi as Messages,
+};
+
+const FAQ_MAP: Record<string, Messages> = {
+  en: enFaq as unknown as Messages,
+  zh: zhFaq as unknown as Messages,
+  "pt-br": ptBrFaq as unknown as Messages,
+  ru: ruFaq as unknown as Messages,
+  ja: jaFaq as unknown as Messages,
+  tr: trFaq as unknown as Messages,
+  ko: koFaq as unknown as Messages,
 };
 
 // Lazy-loaded cache per locale+catalog
