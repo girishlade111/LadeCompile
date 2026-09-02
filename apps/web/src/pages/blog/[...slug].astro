@@ -8,35 +8,46 @@ export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
   const publishedPosts = filterPublishedPosts(allPosts, false);
 
-  // Deduplicate: only first occurrence per (locale, slug) wins; root duplicates (en/ vs bare) collapse to locale-aware key
+  // Deduplicate: only first occurrence per (locale, slug) wins
   const seen = new Set<string>();
   const deduped = publishedPosts.filter((post) => {
     const locale = getPostLocale(post);
     const slug = getPostSlug(post);
     const key = `${locale}:${slug}`;
     if (seen.has(key)) return false;
-    // Also skip bare-root duplicates when en/ version exists
     seen.add(key);
     return true;
   });
 
-  return deduped.map((post) => ({
-    params: { slug: getPostSlug(post) },
-    props: { post, allPosts: deduped },
-  }));
+  // For English-only content, generate static paths for every locale so /zh/blog/slug etc
+  // do not 404 — they will render the English post with a translation-pending notice (better UX than 404).
+  // This also ensures LanguageSwitcher locale swaps on blog posts stay on the same slug instead of 404.
+  const SUPPORTED = ["en", "zh", "pt-br", "ru", "ja", "tr", "ko"] as const;
+  const paths: Array<{ params: { slug: string }; props: { post: typeof deduped[number]; allPosts: typeof deduped; locale: string } }> = [];
+  for (const post of deduped) {
+    // Only English posts need cross-locale fallback; non-English already have their own locale
+    if (getPostLocale(post) === "en") {
+      for (const loc of SUPPORTED) {
+        paths.push({ params: { slug: getPostSlug(post) }, props: { post, allPosts: deduped, locale: loc } });
+      }
+    } else {
+      paths.push({ params: { slug: getPostSlug(post) }, props: { post, allPosts: deduped, locale: getPostLocale(post) } });
+    }
+  }
+  // Deduplicate paths by (locale, slug) to avoid duplicate generation for same locale+slug
+  const seenPaths = new Set<string>();
+  return paths.filter((p) => {
+    const key = `${p.props.locale}:${p.params.slug}`;
+    if (seenPaths.has(key)) return false;
+    seenPaths.add(key);
+    return true;
+  });
 }
 
-const { post, allPosts } = Astro.props;
-// Guard: if Astro's i18n routing rendered this page under a locale with no content for this slug, return 404
-const currentLocale = (Astro.currentLocale as string) ?? "en";
+const { post, allPosts, locale: staticLocale } = Astro.props as { post: any; allPosts: any[]; locale: string };
+const currentLocale = (Astro.currentLocale as string) ?? staticLocale ?? getPostLocale(post) ?? "en";
 const postLocale = getPostLocale(post);
-if (currentLocale.toLowerCase() !== postLocale.toLowerCase()) {
-  // For non-English locales with no translated post, let Astro's i18n fallback handle via 404
-  // We keep English fallback disabled — 404 is the clean crawl behavior
-  if (postLocale !== "en") {
-    // This is a non-en post rendered under wrong locale — should not happen after dedup; fall through
-  }
-}
+const isFallback = currentLocale.toLowerCase() !== postLocale.toLowerCase() && postLocale === "en";
 const { Content, headings } = await render(post);
 ---
 
