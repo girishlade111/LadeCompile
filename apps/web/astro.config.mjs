@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
-import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,22 +13,7 @@ export default defineConfig({
       redirectToDefaultLocale: false,
     },
   },
-  integrations: [
-    sitemap({
-      i18n: {
-        defaultLocale: "en",
-        locales: {
-          en: "en",
-          zh: "zh",
-          "pt-br": "pt-BR",
-          ru: "ru",
-          ja: "ja",
-          tr: "tr",
-          ko: "ko",
-        },
-      },
-    }),
-  ],
+  integrations: [],
   adapter: cloudflare({
     imageService: "compile",
     platformProxy: {
