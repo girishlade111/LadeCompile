@@ -11,15 +11,19 @@ const nextConfig = {
   // Silence multi-lockfile warning: parent dir contains a stray package-lock.json
   outputFileTracingRoot: path.join(__dirname, "../../"),
 
-  // Mount editor at /editor to match Wrangler path-based routing.
-  // Wrangler routes compile.ladestack.in/editor/* → this Worker,
-  // and Next's basePath makes "/" inside the app correspond to "/editor" externally.
-  basePath: "/editor",
+  // i18n locale routing is handled via app/[locale]/editor segment (Fix B).
+  // Previously basePath "/editor" was used to mount "/" → "/editor" externally,
+  // but with locale-prefixed routes /{locale}/editor the file-system route
+  // app/[locale]/editor already maps to /{locale}/editor, and app/editor
+  // maps to /editor (English). basePath is no longer needed — locale handling
+  // is via middleware + [locale] segment. Kept commented for reference.
+  // basePath: "/editor",
   images: {
     unoptimized: true,
   },
   // Do NOT set edge runtime globally — use Node.js compatibility layer via OpenNext.
   // Individual routes default to Node.js runtime which OpenNext translates for Workers.
+  // middleware.ts is edge-compatible (no node:fs).
 };
 
 export default nextConfig;
