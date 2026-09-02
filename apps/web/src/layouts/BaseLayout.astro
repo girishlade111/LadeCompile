@@ -29,10 +29,23 @@ const {
   author,
   tags,
 } = Astro.props as Props;
+
+const htmlLocaleMap: Record<string, string> = {
+  en: "en",
+  zh: "zh",
+  "pt-br": "pt-BR",
+  ru: "ru",
+  ja: "ja",
+  tr: "tr",
+  ko: "ko",
+};
+const currentLocaleRaw = (Astro.currentLocale as string) ?? "en";
+const currentLocale = currentLocaleRaw.toLowerCase();
+const htmlLang = htmlLocaleMap[currentLocale] ?? "en";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
