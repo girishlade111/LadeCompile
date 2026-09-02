@@ -5,7 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { getUiMessages, t } from "../i18n/index";
-import { normalizeLocale } from "../i18n/locales";
+import { normalizeLocale, localePath } from "../i18n/locales";
 
 // For prerendered i18n routes with output:"static" and prefixDefaultLocale:false,
 // Astro automatically generates / (en) and /{locale}/ for others from this single file.
@@ -582,7 +582,7 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
               <a href={editorUrl} class="btn-primary">
                 {t(ui as any, "index.cta.primary")}
               </a>
-              <a href="/blog" class="btn-secondary">
+              <a href={localePath(locale, "/blog")} class="btn-secondary">
                 {t(ui as any, "index.cta.secondary")}
               </a>
             </div>
