@@ -75,7 +75,7 @@ export default function RootError({
             Try Again
           </button>
           <Link
-            href="/"
+            href="/editor"
             className="inline-flex min-h-[44px] items-center justify-center rounded-[12px] border border-border bg-background px-5 py-2.5 text-[14px] font-medium text-foreground transition-colors hover:bg-muted"
           >
             Back to Editor

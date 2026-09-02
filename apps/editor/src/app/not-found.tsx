@@ -66,7 +66,7 @@ export default function NotFound() {
         {/* Actions — 44px+ touch targets */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="/"
+            href="/editor"
             className="inline-flex min-h-[44px] items-center justify-center rounded-[12px] bg-primary px-5 py-2.5 text-[14px] font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Back to Editor

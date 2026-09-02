@@ -33,10 +33,23 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // API routes are locale-independent — do not touch, but set header for consistency
+  // API routes: handle locale-prefixed /{locale}/editor/api/share → /editor/api/share
+  // Keep API locale-agnostic (no /ja prefix) but support locale-prefixed fetch via rewrite.
   if (pathname.includes("/api/")) {
+    const { locale, rest, hadPrefix } = parseLocaleFromPath(pathname);
+    if (hadPrefix && rest.includes("/editor/api/")) {
+      const url2 = request.nextUrl.clone();
+      url2.pathname = rest; // strip locale, e.g. /zh/editor/api/share → /editor/api/share
+      const res = NextResponse.rewrite(url2);
+      res.headers.set("x-ladecompile-locale", locale);
+      res.cookies.set("ladecompile_locale", locale, { path: "/", maxAge: 31536000, sameSite: "lax", secure: true });
+      return res;
+    }
     const res = NextResponse.next();
-    res.headers.set("x-ladecompile-locale", "en");
+    res.headers.set("x-ladecompile-locale", hadPrefix ? locale : "en");
+    if (hadPrefix) {
+      res.cookies.set("ladecompile_locale", locale, { path: "/", maxAge: 31536000, sameSite: "lax", secure: true });
+    }
     return res;
   }
 
