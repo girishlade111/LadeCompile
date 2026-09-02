@@ -7,7 +7,7 @@ import Footer from "../components/Footer.astro";
 import { getFaqMessages, getUiMessages, t } from "../i18n/index";
 import { normalizeLocale, toBcp47 } from "../i18n/locales";
 
-const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
+const locale = normalizeLocale(((Astro.params as any).locale as string) ?? (Astro.currentLocale as string) ?? "en");
 const bcp47 = toBcp47(locale);
 const faqCatalog = await getFaqMessages(locale);
 const uiCatalog = await getUiMessages(locale);
