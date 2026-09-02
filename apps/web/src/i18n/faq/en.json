@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "locale": "en",
+    "title": "FAQ — Free Online HTML Compiler | LadeCompile",
+    "description": "Frequently asked questions about LadeCompile's free online HTML compiler",
+    "keywordIntent": "Compilador HTML online / HTML compiler online — matches English search volume for 'html compiler', 'online html compiler', 'html compiler online free'",
+    "translationTier": "HUMAN_REVIEW",
+    "mtProvider": "DeepL API (assumed) — human reviewed",
+    "translator": "Human (English source)",
+    "lastReviewed": "2026-09-02"
+  },
+  "items": [
+    {
+      "id": "q1",
+      "question": "What is an HTML compiler?",
+      "answer": "An HTML compiler (more accurately called an HTML editor or HTML compiler online) is a tool that lets you write HTML, CSS, and JavaScript code in a browser and see the rendered output instantly — no local setup, no downloads. LadeCompile is a <a href=\"/\" class=\"text-[#0969da] hover:underline\">free online HTML compiler</a> that runs your code live in a sandboxed preview."
+    },
+    {
+      "id": "q2",
+      "question": "What is HTML used for?",
+      "answer": "HTML (HyperText Markup Language) is the standard markup language used to structure content on the web — headings, paragraphs, links, images, forms, and layout. Every webpage you visit uses HTML as its foundation, paired with CSS for styling and JavaScript for interactivity."
+    },
+    {
+      "id": "q3",
+      "question": "What is an online compiler?",
+      "answer": "An online compiler is a web-based tool that compiles or runs code directly in your browser without installing any software locally. For HTML/CSS/JS, \"compiling\" really means rendering — the tool parses your code and shows a live preview instantly."
+    },
+    {
+      "id": "q4",
+      "question": "What is a compiler?",
+      "answer": "A compiler translates source code into a form a machine or browser can execute. For HTML, CSS, and JavaScript, there's no traditional compilation step — browsers interpret them directly — but tools like LadeCompile are still called \"HTML compilers\" because they provide that instant write-and-preview experience."
+    },
+    {
+      "id": "q5",
+      "question": "Which tool is used for HTML?",
+      "answer": "You can write HTML in any text editor (VS Code, Sublime, Notepad++) and open it in a browser, or use an <a href=\"/\" class=\"text-[#0969da] hover:underline\">online HTML compiler</a> like LadeCompile, which combines a code editor and live preview in one place — no setup required."
+    },
+    {
+      "id": "q6",
+      "question": "Does HTML need a compiler?",
+      "answer": "No. HTML doesn't require compilation — browsers render it directly. An \"HTML compiler online\" is really a code editor + live preview combo, useful for fast testing, learning, and sharing snippets without setting up a local dev environment."
+    },
+    {
+      "id": "q7",
+      "question": "How do I run HTML code in an online compiler?",
+      "answer": "Paste or type your HTML in the editor tab, add CSS and JS in their respective tabs if needed, and the live preview updates automatically (or click Run). No login, no downloads — it runs instantly in your browser. <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">Open the LadeCompile editor</a> to try it."
+    },
+    {
+      "id": "q8",
+      "question": "How do I add an image in an HTML online compiler?",
+      "answer": "Use the <code>&lt;img&gt;</code> tag with a hosted image URL: <code>&lt;img src=\"https://example.com/image.jpg\" alt=\"description\"&gt;</code>. Since most online HTML compilers (including LadeCompile) don't support local file uploads into the sandbox, use an image hosted online (e.g., via Imgur, Cloudinary, or your own CDN) as the <code>src</code>."
+    },
+    {
+      "id": "q9",
+      "question": "Is there a free online HTML compiler?",
+      "answer": "Yes — LadeCompile is a completely <a href=\"/\" class=\"text-[#0969da] hover:underline\">free HTML compiler online</a> with no login required and no paywalled features. Write HTML, CSS, and JavaScript and preview it live, export your code, or share it via link."
+    },
+    {
+      "id": "q10",
+      "question": "Is there a full-screen HTML compiler mode?",
+      "answer": "Yes, LadeCompile supports a full-screen editor view so you can focus on code and preview without browser chrome or sidebar distractions — useful for demos, teaching, or deep-focus coding sessions."
+    },
+    {
+      "id": "q11",
+      "question": "Can I use one compiler for HTML, CSS, and JavaScript together?",
+      "answer": "Yes — LadeCompile is a combined HTML, CSS, and JavaScript compiler with three tabs in a single editor, so you can write and preview all three together in real time without switching tools."
+    },
+    {
+      "id": "q12",
+      "question": "How does LadeCompile compare to Programiz or Great Learning's HTML compiler?",
+      "answer": "Programiz and Great Learning offer HTML compilers primarily aimed at students and tutorials, often within a broader course platform. LadeCompile is a standalone, free, no-login HTML/CSS/JS compiler focused purely on fast live coding and sharing — without needing to create an account or navigate a learning platform."
+    },
+    {
+      "id": "q13",
+      "question": "Do I need to download anything to use an HTML compiler?",
+      "answer": "No. LadeCompile runs entirely in your browser — there's no download or installation. This is the main advantage of an online HTML compiler over a local development setup."
+    },
+    {
+      "id": "q14",
+      "question": "How do I write \"I love you\" using HTML?",
+      "answer": "Simple example: <code>&lt;p&gt;I love you&lt;/p&gt;</code>. Style it further with CSS (color, font-size, animations) — try it live in the <a href=\"/editor\" class=\"text-[#0969da] hover:underline\">LadeCompile editor</a> to see instant results."
+    }
+  ]
+}
