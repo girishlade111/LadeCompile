@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    },
+    "siteTitle": "LadeCompile — Free Online HTML CSS JS Compiler, No Login Required",
+    "siteDescription": "Free, no-login, enterprise-grade HTML/CSS/JS online compiler and live editor. Write, run, and share code instantly — no signup, no paywall. The fast OneCompiler alternative from LadeStack.",
+    "languageSwitcherLabel": "Choose language",
+    "languageSwitcherAriaLabel": "Language selector"
+  },
+  "nav": {
+    "features": "Features",
+    "templates": "Templates",
+    "comparison": "Comparison",
+    "blog": "Blog",
+    "openEditor": "Open Editor",
+    "openEditorFree": "Open Web Editor — it's free",
+    "openInWebEditor": "Open in Web Editor",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "mobileNavigation": "Mobile navigation",
+    "home": "LadeCompile home",
+    "skipToContent": "Skip to content"
+  },
+  "footer": {
+    "description": "Free, no-login HTML/CSS/JS online compiler. Built for developers, educators, and students who want fast, zero-friction prototyping without an account or paywall.",
+    "ecosystem": "Part of the LadeStack ecosystem of open developer utilities.",
+    "headings": {
+      "product": "Product",
+      "ladestackSuite": "LadeStack Suite",
+      "resources": "Resources & Open Spec"
+    },
+    "links": {
+      "webEditor": "Web Editor",
+      "coreCapabilities": "Core Capabilities",
+      "starterTemplates": "Starter Templates",
+      "comparisonMatrix": "Comparison Matrix",
+      "articles": "Articles & Guides",
+      "faq": "FAQ",
+      "ladestackHub": "LadeStack Hub",
+      "ladecompile": "LadeCompile",
+      "gbCoder": "GB Coder",
+      "apiPlayground": "API Playground",
+      "sitemap": "Sitemap XML",
+      "robots": "Robots.txt",
+      "llms": "LLMs.txt Spec",
+      "soon": "SOON",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "github": "GitHub"
+    },
+    "copyright": "© {year} LadeStack · LadeCompile. Free, no-login, sandboxed execution. Zero telemetry tracking, no paywalls.",
+    "byLadestack": "by LadeStack"
+  },
+  "index": {
+    "hero": {
+      "kicker": "Free · No login · No paywall — ever",
+      "titleLine1": "Free HTML, CSS & JS compiler,",
+      "titleLine2": "no login required.",
+      "description1": "LadeCompile is the quiet, enterprise-grade <strong>online code compiler</strong> for developers, students, and educators. Write HTML, CSS, and JavaScript in one tabbed editor and see your sandboxed live preview instantly — the clean <strong>OneCompiler alternative</strong> without the signup wall.",
+      "description2": "Part of the LadeStack suite of free developer tools. Prototype responsive layouts, debug JavaScript logic, or export standalone files in seconds.",
+      "primaryCta": "Open Web Editor — it's free",
+      "secondaryCta": "Explore Starter Templates",
+      "footnote": "No account needed to write, save, or share. Local-first execution in your browser.",
+      "trust": {
+        "sharing": "Zero-Login URL Sharing",
+        "preview": "400ms Debounced Preview",
+        "export": "Client-Side ZIP Export"
+      }
+    },
+    "snapshot": {
+      "tabHtml": "index.html",
+      "tabCss": "styles.css",
+      "tabJs": "script.js",
+      "live": "Live",
+      "fastPrototyping": "Fast Prototyping",
+      "zeroLogin": "Zero login. 400ms compile.",
+      "runComponent": "Run Component",
+      "sandboxed": "Sandboxed preview rendered at 60fps",
+      "console": "Console:",
+      "ready": "Ready",
+      "warnings": "0 warnings, 0 errors",
+      "bridgeActive": "PostMessage Bridge Active",
+      "lookingFor": "Looking for full Monaco code features?",
+      "openComplete": "Open the complete web editor"
+    },
+    "standards": {
+      "label": "Built with open web standards & modern cloud infrastructure",
+      "items": {
+        "html": "HTML5 Living Standard",
+        "css": "CSS3 Grid & Flexbox",
+        "ecma": "ECMAScript 2024",
+        "monaco": "Monaco Engine",
+        "sandbox": "Sandboxed Iframe",
+        "cloudflare": "Cloudflare Edge"
+      }
+    },
+    "coral": {
+      "title": "Zero-login code execution with instant live preview.",
+      "description": "Stop wasting time registering accounts or hitting paywalls just to test an HTML snippet or experiment with a CSS trick. LadeCompile compiles your three files in a debounced, isolated worker bridge right in your client.",
+      "cta": "Launch Live Compiler",
+      "pipeline": {
+        "title": "Compilation Pipeline",
+        "badge": "400ms Debounce",
+        "step1": "1. Client Monaco Inputs (HTML/CSS/JS)",
+        "step1Meta": "Local-first",
+        "step2": "2. Sandbox Iframe PostMessage Bridge",
+        "step2Meta": "Isolated Origin",
+        "step3": "3. Zero-Storage URL Hash Compression",
+        "step3Meta": "LZ-String",
+        "footer": "High reliability · Zero tracking · Unblocked performance"
+      }
+    },
+    "features": {
+      "heading": "Every feature you need — none of the paywalls.",
+      "subheading": "A focused developer workbench that eliminates the friction of traditional web playgrounds.",
+      "cards": {
+        "sharingEyebrow": "Zero-Storage Sharing",
+        "sharingTitle": "Instant State Compression",
+        "sharingBody": "Your code is compressed straight into the browser URL hash using LZ-String. Share snippets with colleagues without creating an account or sending data to a database.",
+        "sharingCode": "compile.ladestack.in/#code=H4sIAAAAAAA...",
+        "exportEyebrow": "Export Suite",
+        "exportTitle": "ZIP, HTML & Screenshot",
+        "exportBody": "Download your HTML, CSS, and JS bundle as a ready-to-deploy ZIP, copy standalone single-file HTML, or snap a crisp high-res screenshot of your rendered UI.",
+        "badges": {
+          "zip": ".ZIP",
+          "html": "HTML",
+          "png": "PNG"
+        },
+        "monacoEyebrow": "Monaco Engine",
+        "monacoTitle": "VS Code Precision in Your Browser",
+        "monacoBody": "Built on Monaco Editor, LadeCompile provides native syntax highlighting, intelligent indentation, code formatting, find-and-replace, and native keyboard shortcuts.",
+        "monacoRows": {
+          "save": "Save / Compile",
+          "shortcutSave": "Cmd/Ctrl + S",
+          "find": "Find & Replace",
+          "shortcutFind": "Cmd/Ctrl + F",
+          "minimap": "Toggle Minimap",
+          "minimapMeta": "Preferences Menu"
+        },
+        "monacoLink": "Test in editor →",
+        "startersEyebrow": "Curated Starters",
+        "startersTitle": "10 Production-Grade Starter Boilerplates",
+        "startersBody": "Start from a blank canvas or choose from verified templates: modern CSS Grid dashboards, responsive landing pages, interactive forms with client validation, dark mode cards, HTML5 canvas animations, and weather API widgets.",
+        "startersTags": {
+          "grid": "CSS Grid",
+          "flexbox": "Flexbox Hero",
+          "canvas": "Canvas Animation",
+          "weather": "Fetch API Weather",
+          "form": "Form Validation"
+        }
+      }
+    },
+    "tabbed": {
+      "heading": "Engineered for uncluttered focus.",
+      "subheading": "Explore how each part of LadeCompile fits together to give you a clean, reliable coding workflow.",
+      "tabs": {
+        "tab1Label": "Three-File Harmony",
+        "tab1Desc": "Independent HTML, CSS, and JS tabs with automatic syntax formatting.",
+        "tab2Label": "Sandboxed Console Bridge",
+        "tab2Desc": "Live postMessage error and log forwarding with unread count badges.",
+        "tab3Label": "Local-First Storage",
+        "tab3Desc": "Changes persist automatically in localStorage; work survives reloads.",
+        "tab4Label": "Unsaved Work Protection",
+        "tab4Desc": "Confirmation guards prevent accidental loss when loading starters or resetting."
+      },
+      "activeCapability": "Active Capability",
+      "defaultTitle": "Dedicated Tabbed Editor Environment",
+      "defaultDesc": "Switch smoothly between <code>index.html</code>, <code>styles.css</code>, and <code>script.js</code> without clutter. Each tab runs full Monaco IntelliSense and error markers with independent undo history.",
+      "readyToWrite": "Ready to write code?",
+      "openEditor": "Open Editor →"
+    },
+    "starters": {
+      "heading": "Curated starters for immediate prototyping.",
+      "cards": {
+        "gridTitle": "CSS Grid Dashboard",
+        "gridCategory": "Layout",
+        "gridDesc": "Responsive multi-column metric cards with modern CSS grid gap and media queries.",
+        "flexboxTitle": "Flexbox Landing Page",
+        "flexboxCategory": "Marketing",
+        "flexboxDesc": "Clean hero band, navigation bar, responsive pricing grid, and accessible form.",
+        "formTitle": "Form Validation Engine",
+        "formCategory": "Interaction",
+        "formDesc": "Real-time email and password regex validation with clear visual feedback states.",
+        "particleTitle": "Particle Animation",
+        "particleCategory": "Canvas",
+        "particleDesc": "Interactive 60fps HTML5 canvas particles reacting smoothly to cursor movement.",
+        "weatherTitle": "Weather API Widget",
+        "weatherCategory": "API / Async",
+        "weatherDesc": "Asynchronous Fetch API implementation with loading states and error handling.",
+        "todoTitle": "Todo App with LocalStorage",
+        "todoCategory": "Application",
+        "todoDesc": "Complete CRUD list with filter tabs and client-side persistence.",
+        "loadTemplate": "Load template →"
+      }
+    },
+    "cream": {
+      "title": "The path to 10× faster prototyping for developers, educators, and students.",
+      "body": "Whether teaching a frontend bootcamp or quickly demonstrating a bug fix on a call, requiring users to log in before they can see or edit code creates avoidable friction. LadeCompile keeps the entire loop zero-login: open the link, edit immediately, share the new URL."
+    },
+    "comparison": {
+      "heading": "A free OneCompiler alternative — without the asterisks.",
+      "subheading": "OneCompiler and CodePen are great tools. The difference is the business model: LadeCompile provides the core editing experience without accounts, paywalls, or gated actions.",
+      "headers": {
+        "capability": "Capability",
+        "ladecompile": "LadeCompile",
+        "onecompiler": "OneCompiler*"
+      },
+      "rows": {
+        "save": "Save & Share Without Login",
+        "saveLadecompile": "100% Free (URL / KV)",
+        "saveOnecompiler": "Login required",
+        "paywalled": "Paywalled Features",
+        "paywalledLadecompile": "None — All Free",
+        "paywalledOnecompiler": "AI Agent behind Upgrade",
+        "preview": "Live Preview & Console",
+        "previewLadecompile": "Included (Sandboxed)",
+        "previewOnecompiler": "Included",
+        "export": "Export Suite (ZIP / HTML / PNG)",
+        "exportLadecompile": "Client-Side Instant",
+        "exportOnecompiler": "Standard Download",
+        "privacy": "Privacy & Data Tracking",
+        "privacyLadecompile": "Local-First (No Telemetry)",
+        "privacyOnecompiler": "Account-Based Tracking"
+      },
+      "footnote": "*Comparison based on publicly available web editor features as of 2026. LadeCompile is built to provide an unencumbered free alternative for modern web developers."
+    },
+    "cta": {
+      "title": "Start building with LadeCompile right now.",
+      "body": "No signup forms, no verification emails, and no credit card. Jump straight into the Monaco editor and begin writing HTML, CSS, and JavaScript.",
+      "primary": "Open Web Editor — Free",
+      "secondary": "Read Articles & Guides"
+    }
+  },
+  "faq": {
+    "pageTitle": "FAQ — Free Online HTML Compiler | LadeCompile",
+    "pageDescription": "Frequently asked questions about LadeCompile's free online HTML compiler: what an HTML compiler is, how to run HTML code online, images in HTML, full-screen mode, and more. No login required.",
+    "badge": "Help & Answers",
+    "heading": "Frequently asked questions about our <span>online HTML compiler</span>.",
+    "subheading": "Everything you need to know about using LadeCompile — the free, no-login HTML, CSS, and JavaScript compiler that runs instantly in your browser.",
+    "a11y": {
+      "sectionLabel": "Frequently asked questions"
+    },
+    "cta": {
+      "title": "Ready to try it yourself?",
+      "body": "Open the free online HTML compiler — no account, no downloads. Or read our guides on the best free HTML, CSS & JS compilers in 2026 and OneCompiler alternatives.",
+      "links": {
+        "editor": "free online HTML compiler",
+        "best": "the best free HTML, CSS & JS compilers in 2026",
+        "alternatives": "OneCompiler alternatives"
+      }
+    }
+  },
+  "blog": {
+    "title": "Articles & Guides — Web Development Insights",
+    "description": "Tutorials, comparisons, and guides on HTML/CSS/JS compilers, Canvas vs SVG, and modern frontend workflows. Free insights from the LadeCompile team.",
+    "heading": "Articles & Guides",
+    "subheading": "Practical comparisons and tutorials for developers, students, and educators.",
+    "onThisPage": "On this page",
+    "prevArticle": "← Previous article",
+    "nextArticle": "Next article →",
+    "relatedArticles": "Related articles",
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Blog"
+    },
+    "meta": {
+      "by": "By {author}",
+      "publishedOn": "Published {date}",
+      "updatedOn": "Updated {date}",
+      "readTime": "{minutes} min read",
+      "category": "Category: {category}",
+      "tags": "Tags"
+    },
+    "empty": "No articles found.",
+    "backToBlog": "Back to blog",
+    "shareArticle": "Share this article"
+  },
+  "errors": {
+    "404": {
+      "title": "Page not found",
+      "description": "Sorry — the page you're looking for doesn't exist.",
+      "backHome": "Back to home",
+      "goToEditor": "Open editor",
+      "heading": "404 — Not Found"
+    },
+    "500": {
+      "title": "Something went wrong",
+      "description": "An unexpected error occurred. Please try again.",
+      "retry": "Try again",
+      "backHome": "Back to home"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy — LadeCompile",
+      "description": "How LadeCompile handles your data: local-first execution, no tracking, and privacy-first architecture.",
+      "lastUpdated": "Last updated: {date}"
+    },
+    "terms": {
+      "title": "Terms of Service — LadeCompile",
+      "description": "Terms of service for using LadeCompile's free online HTML/CSS/JS compiler.",
+      "lastUpdated": "Last updated: {date}"
+    }
+  },
+  "common": {
+    "ladecompile": "LadeCompile",
+    "ladestack": "LadeStack",
+    "learnMore": "Learn more",
+    "loading": "Loading...",
+    "close": "Close",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "search": "Search",
+    "noResults": "No results found.",
+    "comingSoon": "SOON"
+  },
+  "seo": {
+    "defaultTitle": "LadeCompile — Free HTML CSS JS Online Compiler, No Login Required",
+    "defaultDescription": "Free, no-login, enterprise-grade HTML/CSS/JS online compiler and live editor. Write, run, and share code instantly — no signup, no paywall. The fast OneCompiler alternative from LadeStack.",
+    "ogLocale": "en_US"
+  }
+}
