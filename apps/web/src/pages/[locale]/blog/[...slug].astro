@@ -61,7 +61,6 @@ if (!post) {
     isFallback = currentLocale !== "en";
   }
 }
-console.log(`[blog slug] slug=${slug} currentLocale=${currentLocale} postFound=${!!post} isFallback=${isFallback} allSlugs=${allDeduped.map(p=>getPostSlug(p)).join(",").slice(0,100)}`);
 if (!post) {
   Astro.response.status = 404;
 }
