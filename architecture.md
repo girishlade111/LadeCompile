@@ -1,7 +1,7 @@
 # LadeCompile — Multi-Language (i18n) Architecture Blueprint
 
 **Status:** Blueprint (Prompt 1 of 5) — no code, authoritative source for Prompts 2-5.
-**Monorepo:** `apps/web` = Astro 5 (`@astrojs/cloudflare`, `output: static`) · `apps/editor` = Next.js 15 App Router (`@opennextjs/cloudflare`, `basePath: /editor`)
+**Monorepo:** `apps/web` = Astro 5 (`@astrojs/cloudflare`, `output: server`) · `apps/editor` = Next.js 15 App Router (`@opennextjs/cloudflare`, `basePath: /editor`)
 **Domain:** `https://compile.ladestack.in` (single domain, two Cloudflare Workers via Wrangler path routes)
 **Date:** 2026-09-02
 **Languages (7):** `en` (default) · `zh` (Mandarin, `zh`) · `pt-BR` (`pt-br` in URLs) · `ru` · `ja` · `tr` · `ko`
