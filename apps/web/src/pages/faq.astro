@@ -2,109 +2,46 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { getFaqMessages, getUiMessages, t } from "../i18n/index";
+import { normalizeLocale, toBcp47 } from "../i18n/locales";
 
-const title = "FAQ — Free Online HTML Compiler | LadeCompile";
-const description =
-  "Frequently asked questions about LadeCompile's free online HTML compiler: what an HTML compiler is, how to run HTML code online, images in HTML, full-screen mode, and more. No login required.";
-
+const rawLocale = (Astro.currentLocale as string) ?? "en";
+const locale = normalizeLocale(rawLocale);
+const bcp47 = toBcp47(locale);
+const faqCatalog = await getFaqMessages(locale);
+const uiCatalog = await getUiMessages(locale);
 const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
 
-/**
- * Single source of truth for FAQ content.
- * Consumed by BOTH the visible accordion and the FAQPage JSON-LD schema,
- * so rendered content and structured data can never diverge.
- * Answers may contain simple inline HTML (matching visible rendering),
- * which is valid for schema.org Answer.text per Google's FAQ guidelines.
- */
-interface FaqItem {
-  question: string;
-  answer: string;
-}
+// Visible + JSON-LD share the same loaded source — no divergence.
+interface FaqItem { id: string; question: string; answer: string; }
+const rawItems = (faqCatalog as any).items as FaqItem[] | undefined;
+const faqs: FaqItem[] = Array.isArray(rawItems) ? rawItems : [];
 
-const faqs: FaqItem[] = [
-  {
-    question: "What is an HTML compiler?",
-    answer:
-      'An HTML compiler (more accurately called an HTML editor or HTML compiler online) is a tool that lets you write HTML, CSS, and JavaScript code in a browser and see the rendered output instantly — no local setup, no downloads. LadeCompile is a <a href="/" class="text-[#0969da] hover:underline">free online HTML compiler</a> that runs your code live in a sandboxed preview.',
-  },
-  {
-    question: "What is HTML used for?",
-    answer:
-      "HTML (HyperText Markup Language) is the standard markup language used to structure content on the web — headings, paragraphs, links, images, forms, and layout. Every webpage you visit uses HTML as its foundation, paired with CSS for styling and JavaScript for interactivity.",
-  },
-  {
-    question: "What is an online compiler?",
-    answer:
-      "An online compiler is a web-based tool that compiles or runs code directly in your browser without installing any software locally. For HTML/CSS/JS, “compiling” really means rendering — the tool parses your code and shows a live preview instantly.",
-  },
-  {
-    question: "What is a compiler?",
-    answer:
-      "A compiler translates source code into a form a machine or browser can execute. For HTML, CSS, and JavaScript, there's no traditional compilation step — browsers interpret them directly — but tools like LadeCompile are still called “HTML compilers” because they provide that instant write-and-preview experience.",
-  },
-  {
-    question: "Which tool is used for HTML?",
-    answer:
-      'You can write HTML in any text editor (VS Code, Sublime, Notepad++) and open it in a browser, or use an <a href="/" class="text-[#0969da] hover:underline">online HTML compiler</a> like LadeCompile, which combines a code editor and live preview in one place — no setup required.',
-  },
-  {
-    question: "Does HTML need a compiler?",
-    answer:
-      "No. HTML doesn't require compilation — browsers render it directly. An “HTML compiler online” is really a code editor + live preview combo, useful for fast testing, learning, and sharing snippets without setting up a local dev environment.",
-  },
-  {
-    question: "How do I run HTML code in an online compiler?",
-    answer:
-      `Paste or type your HTML in the editor tab, add CSS and JS in their respective tabs if needed, and the live preview updates automatically (or click Run). No login, no downloads — it runs instantly in your browser. <a href="${editorUrl}" class="text-[#0969da] hover:underline">Open the LadeCompile editor</a> to try it.`,
-  },
-  {
-    question: "How do I add an image in an HTML online compiler?",
-    answer:
-      'Use the <code class="rounded bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[13px] text-[#24292f]">&lt;img&gt;</code> tag with a hosted image URL: <code class="rounded bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[13px] text-[#24292f]">&lt;img src="https://example.com/image.jpg" alt="description"&gt;</code>. Since most online HTML compilers (including LadeCompile) don\'t support local file uploads into the sandbox, use an image hosted online (e.g., via Imgur, Cloudinary, or your own CDN) as the <code class="rounded bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[13px] text-[#24292f]">src</code>.',
-  },
-  {
-    question: "Is there a free online HTML compiler?",
-    answer:
-      'Yes — LadeCompile is a completely <a href="/" class="text-[#0969da] hover:underline">free HTML compiler online</a> with no login required and no paywalled features. Write HTML, CSS, and JavaScript and preview it live, export your code, or share it via link.',
-  },
-  {
-    question: "Is there a full-screen HTML compiler mode?",
-    answer:
-      "Yes, LadeCompile supports a full-screen editor view so you can focus on code and preview without browser chrome or sidebar distractions — useful for demos, teaching, or deep-focus coding sessions.",
-  },
-  {
-    question: "Can I use one compiler for HTML, CSS, and JavaScript together?",
-    answer:
-      "Yes — LadeCompile is a combined HTML, CSS, and JavaScript compiler with three tabs in a single editor, so you can write and preview all three together in real time without switching tools.",
-  },
-  {
-    question: "How does LadeCompile compare to Programiz or Great Learning's HTML compiler?",
-    answer:
-      "Programiz and Great Learning offer HTML compilers primarily aimed at students and tutorials, often within a broader course platform. LadeCompile is a standalone, free, no-login HTML/CSS/JS compiler focused purely on fast live coding and sharing — without needing to create an account or navigate a learning platform.",
-  },
-  {
-    question: "Do I need to download anything to use an HTML compiler?",
-    answer:
-      "No. LadeCompile runs entirely in your browser — there's no download or installation. This is the main advantage of an online HTML compiler over a local development setup.",
-  },
-  {
-    question: 'How do I write "I love you" using HTML?',
-    answer:
-      `Simple example: <code class="rounded bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[13px] text-[#24292f]">&lt;p&gt;I love you&lt;/p&gt;</code>. Style it further with CSS (color, font-size, animations) — try it live in the <a href="${editorUrl}" class="text-[#0969da] hover:underline">LadeCompile editor</a> to see instant results.`,
-  },
-];
+// Localized title/description from UI catalog with fallback
+const faqUi = (uiCatalog as any).faq ?? {};
+const title = t(uiCatalog as any, "faq.pageTitle") || (faqCatalog as any)?._meta?.title || "FAQ — Free Online HTML Compiler | LadeCompile";
+const description = t(uiCatalog as any, "faq.pageDescription") || (faqCatalog as any)?._meta?.description || "Frequently asked questions about LadeCompile's free online HTML compiler.";
+const badgeText = faqUi?.badge ?? "Help & Answers";
+const headingHtml = faqUi?.heading ?? 'Frequently asked questions about our <span>online HTML compiler</span>.';
+const subheadingText = faqUi?.subheading ?? "Everything you need to know about using LadeCompile.";
+const a11yLabel = faqUi?.a11y?.sectionLabel ?? "Frequently asked questions";
+const ctaTitle = faqUi?.cta?.title ?? "Ready to try it yourself?";
+const ctaBody = faqUi?.cta?.body ?? "Open the free online HTML compiler — no account, no downloads.";
+const ctaLinks = faqUi?.cta?.links ?? {};
 
-// FAQPage JSON-LD — generated from the same array driving the visible UI.
-// Structure: FAQPage > mainEntity[] > Question > acceptedAnswer > Answer (Google Rich Results spec).
+// FAQPage JSON-LD — includes inLanguage matching current locale
 const faqJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  inLanguage: bcp47,
   mainEntity: faqs.map((faq) => ({
     "@type": "Question",
     name: faq.question,
+    inLanguage: bcp47,
     acceptedAnswer: {
       "@type": "Answer",
       text: faq.answer,
+      inLanguage: bcp47,
     },
   })),
 });
