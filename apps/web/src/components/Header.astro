@@ -59,6 +59,9 @@ const { pathnameWithoutLocale } = parseLocale(Astro.url.pathname);
       <a href="/#starters" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.templates")}</a>
       <a href="/#comparison" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.comparison")}</a>
       <a href="/blog" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.blog")}</a>
+      <div class="border-b border-[#d0d7de]/60 py-2">
+        <LanguageSwitcher currentLocale={locale} currentPathWithoutLocale={pathnameWithoutLocale} />
+      </div>
       <a href={editorUrl} class="btn-primary mt-3 mb-2 w-full text-[15px]">
         {t(ui as any, "nav.openEditorFree")}
       </a>
