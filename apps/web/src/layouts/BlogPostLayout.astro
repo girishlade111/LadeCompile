@@ -22,10 +22,14 @@ interface Props {
   allPosts: BlogPost[];
 }
 
-const { post, headings, allPosts } = Astro.props;
+const { post, headings, allPosts, isFallback, currentLocale: currentLocaleProp } = Astro.props as { post: BlogPost; headings: Heading[]; allPosts: BlogPost[]; isFallback?: boolean; currentLocale?: string };
 const slug = getPostSlug(post);
 const site = Astro.site?.toString() ?? "https://compile.ladestack.in";
-const canonical = post.data.canonicalURL || new URL(`/blog/${slug}/`, site).href;
+// For fallback (English content shown at /zh/blog/slug), canonical must point to English original, not locale-prefixed URL
+const canonical = post.data.canonicalURL || (isFallback ? new URL(`/blog/${slug}/`, site).href : new URL(Astro.url.pathname, site).href);
+const isFallbackPage = !!isFallback;
+const seoLocale = isFallback ? "en" : (currentLocaleProp ?? (Astro.currentLocale as string) ?? "en");
+const noindex = isFallback ? true : false;
 const pubDate = post.data.pubDate ?? post.data.publishDate ?? new Date();
 const image = post.data.image ?? post.data.heroImage ?? "/favicon.svg";
 const fullImageUrl = image.startsWith("http") ? image : new URL(image, site).href;
