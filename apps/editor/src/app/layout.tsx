@@ -3,6 +3,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider, themeInlineScript } from "@/components/theme-provider";
+import { headers } from "next/headers";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -10,19 +11,47 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export const metadata: Metadata = {
-  title: "LadeCompile — Free Online HTML/CSS/JS Editor",
-  description:
-    "Fast, free, and distraction-free HTML, CSS, and JavaScript online editor with instant live preview and zero setup. Part of LadeStack.",
-  metadataBase: new URL("https://compile.ladestack.in"),
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const headersList = await headers();
+  const rawLocale = headersList.get("x-ladecompile-locale") ?? "en";
+  const locale = rawLocale.toLowerCase();
+  const site = "https://compile.ladestack.in";
+  const isEditor = true; // root layout serves editor at /editor
+  const pathFor = (loc: string) => (loc === "en" ? "/editor" : `/${loc}/editor`);
+  const canonical = `${site}${pathFor(locale)}`;
+  const LOCALE_TO_BCP47: Record<string, string> = {
+    en: "en",
+    zh: "zh",
+    "pt-br": "pt-BR",
+    ru: "ru",
+    ja: "ja",
+    tr: "tr",
+    ko: "ko",
+  };
+  const languages: Record<string, string> = {};
+  for (const loc of ["en", "zh", "pt-br", "ru", "ja", "tr", "ko"]) {
+    const key = LOCALE_TO_BCP47[loc] ?? loc;
+    languages[key] = `${site}${pathFor(loc)}`;
+  }
+  languages["x-default"] = `${site}/editor`;
+  return {
+    title: "LadeCompile — Free Online HTML/CSS/JS Editor",
+    description:
+      "Fast, free, and distraction-free HTML, CSS, and JavaScript online editor with instant live preview and zero setup. Part of LadeStack.",
+    metadataBase: new URL(site),
+    alternates: { canonical, languages },
+    openGraph: {
+      locale: locale === "zh" ? "zh_CN" : locale === "pt-br" ? "pt_BR" : locale === "ru" ? "ru_RU" : locale === "ja" ? "ja_JP" : locale === "tr" ? "tr_TR" : locale === "ko" ? "ko_KR" : "en_US",
+    },
+    icons: {
+      icon: "/favicon.svg",
+      shortcut: "/favicon.svg",
+      apple: "/favicon.svg",
+    },
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -30,9 +59,21 @@ export default function RootLayout({
   const webUrl =
     process.env.NEXT_PUBLIC_WEB_URL ||
     (process.env.NODE_ENV === "development" ? "http://localhost:4321" : "");
+  const headersList = await headers();
+  const rawLocale = headersList.get("x-ladecompile-locale") ?? "en";
+  const htmlLangMap: Record<string, string> = {
+    en: "en",
+    zh: "zh",
+    "pt-br": "pt-BR",
+    ru: "ru",
+    ja: "ja",
+    tr: "tr",
+    ko: "ko",
+  };
+  const htmlLang = htmlLangMap[rawLocale.toLowerCase()] ?? "en";
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={htmlLang} suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
