@@ -1,6 +1,7 @@
 ---
 import type { BlogPost } from "../../utils/blog";
 import { getPostSlug } from "../../utils/blog";
+import { normalizeLocale, localePath } from "../../i18n/locales";
 
 interface Props {
   prevPost?: BlogPost;
@@ -8,13 +9,14 @@ interface Props {
 }
 
 const { prevPost, nextPost } = Astro.props;
+const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
 ---
 
 {(prevPost || nextPost) && (
   <nav aria-label="Article navigation" class="my-10 grid gap-4 sm:grid-cols-2 border-t border-[#d0d7de] pt-8">
     {prevPost ? (
       <a
-        href={`/blog/${getPostSlug(prevPost)}/`}
+        href={localePath(locale, `/blog/${getPostSlug(prevPost)}/`)}
         class="group flex flex-col justify-between rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-5 text-left transition-colors hover:border-[#24292f]/40 hover:bg-[#f6f8fa]"
       >
         <span class="inline-flex items-center gap-1.5 text-[12px] font-medium text-[#656d76] group-hover:text-[#24292f]">
@@ -33,7 +35,7 @@ const { prevPost, nextPost } = Astro.props;
 
     {nextPost ? (
       <a
-        href={`/blog/${getPostSlug(nextPost)}/`}
+        href={localePath(locale, `/blog/${getPostSlug(nextPost)}/`)}
         class="group flex flex-col justify-between rounded-[10px] border border-[#d0d7de] bg-[#ffffff] p-5 text-right transition-colors hover:border-[#24292f]/40 hover:bg-[#f6f8fa]"
       >
         <span class="inline-flex items-center justify-end gap-1.5 text-[12px] font-medium text-[#656d76] group-hover:text-[#24292f]">

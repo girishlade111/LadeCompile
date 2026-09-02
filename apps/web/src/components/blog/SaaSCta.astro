@@ -11,9 +11,11 @@ const {
   buttonText = "Open Free Web Editor",
 } = Astro.props;
 
-const editorUrl =
+import { normalizeLocale, localePath } from "../../i18n/locales";
+const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
+const editorUrl = localePath(locale,
   import.meta.env.PUBLIC_EDITOR_URL ||
-  (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+  (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor"));
 ---
 
 <div class="relative isolate overflow-hidden my-12 rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-7 sm:p-8 text-[#24292f]">
@@ -41,7 +43,7 @@ const editorUrl =
         </svg>
       </a>
       <a
-        href="/#starters"
+        href={localePath(locale, "/#starters")}
         class="inline-flex items-center justify-center rounded-[12px] border border-[#24292f]/20 bg-white/70 px-4 py-3 text-[14px] font-medium text-[#24292f] hover:bg-white transition-colors"
       >
         Browse Templates

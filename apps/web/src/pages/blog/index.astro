@@ -6,7 +6,7 @@ import Footer from "../../components/Footer.astro";
 import BlogGrid from "../../components/blog/BlogGrid.astro";
 import { filterPublishedPosts, getPostLocale } from "../../utils/blog";
 import { getUiMessages, t } from "../../i18n/index";
-import { normalizeLocale } from "../../i18n/locales";
+import { normalizeLocale, localePath } from "../../i18n/locales";
 
 const rawLocale = (Astro.currentLocale as string) ?? "en";
 const locale = normalizeLocale(rawLocale);
@@ -20,9 +20,8 @@ const posts = filterPublishedPosts(allPostsForLocale, false);
 const title = t(ui as any, "blog.title") || "Blog & Guides — Free Online HTML/CSS/JS Compilers | LadeCompile";
 const description = t(ui as any, "blog.description") || "In-depth guides, architecture breakdowns, and tool comparisons for free HTML/CSS/JS compilers, sandboxed live previews, and zero-login developer tools by LadeStack.";
 
-const editorUrl =
-  import.meta.env.PUBLIC_EDITOR_URL ||
-  (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+const editorUrl = localePath(locale, import.meta.env.PUBLIC_EDITOR_URL ||
+  (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor"));
 
 // Extract distinct categories from published posts
 const uniqueCategories = Array.from(
@@ -44,7 +43,7 @@ const uniqueCategories = Array.from(
       </p>
 
       <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href="/" class="btn-secondary text-[14px] py-2.5 px-4 rounded-[10px]">
+        <a href={localePath(locale, "/")} class="btn-secondary text-[14px] py-2.5 px-4 rounded-[10px]">
           ← Back to Home
         </a>
         <a href={editorUrl} class="btn-primary text-[14px] py-2.5 px-4 rounded-[10px]">

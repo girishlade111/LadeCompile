@@ -1,6 +1,7 @@
 ---
 import type { BlogPost } from "../../utils/blog";
 import { getPostSlug, formatBlogDate, calculateReadingTime } from "../../utils/blog";
+import { normalizeLocale, localePath } from "../../i18n/locales";
 
 interface Props {
   post: BlogPost;
@@ -9,7 +10,8 @@ interface Props {
 
 const { post, featured = false } = Astro.props;
 const slug = getPostSlug(post);
-const postUrl = `/blog/${slug}/`;
+const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
+const postUrl = localePath(locale, `/blog/${slug}/`);
 const readingTime = calculateReadingTime(post.body);
 const date = post.data.pubDate ?? post.data.publishDate ?? new Date();
 const image = post.data.image ?? post.data.heroImage;

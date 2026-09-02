@@ -21,7 +21,7 @@ const relatedPosts = getRelatedPosts(currentPost, allPosts, limit);
           Related Articles
         </h2>
       </div>
-      <a href="/blog" class="text-[13px] font-medium text-[#0969da] hover:underline">
+      <a href={localePath(normalizeLocale((Astro.currentLocale as string) ?? "en"), "/blog")} class="text-[13px] font-medium text-[#0969da] hover:underline">
         All articles →
       </a>
     </div>
