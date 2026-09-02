@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+---
+
+<BaseLayout
+  title="404 — Page Not Found | LadeCompile"
+  description="The page you requested could not be found. Head back to the LadeCompile homepage, read the blog, or open the free online HTML/CSS/JS editor."
+  type="website"
+  noindex={true}
+>
+  <Header />
+
+  <main id="main-content" class="bg-[#ffffff]">
+    <section class="relative isolate overflow-hidden py-16 sm:py-24" aria-labelledby="error-heading">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
+        <div class="mx-auto max-w-2xl">
+          <!-- Mock editor window: GitHub Light IDE palette, monospace console output -->
+          <div class="overflow-hidden rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa]">
+            <!-- Title bar -->
+            <div class="flex items-center gap-2 border-b border-[#d0d7de] px-4 py-3">
+              <span class="h-3 w-3 rounded-full bg-[#afb8c1]" aria-hidden="true"></span>
+              <span class="h-3 w-3 rounded-full bg-[#afb8c1]" aria-hidden="true"></span>
+              <span class="h-3 w-3 rounded-full bg-[#afb8c1]" aria-hidden="true"></span>
+              <span class="ml-3 truncate font-mono text-[13px] text-[#656d76]">404.ts — ladestack — Visual Studio Code</span>
+            </div>
+
+            <!-- Code / console body -->
+            <div class="overflow-x-auto px-5 py-6 sm:px-8 sm:py-8 font-mono text-[13px] sm:text-[14px] leading-[1.8]">
+              <p class="text-[#656d76]"><span class="text-[#656d76]">// Uncaught at route resolution</span></p>
+              <p>
+                <span class="text-[#0969da]">console</span>
+                <span class="text-[#24292f]">.</span>
+                <span class="text-[#0969da]">error</span>
+                <span class="text-[#24292f]">(</span>
+                <span class="text-[#1a7f37]">"Error: Page not found — 404"</span>
+                <span class="text-[#24292f]">);</span>
+              </p>
+              <p class="mt-3">
+                <span class="text-[#656d76]">Uncaught</span>
+                <span class="text-[#cf222e]">NotFoundError</span>
+                <span class="text-[#656d76]">: The page you requested does not exist.</span>
+              </p>
+              <p class="text-[#656d76]">
+                &nbsp;&nbsp;at <span class="text-[#953800]"> Astro.url.pathname</span> → <span class="text-[#24292f]">"{Astro.url.pathname}"</span>
+              </p>
+              <p class="mt-3 text-[#656d76]">
+                <span class="text-[#656d76]">// Suggested fix:</span> <span class="text-[#0969da]">return</span> <span class="text-[#24292f]">home</span><span class="text-[#24292f]">;</span>
+              </p>
+            </div>
+
+            <!-- Status bar -->
+            <div class="flex flex-wrap items-center justify-between gap-2 border-t border-[#d0d7de] bg-[#ffffff] px-4 py-2.5 font-mono text-[12px] text-[#656d76]">
+              <span>HTTP <span class="font-medium text-[#24292f]">404</span> · Not Found</span>
+              <span>UTF-8 · main*</span>
+            </div>
+          </div>
+
+          <!-- Human-readable messaging -->
+          <h1 id="error-heading" class="mt-8 text-center text-[clamp(24px,5vw,36px)] font-normal leading-[1.2] tracking-tight text-[#24292f]">
+            This page couldn't compile.
+          </h1>
+          <p class="mt-4 text-center text-[16px] leading-[1.5] text-[#32383f]">
+            The page you're looking for was moved, renamed, or never existed. No errors on your end — let's get you back on track.
+          </p>
+
+          <!-- Actions: 44px+ touch targets via btn-primary / btn-secondary + coarse-pointer rule -->
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a href="/" class="btn-primary">
+              Back to Homepage
+            </a>
+            <a href="/blog" class="btn-secondary">
+              Read the Blog
+            </a>
+            <a href={editorUrl} class="inline-flex min-h-[44px] items-center justify-center px-2 py-3 text-[14px] font-medium text-[#0969da] underline decoration-[#d0d7de] underline-offset-4 hover:decoration-[#0969da]">
+              Try compile.ladestack.in/editor →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
