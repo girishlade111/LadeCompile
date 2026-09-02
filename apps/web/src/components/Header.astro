@@ -26,7 +26,7 @@ const { pathnameWithoutLocale } = parseLocale(Astro.url.pathname);
 
     <div class="flex shrink-0 items-center gap-2 sm:gap-3">
       <LanguageSwitcher currentLocale={locale} currentPathWithoutLocale={pathnameWithoutLocale} class="hidden sm:inline-flex" />
-      <a href="/#starters" class="hidden items-center justify-center rounded-[12px] border border-[#d0d7de] bg-[#ffffff] px-4 py-2.5 text-[14px] font-medium text-[#24292f] transition-colors hover:bg-[#f6f8fa] sm:inline-flex">
+      <a href={localePath(locale, "/#starters")} class="hidden items-center justify-center rounded-[12px] border border-[#d0d7de] bg-[#ffffff] px-4 py-2.5 text-[14px] font-medium text-[#24292f] transition-colors hover:bg-[#f6f8fa] sm:inline-flex">
         {t(ui as any, "nav.templates")}
       </a>
       <a href={editorUrl} class="inline-flex items-center justify-center rounded-[12px] bg-[#24292f] px-4 py-2.5 text-[14px] font-medium text-white shadow-sm transition-colors hover:bg-[#0d1218] sm:px-5">
