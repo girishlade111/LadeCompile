@@ -1633,7 +1633,7 @@ export default function EditorShell({ initialLocale, initialMessages }: { initia
               {isDark ? "Dark" : "Light"}
             </button>
             <a
-              href="/blog"
+              href={localePath(locale, "/blog")}
               className="inline-flex items-center gap-1 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
