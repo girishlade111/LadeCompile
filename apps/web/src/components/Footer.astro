@@ -28,11 +28,11 @@ const year = new Date().getFullYear();
         <h3 class="text-[14px] font-medium text-[#24292f]">{t(ui as any, "footer.headings.product")}</h3>
         <ul class="mt-4 space-y-2.5 text-[14px] text-[#656d76]">
           <li><a href={editorUrl} class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.webEditor")}</a></li>
-          <li><a href="/#features" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.coreCapabilities")}</a></li>
-          <li><a href="/#starters" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.starterTemplates")}</a></li>
-          <li><a href="/#comparison" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.comparisonMatrix")}</a></li>
-          <li><a href="/blog" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.articles")}</a></li>
-          <li><a href="/faq" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.faq")}</a></li>
+          <li><a href={localePath(locale, "/#features")} class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.coreCapabilities")}</a></li>
+          <li><a href={localePath(locale, "/#starters")} class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.starterTemplates")}</a></li>
+          <li><a href={localePath(locale, "/#comparison")} class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.comparisonMatrix")}</a></li>
+          <li><a href={localePath(locale, "/blog")} class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.articles")}</a></li>
+          <li><a href={localePath(locale, "/faq")} class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.faq")}</a></li>
         </ul>
       </div>
 
@@ -40,7 +40,7 @@ const year = new Date().getFullYear();
         <h3 class="text-[14px] font-medium text-[#24292f]">{t(ui as any, "footer.headings.ladestackSuite")}</h3>
         <ul class="mt-4 space-y-2.5 text-[14px] text-[#656d76]">
           <li><a href="https://ladestack.in" class="hover:text-[#24292f] transition-colors">{t(ui as any, "footer.links.ladestackHub")}</a></li>
-          <li><a href="/" class="font-medium text-[#24292f]">LadeCompile</a></li>
+          <li><a href={localePath(locale, "/")} class="font-medium text-[#24292f]">LadeCompile</a></li>
           <li><span class="text-[#656d76]">GB Coder <span class="rounded-[4px] bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[10px] font-medium text-[#656d76]">{t(ui as any, "footer.links.soon")}</span></span></li>
           <li><span class="text-[#656d76]">API Playground <span class="rounded-[4px] bg-[#f6f8fa] border border-[#d0d7de] px-1.5 py-0.5 text-[10px] font-medium text-[#656d76]">{t(ui as any, "footer.links.soon")}</span></span></li>
         </ul>
