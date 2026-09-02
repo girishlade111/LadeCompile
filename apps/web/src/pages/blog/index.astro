@@ -4,10 +4,18 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import BlogGrid from "../../components/blog/BlogGrid.astro";
-import { filterPublishedPosts } from "../../utils/blog";
+import { filterPublishedPosts, getPostLocale } from "../../utils/blog";
+import { getUiMessages, t } from "../../i18n/index";
+import { normalizeLocale } from "../../i18n/locales";
 
-const allPosts = await getCollection("blog");
-const posts = filterPublishedPosts(allPosts, false);
+const rawLocale = (Astro.currentLocale as string) ?? "en";
+const locale = normalizeLocale(rawLocale);
+const ui = await getUiMessages(locale);
+
+const allPostsRaw = await getCollection("blog");
+// Filter to current locale only — untranslated slugs 404 cleanly (no cross-locale fallback)
+const allPostsForLocale = allPostsRaw.filter((p) => getPostLocale(p) === locale);
+const posts = filterPublishedPosts(allPostsForLocale, false);
 
 const title = "Blog & Guides — Free Online HTML/CSS/JS Compilers | LadeCompile";
 const description =
