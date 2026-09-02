@@ -1,0 +1,16 @@
+{
+  "_comment": "Tier assignment for each content group. CI uses this to decide whether missing keys block deploy.",
+  "apps/web/src/i18n/legal": "A",
+  "apps/web/src/i18n/faq": "B",
+  "apps/web/src/content/blog": "B",
+  "apps/web/src/i18n/ui#seo": "B",
+  "apps/web/src/i18n/ui#index": "B",
+  "apps/web/src/i18n/ui#faq": "B",
+  "apps/web/src/i18n/ui#blog": "B",
+  "apps/web/src/i18n/ui#nav": "C",
+  "apps/web/src/i18n/ui#header": "C",
+  "apps/web/src/i18n/ui#footer": "C",
+  "apps/web/src/i18n/ui#common": "C",
+  "apps/web/src/i18n/ui#errors": "C",
+  "apps/editor/messages": "C"
+}
