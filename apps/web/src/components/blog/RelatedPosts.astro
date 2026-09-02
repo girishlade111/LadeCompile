@@ -2,6 +2,7 @@
 import type { BlogPost } from "../../utils/blog";
 import { getRelatedPosts } from "../../utils/blog";
 import BlogCard from "./BlogCard.astro";
+import { normalizeLocale, localePath } from "../../i18n/locales";
 
 interface Props {
   currentPost: BlogPost;
