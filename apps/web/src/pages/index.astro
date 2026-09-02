@@ -7,18 +7,11 @@ import Footer from "../components/Footer.astro";
 import { getUiMessages, t } from "../i18n/index";
 import { normalizeLocale } from "../i18n/locales";
 
-const SUPPORTED_LOCALES = ["en", "zh", "pt-br", "ru", "ja", "tr", "ko"] as const;
-
-export async function getStaticPaths() {
-  return SUPPORTED_LOCALES.map((locale) => ({
-    params: { locale: locale === "en" ? undefined : locale },
-  }));
-}
-
-// For prerendered i18n routes Astro populates Astro.params.locale (undefined for default /)
-// and Astro.currentLocale reflects the resolved locale. Prefer params, fallback to currentLocale.
-const rawLocale = ((Astro.params as any).locale as string | undefined) ?? (Astro.currentLocale as string | undefined) ?? "en";
-const locale = normalizeLocale(rawLocale);
+// For prerendered i18n routes with output:"static" and prefixDefaultLocale:false,
+// Astro automatically generates / (en) and /{locale}/ for others from this single file.
+// No getStaticPaths needed — Astro handles locale variants automatically.
+// Read locale via Astro.currentLocale (set by i18n routing).
+const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
 const ui = await getUiMessages(locale);
 
 const title = t(ui as any, "meta.siteTitle");
