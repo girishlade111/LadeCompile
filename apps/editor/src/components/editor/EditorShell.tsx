@@ -152,7 +152,7 @@ export default function EditorShell({ initialLocale, initialMessages }: { initia
   const normalizedLocale = (initialLocale ? normalizeLocale(initialLocale) : "en") as Locale;
   const [locale] = useState<Locale>(normalizedLocale);
   const [messages, setMessages] = useState<Record<string, unknown>>(
-    (initialMessages as Record<string, unknown>) ?? (enMessages as unknown as Record<string, unknown>)
+    (initialMessages as Record<string, unknown>) ?? MESSAGES_MAP[locale] ?? (enMessages as unknown as Record<string, unknown>)
   );
   useEffect(() => {
     // If server already provided correct locale messages, don't reload
@@ -160,26 +160,24 @@ export default function EditorShell({ initialLocale, initialMessages }: { initia
       setMessages(initialMessages as Record<string, unknown>);
       return;
     }
-    if (locale === "en") {
-      setMessages(enMessages as unknown as Record<string, unknown>);
-      return;
-    }
-    import(`../../../messages/${locale}.json`).then((mod) => {
-      const loaded = (mod.default ?? mod) as Record<string, unknown>;
-      // deep merge fallback to en
-      function merge(base: any, target: any): any {
-        const out: any = { ...base };
-        for (const k of Object.keys(target)) {
-          if (target[k] && typeof target[k] === "object" && !Array.isArray(target[k]) && base[k] && typeof base[k] === "object" && !Array.isArray(base[k])) {
-            out[k] = merge(base[k], target[k]);
-          } else {
-            out[k] = target[k];
-          }
+    const target = MESSAGES_MAP[locale] ?? MESSAGES_MAP.en;
+    // Deep merge fallback to en
+    function merge(base: any, tgt: any): any {
+      const out: any = { ...base };
+      for (const k of Object.keys(tgt)) {
+        if (tgt[k] && typeof tgt[k] === "object" && !Array.isArray(tgt[k]) && base[k] && typeof base[k] === "object" && !Array.isArray(base[k])) {
+          out[k] = merge(base[k], tgt[k]);
+        } else {
+          out[k] = tgt[k];
         }
-        return out;
       }
-      setMessages(merge(enMessages, loaded));
-    }).catch(() => setMessages(enMessages as unknown as Record<string, unknown>));
+      return out;
+    }
+    if (locale === "en") {
+      setMessages(target as unknown as Record<string, unknown>);
+    } else {
+      setMessages(merge(enMessages, target));
+    }
   }, [locale, initialMessages]);
   const tr = (key: string, params?: Record<string, string|number>) => {
     const parts = key.replace(/\[(\d+)\]/g, ".$1").split(".");
