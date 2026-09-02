@@ -65,6 +65,22 @@ import { useTheme } from "@/components/theme-provider";
 import LanguageSwitcher from "@/components/i18n/LanguageSwitcher";
 import { SUPPORTED_LOCALES, LOCALE_LABELS, type Locale, normalizeLocale } from "@/i18n/locales";
 import enMessages from "../../../messages/en.json";
+import zhMessages from "../../../messages/zh.json";
+import ptBrMessages from "../../../messages/pt-br.json";
+import ruMessages from "../../../messages/ru.json";
+import jaMessages from "../../../messages/ja.json";
+import trMessages from "../../../messages/tr.json";
+import koMessages from "../../../messages/ko.json";
+
+const MESSAGES_MAP: Record<string, Record<string, unknown>> = {
+  en: enMessages as unknown as Record<string, unknown>,
+  zh: zhMessages as unknown as Record<string, unknown>,
+  "pt-br": ptBrMessages as unknown as Record<string, unknown>,
+  ru: ruMessages as unknown as Record<string, unknown>,
+  ja: jaMessages as unknown as Record<string, unknown>,
+  tr: trMessages as unknown as Record<string, unknown>,
+  ko: koMessages as unknown as Record<string, unknown>,
+};
 import { TEMPLATES, type Template } from "@/lib/templates";
 import { encodeShareState, decodeShareState, shouldUseKvFallback } from "@/lib/share";
 import { toast } from "sonner";
