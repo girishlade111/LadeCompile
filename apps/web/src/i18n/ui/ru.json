@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    },
+    "siteTitle": "LadeCompile — Бесплатный онлайн-компилятор HTML CSS JS без регистрации",
+    "siteDescription": "Бесплатный онлайн-компилятор и редактор HTML/CSS/JS без регистрации. Пишите, запускайте и делитесь кодом мгновенно — без регистрации, без paywall. Быстрая альтернатива OneCompiler от LadeStack.",
+    "languageSwitcherLabel": "Выбор языка",
+    "languageSwitcherAriaLabel": "Переключатель языка"
+  },
+  "nav": {
+    "features": "Возможности",
+    "templates": "Шаблоны",
+    "comparison": "Сравнение",
+    "blog": "Блог",
+    "openEditor": "Открыть редактор",
+    "openEditorFree": "Открыть веб-редактор — бесплатно",
+    "openInWebEditor": "Открыть в веб-редакторе",
+    "openMenu": "Открыть меню навигации",
+    "closeMenu": "Закрыть меню навигации",
+    "mobileNavigation": "Мобильная навигация",
+    "home": "Главная LadeCompile",
+    "skipToContent": "Перейти к содержимому"
+  },
+  "footer": {
+    "description": "Бесплатный онлайн-компилятор HTML/CSS/JS без регистрации. Создан для разработчиков, преподавателей и студентов, которым нужно быстрое прототипирование без аккаунта и paywall.",
+    "ecosystem": "Часть экосистемы открытых утилит LadeStack для разработчиков.",
+    "headings": {
+      "product": "Продукт",
+      "ladestackSuite": "Набор LadeStack",
+      "resources": "Ресурсы и открытые спеки"
+    },
+    "links": {
+      "webEditor": "Веб-редактор",
+      "coreCapabilities": "Основные возможности",
+      "starterTemplates": "Стартовые шаблоны",
+      "comparisonMatrix": "Матрица сравнения",
+      "articles": "Статьи и руководства",
+      "faq": "FAQ",
+      "ladestackHub": "LadeStack Hub",
+      "ladecompile": "LadeCompile",
+      "gbCoder": "GB Coder",
+      "apiPlayground": "API Playground",
+      "sitemap": "Карта сайта XML",
+      "robots": "Robots.txt",
+      "llms": "Спека LLMs.txt",
+      "soon": "СКОРО",
+      "privacy": "Конфиденциальность",
+      "terms": "Условия",
+      "github": "GitHub"
+    },
+    "copyright": "© {year} LadeStack · LadeCompile. Бесплатно, без регистрации, песочница. Ноль телеметрии, без paywall.",
+    "byLadestack": "by LadeStack"
+  },
+  "index": {
+    "hero": {
+      "kicker": "Бесплатно · Без регистрации · Без paywall — навсегда",
+      "titleLine1": "Бесплатный компилятор HTML, CSS и JS,",
+      "titleLine2": "без регистрации.",
+      "description1": "LadeCompile — тихий, enterprise-уровня <strong>онлайн-компилятор кода</strong> для разработчиков, студентов и преподавателей. Пишите HTML, CSS и JavaScript в редакторе с вкладками и мгновенно видите живой предпросмотр в песочнице — чистая <strong>альтернатива OneCompiler</strong> без стены регистрации.",
+      "description2": "Часть набора бесплатных инструментов LadeStack. Быстро прототипируйте адаптивные макеты, отлаживайте логику JavaScript или экспортируйте автономные файлы за секунды.",
+      "primaryCta": "Открыть веб-редактор — бесплатно",
+      "secondaryCta": "Изучить стартовые шаблоны",
+      "footnote": "Не нужен аккаунт, чтобы писать, сохранять или делиться. Локальное выполнение в вашем браузере.",
+      "trust": {
+        "sharing": "Шаринг по URL без регистрации",
+        "preview": "Предпросмотр с debounce 400ms",
+        "export": "Клиентский экспорт ZIP"
+      }
+    },
+    "snapshot": {
+      "tabHtml": "index.html",
+      "tabCss": "styles.css",
+      "tabJs": "script.js",
+      "live": "Live",
+      "fastPrototyping": "Быстрое прототипирование",
+      "zeroLogin": "Без регистрации. Компиляция 400ms.",
+      "runComponent": "Запустить компонент",
+      "sandboxed": "Предпросмотр в песочнице на 60fps",
+      "console": "Консоль:",
+      "ready": "Готово",
+      "warnings": "0 предупреждений, 0 ошибок",
+      "bridgeActive": "Мост PostMessage активен",
+      "lookingFor": "Ищете полный функционал Monaco?",
+      "openComplete": "Открыть полный веб-редактор"
+    },
+    "standards": {
+      "label": "Построено на открытых веб-стандартах и современной облачной инфраструктуре",
+      "items": {
+        "html": "Живой стандарт HTML5",
+        "css": "CSS3 Grid & Flexbox",
+        "ecma": "ECMAScript 2024",
+        "monaco": "Движок Monaco",
+        "sandbox": "Песочница Iframe",
+        "cloudflare": "Cloudflare Edge"
+      }
+    },
+    "coral": {
+      "title": "Выполнение кода без регистрации с мгновенным живым предпросмотром.",
+      "description": "Хватит тратить время на регистрацию или paywall ради проверки HTML-фрагмента или эксперимента с CSS. LadeCompile компилирует ваши три файла прямо в клиенте через изолированный bridge с debounce.",
+      "cta": "Запустить живой компилятор",
+      "pipeline": {
+        "title": "Пайплайн компиляции",
+        "badge": "Debounce 400ms",
+        "step1": "1. Клиентские входы Monaco (HTML/CSS/JS)",
+        "step1Meta": "Локально",
+        "step2": "2. Мост PostMessage в песочнице Iframe",
+        "step2Meta": "Изолированный источник",
+        "step3": "3. Сжатие URL-хэша без хранения",
+        "step3Meta": "LZ-String",
+        "footer": "Высокая надежность · Ноль отслеживания · Незаблокированная производительность"
+      }
+    },
+    "features": {
+      "heading": "Все нужные функции — без paywall.",
+      "subheading": "Сфокусированная рабочая среда, устраняющая трение традиционных веб-песочниц.",
+      "cards": {
+        "sharingEyebrow": "Шаринг без хранения",
+        "sharingTitle": "Мгновенное сжатие состояния",
+        "sharingBody": "Ваш код сжимается прямо в хэш URL браузера с помощью LZ-String. Делитесь сниппетами с коллегами без создания аккаунта и отправки данных в базу.",
+        "sharingCode": "compile.ladestack.in/#code=H4sIAAAAAAA...",
+        "exportEyebrow": "Набор экспорта",
+        "exportTitle": "ZIP, HTML и скриншот",
+        "exportBody": "Скачайте пакет HTML, CSS и JS как ZIP готовый к деплою, скопируйте автономный однофайловый HTML или сделайте четкий скриншот отрендеренного UI в высоком разрешении.",
+        "badges": {
+          "zip": ".ZIP",
+          "html": "HTML",
+          "png": "PNG"
+        },
+        "monacoEyebrow": "Движок Monaco",
+        "monacoTitle": "Точность VS Code в вашем браузере",
+        "monacoBody": "На базе Monaco Editor LadeCompile дает нативную подсветку синтаксиса, умные отступы, форматирование, поиск и замену и нативные горячие клавиши.",
+        "monacoRows": {
+          "save": "Сохранить / Компилировать",
+          "shortcutSave": "Cmd/Ctrl + S",
+          "find": "Найти и заменить",
+          "shortcutFind": "Cmd/Ctrl + F",
+          "minimap": "Переключить миникарту",
+          "minimapMeta": "Меню настроек"
+        },
+        "monacoLink": "Попробовать в редакторе →",
+        "startersEyebrow": "Отобранные стартеры",
+        "startersTitle": "10 продакшн-шаблонов",
+        "startersBody": "Начните с пустого холста или выберите проверенные шаблоны: современные CSS Grid дашборды, адаптивные лендинги, интерактивные формы с валидацией, карточки с темной темой, анимации на HTML5 canvas и виджеты погоды на API.",
+        "startersTags": {
+          "grid": "CSS Grid",
+          "flexbox": "Flexbox Hero",
+          "canvas": "Анимация Canvas",
+          "weather": "Виджет погоды Fetch API",
+          "form": "Валидация формы"
+        }
+      }
+    },
+    "tabbed": {
+      "heading": "Создано для сфокусированной работы.",
+      "subheading": "Узнайте, как каждая часть LadeCompile складывается в чистый, надежный кодинг-процесс.",
+      "tabs": {
+        "tab1Label": "Гармония трех файлов",
+        "tab1Desc": "Независимые вкладки HTML, CSS и JS с автоформатированием.",
+        "tab2Label": "Мост консоли в песочнице",
+        "tab2Desc": "Живая пересылка ошибок и логов через postMessage с бейджами непрочитано.",
+        "tab3Label": "Хранение Local-First",
+        "tab3Desc": "Изменения автоматически сохраняются в localStorage; работа переживет перезагрузку.",
+        "tab4Label": "Защита несохраненной работы",
+        "tab4Desc": "Подтверждения предотвращают случайную потерю при загрузке шаблонов или сбросе."
+      },
+      "activeCapability": "Активная возможность",
+      "defaultTitle": "Выделенная среда редактора с вкладками",
+      "defaultDesc": "Плавно переключайтесь между <code>index.html</code>, <code>styles.css</code> и <code>script.js</code> без загромождения. Каждая вкладка с полным IntelliSense Monaco и маркерами ошибок с независимой историей отмены.",
+      "readyToWrite": "Готовы писать код?",
+      "openEditor": "Открыть редактор →"
+    },
+    "starters": {
+      "heading": "Отобранные стартеры для мгновенного прототипирования.",
+      "cards": {
+        "gridTitle": "Дашборд на CSS Grid",
+        "gridCategory": "Верстка",
+        "gridDesc": "Адаптивные многоколоночные карточки-метрики с современным grid gap и media queries.",
+        "flexboxTitle": "Лендинг на Flexbox",
+        "flexboxCategory": "Маркетинг",
+        "flexboxDesc": "Чистый hero-блок, навигация, адаптивная сетка цен и доступная форма.",
+        "formTitle": "Движок валидации форм",
+        "formCategory": "Интерактив",
+        "formDesc": "Валидация email и пароля по regex в реальном времени с наглядной обратной связью.",
+        "particleTitle": "Анимация частиц",
+        "particleCategory": "Canvas",
+        "particleDesc": "Интерактивные частицы HTML5 canvas на 60fps, плавно реагирующие на курсор.",
+        "weatherTitle": "Виджет погоды на API",
+        "weatherCategory": "API / Асинхрон",
+        "weatherDesc": "Асинхронная реализация Fetch API с состояниями загрузки и ошибок.",
+        "todoTitle": "Todo с LocalStorage",
+        "todoCategory": "Приложение",
+        "todoDesc": "Полный CRUD-список с вкладками фильтра и клиентской персистентностью.",
+        "loadTemplate": "Загрузить шаблон →"
+      }
+    },
+    "cream": {
+      "title": "Путь к прототипированию в 10× быстрее для разработчиков, преподавателей и студентов.",
+      "body": "Преподаете ли вы фронтенд-буткемп или быстро показываете фикс бага на созвоне, требование логина перед просмотром или редактированием кода создает лишнее трение. LadeCompile сохраняет весь цикл zero-login: откройте ссылку, сразу редактируйте, поделитесь новой URL."
+    },
+    "comparison": {
+      "heading": "Бесплатная альтернатива OneCompiler — без звездочек.",
+      "subheading": "OneCompiler и CodePen — отличные инструменты. Разница в бизнес-модели: LadeCompile дает основной опыт редактирования без аккаунтов, paywall и заблокированных действий.",
+      "headers": {
+        "capability": "Возможность",
+        "ladecompile": "LadeCompile",
+        "onecompiler": "OneCompiler*"
+      },
+      "rows": {
+        "save": "Сохранение и шаринг без логина",
+        "saveLadecompile": "100% бесплатно (URL / KV)",
+        "saveOnecompiler": "Требуется вход",
+        "paywalled": "Платные функции",
+        "paywalledLadecompile": "Нет — всё бесплатно",
+        "paywalledOnecompiler": "ИИ-агент за апгрейдом",
+        "preview": "Живой предпросмотр и консоль",
+        "previewLadecompile": "Включено (песочница)",
+        "previewOnecompiler": "Включено",
+        "export": "Набор экспорта (ZIP / HTML / PNG)",
+        "exportLadecompile": "Мгновенно на клиенте",
+        "exportOnecompiler": "Стандартная загрузка",
+        "privacy": "Приватность и трекинг",
+        "privacyLadecompile": "Локально (без телеметрии)",
+        "privacyOnecompiler": "Трекинг по аккаунту"
+      },
+      "footnote": "*Сравнение основано на публично доступных функциях веб-редакторов на 2026 год. LadeCompile создан как свободная альтернатива для современных веб-разработчиков."
+    },
+    "cta": {
+      "title": "Начните строить с LadeCompile прямо сейчас.",
+      "body": "Без форм регистрации, писем подтверждения и кредитной карты. Сразу в редактор Monaco и пишите HTML, CSS и JavaScript.",
+      "primary": "Открыть веб-редактор — бесплатно",
+      "secondary": "Читать статьи и руководства"
+    }
+  },
+  "faq": {
+    "pageTitle": "FAQ — Бесплатный онлайн-компилятор HTML | LadeCompile",
+    "pageDescription": "Частые вопросы о бесплатном онлайн-компиляторе HTML LadeCompile: что такое HTML-компилятор, как запустить HTML онлайн, картинки в HTML, полноэкранный режим и многое другое. Без регистрации.",
+    "badge": "Помощь и ответы",
+    "heading": "Частые вопросы о нашем <span>онлайн-компиляторе HTML</span>.",
+    "subheading": "Всё, что нужно знать об использовании LadeCompile — бесплатного онлайн-компилятора HTML, CSS и JavaScript без регистрации, работающего мгновенно в браузере.",
+    "a11y": {
+      "sectionLabel": "Частые вопросы"
+    },
+    "cta": {
+      "title": "Готовы попробовать сами?",
+      "body": "Откройте бесплатный онлайн-компилятор HTML — без аккаунта, без загрузок. Или читайте наши руководства о лучших бесплатных компиляторах HTML, CSS и JS в 2026 году и альтернативах OneCompiler.",
+      "links": {
+        "editor": "бесплатный онлайн-компилятор HTML",
+        "best": "лучшие бесплатные компиляторы HTML, CSS и JS в 2026 году",
+        "alternatives": "альтернативы OneCompiler"
+      }
+    }
+  },
+  "blog": {
+    "title": "Статьи и руководства — инсайты веб-разработки",
+    "description": "Туториалы, сравнения и руководства по компиляторам HTML/CSS/JS, Canvas vs SVG и современным фронтенд-процессам. Бесплатные инсайты от команды LadeCompile.",
+    "heading": "Статьи и руководства",
+    "subheading": "Практические сравнения и туториалы для разработчиков, студентов и преподавателей.",
+    "onThisPage": "На этой странице",
+    "prevArticle": "← Предыдущая статья",
+    "nextArticle": "Следующая статья →",
+    "relatedArticles": "Похожие статьи",
+    "breadcrumbs": {
+      "home": "Главная",
+      "blog": "Блог"
+    },
+    "meta": {
+      "by": "Автор: {author}",
+      "publishedOn": "Опубликовано {date}",
+      "updatedOn": "Обновлено {date}",
+      "readTime": "{minutes} мин чтения",
+      "category": "Категория: {category}",
+      "tags": "Теги"
+    },
+    "empty": "Статей не найдено.",
+    "backToBlog": "Назад в блог",
+    "shareArticle": "Поделиться статьей"
+  },
+  "errors": {
+    "404": {
+      "title": "Страница не найдена",
+      "description": "Извините — страницы, которую вы ищете, не существует.",
+      "backHome": "На главную",
+      "goToEditor": "Открыть редактор",
+      "heading": "404 — Не найдено"
+    },
+    "500": {
+      "title": "Что-то пошло не так",
+      "description": "Произошла непредвиденная ошибка. Пожалуйста, попробуйте снова.",
+      "retry": "Попробовать снова",
+      "backHome": "На главную"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Политика конфиденциальности — LadeCompile",
+      "description": "Как LadeCompile обрабатывает ваши данные: локальное выполнение, отсутствие трекинга и privacy-first архитектура.",
+      "lastUpdated": "Последнее обновление: {date}"
+    },
+    "terms": {
+      "title": "Условия использования — LadeCompile",
+      "description": "Условия использования бесплатного онлайн-компилятора HTML/CSS/JS LadeCompile.",
+      "lastUpdated": "Последнее обновление: {date}"
+    }
+  },
+  "common": {
+    "ladecompile": "LadeCompile",
+    "ladestack": "LadeStack",
+    "learnMore": "Подробнее",
+    "loading": "Загрузка...",
+    "close": "Закрыть",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "search": "Поиск",
+    "noResults": "Результатов не найдено.",
+    "comingSoon": "СКОРО"
+  },
+  "seo": {
+    "defaultTitle": "LadeCompile — Бесплатный онлайн-компилятор HTML CSS JS без регистрации",
+    "defaultDescription": "Бесплатный, без регистрации, enterprise-уровня онлайн-компилятор и редактор HTML/CSS/JS. Пишите, запускайте и делитесь кодом мгновенно — без регистрации, без paywall. Быстрая альтернатива OneCompiler от LadeStack.",
+    "ogLocale": "ru_RU"
+  }
+}

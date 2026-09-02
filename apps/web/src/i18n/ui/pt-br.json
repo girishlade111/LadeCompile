@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    },
+    "siteTitle": "LadeCompile — Compilador Online Grátis de HTML CSS JS, Sem Login",
+    "siteDescription": "Compilador e editor ao vivo gratuito de HTML/CSS/JS, sem login. Escreva, execute e compartilhe código instantaneamente — sem cadastro, sem paywall. A alternativa rápida ao OneCompiler da LadeStack.",
+    "languageSwitcherLabel": "Escolher idioma",
+    "languageSwitcherAriaLabel": "Seletor de idioma"
+  },
+  "nav": {
+    "features": "Recursos",
+    "templates": "Modelos",
+    "comparison": "Comparativo",
+    "blog": "Blog",
+    "openEditor": "Abrir Editor",
+    "openEditorFree": "Abrir Editor Web — é grátis",
+    "openInWebEditor": "Abrir no Editor Web",
+    "openMenu": "Abrir menu de navegação",
+    "closeMenu": "Fechar menu de navegação",
+    "mobileNavigation": "Navegação móvel",
+    "home": "Página inicial LadeCompile",
+    "skipToContent": "Pular para o conteúdo"
+  },
+  "footer": {
+    "description": "Compilador online gratuito de HTML/CSS/JS sem login. Feito para desenvolvedores, educadores e estudantes que querem prototipagem rápida, sem atrito, sem conta ou paywall.",
+    "ecosystem": "Parte do ecossistema LadeStack de utilitários abertos para desenvolvedores.",
+    "headings": {
+      "product": "Produto",
+      "ladestackSuite": "Suíte LadeStack",
+      "resources": "Recursos & Spec Aberta"
+    },
+    "links": {
+      "webEditor": "Editor Web",
+      "coreCapabilities": "Recursos Principais",
+      "starterTemplates": "Modelos Iniciais",
+      "comparisonMatrix": "Matriz Comparativa",
+      "articles": "Artigos & Guias",
+      "faq": "FAQ",
+      "ladestackHub": "LadeStack Hub",
+      "ladecompile": "LadeCompile",
+      "gbCoder": "GB Coder",
+      "apiPlayground": "API Playground",
+      "sitemap": "Sitemap XML",
+      "robots": "Robots.txt",
+      "llms": "Spec LLMs.txt",
+      "soon": "EM BREVE",
+      "privacy": "Privacidade",
+      "terms": "Termos",
+      "github": "GitHub"
+    },
+    "copyright": "© {year} LadeStack · LadeCompile. Grátis, sem login, execução em sandbox. Zero telemetria, sem paywalls.",
+    "byLadestack": "by LadeStack"
+  },
+  "index": {
+    "hero": {
+      "kicker": "Grátis · Sem login · Sem paywall — para sempre",
+      "titleLine1": "Compilador gratuito de HTML, CSS e JS,",
+      "titleLine2": "sem login necessário.",
+      "description1": "LadeCompile é o <strong>compilador de código online</strong> discreto e de nível empresarial para desenvolvedores, estudantes e educadores. Escreva HTML, CSS e JavaScript em um editor com abas e veja a prévia ao vivo em sandbox instantaneamente — a alternativa limpa ao <strong>OneCompiler</strong> sem muro de cadastro.",
+      "description2": "Parte da suíte LadeStack de ferramentas gratuitas para desenvolvedores. Prototype layouts responsivos, depure lógica JavaScript ou exporte arquivos independentes em segundos.",
+      "primaryCta": "Abrir Editor Web — é grátis",
+      "secondaryCta": "Explorar Modelos Iniciais",
+      "footnote": "Não precisa de conta para escrever, salvar ou compartilhar. Execução local-first no seu navegador.",
+      "trust": {
+        "sharing": "Compartilhamento por URL sem Login",
+        "preview": "Prévia com Debounce de 400ms",
+        "export": "Exportação ZIP no Cliente"
+      }
+    },
+    "snapshot": {
+      "tabHtml": "index.html",
+      "tabCss": "styles.css",
+      "tabJs": "script.js",
+      "live": "Live",
+      "fastPrototyping": "Prototipagem Rápida",
+      "zeroLogin": "Zero login. Compilação em 400ms.",
+      "runComponent": "Executar Componente",
+      "sandboxed": "Prévia em sandbox renderizada a 60fps",
+      "console": "Console:",
+      "ready": "Ready",
+      "warnings": "0 warnings, 0 errors",
+      "bridgeActive": "PostMessage Bridge Ativo",
+      "lookingFor": "Quer recursos completos do Monaco?",
+      "openComplete": "Abrir o editor web completo"
+    },
+    "standards": {
+      "label": "Construído com padrões web abertos e infraestrutura moderna em nuvem",
+      "items": {
+        "html": "Padrão Vivo HTML5",
+        "css": "CSS3 Grid & Flexbox",
+        "ecma": "ECMAScript 2024",
+        "monaco": "Motor Monaco",
+        "sandbox": "Iframe em Sandbox",
+        "cloudflare": "Cloudflare Edge"
+      }
+    },
+    "coral": {
+      "title": "Execução de código sem login com prévia ao vivo instantânea.",
+      "description": "Pare de perder tempo registrando contas ou batendo em paywalls só para testar um snippet HTML ou experimentar um truque de CSS. O LadeCompile compila seus três arquivos com bridge isolado e com debounce direto no seu cliente.",
+      "cta": "Iniciar Compilador Ao Vivo",
+      "pipeline": {
+        "title": "Pipeline de Compilação",
+        "badge": "Debounce de 400ms",
+        "step1": "1. Entradas Monaco no Cliente (HTML/CSS/JS)",
+        "step1Meta": "Local-first",
+        "step2": "2. Bridge PostMessage em Iframe Sandbox",
+        "step2Meta": "Origem Isolada",
+        "step3": "3. Compressão Hash de URL sem Armazenamento",
+        "step3Meta": "LZ-String",
+        "footer": "Alta confiabilidade · Zero rastreamento · Performance desbloqueada"
+      }
+    },
+    "features": {
+      "heading": "Todos os recursos que você precisa — nenhum paywall.",
+      "subheading": "Uma bancada focada que elimina a fricção dos playgrounds web tradicionais.",
+      "cards": {
+        "sharingEyebrow": "Compartilhamento sem Armazenamento",
+        "sharingTitle": "Compressão Instantânea de Estado",
+        "sharingBody": "Seu código é comprimido direto no hash da URL do navegador usando LZ-String. Compartilhe snippets com colegas sem criar conta ou enviar dados a um banco de dados.",
+        "sharingCode": "compile.ladestack.in/#code=H4sIAAAAAAA...",
+        "exportEyebrow": "Suite de Exportação",
+        "exportTitle": "ZIP, HTML e Screenshot",
+        "exportBody": "Baixe seu pacote HTML, CSS e JS como ZIP pronto para deploy, copie HTML standalone de arquivo único ou capture screenshot em alta resolução da sua UI renderizada.",
+        "badges": {
+          "zip": ".ZIP",
+          "html": "HTML",
+          "png": "PNG"
+        },
+        "monacoEyebrow": "Motor Monaco",
+        "monacoTitle": "Precisão VS Code no seu Navegador",
+        "monacoBody": "Construído no Monaco Editor, o LadeCompile oferece syntax highlighting nativo, indentação inteligente, formatação, busca e substituição e atalhos nativos.",
+        "monacoRows": {
+          "save": "Salvar / Compilar",
+          "shortcutSave": "Cmd/Ctrl + S",
+          "find": "Buscar & Substituir",
+          "shortcutFind": "Cmd/Ctrl + F",
+          "minimap": "Alternar Minimapa",
+          "minimapMeta": "Menu de Preferências"
+        },
+        "monacoLink": "Testar no editor →",
+        "startersEyebrow": "Iniciantes Selecionados",
+        "startersTitle": "10 Boilerplates Iniciais de Nível Produção",
+        "startersBody": "Comece do zero ou escolha entre modelos verificados: dashboards CSS Grid modernos, landing pages responsivas, formulários interativos com validação, cards com dark mode, animações em canvas HTML5 e widgets de clima via API.",
+        "startersTags": {
+          "grid": "CSS Grid",
+          "flexbox": "Flexbox Hero",
+          "canvas": "Animação Canvas",
+          "weather": "Widget Clima Fetch API",
+          "form": "Validação de Formulário"
+        }
+      }
+    },
+    "tabbed": {
+      "heading": "Projetado para foco sem distrações.",
+      "subheading": "Explore como cada parte do LadeCompile se encaixa para oferecer um fluxo de codificação limpo e confiável.",
+      "tabs": {
+        "tab1Label": "Harmonia de Três Arquivos",
+        "tab1Desc": "Abas independentes de HTML, CSS e JS com formatação automática.",
+        "tab2Label": "Bridge de Console em Sandbox",
+        "tab2Desc": "Encaminhamento ao vivo de erros e logs via postMessage com badges de não lidos.",
+        "tab3Label": "Armazenamento Local-First",
+        "tab3Desc": "Mudanças persistem automaticamente no localStorage; o trabalho sobrevive a reloads.",
+        "tab4Label": "Proteção contra Trabalho Não Salvo",
+        "tab4Desc": "Guardas de confirmação evitam perda acidental ao carregar templates ou resetar."
+      },
+      "activeCapability": "Recurso Ativo",
+      "defaultTitle": "Ambiente de Editor com Abas Dedicado",
+      "defaultDesc": "Alterne suavemente entre <code>index.html</code>, <code>styles.css</code> e <code>script.js</code> sem poluição visual. Cada aba roda IntelliSense completo do Monaco e marcadores de erro com histórico undo independente.",
+      "readyToWrite": "Pronto para codar?",
+      "openEditor": "Abrir Editor →"
+    },
+    "starters": {
+      "heading": "Modelos selecionados para prototipagem imediata.",
+      "cards": {
+        "gridTitle": "Dashboard CSS Grid",
+        "gridCategory": "Layout",
+        "gridDesc": "Cards de métricas multi-coluna responsivos com gap de grid CSS moderno e media queries.",
+        "flexboxTitle": "Landing Page Flexbox",
+        "flexboxCategory": "Marketing",
+        "flexboxDesc": "Hero band limpo, barra de navegação, grid de preços responsivo e formulário acessível.",
+        "formTitle": "Motor de Validação de Formulário",
+        "formCategory": "Interação",
+        "formDesc": "Validação regex em tempo real de e-mail e senha com feedback visual claro.",
+        "particleTitle": "Animação de Partículas",
+        "particleCategory": "Canvas",
+        "particleDesc": "Partículas em canvas HTML5 a 60fps reagindo suavemente ao cursor.",
+        "weatherTitle": "Widget de Clima via API",
+        "weatherCategory": "API / Async",
+        "weatherDesc": "Implementação Fetch API assíncrona com estados de carregamento e erro.",
+        "todoTitle": "Todo App com LocalStorage",
+        "todoCategory": "Aplicação",
+        "todoDesc": "Lista CRUD completa com abas de filtro e persistência local.",
+        "loadTemplate": "Carregar modelo →"
+      }
+    },
+    "cream": {
+      "title": "O caminho para prototipagem 10× mais rápida para desenvolvedores, educadores e estudantes.",
+      "body": "Seja ensinando um bootcamp de frontend ou demonstrando rapidamente um bug fix em uma call, exigir login antes de ver ou editar código cria fricção evitável. O LadeCompile mantém todo o loop zero-login: abra o link, edite imediatamente, compartilhe a nova URL."
+    },
+    "comparison": {
+      "heading": "Uma alternativa gratuita ao OneCompiler — sem asteriscos.",
+      "subheading": "OneCompiler e CodePen são ótimas ferramentas. A diferença é o modelo de negócio: o LadeCompile entrega a experiência central de edição sem contas, paywalls ou ações bloqueadas.",
+      "headers": {
+        "capability": "Recurso",
+        "ladecompile": "LadeCompile",
+        "onecompiler": "OneCompiler*"
+      },
+      "rows": {
+        "save": "Salvar & Compartilhar sem Login",
+        "saveLadecompile": "100% Grátis (URL / KV)",
+        "saveOnecompiler": "Login obrigatório",
+        "paywalled": "Recursos com Paywall",
+        "paywalledLadecompile": "Nenhum — Tudo Grátis",
+        "paywalledOnecompiler": "Agente IA atrás de Upgrade",
+        "preview": "Prévia Ao Vivo & Console",
+        "previewLadecompile": "Incluído (Sandbox)",
+        "previewOnecompiler": "Incluído",
+        "export": "Suite de Exportação (ZIP / HTML / PNG)",
+        "exportLadecompile": "Instantâneo no Cliente",
+        "exportOnecompiler": "Download Padrão",
+        "privacy": "Privacidade & Rastreamento",
+        "privacyLadecompile": "Local-First (Sem Telemetria)",
+        "privacyOnecompiler": "Rastreamento por Conta"
+      },
+      "footnote": "*Comparativo baseado em recursos publicamente disponíveis de editores web em 2026. O LadeCompile foi construído para oferecer uma alternativa gratuita e sem barreiras para desenvolvedores web modernos."
+    },
+    "cta": {
+      "title": "Comece a construir com LadeCompile agora.",
+      "body": "Sem formulários de cadastro, e-mails de verificação ou cartão de crédito. Vá direto ao editor Monaco e comece a escrever HTML, CSS e JavaScript.",
+      "primary": "Abrir Editor Web — Grátis",
+      "secondary": "Ler Artigos & Guias"
+    }
+  },
+  "faq": {
+    "pageTitle": "FAQ — Compilador HTML Online Grátis | LadeCompile",
+    "pageDescription": "Perguntas frequentes sobre o compilador HTML online grátis do LadeCompile: o que é um compilador HTML, como rodar código HTML online, imagens em HTML, modo tela cheia e mais. Sem login.",
+    "badge": "Ajuda & Respostas",
+    "heading": "Perguntas frequentes sobre nosso <span>compilador HTML online</span>.",
+    "subheading": "Tudo que você precisa saber para usar o LadeCompile — o compilador gratuito, sem login, de HTML, CSS e JavaScript que roda instantaneamente no seu navegador.",
+    "a11y": {
+      "sectionLabel": "Perguntas frequentes"
+    },
+    "cta": {
+      "title": "Pronto para testar você mesmo?",
+      "body": "Abra o compilador HTML online gratuito — sem conta, sem downloads. Ou leia nossos guias sobre os melhores compiladores gratuitos de HTML, CSS e JS em 2026 e alternativas ao OneCompiler.",
+      "links": {
+        "editor": "compilador HTML online gratuito",
+        "best": "os melhores compiladores gratuitos de HTML, CSS e JS em 2026",
+        "alternatives": "alternativas ao OneCompiler"
+      }
+    }
+  },
+  "blog": {
+    "title": "Artigos & Guias — Insights de Desenvolvimento Web",
+    "description": "Tutoriais, comparativos e guias sobre compiladores HTML/CSS/JS, Canvas vs SVG e workflows modernos de frontend. Insights gratuitos da equipe LadeCompile.",
+    "heading": "Artigos & Guias",
+    "subheading": "Comparativos práticos e tutoriais para desenvolvedores, estudantes e educadores.",
+    "onThisPage": "Nesta página",
+    "prevArticle": "← Artigo anterior",
+    "nextArticle": "Próximo artigo →",
+    "relatedArticles": "Artigos relacionados",
+    "breadcrumbs": {
+      "home": "Início",
+      "blog": "Blog"
+    },
+    "meta": {
+      "by": "Por {author}",
+      "publishedOn": "Publicado em {date}",
+      "updatedOn": "Atualizado em {date}",
+      "readTime": "{minutes} min de leitura",
+      "category": "Categoria: {category}",
+      "tags": "Tags"
+    },
+    "empty": "Nenhum artigo encontrado.",
+    "backToBlog": "Voltar ao blog",
+    "shareArticle": "Compartilhar este artigo"
+  },
+  "errors": {
+    "404": {
+      "title": "Página não encontrada",
+      "description": "Desculpe — a página que você procura não existe.",
+      "backHome": "Voltar ao início",
+      "goToEditor": "Abrir editor",
+      "heading": "404 — Não Encontrado"
+    },
+    "500": {
+      "title": "Algo deu errado",
+      "description": "Ocorreu um erro inesperado. Por favor, tente novamente.",
+      "retry": "Tentar novamente",
+      "backHome": "Voltar ao início"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de Privacidade — LadeCompile",
+      "description": "Como o LadeCompile lida com seus dados: execução local-first, sem rastreamento e arquitetura privacy-first.",
+      "lastUpdated": "Última atualização: {date}"
+    },
+    "terms": {
+      "title": "Termos de Serviço — LadeCompile",
+      "description": "Termos de serviço para usar o compilador online gratuito de HTML/CSS/JS do LadeCompile.",
+      "lastUpdated": "Última atualização: {date}"
+    }
+  },
+  "common": {
+    "ladecompile": "LadeCompile",
+    "ladestack": "LadeStack",
+    "learnMore": "Saiba mais",
+    "loading": "Carregando...",
+    "close": "Fechar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "search": "Buscar",
+    "noResults": "Nenhum resultado encontrado.",
+    "comingSoon": "EM BREVE"
+  },
+  "seo": {
+    "defaultTitle": "LadeCompile — Compilador Online Grátis de HTML CSS JS, Sem Login Necessário",
+    "defaultDescription": "Compilador e editor ao vivo gratuito, sem login, de nível empresarial para HTML/CSS/JS. Escreva, execute e compartilhe código instantaneamente — sem cadastro, sem paywall. A alternativa rápida ao OneCompiler da LadeStack.",
+    "ogLocale": "pt_BR"
+  }
+}
