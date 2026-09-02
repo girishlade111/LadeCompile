@@ -1143,7 +1143,7 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
                   className="flex w-full items-center gap-2 rounded-md px-2.5 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
                 >
                   {isDark ? <Sun className="h-4 w-4 shrink-0" /> : <Moon className="h-4 w-4 shrink-0" />}
-                  {isDark ? "{tr("drawer.lightTheme")}" : "{tr("drawer.darkTheme")}"}
+                  {isDark ? tr("drawer.lightTheme") : tr("drawer.darkTheme")}
                 </button>
               </div>
             </div>
