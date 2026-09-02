@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "locale": "en",
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    }
+  },
+  "app": {
+    "htmlLang": "en",
+    "title": "LadeCompile — Free Online HTML/CSS/JS Editor",
+    "description": "Fast, free, and distraction-free HTML, CSS, and JavaScript online editor with instant live preview and zero setup. Part of LadeStack.",
+    "themeColor": "#6366f1"
+  },
+  "topNav": {
+    "home": "Home",
+    "features": "Features",
+    "templates": "Templates",
+    "blog": "Blog",
+    "ladestack": "LadeStack ↗",
+    "overview": "Overview",
+    "ariaLabel": "Primary navigation"
+  },
+  "topbar": {
+    "badge": "HTML / CSS / JS — no login required",
+    "htmlBadge": "HTML",
+    "run": "Run",
+    "templates": "Templates",
+    "moreOptions": "More options",
+    "toggleTheme": "Toggle theme",
+    "save": "Save",
+    "share": "Share",
+    "export": "Export",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "filesMenu": "Files menu"
+  },
+  "tabs": {
+    "indexHtml": "index.html",
+    "stylesCss": "styles.css",
+    "scriptJs": "script.js"
+  },
+  "explorer": {
+    "title": "Explorer",
+    "closeExplorer": "Close Explorer",
+    "projectFiles": "Project Files",
+    "files": "Files",
+    "search": "Search",
+    "searchHint": "Search (Ctrl+F)",
+    "settings": "Settings"
+  },
+  "drawer": {
+    "title": "Files",
+    "projectFiles": "Project Files",
+    "search": "Search",
+    "templates": "Templates",
+    "settings": "Settings",
+    "lightTheme": "Light theme",
+    "darkTheme": "Dark theme"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Customize your editor preferences.",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "toggleTheme": "Toggle theme",
+    "language": "Language",
+    "languageDescription": "Choose the editor interface language.",
+    "fontSize": "Font size",
+    "fontSizeDescription": "Editor text size in pixels.",
+    "minimap": "Minimap",
+    "minimapDescription": "Show code minimap in editor.",
+    "minimapEnabled": "Minimap enabled",
+    "minimapDisabled": "Minimap disabled",
+    "fontSizeSet": "Font size: {size}px",
+    "resetToDefault": "Reset to Default",
+    "keyboardShortcuts": "Keyboard Shortcuts"
+  },
+  "moreMenu": {
+    "formatCode": "Format Code",
+    "resetToDefault": "Reset to Default",
+    "minimap": "Minimap",
+    "keyboardShortcuts": "Keyboard Shortcuts",
+    "export": "Export"
+  },
+  "console": {
+    "title": "Console",
+    "badge": "Console",
+    "ready": "Ready",
+    "warnings": "{warnings} warnings, {errors} errors",
+    "empty": "Console — Click Run to start · logs clear per run",
+    "clear": "Clear",
+    "clearAriaLabel": "Clear console",
+    "toggleExpand": "Expand console",
+    "toggleCollapse": "Collapse console",
+    "postBridgeActive": "PostMessage Bridge Active",
+    "livePreview": "Live preview",
+    "consoleLabel": "Console:",
+    "unreadBadge": "{count} new",
+    "truncated": "… (truncated)",
+    "autoScroll": "Auto-scroll enabled"
+  },
+  "preview": {
+    "title": "Live preview",
+    "sandboxedNote": "Sandboxed preview rendered at 60fps",
+    "postMessageActive": "PostMessage Bridge Active",
+    "loadingMonaco": "Loading Monaco..."
+  },
+  "templates": {
+    "title": "Templates",
+    "description": "Choose a starter template to begin coding.",
+    "searchPlaceholder": "Search templates…",
+    "noResults": "No templates match \"{query}\"",
+    "loadTemplate": "Load template",
+    "useTemplate": "Use template",
+    "categories": {
+      "starters": "Starters",
+      "layouts": "Layouts",
+      "components": "Components",
+      "forms": "Forms"
+    },
+    "confirmOverwrite": {
+      "title": "Overwrite your current edits?",
+      "description": "Loading \"{name}\" will replace your current HTML, CSS, and JavaScript. This cannot be undone without resetting.",
+      "cancel": "Cancel",
+      "load": "Load template",
+      "confirm": "Continue"
+    }
+  },
+  "shortcuts": {
+    "title": "Keyboard Shortcuts",
+    "description": "Quick reference for editor keyboard shortcuts.",
+    "save": "Save / Compile",
+    "saveShortcut": "Cmd/Ctrl + S",
+    "find": "Find & Replace",
+    "findShortcut": "Cmd/Ctrl + F",
+    "format": "Format Code",
+    "formatAction": "editor.action.formatDocument",
+    "run": "Run preview",
+    "toggleMinimap": "Toggle Minimap",
+    "toggleMinimapHint": "Preferences Menu",
+    "close": "Close"
+  },
+  "export": {
+    "downloadZip": "Download ZIP",
+    "copyActive": "Copy {tab}",
+    "copyCombined": "Copy combined HTML",
+    "screenshot": "Screenshot",
+    "screenshotPng": "Screenshot as PNG",
+    "screenshotJpeg": "Screenshot as JPEG",
+    "generatingZip": "Generating ZIP archive...",
+    "zipDownloaded": "ZIP downloaded",
+    "zipDescription": "LadeCompile-export.zip — 3 files",
+    "zipFailed": "ZIP download failed",
+    "copiedToClipboard": "Copied to clipboard",
+    "copiedActiveDesc": "{tab} — {count} chars",
+    "copiedCombinedTitle": "Copied combined HTML",
+    "copiedCombinedDesc": "Full preview document copied",
+    "copyFailed": "Copy failed — clipboard permission denied",
+    "capturingScreenshot": "Capturing preview as {format}...",
+    "screenshotDownloaded": "Screenshot downloaded as {format}",
+    "screenshotFailed": "Screenshot capture failed",
+    "screenshotNotReady": "Screenshot capture failed — preview not ready",
+    "screenshotExternal": "Screenshot capture failed — preview may contain external content"
+  },
+  "share": {
+    "copiedTitle": "Share link copied to clipboard",
+    "hashCopiedDesc": "URL-hash link copied — no login needed",
+    "kvGenerating": "Generating share link...",
+    "kvCopiedDesc": "Short link created via Cloudflare KV — no login needed",
+    "generatedTitle": "Share link generated",
+    "failedTitle": "Share failed",
+    "failedDesc": "Failed to create share link.",
+    "kvFailed": "Failed to generate share link.",
+    "shareNotFound": "Share link not found or expired",
+    "invalidResponse": "Invalid response format",
+    "couldNotLoad": "Could not load shared code — showing default template",
+    "loaded": "Loaded shared code",
+    "loadedDesc": "Restored code from share link",
+    "confirmOverwrite": {
+      "title": "Load shared code?",
+      "description": "You have unsaved changes. Loading shared code will overwrite your local edits.",
+      "keepLocal": "Keep local",
+      "loadShared": "Load shared code",
+      "discardLocal": "Discard local edits"
+    }
+  },
+  "save": {
+    "saved": "Saved",
+    "saveFailed": "Save failed",
+    "alreadyDefault": "Already showing default starter template",
+    "resetConfirmTitle": "Reset to default template?",
+    "resetConfirmDesc": "This will replace your HTML, CSS, and JavaScript with the default starter. Your current edits will be lost.",
+    "resetCancel": "Cancel",
+    "resetConfirm": "Reset",
+    "resetDone": "Reset to default template"
+  },
+  "format": {
+    "success": "Code formatted",
+    "notAvailable": "Formatting not available for this file",
+    "notReady": "Editor not ready for formatting"
+  },
+  "search": {
+    "loadingEditor": "Editor is loading..."
+  },
+  "minimap": {
+    "enabled": "Minimap enabled",
+    "disabled": "Minimap disabled"
+  },
+  "mobile": {
+    "title": "Desktop Experience Recommended",
+    "body": "LadeCompile works best on a larger screen. Switch to desktop or rotate your tablet to landscape mode for multi-tab code editing and live preview.",
+    "backToHomepage": "Back to Homepage",
+    "continueToMobile": "Continue to Mobile Editor",
+    "mobileViewCode": "Code",
+    "mobileViewPreview": "Preview",
+    "mobileViewConsole": "Console"
+  },
+  "tooltips": {
+    "explorer": "Explorer",
+    "search": "Search (Ctrl+F)",
+    "settings": "Settings",
+    "templates": "Templates",
+    "run": "Run",
+    "moreOptions": "More options",
+    "toggleTheme": "Toggle theme",
+    "save": "Save",
+    "share": "Share",
+    "export": "Export"
+  },
+  "editor": {
+    "ariaLabel": "Code editor",
+    "tabAriaLabel": "Editor tab {name}",
+    "activeTab": "Active tab"
+  },
+  "errors": {
+    "generic": {
+      "title": "Something went wrong",
+      "description": "An unexpected error occurred. Please try again.",
+      "retry": "Try again",
+      "backHome": "Back to home",
+      "goToEditor": "Go to editor"
+    },
+    "notFound": {
+      "title": "Page not found",
+      "heading": "404 — Not Found",
+      "description": "The editor at this address doesn't exist.",
+      "backHome": "Back to home",
+      "goToEditor": "Open editor",
+      "backToHomepage": "Back to Homepage"
+    },
+    "editorError": {
+      "title": "Editor error",
+      "description": "The editor failed to load. Please try resetting.",
+      "retry": "Try again"
+    },
+    "shareError": "Share link not found or expired",
+    "consoleTruncated": "… (truncated)",
+    "localStorageFailed": "Failed to persist editor state to localStorage"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "loading": "Loading...",
+    "save": "Save",
+    "share": "Share",
+    "export": "Export",
+    "copy": "Copy",
+    "download": "Download",
+    "reset": "Reset",
+    "continue": "Continue",
+    "discard": "Discard",
+    "retry": "Retry",
+    "soon": "SOON"
+  }
+}
