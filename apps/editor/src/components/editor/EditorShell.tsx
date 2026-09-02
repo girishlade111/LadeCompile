@@ -63,7 +63,7 @@ import { DEFAULT_FILES, STORAGE_KEY, type EditorFile } from "@/lib/editorDefault
 import { combineFiles } from "@/lib/preview";
 import { useTheme } from "@/components/theme-provider";
 import LanguageSwitcher from "@/components/i18n/LanguageSwitcher";
-import { SUPPORTED_LOCALES, LOCALE_LABELS, type Locale, normalizeLocale } from "@/i18n/locales";
+import { SUPPORTED_LOCALES, LOCALE_LABELS, type Locale, normalizeLocale, localePath } from "@/i18n/locales";
 import enMessages from "../../../messages/en.json";
 import zhMessages from "../../../messages/zh.json";
 import ptBrMessages from "../../../messages/pt-br.json";
@@ -1071,7 +1071,7 @@ export default function EditorShell({ initialLocale, initialMessages }: { initia
             </div>
             <div className="flex w-full flex-col gap-2 pt-2">
               <Button asChild size="sm" className="w-full bg-[#6366f1] text-xs hover:bg-[#5456e5]">
-                <a href="/">Back to Homepage</a>
+                <a href={localePath(locale, "/")}>Back to Homepage</a>
               </Button>
               <Button
                 type="button"
