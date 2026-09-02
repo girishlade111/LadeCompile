@@ -72,7 +72,15 @@ const uniqueCategories = Array.from(
 
     <!-- Posts Grid -->
     <div class="relative z-content mx-auto mt-12 max-w-4xl">
-      <BlogGrid posts={posts} showFeaturedFirst={true} />
+      {posts.length === 0 ? (
+        <div class="rounded-[12px] border border-amber-200 bg-amber-50 p-8 text-center">
+          <p class="text-[16px] font-medium text-amber-900">No posts yet in this language.</p>
+          <p class="mt-2 text-[14px] text-amber-800">Blog is currently English-only. Switch to English to see all articles, or check back later for translations.</p>
+          <a href={localePath("en", "/blog")} class="mt-4 inline-flex items-center justify-center rounded-[8px] bg-[#24292f] px-4 py-2 text-[14px] font-medium text-white">View English Blog</a>
+        </div>
+      ) : (
+        <BlogGrid posts={posts} showFeaturedFirst={true} />
+      )}
 
       <div class="relative z-content mt-16 rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-6 text-center text-[13px] leading-relaxed text-[#656d76]">
         <p>
