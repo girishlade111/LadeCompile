@@ -101,12 +101,8 @@ const faqJsonLd = JSON.stringify({
 
         <!-- Internal links: back to product & related guides -->
         <div class="mx-auto mt-12 max-w-[760px] rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-6 sm:p-8">
-          <h2 class="text-[18px] font-medium tracking-tight text-[#24292f]">Ready to try it yourself?</h2>
-          <p class="mt-2 text-[14px] leading-relaxed text-[#32383f]">
-            Open the <a href={editorUrl} class="text-[#0969da] hover:underline">free online HTML compiler</a> — no account, no downloads. Or read our guides on
-            <a href="/blog/best-free-html-css-js-compilers-2026" class="text-[#0969da] hover:underline">the best free HTML, CSS &amp; JS compilers in 2026</a> and
-            <a href="/blog/onecompiler-alternatives-free-code-editor" class="text-[#0969da] hover:underline">OneCompiler alternatives</a>.
-          </p>
+          <h2 class="text-[18px] font-medium tracking-tight text-[#24292f]">{ctaTitle}</h2>
+          <p class="mt-2 text-[14px] leading-relaxed text-[#32383f]" set:html={ctaBody}></p>
         </div>
       </div>
     </section>
