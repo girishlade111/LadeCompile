@@ -1,0 +1,124 @@
+---
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return [
+    { params: { locale: "zh" } },
+    { params: { locale: "pt-br" } },
+    { params: { locale: "ru" } },
+    { params: { locale: "ja" } },
+    { params: { locale: "tr" } },
+    { params: { locale: "ko" } },
+  ];
+}
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getFaqMessages, getUiMessages, t } from "../../i18n/index";
+import { normalizeLocale, toBcp47 } from "../../i18n/locales";
+
+const locale = normalizeLocale(((Astro.params as any).locale as string) ?? (Astro.currentLocale as string) ?? "en");
+const bcp47 = toBcp47(locale);
+const faqCatalog = await getFaqMessages(locale);
+const uiCatalog = await getUiMessages(locale);
+const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+
+// Visible + JSON-LD share the same loaded source — no divergence.
+interface FaqItem { id: string; question: string; answer: string; }
+const rawItems = (faqCatalog as any).items as FaqItem[] | undefined;
+const faqs: FaqItem[] = Array.isArray(rawItems) ? rawItems : [];
+
+// Localized title/description from UI catalog with fallback
+const faqUi = (uiCatalog as any).faq ?? {};
+const title = t(uiCatalog as any, "faq.pageTitle") || (faqCatalog as any)?._meta?.title || "FAQ — Free Online HTML Compiler | LadeCompile";
+const description = t(uiCatalog as any, "faq.pageDescription") || (faqCatalog as any)?._meta?.description || "Frequently asked questions about LadeCompile's free online HTML compiler.";
+const badgeText = faqUi?.badge ?? "Help & Answers";
+const headingHtml = faqUi?.heading ?? 'Frequently asked questions about our <span>online HTML compiler</span>.';
+const subheadingText = faqUi?.subheading ?? "Everything you need to know about using LadeCompile.";
+const a11yLabel = faqUi?.a11y?.sectionLabel ?? "Frequently asked questions";
+const ctaTitle = faqUi?.cta?.title ?? "Ready to try it yourself?";
+const ctaBody = faqUi?.cta?.body ?? "Open the free online HTML compiler — no account, no downloads.";
+const ctaLinks = faqUi?.cta?.links ?? {};
+
+// FAQPage JSON-LD — includes inLanguage matching current locale
+const faqJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: bcp47,
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    inLanguage: bcp47,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+      inLanguage: bcp47,
+    },
+  })),
+});
+---
+
+<BaseLayout title={title} description={description} type="website">
+  <script type="application/ld+json" set:html={faqJsonLd} slot="head" />
+
+  <Header />
+
+  <main id="main-content" class="bg-[#ffffff]">
+    <!-- Page Header -->
+    <section class="relative isolate overflow-hidden py-14 sm:py-20 bg-[#ffffff]">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
+        <div class="mx-auto max-w-[54ch]">
+          <div class="inline-flex items-center gap-2 rounded-full border border-[#d0d7de] bg-[#f6f8fa] px-3.5 py-1 text-[13px] font-medium text-[#24292f]">
+            <span class="h-2 w-2 rounded-full bg-[#1a7f37]"></span>
+            {badgeText}
+          </div>
+          <h1 class="mt-5 text-[clamp(30px,6.5vw,50px)] font-normal leading-[1.12] tracking-tight text-[#24292f]" set:html={headingHtml}>
+          </h1>
+          <p class="mt-5 text-[16px] leading-[1.5] text-[#32383f]">
+            {subheadingText}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion (native details/summary — keyboard & screen-reader accessible, zero JS) -->
+    <section class="relative isolate pb-16 sm:pb-24 bg-[#ffffff]" aria-label={a11yLabel}>
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
+        <div class="mx-auto max-w-[760px] divide-y divide-[#d0d7de] border-y border-[#d0d7de]">
+          {faqs.map((faq, i) => (
+            <details id={`faq-${i + 1}`} class="group">
+              <summary
+                class="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-[16px] font-medium leading-[1.4] text-[#24292f] transition-colors hover:text-[#0969da] [&::-webkit-details-marker]:hidden"
+                aria-controls={`faq-answer-${i + 1}`}
+              >
+                <span>{faq.question}</span>
+                <svg
+                  class="h-4 w-4 shrink-0 text-[#656d76] transition-transform duration-200 group-open:rotate-45"
+                  viewBox="0 0 16 16" fill="none" aria-hidden="true"
+                >
+                  <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </summary>
+              <div
+                id={`faq-answer-${i + 1}`}
+                role="region"
+                class="pb-5 pr-8 text-[15px] leading-[1.6] text-[#32383f]"
+              >
+                <p set:html={faq.answer} />
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <!-- Internal links: back to product & related guides -->
+        <div class="mx-auto mt-12 max-w-[760px] rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-6 sm:p-8">
+          <h2 class="text-[18px] font-medium tracking-tight text-[#24292f]">{ctaTitle}</h2>
+          <p class="mt-2 text-[14px] leading-relaxed text-[#32383f]" set:html={ctaBody}></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
