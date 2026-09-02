@@ -52,12 +52,12 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
   <!-- Mobile nav sheet — lives inside the sticky header so it always covers page content (z-sticky context) -->
   <div id="mobile-menu" hidden class="relative z-overlay border-t border-[#d0d7de] bg-[#ffffff] md:hidden">
     <nav class="mx-auto flex max-w-[1280px] flex-col px-4 py-2" aria-label="Mobile navigation">
-      <a href="/#features" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">Features</a>
-      <a href="/#starters" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">Templates</a>
-      <a href="/#comparison" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">Comparison</a>
-      <a href="/blog" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">Blog</a>
+      <a href="/#features" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.features")}</a>
+      <a href="/#starters" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.templates")}</a>
+      <a href="/#comparison" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.comparison")}</a>
+      <a href="/blog" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.blog")}</a>
       <a href={editorUrl} class="btn-primary mt-3 mb-2 w-full text-[15px]">
-        Open Web Editor — it’s free
+        {t(ui as any, "nav.openEditorFree")}
       </a>
     </nav>
   </div>
