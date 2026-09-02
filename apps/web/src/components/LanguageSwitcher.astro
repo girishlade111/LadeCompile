@@ -1,0 +1,98 @@
+---
+import { SUPPORTED_LOCALES, LOCALE_LABELS } from "../i18n/locales";
+
+interface Props {
+  currentLocale: string;
+  currentPathWithoutLocale?: string;
+  class?: string;
+}
+
+const { currentLocale, currentPathWithoutLocale = "/", class: className = "" } = Astro.props as Props;
+
+// Build target href for each locale: swap only locale segment, preserve rest + query + hash is handled client-side
+function localeHref(locale: string, pathWithoutLocale: string) {
+  if (locale === "en") return pathWithoutLocale || "/";
+  return `/${locale}${pathWithoutLocale || "/"}`;
+}
+const currentLabel = LOCALE_LABELS[currentLocale as keyof typeof LOCALE_LABELS] ?? LOCALE_LABELS.en;
+---
+
+<div class={`relative inline-block text-left ${className}`} data-lang-switcher>
+  <button
+    type="button"
+    id="lang-switcher-button"
+    class="inline-flex items-center gap-2 rounded-[12px] border border-[#d0d7de] bg-[#ffffff] px-3.5 py-2 text-[13px] font-medium text-[#24292f] hover:bg-[#f6f8fa] transition-colors"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-label="Select language"
+  >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M2.5 8h11M8 1.5a14 14 0 0 1 0 13M8 1.5a14 14 0 0 0 0 13" stroke="currentColor" stroke-width="1.2"/></svg>
+    <span id="lang-current-label">{currentLabel}</span>
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <ul
+    id="lang-switcher-list"
+    role="listbox"
+    aria-label="Select language"
+    hidden
+    class="absolute right-0 z-50 mt-2 max-h-72 w-56 overflow-auto rounded-[12px] border border-[#d0d7de] bg-[#ffffff] py-1 shadow-lg"
+  >
+    {SUPPORTED_LOCALES.map((loc) => {
+      const label = LOCALE_LABELS[loc as keyof typeof LOCALE_LABELS];
+      const href = localeHref(loc, currentPathWithoutLocale);
+      const isCurrent = loc === currentLocale;
+      return (
+        <li role="presentation">
+          <a
+            href={href}
+            role="option"
+            aria-selected={isCurrent ? "true" : "false"}
+            data-locale={loc}
+            data-href={href}
+            class={`flex w-full items-center justify-between px-3.5 py-2 text-[13px] text-left hover:bg-[#f6f8fa] ${isCurrent ? "font-semibold text-[#24292f] bg-[#f6f8fa]" : "text-[#32383f]"}`}
+          >
+            <span>{label}</span>
+            {isCurrent && <span aria-hidden="true" class="text-[#1a7f37]">✓</span>}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</div>
+
+<script>
+  const btn = document.getElementById("lang-switcher-button");
+  const list = document.getElementById("lang-switcher-list");
+  function setOpen(open) {
+    if (!btn || !list) return;
+    btn.setAttribute("aria-expanded", String(open));
+    list.hidden = !open;
+  }
+  btn?.addEventListener("click", () => setOpen(list?.hidden ?? true));
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement | null;
+    if (!target) return;
+    if (btn?.contains(target) || list?.contains(target)) return;
+    setOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+  // On select: swap only locale segment, preserve query+hash, set shared cookie Path=/, do NOT clear state
+  list?.querySelectorAll<HTMLAnchorElement>("a[data-locale]").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const loc = a.getAttribute("data-locale") ?? "en";
+      // Preserve search + hash from current URL
+      const currentSearch = window.location.search;
+      const currentHash = window.location.hash;
+      const baseHref = a.getAttribute("data-href") ?? "/";
+      const target = baseHref + currentSearch + currentHash;
+      // Shared cookie readable by both apps (same-origin, Path=/)
+      document.cookie = `ladecompile_locale=${loc}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`;
+      try { localStorage.setItem("ladecompile:locale", loc); } catch {}
+      // No localStorage autosave clear, no Monaco reset — just navigate
+      window.location.href = target;
+    });
+  });
+</script>
