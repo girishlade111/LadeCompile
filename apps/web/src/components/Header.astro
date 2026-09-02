@@ -55,10 +55,10 @@ const { pathnameWithoutLocale } = parseLocale(Astro.url.pathname);
   <!-- Mobile nav sheet — lives inside the sticky header so it always covers page content (z-sticky context) -->
   <div id="mobile-menu" hidden class="relative z-overlay border-t border-[#d0d7de] bg-[#ffffff] md:hidden">
     <nav class="mx-auto flex max-w-[1280px] flex-col px-4 py-2" aria-label="Mobile navigation">
-      <a href="/#features" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.features")}</a>
-      <a href="/#starters" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.templates")}</a>
-      <a href="/#comparison" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.comparison")}</a>
-      <a href="/blog" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.blog")}</a>
+      <a href={localePath(locale, "/#features")} class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.features")}</a>
+      <a href={localePath(locale, "/#starters")} class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.templates")}</a>
+      <a href={localePath(locale, "/#comparison")} class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.comparison")}</a>
+      <a href={localePath(locale, "/blog")} class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">{t(ui as any, "nav.blog")}</a>
       <div class="border-b border-[#d0d7de]/60 py-2">
         <LanguageSwitcher currentLocale={locale} currentPathWithoutLocale={pathnameWithoutLocale} />
       </div>
