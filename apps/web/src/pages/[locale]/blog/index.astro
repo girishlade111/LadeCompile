@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import BlogGrid from "../../components/blog/BlogGrid.astro";
-import { filterPublishedPosts, getPostLocale } from "../../utils/blog";
-import { getUiMessages, t } from "../../i18n/index";
-import { normalizeLocale, localePath } from "../../i18n/locales";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import BlogGrid from "../../../components/blog/BlogGrid.astro";
+import { filterPublishedPosts, getPostLocale } from "../../../utils/blog";
+import { getUiMessages, t } from "../../../i18n/index";
+import { normalizeLocale, localePath } from "../../../i18n/locales";
 
 const rawLocale = (Astro.currentLocale as string) ?? "en";
 const locale = normalizeLocale(rawLocale);

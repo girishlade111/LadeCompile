@@ -1,9 +1,9 @@
 ---
 export const prerender = false;
 import { getCollection, render } from "astro:content";
-import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
-import { filterPublishedPosts, getPostSlug, getPostLocale } from "../../utils/blog";
-import { normalizeLocale } from "../../i18n/locales";
+import BlogPostLayout from "../../../layouts/BlogPostLayout.astro";
+import { filterPublishedPosts, getPostSlug, getPostLocale } from "../../../utils/blog";
+import { normalizeLocale } from "../../../i18n/locales";
 
 const currentLocale = normalizeLocale((Astro.currentLocale as string) ?? "en");
 const slugParam = Astro.params.slug as string | string[] | undefined;
