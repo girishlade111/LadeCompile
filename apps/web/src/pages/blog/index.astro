@@ -17,9 +17,8 @@ const allPostsRaw = await getCollection("blog");
 const allPostsForLocale = allPostsRaw.filter((p) => getPostLocale(p) === locale);
 const posts = filterPublishedPosts(allPostsForLocale, false);
 
-const title = "Blog & Guides — Free Online HTML/CSS/JS Compilers | LadeCompile";
-const description =
-  "In-depth guides, architecture breakdowns, and tool comparisons for free HTML/CSS/JS compilers, sandboxed live previews, and zero-login developer tools by LadeStack.";
+const title = t(ui as any, "blog.title") || "Blog & Guides — Free Online HTML/CSS/JS Compilers | LadeCompile";
+const description = t(ui as any, "blog.description") || "In-depth guides, architecture breakdowns, and tool comparisons for free HTML/CSS/JS compilers, sandboxed live previews, and zero-login developer tools by LadeStack.";
 
 const editorUrl =
   import.meta.env.PUBLIC_EDITOR_URL ||
