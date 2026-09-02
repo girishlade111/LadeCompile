@@ -423,7 +423,7 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
       </div>
     </section>
 
-    <!-- Starters Section / Templates Anchor -->
+    <!-- Starters Section -->
     <section id="starters" class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]" aria-labelledby="starters-heading">
       <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
@@ -513,8 +513,8 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
         <div class="mt-10 overflow-x-auto rounded-[10px] border border-[#d0d7de] [-webkit-overflow-scrolling:touch]">
           <div class="grid min-w-[560px] grid-cols-[1.3fr_1fr_1fr] bg-[#f6f8fa] border-b border-[#d0d7de] text-[12px] font-semibold text-[#24292f]">
-            <div class="p-4 text-[#656d76]">Capability</div>
-            <div class="p-4 text-[#24292f] bg-[#eaeef2]/50">LadeCompile</div>
+            <div class="p-4 text-[#656d76]">{t(ui as any, "index.comparison.headers.capability")}</div>
+            <div class="p-4 text-[#24292f] bg-[#eaeef2]/50">{t(ui as any, "index.comparison.headers.ladecompile")}</div>
             <div class="p-4 text-[#656d76]">OneCompiler*</div>
           </div>
 
@@ -523,14 +523,14 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
               <div class="font-medium text-[#24292f]">Save & Share Without Login</div>
               <div class="font-semibold text-[#1a7f37] flex items-center gap-1.5">
                 <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                100% Free (URL / KV)
+                {t(ui as any, "index.comparison.rows.saveLadecompile")}
               </div>
               <div class="text-[#656d76]">Login required</div>
             </div>
 
             <div class="grid grid-cols-[1.3fr_1fr_1fr] p-4 items-center">
-              <div class="font-medium text-[#24292f]">Paywalled Features</div>
-              <div class="font-semibold text-[#1a7f37]">None — All Free</div>
+              <div class="font-medium text-[#24292f]">{t(ui as any, "index.comparison.rows.paywalled")}</div>
+              <div class="font-semibold text-[#1a7f37]">{t(ui as any, "index.comparison.rows.paywalledLadecompile")}</div>
               <div class="text-[#656d76]">AI Agent behind Upgrade</div>
             </div>
 
