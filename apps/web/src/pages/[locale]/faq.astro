@@ -1,10 +1,10 @@
 ---
 export const prerender = false;
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { getFaqMessages, getUiMessages, t } from "../i18n/index";
-import { normalizeLocale, toBcp47 } from "../i18n/locales";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getFaqMessages, getUiMessages, t } from "../../i18n/index";
+import { normalizeLocale, toBcp47 } from "../../i18n/locales";
 
 const rawLocale = (Astro.currentLocale as string) ?? "en";
 const locale = normalizeLocale(rawLocale);
@@ -111,3 +111,4 @@ const faqJsonLd = JSON.stringify({
 
   <Footer />
 </BaseLayout>
+
