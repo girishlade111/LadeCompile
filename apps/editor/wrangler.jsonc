@@ -4,16 +4,23 @@
   "compatibility_date": "2025-08-01",
   "compatibility_flags": ["nodejs_compat"],
   "main": ".open-next/worker.js",
-  // Cloudflare Route Specificity: /editor* takes precedence over web's /*
   "routes": [
-    {
-      "pattern": "compile.ladestack.in/editor*",
-      "zone_name": "ladestack.in"
-    },
-    {
-      "pattern": "compile.ladestack.in/editor/*",
-      "zone_name": "ladestack.in"
-    }
+    { "pattern": "compile.ladestack.in/zh/editor*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/zh/editor/*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/pt-br/editor*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/pt-br/editor/*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/ru/editor*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/ru/editor/*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/ja/editor*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/ja/editor/*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/tr/editor*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/tr/editor/*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/ko/editor*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/ko/editor/*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/en/editor*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/en/editor/*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/editor*", "zone_name": "ladestack.in" },
+    { "pattern": "compile.ladestack.in/editor/*", "zone_name": "ladestack.in" }
   ],
   "assets": {
     "directory": ".open-next/assets",
