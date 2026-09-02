@@ -1,0 +1,11 @@
+{
+  "css.customData": [".vscode/tailwind-at-directives.json"],
+  "scss.customData": [".vscode/tailwind-at-directives.json"],
+  "less.customData": [".vscode/tailwind-at-directives.json"],
+  "files.associations": {
+    "*.css": "css"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
+}

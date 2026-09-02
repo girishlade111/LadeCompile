@@ -1,0 +1,37 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@theme",
+      "description": "Tailwind CSS v4 — registers design tokens (colors, fonts, radii, etc.) in the theme namespace so they generate utility classes."
+    },
+    {
+      "name": "@plugin",
+      "description": "Tailwind CSS v4 — loads a first-party or JS plugin (e.g. tailwindcss-animate, @tailwindcss/typography)."
+    },
+    {
+      "name": "@custom-variant",
+      "description": "Tailwind CSS v4 — defines a custom variant (e.g. dark) usable with variant utilities."
+    },
+    {
+      "name": "@utility",
+      "description": "Tailwind CSS v4 — defines a custom static utility class that works with variants."
+    },
+    {
+      "name": "@variant",
+      "description": "Tailwind CSS v4 — applies a variant inside plain CSS blocks."
+    },
+    {
+      "name": "@reference",
+      "description": "Tailwind CSS v4 — imports another stylesheet's theme/variables without emitting its CSS, for use with @apply in separate files."
+    },
+    {
+      "name": "@source",
+      "description": "Tailwind CSS v4 — registers extra content-scanning paths for class detection."
+    },
+    {
+      "name": "@config",
+      "description": "Tailwind CSS v4 — loads a legacy JavaScript config file."
+    }
+  ]
+}
