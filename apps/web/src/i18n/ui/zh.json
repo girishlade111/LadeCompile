@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    },
+    "siteTitle": "LadeCompile — 免费在线 HTML CSS JS 编译器，无需登录",
+    "siteDescription": "免费、免登录的企业级 HTML/CSS/JS 在线编译器与实时编辑器。即写即运行，一键分享 — 无需注册，无广告。LadeStack 出品的快速 OneCompiler 替代方案。",
+    "languageSwitcherLabel": "选择语言",
+    "languageSwitcherAriaLabel": "语言选择器"
+  },
+  "nav": {
+    "features": "功能",
+    "templates": "模板",
+    "comparison": "对比",
+    "blog": "博客",
+    "openEditor": "打开编辑器",
+    "openEditorFree": "打开网页编辑器 — 免费使用",
+    "openInWebEditor": "在网页编辑器中打开",
+    "openMenu": "打开导航菜单",
+    "closeMenu": "关闭导航菜单",
+    "mobileNavigation": "移动端导航",
+    "home": "LadeCompile 首页",
+    "skipToContent": "跳至正文"
+  },
+  "footer": {
+    "description": "免费、免登录的 HTML/CSS/JS 在线编译器。为开发者、教育者和学生打造的快速、零摩擦原型工具，无需账号或付费墙。",
+    "ecosystem": "LadeStack 开放开发者工具生态的一部分。",
+    "headings": {
+      "product": "产品",
+      "ladestackSuite": "LadeStack 套件",
+      "resources": "资源与开放规范"
+    },
+    "links": {
+      "webEditor": "网页编辑器",
+      "coreCapabilities": "核心功能",
+      "starterTemplates": "入门模板",
+      "comparisonMatrix": "对比矩阵",
+      "articles": "文章与指南",
+      "faq": "常见问题",
+      "ladestackHub": "LadeStack Hub",
+      "ladecompile": "LadeCompile",
+      "gbCoder": "GB Coder",
+      "apiPlayground": "API 演练场",
+      "sitemap": "站点地图 XML",
+      "robots": "Robots.txt",
+      "llms": "LLMs.txt 规范",
+      "soon": "即将上线",
+      "privacy": "隐私",
+      "terms": "条款",
+      "github": "GitHub"
+    },
+    "copyright": "© {year} LadeStack · LadeCompile。免费、免登录、沙盒执行。零遥测追踪，无付费墙。",
+    "byLadestack": "by LadeStack"
+  },
+  "index": {
+    "hero": {
+      "kicker": "免费 · 免登录 · 永久无付费墙",
+      "titleLine1": "免费的 HTML、CSS 与 JS 编译器，",
+      "titleLine2": "无需登录。",
+      "description1": "LadeCompile 是面向开发者、学生和教育者的安静、企业级的<strong>在线代码编译器</strong>。在一个标签化的编辑器中编写 HTML、CSS 与 JavaScript，即刻在沙盒实时预览中查看效果 — 干净的 <strong>OneCompiler 替代方案</strong>，无注册墙。",
+      "description2": "LadeStack 免费开发者工具套件的一部分。快速原型响应式布局、调试 JavaScript 逻辑或一键导出独立文件。",
+      "primaryCta": "打开网页编辑器 — 免费使用",
+      "secondaryCta": "探索入门模板",
+      "footnote": "无需账号即可编写、保存与分享。浏览器本地优先执行。",
+      "trust": {
+        "sharing": "免登录 URL 分享",
+        "preview": "400ms 防抖预览",
+        "export": "客户端 ZIP 导出"
+      }
+    },
+    "snapshot": {
+      "tabHtml": "index.html",
+      "tabCss": "styles.css",
+      "tabJs": "script.js",
+      "live": "Live",
+      "fastPrototyping": "快速原型",
+      "zeroLogin": "零登录。400ms 编译。",
+      "runComponent": "运行组件",
+      "sandboxed": "沙盒预览以 60fps 渲染",
+      "console": "Console:",
+      "ready": "Ready",
+      "warnings": "0 warnings, 0 errors",
+      "bridgeActive": "PostMessage 桥接已激活",
+      "lookingFor": "想要更完整的 Monaco 功能？",
+      "openComplete": "打开完整的网页编辑器"
+    },
+    "standards": {
+      "label": "基于开放 Web 标准与现代云基础设施构建",
+      "items": {
+        "html": "HTML5 Living Standard",
+        "css": "CSS3 Grid & Flexbox",
+        "ecma": "ECMAScript 2024",
+        "monaco": "Monaco 引擎",
+        "sandbox": "沙盒 Iframe",
+        "cloudflare": "Cloudflare 边缘"
+      }
+    },
+    "coral": {
+      "title": "免登录代码执行，即时实时预览。",
+      "description": "别再为测试一段 HTML 片段或尝试 CSS 技巧而浪费时间注册账号或撞上付费墙。LadeCompile 在客户端通过防抖、隔离的 worker 桥接即时编译你的三个文件。",
+      "cta": "启动实时编译器",
+      "pipeline": {
+        "title": "编译流水线",
+        "badge": "400ms 防抖",
+        "step1": "1. 客户端 Monaco 输入 (HTML/CSS/JS)",
+        "step1Meta": "本地优先",
+        "step2": "2. 沙盒 Iframe PostMessage 桥接",
+        "step2Meta": "隔离源",
+        "step3": "3. 零存储 URL Hash 压缩",
+        "step3Meta": "LZ-String",
+        "footer": "高可靠 · 零追踪 · 性能无阻塞"
+      }
+    },
+    "features": {
+      "heading": "你需要的所有功能 — 没有任何付费墙。",
+      "subheading": "专注的开发者工作台，消除传统在线 playground 的摩擦。",
+      "cards": {
+        "sharingEyebrow": "零存储分享",
+        "sharingTitle": "即时状态压缩",
+        "sharingBody": "你的代码通过 LZ-String 直接压缩到浏览器 URL hash 中。无需创建账号或将数据发送到数据库，即可与同事分享代码片段。",
+        "sharingCode": "compile.ladestack.in/#code=H4sIAAAAAAA...",
+        "exportEyebrow": "导出套件",
+        "exportTitle": "ZIP、HTML 与截图",
+        "exportBody": "将 HTML、CSS 与 JS 打包为可直接部署的 ZIP，复制独立的单文件 HTML，或对渲染结果进行高清截图。",
+        "badges": {
+          "zip": ".ZIP",
+          "html": "HTML",
+          "png": "PNG"
+        },
+        "monacoEyebrow": "Monaco 引擎",
+        "monacoTitle": "浏览器中的 VS Code 级精度",
+        "monacoBody": "基于 Monaco Editor，LadeCompile 提供原生语法高亮、智能缩进、代码格式化、查找与替换以及原生键盘快捷键。",
+        "monacoRows": {
+          "save": "保存 / 编译",
+          "shortcutSave": "Cmd/Ctrl + S",
+          "find": "查找与替换",
+          "shortcutFind": "Cmd/Ctrl + F",
+          "minimap": "切换小地图",
+          "minimapMeta": "偏好设置菜单"
+        },
+        "monacoLink": "在编辑器中试用 →",
+        "startersEyebrow": "精选入门",
+        "startersTitle": "10 个生产级入门样板",
+        "startersBody": "从空白画布开始或从验证过的模板中选择：现代 CSS Grid 仪表盘、响应式落地页、带客户端校验的交互表单、深色模式卡片、HTML5 Canvas 动画与天气 API 小组件。",
+        "startersTags": {
+          "grid": "CSS Grid",
+          "flexbox": "Flexbox Hero",
+          "canvas": "Canvas 动画",
+          "weather": "Fetch API 天气",
+          "form": "表单校验"
+        }
+      }
+    },
+    "tabbed": {
+      "heading": "为专注而生。",
+      "subheading": "探索 LadeCompile 各部分如何协同，为你提供干净、可靠的编码工作流。",
+      "tabs": {
+        "tab1Label": "三文件和谐",
+        "tab1Desc": "独立的 HTML、CSS 与 JS 标签，支持自动语法格式化。",
+        "tab2Label": "沙盒控制台桥接",
+        "tab2Desc": "实时 postMessage 错误与日志转发，带未读数徽标。",
+        "tab3Label": "本地优先存储",
+        "tab3Desc": "更改自动持久化到 localStorage；重载亦不丢失。",
+        "tab4Label": "未保存工作保护",
+        "tab4Desc": "加载入门模板或重置时对未保存更改进行确认保护。"
+      },
+      "activeCapability": "当前能力",
+      "defaultTitle": "专用标签式编辑环境",
+      "defaultDesc": "在 <code>index.html</code>、<code>styles.css</code> 与 <code>script.js</code> 之间流畅切换，无杂乱。每个标签都具备完整的 Monaco 智能提示与错误标记及独立撤销历史。",
+      "readyToWrite": "准备好写代码了？",
+      "openEditor": "打开编辑器 →"
+    },
+    "starters": {
+      "heading": "精选入门模板，即刻原型。",
+      "cards": {
+        "gridTitle": "CSS Grid 仪表盘",
+        "gridCategory": "布局",
+        "gridDesc": "基于现代 CSS grid gap 与媒体查询的响应式多列指标卡片。",
+        "flexboxTitle": "Flexbox 落地页",
+        "flexboxCategory": "营销",
+        "flexboxDesc": "简洁的 hero 区域、导航栏、响应式定价网格与无障碍表单。",
+        "formTitle": "表单校验引擎",
+        "formCategory": "交互",
+        "formDesc": "基于正则的实时邮箱与密码校验，提供清晰的视觉反馈状态。",
+        "particleTitle": "粒子动画",
+        "particleCategory": "Canvas",
+        "particleDesc": "响应光标移动的流畅 60fps HTML5 canvas 粒子系统。",
+        "weatherTitle": "天气 API 小组件",
+        "weatherCategory": "API / 异步",
+        "weatherDesc": "带加载状态与错误处理的异步 Fetch API 实现。",
+        "todoTitle": "Todo 应用 + LocalStorage",
+        "todoCategory": "应用",
+        "todoDesc": "完整的 CRUD 列表，带过滤标签与客户端持久化。",
+        "loadTemplate": "加载模板 →"
+      }
+    },
+    "cream": {
+      "title": "为开发者、教育者与学生实现 10 倍更快的原型路径。",
+      "body": "无论是在前端训练营教学还是在通话中快速演示 bug 修复，要求用户登录后才能查看或编辑代码都会带来不必要的摩擦。LadeCompile 保持整个流程零登录：打开链接，立即编辑，分享新 URL。"
+    },
+    "comparison": {
+      "heading": "免费的 OneCompiler 替代方案 — 没有星号条款。",
+      "subheading": "OneCompiler 与 CodePen 都是优秀工具。区别在于商业模式：LadeCompile 在无账号、无付费墙、无门槛的情况下提供核心编辑体验。",
+      "headers": {
+        "capability": "能力",
+        "ladecompile": "LadeCompile",
+        "onecompiler": "OneCompiler*"
+      },
+      "rows": {
+        "save": "免登录保存与分享",
+        "saveLadecompile": "100% 免费 (URL / KV)",
+        "saveOnecompiler": "需要登录",
+        "paywalled": "付费功能",
+        "paywalledLadecompile": "无 — 全部免费",
+        "paywalledOnecompiler": "AI 助手需升级",
+        "preview": "实时预览与控制台",
+        "previewLadecompile": "包含 (沙盒)",
+        "previewOnecompiler": "包含",
+        "export": "导出套件 (ZIP / HTML / PNG)",
+        "exportLadecompile": "客户端即时",
+        "exportOnecompiler": "标准下载",
+        "privacy": "隐私与数据追踪",
+        "privacyLadecompile": "本地优先 (无遥测)",
+        "privacyOnecompiler": "基于账号的追踪"
+      },
+      "footnote": "*对比基于截至 2026 年公开的网页编辑器功能。LadeCompile 致力于为现代 Web 开发者提供无门槛的免费替代方案。"
+    },
+    "cta": {
+      "title": "立即开始使用 LadeCompile。",
+      "body": "无需注册表单、验证邮件或信用卡。直接进入 Monaco 编辑器开始编写 HTML、CSS 与 JavaScript。",
+      "primary": "打开网页编辑器 — 免费",
+      "secondary": "阅读文章与指南"
+    }
+  },
+  "faq": {
+    "pageTitle": "常见问题 — 免费在线 HTML 编译器 | LadeCompile",
+    "pageDescription": "关于 LadeCompile 免费在线 HTML 编译器的常见问题：什么是 HTML 编译器、如何在线运行 HTML 代码、如何在 HTML 中添加图片、全屏模式等。无需登录。",
+    "badge": "帮助与解答",
+    "heading": "关于我们的<span>在线 HTML 编译器</span>的常见问题。",
+    "subheading": "了解使用 LadeCompile 所需的一切 — 免费、免登录的 HTML、CSS 与 JavaScript 编译器，在浏览器中即时运行。",
+    "a11y": {
+      "sectionLabel": "常见问题"
+    },
+    "cta": {
+      "title": "准备好亲自试试了吗？",
+      "body": "打开免费在线 HTML 编译器 — 无需账号，无需下载。或阅读我们关于 2026 年最佳免费 HTML、CSS 与 JS 编译器以及 OneCompiler 替代方案的指南。",
+      "links": {
+        "editor": "免费在线 HTML 编译器",
+        "best": "2026 年最佳免费 HTML、CSS 与 JS 编译器",
+        "alternatives": "OneCompiler 替代方案"
+      }
+    }
+  },
+  "blog": {
+    "title": "文章与指南 — Web 开发洞察",
+    "description": "关于 HTML/CSS/JS 编译器、Canvas vs SVG 与现代前端工作流的教程、对比与指南。来自 LadeCompile 团队的免费洞察。",
+    "heading": "文章与指南",
+    "subheading": "为开发者、学生与教育者提供的实用对比与教程。",
+    "onThisPage": "本页目录",
+    "prevArticle": "← 上一篇",
+    "nextArticle": "下一篇 →",
+    "relatedArticles": "相关文章",
+    "breadcrumbs": {
+      "home": "首页",
+      "blog": "博客"
+    },
+    "meta": {
+      "by": "作者 {author}",
+      "publishedOn": "发布于 {date}",
+      "updatedOn": "更新于 {date}",
+      "readTime": "阅读时长 {minutes} 分钟",
+      "category": "分类：{category}",
+      "tags": "标签"
+    },
+    "empty": "未找到文章。",
+    "backToBlog": "返回博客",
+    "shareArticle": "分享本文"
+  },
+  "errors": {
+    "404": {
+      "title": "页面未找到",
+      "description": "抱歉 — 您寻找的页面不存在。",
+      "backHome": "返回首页",
+      "goToEditor": "打开编辑器",
+      "heading": "404 — 未找到"
+    },
+    "500": {
+      "title": "出错了",
+      "description": "发生了意外错误。请重试。",
+      "retry": "重试",
+      "backHome": "返回首页"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "隐私政策 — LadeCompile",
+      "description": "LadeCompile 如何处理您的数据：本地优先执行，无追踪，隐私优先架构。",
+      "lastUpdated": "最后更新：{date}"
+    },
+    "terms": {
+      "title": "服务条款 — LadeCompile",
+      "description": "使用 LadeCompile 免费在线 HTML/CSS/JS 编译器的服务条款。",
+      "lastUpdated": "最后更新：{date}"
+    }
+  },
+  "common": {
+    "ladecompile": "LadeCompile",
+    "ladestack": "LadeStack",
+    "learnMore": "了解更多",
+    "loading": "加载中…",
+    "close": "关闭",
+    "cancel": "取消",
+    "confirm": "确认",
+    "search": "搜索",
+    "noResults": "未找到结果。",
+    "comingSoon": "即将上线"
+  },
+  "seo": {
+    "defaultTitle": "LadeCompile — 免费在线 HTML CSS JS 编译器，无需登录",
+    "defaultDescription": "免费、免登录、企业级的 HTML/CSS/JS 在线编译器与实时编辑器。即写即运行，一键分享 — 无需注册，无付费墙。LadeStack 出品的快速 OneCompiler 替代方案。",
+    "ogLocale": "zh_CN"
+  }
+}
