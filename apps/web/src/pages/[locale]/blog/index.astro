@@ -1,4 +1,17 @@
 ---
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return [
+    { params: { locale: "zh" } },
+    { params: { locale: "pt-br" } },
+    { params: { locale: "ru" } },
+    { params: { locale: "ja" } },
+    { params: { locale: "tr" } },
+    { params: { locale: "ko" } },
+  ];
+}
+
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Header from "../../../components/Header.astro";
@@ -8,7 +21,7 @@ import { filterPublishedPosts, getPostLocale } from "../../../utils/blog";
 import { getUiMessages, t } from "../../../i18n/index";
 import { normalizeLocale, localePath } from "../../../i18n/locales";
 
-const rawLocale = (Astro.currentLocale as string) ?? "en";
+const rawLocale = ((Astro.params as any).locale as string) ?? (Astro.currentLocale as string) ?? "en";
 const locale = normalizeLocale(rawLocale);
 const ui = await getUiMessages(locale);
 

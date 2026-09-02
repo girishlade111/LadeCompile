@@ -1,5 +1,34 @@
 ---
-export const prerender = false;
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return [
+    { params: { locale: "zh", slug: "best-free-html-css-js-compilers-2026" } },
+    { params: { locale: "zh", slug: "html5-canvas-vs-svg-guide" } },
+    { params: { locale: "zh", slug: "onecompiler-alternatives-free-code-editor" } },
+    { params: { locale: "zh", slug: "zero-login-developer-tools-future" } },
+    { params: { locale: "pt-br", slug: "best-free-html-css-js-compilers-2026" } },
+    { params: { locale: "pt-br", slug: "html5-canvas-vs-svg-guide" } },
+    { params: { locale: "pt-br", slug: "onecompiler-alternatives-free-code-editor" } },
+    { params: { locale: "pt-br", slug: "zero-login-developer-tools-future" } },
+    { params: { locale: "ru", slug: "best-free-html-css-js-compilers-2026" } },
+    { params: { locale: "ru", slug: "html5-canvas-vs-svg-guide" } },
+    { params: { locale: "ru", slug: "onecompiler-alternatives-free-code-editor" } },
+    { params: { locale: "ru", slug: "zero-login-developer-tools-future" } },
+    { params: { locale: "ja", slug: "best-free-html-css-js-compilers-2026" } },
+    { params: { locale: "ja", slug: "html5-canvas-vs-svg-guide" } },
+    { params: { locale: "ja", slug: "onecompiler-alternatives-free-code-editor" } },
+    { params: { locale: "ja", slug: "zero-login-developer-tools-future" } },
+    { params: { locale: "tr", slug: "best-free-html-css-js-compilers-2026" } },
+    { params: { locale: "tr", slug: "html5-canvas-vs-svg-guide" } },
+    { params: { locale: "tr", slug: "onecompiler-alternatives-free-code-editor" } },
+    { params: { locale: "tr", slug: "zero-login-developer-tools-future" } },
+    { params: { locale: "ko", slug: "best-free-html-css-js-compilers-2026" } },
+    { params: { locale: "ko", slug: "html5-canvas-vs-svg-guide" } },
+    { params: { locale: "ko", slug: "onecompiler-alternatives-free-code-editor" } },
+    { params: { locale: "ko", slug: "zero-login-developer-tools-future" } },
+  ];
+}
 import { getCollection, render } from "astro:content";
 import BlogPostLayout from "../../../layouts/BlogPostLayout.astro";
 import { filterPublishedPosts, getPostSlug, getPostLocale } from "../../../utils/blog";
