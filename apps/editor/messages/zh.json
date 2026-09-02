@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "locale": "zh",
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    }
+  },
+  "app": {
+    "htmlLang": "zh",
+    "title": "LadeCompile — 免费在线 HTML/CSS/JS 编辑器",
+    "description": "快速、免费、无干扰的 HTML、CSS 与 JavaScript 在线编辑器，支持即时实时预览与零配置。LadeStack 出品。",
+    "themeColor": "#6366f1"
+  },
+  "topNav": {
+    "home": "首页",
+    "features": "功能",
+    "templates": "模板",
+    "blog": "博客",
+    "ladestack": "LadeStack ↗",
+    "overview": "概览",
+    "ariaLabel": "主导航"
+  },
+  "topbar": {
+    "badge": "HTML / CSS / JS — 无需登录",
+    "htmlBadge": "HTML",
+    "run": "运行",
+    "templates": "模板",
+    "moreOptions": "更多选项",
+    "toggleTheme": "切换主题",
+    "save": "保存",
+    "share": "分享",
+    "export": "导出",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "filesMenu": "文件菜单"
+  },
+  "tabs": {
+    "indexHtml": "index.html",
+    "stylesCss": "styles.css",
+    "scriptJs": "script.js"
+  },
+  "explorer": {
+    "title": "资源管理器",
+    "closeExplorer": "关闭资源管理器",
+    "projectFiles": "项目文件",
+    "files": "文件",
+    "search": "搜索",
+    "searchHint": "搜索 (Ctrl+F)",
+    "settings": "设置"
+  },
+  "drawer": {
+    "title": "文件",
+    "projectFiles": "项目文件",
+    "search": "搜索",
+    "templates": "模板",
+    "settings": "设置",
+    "lightTheme": "浅色主题",
+    "darkTheme": "深色主题"
+  },
+  "settings": {
+    "title": "设置",
+    "description": "自定义编辑器偏好设置。",
+    "theme": "主题",
+    "themeLight": "浅色",
+    "themeDark": "深色",
+    "toggleTheme": "切换主题",
+    "language": "语言",
+    "languageDescription": "选择编辑器界面语言。",
+    "fontSize": "字号",
+    "fontSizeDescription": "编辑器文字大小（像素）。",
+    "minimap": "小地图",
+    "minimapDescription": "在编辑器中显示代码小地图。",
+    "minimapEnabled": "小地图已启用",
+    "minimapDisabled": "小地图已禁用",
+    "fontSizeSet": "字号：{size}px",
+    "resetToDefault": "重置为默认",
+    "keyboardShortcuts": "键盘快捷键"
+  },
+  "moreMenu": {
+    "formatCode": "格式化代码",
+    "resetToDefault": "重置为默认",
+    "minimap": "小地图",
+    "keyboardShortcuts": "键盘快捷键",
+    "export": "导出"
+  },
+  "console": {
+    "title": "控制台",
+    "badge": "控制台",
+    "ready": "就绪",
+    "warnings": "{warnings} 个警告，{errors} 个错误",
+    "empty": "控制台 — 点击 运行 开始 · 每次运行清空日志",
+    "clear": "清空",
+    "clearAriaLabel": "清空控制台",
+    "toggleExpand": "展开控制台",
+    "toggleCollapse": "收起控制台",
+    "postBridgeActive": "PostMessage 桥接已激活",
+    "livePreview": "实时预览",
+    "consoleLabel": "控制台：",
+    "unreadBadge": "{count} 条新消息",
+    "truncated": "…（已截断）",
+    "autoScroll": "自动滚动已启用"
+  },
+  "preview": {
+    "title": "实时预览",
+    "sandboxedNote": "沙盒预览以 60fps 渲染",
+    "postMessageActive": "PostMessage 桥接已激活",
+    "loadingMonaco": "正在加载 Monaco..."
+  },
+  "templates": {
+    "title": "模板",
+    "description": "选择一个入门模板开始编码。",
+    "searchPlaceholder": "搜索模板…",
+    "noResults": "没有匹配 “{query}” 的模板",
+    "loadTemplate": "加载模板",
+    "useTemplate": "使用模板",
+    "categories": {
+      "starters": "入门",
+      "layouts": "布局",
+      "components": "组件",
+      "forms": "表单"
+    },
+    "confirmOverwrite": {
+      "title": "覆盖当前编辑？",
+      "description": "加载 “{name}” 将替换当前的 HTML、CSS 与 JavaScript。此操作不可撤销（除非重置）。",
+      "cancel": "取消",
+      "load": "加载模板",
+      "confirm": "继续"
+    }
+  },
+  "shortcuts": {
+    "title": "键盘快捷键",
+    "description": "编辑器键盘快捷键速查。",
+    "save": "保存 / 编译",
+    "saveShortcut": "Cmd/Ctrl + S",
+    "find": "查找与替换",
+    "findShortcut": "Cmd/Ctrl + F",
+    "format": "格式化代码",
+    "formatAction": "editor.action.formatDocument",
+    "run": "运行预览",
+    "toggleMinimap": "切换小地图",
+    "toggleMinimapHint": "偏好设置菜单",
+    "close": "关闭"
+  },
+  "export": {
+    "downloadZip": "下载 ZIP",
+    "copyActive": "复制 {tab}",
+    "copyCombined": "复制合并后的 HTML",
+    "screenshot": "截图",
+    "screenshotPng": "截图为 PNG",
+    "screenshotJpeg": "截图为 JPEG",
+    "generatingZip": "正在生成 ZIP 归档…",
+    "zipDownloaded": "ZIP 已下载",
+    "zipDescription": "LadeCompile-export.zip — 3 个文件",
+    "zipFailed": "ZIP 下载失败",
+    "copiedToClipboard": "已复制到剪贴板",
+    "copiedActiveDesc": "{tab} — {count} 个字符",
+    "copiedCombinedTitle": "已复制合并后的 HTML",
+    "copiedCombinedDesc": "完整预览文档已复制",
+    "copyFailed": "复制失败 — 剪贴板权限被拒绝",
+    "capturingScreenshot": "正在截取预览为 {format}…",
+    "screenshotDownloaded": "截图已下载为 {format}",
+    "screenshotFailed": "截图失败",
+    "screenshotNotReady": "截图失败 — 预览未就绪",
+    "screenshotExternal": "截图失败 — 预览可能包含外部内容"
+  },
+  "share": {
+    "copiedTitle": "分享链接已复制到剪贴板",
+    "hashCopiedDesc": "URL hash 链接已复制 — 无需登录",
+    "kvGenerating": "正在生成分享链接…",
+    "kvCopiedDesc": "已通过 Cloudflare KV 创建短链接 — 无需登录",
+    "generatedTitle": "分享链接已生成",
+    "failedTitle": "分享失败",
+    "failedDesc": "创建分享链接失败。",
+    "kvFailed": "生成分享链接失败。",
+    "shareNotFound": "分享链接未找到或已过期",
+    "invalidResponse": "响应格式无效",
+    "couldNotLoad": "无法加载分享的代码 — 显示默认模板",
+    "loaded": "已加载分享的代码",
+    "loadedDesc": "已从分享链接恢复代码",
+    "confirmOverwrite": {
+      "title": "加载分享的代码？",
+      "description": "您有未保存的更改。加载分享的代码将覆盖本地编辑。",
+      "keepLocal": "保留本地",
+      "loadShared": "加载分享的代码",
+      "discardLocal": "丢弃本地编辑"
+    }
+  },
+  "save": {
+    "saved": "已保存",
+    "saveFailed": "保存失败",
+    "alreadyDefault": "已是默认入门模板",
+    "resetConfirmTitle": "重置为默认模板？",
+    "resetConfirmDesc": "这将用默认入门模板替换您的 HTML、CSS 与 JavaScript。当前编辑将丢失。",
+    "resetCancel": "取消",
+    "resetConfirm": "重置",
+    "resetDone": "已重置为默认模板"
+  },
+  "format": {
+    "success": "代码已格式化",
+    "notAvailable": "此文件不支持格式化",
+    "notReady": "编辑器尚未就绪，无法格式化"
+  },
+  "search": {
+    "loadingEditor": "编辑器正在加载…"
+  },
+  "minimap": {
+    "enabled": "小地图已启用",
+    "disabled": "小地图已禁用"
+  },
+  "mobile": {
+    "title": "建议使用桌面端体验",
+    "body": "LadeCompile 在大屏幕上体验最佳。请切换到桌面端或将平板横屏以获得多标签代码编辑与实时预览。",
+    "backToHomepage": "返回首页",
+    "continueToMobile": "继续使用移动端编辑器",
+    "mobileViewCode": "代码",
+    "mobileViewPreview": "预览",
+    "mobileViewConsole": "控制台"
+  },
+  "tooltips": {
+    "explorer": "资源管理器",
+    "search": "搜索 (Ctrl+F)",
+    "settings": "设置",
+    "templates": "模板",
+    "run": "运行",
+    "moreOptions": "更多选项",
+    "toggleTheme": "切换主题",
+    "save": "保存",
+    "share": "分享",
+    "export": "导出"
+  },
+  "editor": {
+    "ariaLabel": "代码编辑器",
+    "tabAriaLabel": "编辑器标签 {name}",
+    "activeTab": "当前标签"
+  },
+  "errors": {
+    "generic": {
+      "title": "出错了",
+      "description": "发生了意外错误。请重试。",
+      "retry": "重试",
+      "backHome": "返回首页",
+      "goToEditor": "前往编辑器"
+    },
+    "notFound": {
+      "title": "页面未找到",
+      "heading": "404 — 未找到",
+      "description": "此地址的编辑器不存在。",
+      "backHome": "返回首页",
+      "goToEditor": "打开编辑器",
+      "backToHomepage": "返回首页"
+    },
+    "editorError": {
+      "title": "编辑器错误",
+      "description": "编辑器加载失败。请尝试重置。",
+      "retry": "重试"
+    },
+    "shareError": "分享链接未找到或已过期",
+    "consoleTruncated": "…（已截断）",
+    "localStorageFailed": "持久化编辑器状态到 localStorage 失败"
+  },
+  "common": {
+    "cancel": "取消",
+    "confirm": "确认",
+    "close": "关闭",
+    "loading": "加载中…",
+    "save": "保存",
+    "share": "分享",
+    "export": "导出",
+    "copy": "复制",
+    "download": "下载",
+    "reset": "重置",
+    "continue": "继续",
+    "discard": "丢弃",
+    "retry": "重试",
+    "soon": "即将上线"
+  }
+}
