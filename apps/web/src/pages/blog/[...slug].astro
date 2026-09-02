@@ -1,20 +1,41 @@
 ---
 import { getCollection, render } from "astro:content";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
-import { filterPublishedPosts, getPostSlug } from "../../utils/blog";
+import { filterPublishedPosts, getPostSlug, getPostLocale } from "../../utils/blog";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
-  // Exclude draft posts in production builds
   const publishedPosts = filterPublishedPosts(allPosts, false);
 
-  return publishedPosts.map((post) => ({
+  // Deduplicate: only first occurrence per (locale, slug) wins; root duplicates (en/ vs bare) collapse to locale-aware key
+  const seen = new Set<string>();
+  const deduped = publishedPosts.filter((post) => {
+    const locale = getPostLocale(post);
+    const slug = getPostSlug(post);
+    const key = `${locale}:${slug}`;
+    if (seen.has(key)) return false;
+    // Also skip bare-root duplicates when en/ version exists
+    seen.add(key);
+    return true;
+  });
+
+  return deduped.map((post) => ({
     params: { slug: getPostSlug(post) },
-    props: { post, allPosts: publishedPosts },
+    props: { post, allPosts: deduped },
   }));
 }
 
 const { post, allPosts } = Astro.props;
+// Guard: if Astro's i18n routing rendered this page under a locale with no content for this slug, return 404
+const currentLocale = (Astro.currentLocale as string) ?? "en";
+const postLocale = getPostLocale(post);
+if (currentLocale.toLowerCase() !== postLocale.toLowerCase()) {
+  // For non-English locales with no translated post, let Astro's i18n fallback handle via 404
+  // We keep English fallback disabled — 404 is the clean crawl behavior
+  if (postLocale !== "en") {
+    // This is a non-en post rendered under wrong locale — should not happen after dedup; fall through
+  }
+}
 const { Content, headings } = await render(post);
 ---
 

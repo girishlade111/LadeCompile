@@ -1,4 +1,8 @@
 ---
+import { getUiMessages, t } from "../i18n/index";
+import { normalizeLocale } from "../i18n/locales";
+const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
+const ui = await getUiMessages(locale);
 const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
 ---
 <header class="sticky top-0 z-sticky w-full border-b border-[#d0d7de] bg-[#ffffff]">
