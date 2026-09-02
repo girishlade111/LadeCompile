@@ -316,7 +316,7 @@ export default function EditorShell() {
       }
     } else if (shareId) {
       const apiEndpoint =
-        typeof window !== "undefined" && window.location.pathname.startsWith("/editor")
+        typeof window !== "undefined" && window.location.pathname.includes("/editor")
           ? `/editor/api/share?id=${encodeURIComponent(shareId)}`
           : `/api/share?id=${encodeURIComponent(shareId)}`;
 
