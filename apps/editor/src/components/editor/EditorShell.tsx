@@ -62,6 +62,9 @@ import { cn } from "@/lib/utils";
 import { DEFAULT_FILES, STORAGE_KEY, type EditorFile } from "@/lib/editorDefaults";
 import { combineFiles } from "@/lib/preview";
 import { useTheme } from "@/components/theme-provider";
+import LanguageSwitcher from "@/components/i18n/LanguageSwitcher";
+import { SUPPORTED_LOCALES, LOCALE_LABELS, type Locale, normalizeLocale } from "@/i18n/locales";
+import enMessages from "../../../messages/en.json";
 import { TEMPLATES, type Template } from "@/lib/templates";
 import { encodeShareState, decodeShareState, shouldUseKvFallback } from "@/lib/share";
 import { toast } from "sonner";
@@ -129,7 +132,54 @@ function isEqualFiles(a: Record<EditorFile, string>, b: Record<EditorFile, strin
   return a["index.html"] === b["index.html"] && a["styles.css"] === b["styles.css"] && a["script.js"] === b["script.js"];
 }
 
-export default function EditorShell() {
+export default function EditorShell({ initialLocale }: { initialLocale?: string } = {}) {
+  const normalizedLocale = (initialLocale ? normalizeLocale(initialLocale) : "en") as Locale;
+  const [locale] = useState<Locale>(normalizedLocale);
+  const [messages, setMessages] = useState<Record<string, unknown>>(enMessages as unknown as Record<string, unknown>);
+  useEffect(() => {
+    if (locale === "en") {
+      setMessages(enMessages as unknown as Record<string, unknown>);
+      return;
+    }
+    import(`../../../messages/${locale}.json`).then((mod) => {
+      const loaded = (mod.default ?? mod) as Record<string, unknown>;
+      // deep merge fallback to en
+      function merge(base: any, target: any): any {
+        const out: any = { ...base };
+        for (const k of Object.keys(target)) {
+          if (target[k] && typeof target[k] === "object" && !Array.isArray(target[k]) && base[k] && typeof base[k] === "object" && !Array.isArray(base[k])) {
+            out[k] = merge(base[k], target[k]);
+          } else {
+            out[k] = target[k];
+          }
+        }
+        return out;
+      }
+      setMessages(merge(enMessages, loaded));
+    }).catch(() => setMessages(enMessages as unknown as Record<string, unknown>));
+  }, [locale]);
+  const tr = (key: string, params?: Record<string, string|number>) => {
+    const parts = key.replace(/\[(\d+)\]/g, ".$1").split(".");
+    let cur: any = messages;
+    for (const pp of parts) {
+      if (cur == null || typeof cur !== "object") { cur = undefined; break; }
+      cur = cur[pp];
+    }
+    let val: any = cur;
+    if (val === undefined) {
+      // fallback to en
+      let fallback: any = enMessages as any;
+      for (const pp of parts) {
+        if (fallback == null || typeof fallback !== "object") { fallback = undefined; break; }
+        fallback = fallback[pp];
+      }
+      val = fallback;
+    }
+    if (val === undefined) return key;
+    let str = String(val);
+    if (params) for (const [k,v] of Object.entries(params)) str = str.replaceAll(`{${k}}`, String(v));
+    return str;
+  };
   const [consoleOpen, setConsoleOpen] = useState(true);
   const { theme, setTheme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
@@ -1024,7 +1074,7 @@ export default function EditorShell() {
             <div className="absolute inset-0 bg-black/60" onClick={() => setDrawerOpen(false)} aria-hidden="true" />
             <div className="absolute inset-y-0 left-0 flex w-64 max-w-[80vw] flex-col border-r bg-background shadow-xl">
               <div className="flex h-10 shrink-0 items-center justify-between border-b px-3 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-                <span>Files</span>
+                <span>{tr("drawer.title")}</span>
                 <button
                   onClick={() => setDrawerOpen(false)}
                   aria-label="Close menu"
@@ -1035,7 +1085,7 @@ export default function EditorShell() {
               </div>
               <div className="space-y-0.5 overflow-y-auto p-2">
                 <div className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  Project Files
+                  {tr("explorer.projectFiles")}
                 </div>
                 {tabs.map((tab) => {
                   const isActive = activeTab === tab.name;
@@ -1060,6 +1110,7 @@ export default function EditorShell() {
                 })}
               </div>
               <div className="mt-auto space-y-0.5 border-t p-2">
+                <div className="px-2 py-1"><LanguageSwitcher currentLocale={locale} /></div>
                 <button
                   onClick={() => {
                     handleSearchClick();
@@ -1092,7 +1143,7 @@ export default function EditorShell() {
                   className="flex w-full items-center gap-2 rounded-md px-2.5 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
                 >
                   {isDark ? <Sun className="h-4 w-4 shrink-0" /> : <Moon className="h-4 w-4 shrink-0" />}
-                  {isDark ? "Light theme" : "Dark theme"}
+                  {isDark ? "{tr("drawer.lightTheme")}" : "{tr("drawer.darkTheme")}"}
                 </button>
               </div>
             </div>
@@ -1104,20 +1155,20 @@ export default function EditorShell() {
           <div className="flex flex-col items-center gap-1">
             <IconButton
               icon={Files}
-              label="Explorer"
+              label={tr("explorer.title")}
               active={explorerOpen}
               onClick={() => setExplorerOpen((prev) => !prev)}
             />
             <IconButton
               icon={Search}
-              label="Search (Ctrl+F)"
+              label={tr("explorer.searchHint")}
               onClick={handleSearchClick}
             />
           </div>
           <div className="flex flex-col items-center gap-1">
             <IconButton
               icon={Settings}
-              label="Settings"
+              label={tr("explorer.settings")}
               active={settingsOpen}
               onClick={() => setSettingsOpen(true)}
             />
@@ -1128,7 +1179,7 @@ export default function EditorShell() {
         {explorerOpen && (
           <aside className="flex w-48 shrink-0 flex-col border-r bg-muted/10 dark:bg-zinc-900/30">
             <div className="flex h-10 items-center justify-between border-b px-3 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-              <span>Explorer</span>
+              <span>{tr("explorer.title")}</span>
               <button
                 onClick={() => setExplorerOpen(false)}
                 className="rounded p-0.5 text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -1139,7 +1190,7 @@ export default function EditorShell() {
             </div>
             <div className="space-y-0.5 p-2">
               <div className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                Project Files
+                {tr("explorer.projectFiles")}
               </div>
               {tabs.map((tab) => {
                 const isActive = activeTab === tab.name;
@@ -1179,22 +1230,23 @@ export default function EditorShell() {
                 <span className="h-2 w-2 rounded-full bg-orange-500" />
                 HTML
               </span>
-              <span className="hidden text-xs text-muted-foreground sm:inline">HTML / CSS / JS — no login required</span>
+              <span className="hidden text-xs text-muted-foreground sm:inline">{tr("topbar.badge")}</span>
             </div>
             <div className="flex items-center gap-1">
+              <LanguageSwitcher currentLocale={locale} />
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
                     className="hidden h-7 w-7 sm:inline-flex"
-                    aria-label="Templates"
+                    aria-label={tr("topbar.templates")}
                     onClick={() => setTemplatesOpen(true)}
                   >
                     <LayoutTemplate className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Templates</TooltipContent>
+                <TooltipContent>{tr("topbar.templates")}</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -1202,24 +1254,24 @@ export default function EditorShell() {
                     size="sm"
                     className="h-7 gap-1 bg-[#6366f1] px-3 text-xs hover:bg-[#5456e5]"
                     onClick={handleRun}
-                    aria-label="Run"
+                    aria-label={tr("topbar.run")}
                   >
                     <Play className="h-3.5 w-3.5" />
                     Run
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Run</TooltipContent>
+                <TooltipContent>{tr("topbar.run")}</TooltipContent>
               </Tooltip>
               <DropdownMenu>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="hidden h-7 w-7 sm:inline-flex" aria-label="More options">
+                      <Button variant="ghost" size="icon" className="hidden h-7 w-7 sm:inline-flex" aria-label={tr("topbar.moreOptions")}>
                         <MoreVertical className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
                   </TooltipTrigger>
-                  <TooltipContent>More options</TooltipContent>
+                  <TooltipContent>{tr("topbar.moreOptions")}</TooltipContent>
                 </Tooltip>
                 <DropdownMenuContent align="end" className="w-52">
                   <DropdownMenuItem onClick={handleFormatCode}>
@@ -1249,21 +1301,21 @@ export default function EditorShell() {
                     variant="ghost"
                     size="icon"
                     className="hidden h-7 w-7 sm:inline-flex"
-                    aria-label="Toggle theme"
+                    aria-label={tr("topbar.toggleTheme")}
                     onClick={toggleTheme}
                   >
                     {isDark ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Toggle theme</TooltipContent>
+                <TooltipContent>{tr("topbar.toggleTheme")}</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" className="hidden h-7 w-7 sm:inline-flex" aria-label="Save" onClick={handleSave}>
+                  <Button variant="ghost" size="icon" className="hidden h-7 w-7 sm:inline-flex" aria-label={tr("topbar.save")} onClick={handleSave}>
                     <Save className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Save</TooltipContent>
+                <TooltipContent>{tr("topbar.save")}</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -1271,25 +1323,25 @@ export default function EditorShell() {
                     variant="ghost"
                     size="icon"
                     className="hidden h-7 w-7 sm:inline-flex"
-                    aria-label="Share"
+                    aria-label={tr("topbar.share")}
                     onClick={handleShare}
                     disabled={isSharing}
                   >
                     <Share2 className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Share</TooltipContent>
+                <TooltipContent>{tr("topbar.share")}</TooltipContent>
               </Tooltip>
               <DropdownMenu>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="hidden h-7 w-7 sm:inline-flex" aria-label="Export">
+                      <Button variant="ghost" size="icon" className="hidden h-7 w-7 sm:inline-flex" aria-label={tr("topbar.export")}>
                         <Download className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
                   </TooltipTrigger>
-                  <TooltipContent>Export</TooltipContent>
+                  <TooltipContent>{tr("topbar.export")}</TooltipContent>
                 </Tooltip>
                 <DropdownMenuContent align="end" className="w-56">
                   <DropdownMenuLabel>Export</DropdownMenuLabel>
@@ -1322,7 +1374,7 @@ export default function EditorShell() {
               {/* Mobile overflow menu — collapses Save/Share/Export/Templates/More into "..." */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-7 w-7 sm:hidden" aria-label="More options">
+                  <Button variant="ghost" size="icon" className="h-7 w-7 sm:hidden" aria-label={tr("topbar.moreOptions")}>
                     <MoreVertical className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -1354,7 +1406,7 @@ export default function EditorShell() {
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={toggleTheme}>
                     {isDark ? <Sun className="mr-2 h-4 w-4" /> : <Moon className="mr-2 h-4 w-4" />}
-                    {isDark ? "Light theme" : "Dark theme"}
+                    {isDark ? "{tr("drawer.lightTheme")}" : "{tr("drawer.darkTheme")}"}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -1553,7 +1605,7 @@ export default function EditorShell() {
           <div className="flex h-6 shrink-0 items-center justify-between border-t bg-[#6366f1] px-3 text-[11px] font-medium text-white dark:bg-[#4f52e0]">
             <button
               onClick={toggleTheme}
-              aria-label="Toggle theme"
+              aria-label={tr("topbar.toggleTheme")}
               className="flex items-center gap-1.5 rounded px-1 hover:bg-white/20"
             >
               {isDark ? <Moon className="h-3 w-3" /> : <Sun className="h-3 w-3" />}
