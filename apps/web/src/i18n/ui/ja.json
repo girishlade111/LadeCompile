@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    },
+    "siteTitle": "LadeCompile — 無料オンライン HTML CSS JS コンパイラ、ログイン不要",
+    "siteDescription": "無料・ログイン不要のエンタープライズ級 HTML/CSS/JS オンラインコンパイラ＆ライブエディタ。コードを書いて即実行・即共有 — 登録不要、ペイウォールなし。LadeStack による高速 OneCompiler 代替。",
+    "languageSwitcherLabel": "言語を選択",
+    "languageSwitcherAriaLabel": "言語セレクター"
+  },
+  "nav": {
+    "features": "機能",
+    "templates": "テンプレート",
+    "comparison": "比較",
+    "blog": "ブログ",
+    "openEditor": "エディタを開く",
+    "openEditorFree": "Webエディタを開く — 無料",
+    "openInWebEditor": "Webエディタで開く",
+    "openMenu": "ナビゲーションメニューを開く",
+    "closeMenu": "ナビゲーションメニューを閉じる",
+    "mobileNavigation": "モバイルナビゲーション",
+    "home": "LadeCompile ホーム",
+    "skipToContent": "本文へスキップ"
+  },
+  "footer": {
+    "description": "無料・ログイン不要の HTML/CSS/JS オンラインコンパイラ。アカウントやペイウォールなしで高速にプロトタイピングしたい開発者・教育者・学生のために。",
+    "ecosystem": "LadeStack オープン開発者ユーティリティエコシステムの一部です。",
+    "headings": {
+      "product": "プロダクト",
+      "ladestackSuite": "LadeStack スイート",
+      "resources": "リソース & オープンスペック"
+    },
+    "links": {
+      "webEditor": "Webエディタ",
+      "coreCapabilities": "主な機能",
+      "starterTemplates": "スターターテンプレート",
+      "comparisonMatrix": "比較マトリクス",
+      "articles": "記事 & ガイド",
+      "faq": "FAQ",
+      "ladestackHub": "LadeStack Hub",
+      "ladecompile": "LadeCompile",
+      "gbCoder": "GB Coder",
+      "apiPlayground": "API Playground",
+      "sitemap": "サイトマップ XML",
+      "robots": "Robots.txt",
+      "llms": "LLMs.txt 仕様",
+      "soon": "近日公開",
+      "privacy": "プライバシー",
+      "terms": "利用規約",
+      "github": "GitHub"
+    },
+    "copyright": "© {year} LadeStack · LadeCompile。無料、ログイン不要、サンドボックス実行。テレメトリ追跡ゼロ、ペイウォールなし。",
+    "byLadestack": "by LadeStack"
+  },
+  "index": {
+    "hero": {
+      "kicker": "無料 · ログイン不要 · ペイウォールなし — 永久に",
+      "titleLine1": "無料の HTML、CSS & JS コンパイラ、",
+      "titleLine2": "ログイン不要。",
+      "description1": "LadeCompile は開発者・学生・教育者のための静かでエンタープライズ級の<strong>オンラインコードコンパイラ</strong>です。タブ式エディタで HTML、CSS、JavaScript を書き、サンドボックスのライブプレビューを即座に確認 — サインアップの壁がないクリーンな <strong>OneCompiler 代替</strong>です。",
+      "description2": "LadeStack 無料開発者ツールスイートの一部。レスポンシブなレイアウトのプロトタイプ、JavaScript ロジックのデバッグ、スタンドアロンファイルのエクスポートを秒で。",
+      "primaryCta": "Webエディタを開く — 無料",
+      "secondaryCta": "スターターテンプレートを見る",
+      "footnote": "コードの記述・保存・共有にアカウントは不要。ブラウザでローカルファースト実行。",
+      "trust": {
+        "sharing": "ログイン不要のURL共有",
+        "preview": "400ms デバウンスプレビュー",
+        "export": "クライアントサイド ZIP エクスポート"
+      }
+    },
+    "snapshot": {
+      "tabHtml": "index.html",
+      "tabCss": "styles.css",
+      "tabJs": "script.js",
+      "live": "Live",
+      "fastPrototyping": "高速プロトタイピング",
+      "zeroLogin": "ログイン不要。400ms コンパイル。",
+      "runComponent": "コンポーネントを実行",
+      "sandboxed": "サンドボックスプレビューを 60fps でレンダリング",
+      "console": "コンソール:",
+      "ready": "Ready",
+      "warnings": "0 warnings, 0 errors",
+      "bridgeActive": "PostMessage ブリッジ有効",
+      "lookingFor": "本格的な Monaco 機能をお探しですか？",
+      "openComplete": "完全なWebエディタを開く"
+    },
+    "standards": {
+      "label": "オープンな Web 標準とモダンなクラウド基盤で構築",
+      "items": {
+        "html": "HTML5 Living Standard",
+        "css": "CSS3 Grid & Flexbox",
+        "ecma": "ECMAScript 2024",
+        "monaco": "Monaco エンジン",
+        "sandbox": "サンドボックス Iframe",
+        "cloudflare": "Cloudflare Edge"
+      }
+    },
+    "coral": {
+      "title": "ログイン不要のコード実行と即時ライブプレビュー。",
+      "description": "HTML スニペットのテストや CSS トリックの検証のためだけにアカウント登録やペイウォールで時間を無駄にするのはやめましょう。LadeCompile は 3 つのファイルをデバウンス＆分離された worker ブリッジでクライアント側で即時コンパイルします。",
+      "cta": "ライブコンパイラを起動",
+      "pipeline": {
+        "title": "コンパイルパイプライン",
+        "badge": "400ms デバウンス",
+        "step1": "1. クライアント側 Monaco 入力 (HTML/CSS/JS)",
+        "step1Meta": "ローカルファースト",
+        "step2": "2. サンドボックス Iframe PostMessage ブリッジ",
+        "step2Meta": "分離オリジン",
+        "step3": "3. ゼロストレージ URL ハッシュ圧縮",
+        "step3Meta": "LZ-String",
+        "footer": "高信頼性 · ゼロトラッキング · ブロックされないパフォーマンス"
+      }
+    },
+    "features": {
+      "heading": "必要なすべての機能 — ペイウォールなし。",
+      "subheading": "従来の Web プレイグラウンドの摩擦を取り除く集中型ワークベンチ。",
+      "cards": {
+        "sharingEyebrow": "ゼロストレージ共有",
+        "sharingTitle": "即時ステート圧縮",
+        "sharingBody": "コードを LZ-String でブラウザの URL ハッシュに直接圧縮。アカウント作成やデータベースへの送信なしで同僚とスニペットを共有できます。",
+        "sharingCode": "compile.ladestack.in/#code=H4sIAAAAAAA...",
+        "exportEyebrow": "エクスポートスイート",
+        "exportTitle": "ZIP、HTML & スクリーンショット",
+        "exportBody": "HTML、CSS、JS バンドルをデプロイ可能な ZIP としてダウンロード、単一ファイルのスタンドアロン HTML をコピー、またはレンダリング結果を高解像度スクリーンショットで保存。",
+        "badges": {
+          "zip": ".ZIP",
+          "html": "HTML",
+          "png": "PNG"
+        },
+        "monacoEyebrow": "Monaco エンジン",
+        "monacoTitle": "ブラウザで VS Code 精度",
+        "monacoBody": "Monaco Editor をベースに、LadeCompile はネイティブなシンタックスハイライト、スマートインデント、コード整形、検索・置換、ネイティブキーボードショートカットを提供します。",
+        "monacoRows": {
+          "save": "保存 / コンパイル",
+          "shortcutSave": "Cmd/Ctrl + S",
+          "find": "検索 & 置換",
+          "shortcutFind": "Cmd/Ctrl + F",
+          "minimap": "ミニマップ切替",
+          "minimapMeta": "設定メニュー"
+        },
+        "monacoLink": "エディタで試す →",
+        "startersEyebrow": "厳選スターター",
+        "startersTitle": "10 のプロダクショングレード・スターターボイラープレート",
+        "startersBody": "空白のキャンバスから始めるか、検証済みテンプレートから選択：モダンな CSS Grid ダッシュボード、レスポンシブなランディングページ、クライアント検証付きインタラクティブフォーム、ダークモードカード、HTML5 Canvas アニメーション、天気 API ウィジェットなど。",
+        "startersTags": {
+          "grid": "CSS Grid",
+          "flexbox": "Flexbox Hero",
+          "canvas": "Canvas アニメーション",
+          "weather": "Fetch API 天気",
+          "form": "フォーム検証"
+        }
+      }
+    },
+    "tabbed": {
+      "heading": "雑念のない集中のために設計。",
+      "subheading": "LadeCompile の各パーツがどのように組み合わさってクリーンで信頼できるコーディングワークフローを実現するか見てみましょう。",
+      "tabs": {
+        "tab1Label": "3ファイルの調和",
+        "tab1Desc": "独立した HTML、CSS、JS タブ、自動整形付き。",
+        "tab2Label": "サンドボックスコンソールブリッジ",
+        "tab2Desc": "未読バッジ付きのリアルタイム postMessage エラー・ログ転送。",
+        "tab3Label": "ローカルファースト保存",
+        "tab3Desc": "変更は自動で localStorage に保存。リロードしても失われません。",
+        "tab4Label": "未保存作業の保護",
+        "tab4Desc": "スターター読込やリセット時に確認ダイアログで誤った上書きを防止。"
+      },
+      "activeCapability": "アクティブな機能",
+      "defaultTitle": "専用タブ式エディタ環境",
+      "defaultDesc": "<code>index.html</code>、<code>styles.css</code>、<code>script.js</code> を雑然とせずスムーズに切替。各タブは完全な Monaco IntelliSense とエラーマーカー、独立した undo 履歴を備えます。",
+      "readyToWrite": "コーディングの準備はできましたか？",
+      "openEditor": "エディタを開く →"
+    },
+    "starters": {
+      "heading": "すぐにプロトタイピングできる厳選スターター。",
+      "cards": {
+        "gridTitle": "CSS Grid ダッシュボード",
+        "gridCategory": "レイアウト",
+        "gridDesc": "モダンな CSS grid gap とメディアクエリによるレスポンシブな複数カラムのメトリクスカード。",
+        "flexboxTitle": "Flexbox ランディングページ",
+        "flexboxCategory": "マーケティング",
+        "flexboxDesc": "クリーンなヒーロー、ナビゲーション、レスポンシブな価格グリッド、アクセシブルなフォーム。",
+        "formTitle": "フォーム検証エンジン",
+        "formCategory": "インタラクション",
+        "formDesc": "正規表現によるメール・パスワードのリアルタイム検証と明確なビジュアルフィードバック。",
+        "particleTitle": "パーティクルアニメーション",
+        "particleCategory": "Canvas",
+        "particleDesc": "カーソルに滑らかに反応する 60fps の HTML5 Canvas パーティクル。",
+        "weatherTitle": "天気 API ウィジェット",
+        "weatherCategory": "API / 非同期",
+        "weatherDesc": "ローディング状態とエラー処理を備えた非同期 Fetch API 実装。",
+        "todoTitle": "Todo アプリ + LocalStorage",
+        "todoCategory": "アプリケーション",
+        "todoDesc": "フィルタタブとクライアントサイド永続化を備えた完全な CRUD リスト。",
+        "loadTemplate": "テンプレートを読み込む →"
+      }
+    },
+    "cream": {
+      "title": "開発者・教育者・学生のための 10 倍速いプロトタイピングへの道。",
+      "body": "フロントエンドブートキャンプの授業でも、通話中の素早いバグ修正デモでも、コードの閲覧や編集の前にログインを要求することは避けられる摩擦を生みます。LadeCompile はループ全体をゼロログインに保ちます：リンクを開き、即編集し、新しい URL を共有するだけです。"
+    },
+    "comparison": {
+      "heading": "無料の OneCompiler 代替 — 小さな注釈なし。",
+      "subheading": "OneCompiler も CodePen も素晴らしいツールです。違いはビジネスモデルにあります：LadeCompile はアカウント、ペイウォール、制限された操作なしでコアな編集体験を提供します。",
+      "headers": {
+        "capability": "機能",
+        "ladecompile": "LadeCompile",
+        "onecompiler": "OneCompiler*"
+      },
+      "rows": {
+        "save": "ログインなしで保存 & 共有",
+        "saveLadecompile": "100% 無料 (URL / KV)",
+        "saveOnecompiler": "ログイン必須",
+        "paywalled": "ペイウォール機能",
+        "paywalledLadecompile": "なし — すべて無料",
+        "paywalledOnecompiler": "AI エージェントはアップグレードが必要",
+        "preview": "ライブプレビュー & コンソール",
+        "previewLadecompile": "含む (サンドボックス)",
+        "previewOnecompiler": "含む",
+        "export": "エクスポートスイート (ZIP / HTML / PNG)",
+        "exportLadecompile": "クライアントサイドで即時",
+        "exportOnecompiler": "標準ダウンロード",
+        "privacy": "プライバシー & トラッキング",
+        "privacyLadecompile": "ローカルファースト (テレメトリなし)",
+        "privacyOnecompiler": "アカウントベースのトラッキング"
+      },
+      "footnote": "*比較は 2026 年時点の公開されている Web エディタ機能に基づいています。LadeCompile は現代の Web 開発者のために障壁のない無料の代替手段として構築されています。"
+    },
+    "cta": {
+      "title": "今すぐ LadeCompile で構築を始めましょう。",
+      "body": "サインアップフォーム、確認メール、クレジットカードは不要。Monaco エディタに直接飛び込み、HTML、CSS、JavaScript を書き始めましょう。",
+      "primary": "Webエディタを開く — 無料",
+      "secondary": "記事 & ガイドを読む"
+    }
+  },
+  "faq": {
+    "pageTitle": "FAQ — 無料オンライン HTML コンパイラ | LadeCompile",
+    "pageDescription": "LadeCompile の無料オンライン HTML コンパイラに関するよくある質問：HTML コンパイラとは、HTML コードのオンライン実行、HTML での画像、フルスクリーンモードなど。ログイン不要。",
+    "badge": "ヘルプ & 回答",
+    "heading": "私たちの<span>オンライン HTML コンパイラ</span>に関するよくある質問。",
+    "subheading": "LadeCompile — ログイン不要でブラウザで即動作する無料の HTML、CSS、JavaScript コンパイラの使い方をすべて解説します。",
+    "a11y": {
+      "sectionLabel": "よくある質問"
+    },
+    "cta": {
+      "title": "自分で試す準備はできましたか？",
+      "body": "無料のオンライン HTML コンパイラを開く — アカウント不要、ダウンロード不要。または 2026 年の最高の無料 HTML、CSS & JS コンパイラと OneCompiler 代替に関するガイドをお読みください。",
+      "links": {
+        "editor": "無料オンライン HTML コンパイラ",
+        "best": "2026 年の最高の無料 HTML、CSS & JS コンパイラ",
+        "alternatives": "OneCompiler 代替"
+      }
+    }
+  },
+  "blog": {
+    "title": "記事 & ガイド — Web 開発インサイト",
+    "description": "HTML/CSS/JS コンパイラ、Canvas vs SVG、モダンなフロントエンドワークフローに関するチュートリアル、比較、ガイド。LadeCompile チームによる無料のインサイト。",
+    "heading": "記事 & ガイド",
+    "subheading": "開発者・学生・教育者のための実践的な比較とチュートリアル。",
+    "onThisPage": "このページの目次",
+    "prevArticle": "← 前の記事",
+    "nextArticle": "次の記事 →",
+    "relatedArticles": "関連記事",
+    "breadcrumbs": {
+      "home": "ホーム",
+      "blog": "ブログ"
+    },
+    "meta": {
+      "by": "著者 {author}",
+      "publishedOn": "公開日 {date}",
+      "updatedOn": "更新日 {date}",
+      "readTime": "{minutes} 分で読める",
+      "category": "カテゴリ: {category}",
+      "tags": "タグ"
+    },
+    "empty": "記事が見つかりませんでした。",
+    "backToBlog": "ブログに戻る",
+    "shareArticle": "この記事を共有"
+  },
+  "errors": {
+    "404": {
+      "title": "ページが見つかりません",
+      "description": "申し訳ありません — お探しのページは存在しません。",
+      "backHome": "ホームに戻る",
+      "goToEditor": "エディタを開く",
+      "heading": "404 — 見つかりません"
+    },
+    "500": {
+      "title": "問題が発生しました",
+      "description": "予期しないエラーが発生しました。もう一度お試しください。",
+      "retry": "再試行",
+      "backHome": "ホームに戻る"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "プライバシーポリシー — LadeCompile",
+      "description": "LadeCompile のデータの扱い：ローカルファースト実行、追跡なし、プライバシーファースト設計。",
+      "lastUpdated": "最終更新: {date}"
+    },
+    "terms": {
+      "title": "利用規約 — LadeCompile",
+      "description": "LadeCompile の無料オンライン HTML/CSS/JS コンパイラの利用規約。",
+      "lastUpdated": "最終更新: {date}"
+    }
+  },
+  "common": {
+    "ladecompile": "LadeCompile",
+    "ladestack": "LadeStack",
+    "learnMore": "詳細を見る",
+    "loading": "読み込み中...",
+    "close": "閉じる",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "search": "検索",
+    "noResults": "結果が見つかりませんでした。",
+    "comingSoon": "近日公開"
+  },
+  "seo": {
+    "defaultTitle": "LadeCompile — 無料オンライン HTML CSS JS コンパイラ、ログイン不要",
+    "defaultDescription": "無料・ログイン不要のエンタープライズ級 HTML/CSS/JS オンラインコンパイラ＆ライブエディタ。書いて即実行、即共有 — 登録不要、ペイウォールなし。LadeStack による高速 OneCompiler 代替。",
+    "ogLocale": "ja_JP"
+  }
+}
