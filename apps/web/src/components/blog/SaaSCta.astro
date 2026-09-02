@@ -5,13 +5,14 @@ interface Props {
   buttonText?: string;
 }
 
+import { normalizeLocale, localePath } from "../../i18n/locales";
+
 const {
   title = "Try LadeCompile live — no account required",
   description = "Write HTML, CSS, and JavaScript in an isolated sandbox with instant preview, console output, and one-click share links. 100% free, zero signup friction.",
   buttonText = "Open Free Web Editor",
 } = Astro.props;
 
-import { normalizeLocale, localePath } from "../../i18n/locales";
 const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
 const editorUrl = localePath(locale,
   import.meta.env.PUBLIC_EDITOR_URL ||
