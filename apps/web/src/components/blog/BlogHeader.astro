@@ -24,7 +24,7 @@ const image = post.data.image ?? post.data.heroImage;
     />
   </div>
 
-  <h1 class="mt-4 text-[32px] sm:text-[42px] font-normal leading-[1.18] tracking-tight text-[#24292f]">
+  <h1 class="mt-4 text-[clamp(26px,6vw,42px)] font-normal leading-[1.18] tracking-tight text-[#24292f]">
     {post.data.title}
   </h1>
 
@@ -44,7 +44,7 @@ const image = post.data.image ?? post.data.heroImage;
   </div>
 
   {image && (
-    <div class="relative z-10 mt-8 overflow-hidden rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa]">
+    <div class="relative z-content mt-8 overflow-hidden rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa]">
       <img
         src={image}
         alt={post.data.imageAlt || post.data.title}

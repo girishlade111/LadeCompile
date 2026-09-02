@@ -28,8 +28,8 @@ const uniqueCategories = Array.from(
 
   <main id="main-content" class="relative isolate overflow-hidden mx-auto max-w-[1280px] px-6 py-12 lg:px-12 sm:py-16">
     <!-- Hero Header -->
-    <div class="relative z-10 mx-auto max-w-3xl text-center">
-      <h1 class="text-[34px] sm:text-[46px] font-normal leading-[1.15] tracking-tight text-[#24292f]">
+    <div class="relative z-content mx-auto max-w-3xl text-center">
+      <h1 class="text-[clamp(28px,7vw,46px)] font-normal leading-[1.15] tracking-tight text-[#24292f]">
         Engineering, tooling & sandbox guides
       </h1>
       <p class="mt-4 text-[16px] sm:text-[18px] leading-relaxed text-[#32383f]">
@@ -48,7 +48,7 @@ const uniqueCategories = Array.from(
 
     <!-- Category Pills -->
     {uniqueCategories.length > 0 && (
-      <div class="relative z-10 mt-12 flex flex-wrap items-center justify-center gap-2 border-y border-[#d0d7de] py-4">
+      <div class="relative z-content mt-12 flex flex-wrap items-center justify-center gap-2 border-y border-[#d0d7de] py-4">
         <span class="text-[13px] font-medium text-[#656d76] mr-2">Categories</span>
         <span class="rounded-[6px] bg-[#24292f] px-3 py-1 text-[12px] font-medium text-white shadow-xs">
           All ({posts.length})
@@ -65,10 +65,10 @@ const uniqueCategories = Array.from(
     )}
 
     <!-- Posts Grid -->
-    <div class="relative z-10 mx-auto mt-12 max-w-4xl">
+    <div class="relative z-content mx-auto mt-12 max-w-4xl">
       <BlogGrid posts={posts} showFeaturedFirst={true} />
 
-      <div class="relative z-10 mt-16 rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-6 text-center text-[13px] leading-relaxed text-[#656d76]">
+      <div class="relative z-content mt-16 rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-6 text-center text-[13px] leading-relaxed text-[#656d76]">
         <p>
           Want to write for the LadeStack ecosystem or suggest a tutorial? All articles are stored as Markdown files in <code class="rounded bg-white border border-[#d0d7de] px-1.5 py-0.5 text-[12px] font-mono text-[#24292f]">src/content/blog/</code> and automatically built into static pages.
         </p>

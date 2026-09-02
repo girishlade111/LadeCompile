@@ -34,9 +34,9 @@ const image = post.data.image ?? post.data.heroImage;
     </div>
   )}
 
-  <div class={`relative z-10 flex flex-1 flex-col justify-between ${featured ? (image ? "lg:col-span-7" : "lg:col-span-12") : ""}`}>
+  <div class={`relative z-content flex flex-1 flex-col justify-between ${featured ? (image ? "lg:col-span-7" : "lg:col-span-12") : ""}`}>
     <div>
-      <div class="relative z-10 flex flex-wrap items-center gap-2 text-[12px] text-[#656d76]">
+      <div class="relative z-content flex flex-wrap items-center gap-2 text-[12px] text-[#656d76]">
         {post.data.category && (
           <span class="rounded-[4px] border border-[#0969da]/20 bg-[#0969da]/5 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#0969da]">
             {post.data.category}
@@ -68,7 +68,7 @@ const image = post.data.image ?? post.data.heroImage;
         <span>{post.data.author || "LadeStack Team"}</span>
       </div>
 
-      <div class="relative z-10 flex items-center gap-1 font-medium text-[#0969da] group-hover:translate-x-0.5 transition-transform">
+      <div class="relative z-content flex items-center gap-1 font-medium text-[#0969da] group-hover:translate-x-0.5 transition-transform">
         <span>Read article</span>
         <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />

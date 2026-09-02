@@ -19,11 +19,11 @@ const regularPosts = featuredPost
 <div class="relative isolate space-y-8">
   {featuredPost && (
     <div class="relative isolate overflow-hidden mb-10">
-      <div class="relative z-10 mb-3 flex items-center gap-2">
+      <div class="relative z-content mb-3 flex items-center gap-2">
         <span class="inline-block h-2 w-2 rounded-full bg-[#1a7f37]" />
         <span class="text-[13px] font-medium text-[#656d76]">Featured story</span>
       </div>
-      <div class="relative z-10">
+      <div class="relative z-content">
         <BlogCard post={featuredPost} featured={true} />
       </div>
     </div>

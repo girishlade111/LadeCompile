@@ -16,7 +16,7 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
   <main id="main-content" class="bg-[#ffffff]">
     <!-- Hero Band: Pure white canvas, 96px vertical padding, Haas/Inter typography, signature button pair -->
     <section class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]" aria-labelledby="hero-heading">
-      <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <!-- Clean kicker pill -->
@@ -26,7 +26,7 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
             </div>
 
             <!-- Display LG Headline: weight 400/500, never overly bold -->
-            <h1 id="hero-heading" class="mt-5 text-[36px] sm:text-[46px] lg:text-[50px] font-normal leading-[1.12] tracking-tight text-[#24292f]">
+            <h1 id="hero-heading" class="mt-5 text-[clamp(30px,6.5vw,50px)] font-normal leading-[1.12] tracking-tight text-[#24292f]">
               Free HTML, CSS & JS compiler, <br class="hidden sm:inline" />
               <span class="text-[#24292f] font-medium">no login required.</span>
             </h1>
@@ -139,7 +139,7 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
     <!-- Monochrome Standards & Tech Strip: 32px padding, clean muted typography -->
     <section class="relative isolate overflow-hidden border-y border-[#d0d7de] bg-[#ffffff] py-8" aria-label="Supported Standards">
-      <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <p class="text-center text-[13px] text-[#656d76]">
           Built with open web standards &amp; modern cloud infrastructure
         </p>
@@ -174,11 +174,11 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
     <!-- Signature Coral Card: The brand voltage section from DESIGN.md -->
     <section class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]">
-      <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="relative isolate overflow-hidden rounded-[12px] bg-[#24292f] p-8 sm:p-12 lg:p-14 text-white shadow-sm">
           <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <h2 class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-white">
+              <h2 class="text-[clamp(24px,5vw,36px)] font-normal leading-[1.2] tracking-tight text-white">
                 Zero-login code execution with instant live preview.
               </h2>
               <p class="mt-4 text-[15px] sm:text-[16px] leading-[1.5] text-white/90">
@@ -195,7 +195,7 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
             </div>
 
             <!-- Architectural Mockup inside Coral Card -->
-            <div class="relative z-10 rounded-[10px] border border-white/20 bg-white/10 p-6 backdrop-blur-sm text-white">
+            <div class="relative z-content rounded-[10px] border border-white/20 bg-white/10 p-6 backdrop-blur-sm text-white">
               <div class="flex items-center justify-between border-b border-white/20 pb-3 text-[12px] font-medium">
                 <span>Compilation Pipeline</span>
                 <span class="rounded bg-white/20 px-2 py-0.5 text-[11px]">400ms Debounce</span>
@@ -225,9 +225,9 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
     <!-- Demo-Card Grid (Pastel & Signature Surfaces): Mint, Peach, Forest, Cream -->
     <section id="features" class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]" aria-labelledby="demo-grid-heading">
-      <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="max-w-2xl">
-          <h2 id="demo-grid-heading" class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
+          <h2 id="demo-grid-heading" class="text-[clamp(24px,5vw,36px)] font-normal leading-[1.2] tracking-tight text-[#24292f]">
             Every feature you need — none of the paywalls.
           </h2>
           <p class="mt-3 text-[16px] leading-[1.5] text-[#32383f]">
@@ -321,9 +321,9 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
     <!-- Tabbed Feature Showcase: feature-card-tabbed from DESIGN.md -->
     <section class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]" aria-labelledby="workflow-heading">
-      <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="max-w-2xl">
-          <h2 id="workflow-heading" class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
+          <h2 id="workflow-heading" class="text-[clamp(24px,5vw,36px)] font-normal leading-[1.2] tracking-tight text-[#24292f]">
             Engineered for uncluttered focus.
           </h2>
           <p class="mt-3 text-[16px] leading-[1.5] text-[#32383f]">
@@ -422,10 +422,10 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
     <!-- Starters Section / Templates Anchor -->
     <section id="starters" class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]" aria-labelledby="starters-heading">
-      <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <div>
-            <h2 id="starters-heading" class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
+            <h2 id="starters-heading" class="text-[clamp(24px,5vw,36px)] font-normal leading-[1.2] tracking-tight text-[#24292f]">
               Curated starters for immediate prototyping.
             </h2>
           </div>
@@ -482,10 +482,10 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
     <!-- Cream Callout Card from DESIGN.md -->
     <section class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]">
-      <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="relative isolate overflow-hidden rounded-[10px] border border-[#d0d7de] bg-[#f6f8fa] p-8 sm:p-12 text-[#24292f]">
           <div class="max-w-3xl">
-            <h2 class="text-[24px] sm:text-[32px] font-normal leading-[1.25] tracking-tight text-[#24292f]">
+            <h2 class="text-[clamp(22px,4.5vw,32px)] font-normal leading-[1.25] tracking-tight text-[#24292f]">
               The path to 10× faster prototyping for developers, educators, and students.
             </h2>
             <p class="mt-4 text-[15px] leading-relaxed text-[#32383f]">
@@ -498,9 +498,9 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
     <!-- Comparison Section (Hairline Row Matrix) -->
     <section id="comparison" class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]" aria-labelledby="compare-heading">
-      <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="max-w-2xl">
-          <h2 id="compare-heading" class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
+            <h2 id="compare-heading" class="text-[clamp(24px,5vw,36px)] font-normal leading-[1.2] tracking-tight text-[#24292f]">
             A free OneCompiler alternative — without the asterisks.
           </h2>
           <p class="mt-3 text-[16px] leading-[1.5] text-[#32383f]">
@@ -508,14 +508,14 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
           </p>
         </div>
 
-        <div class="mt-10 overflow-hidden rounded-[10px] border border-[#d0d7de]">
-          <div class="grid grid-cols-[1.3fr_1fr_1fr] bg-[#f6f8fa] border-b border-[#d0d7de] text-[12px] font-semibold text-[#24292f]">
+        <div class="mt-10 overflow-x-auto rounded-[10px] border border-[#d0d7de] [-webkit-overflow-scrolling:touch]">
+          <div class="grid min-w-[560px] grid-cols-[1.3fr_1fr_1fr] bg-[#f6f8fa] border-b border-[#d0d7de] text-[12px] font-semibold text-[#24292f]">
             <div class="p-4 text-[#656d76]">Capability</div>
             <div class="p-4 text-[#24292f] bg-[#eaeef2]/50">LadeCompile</div>
             <div class="p-4 text-[#656d76]">OneCompiler*</div>
           </div>
 
-          <div class="divide-y divide-[#d0d7de] bg-[#ffffff] text-[14px]">
+          <div class="min-w-[560px] divide-y divide-[#d0d7de] bg-[#ffffff] text-[14px]">
             <div class="grid grid-cols-[1.3fr_1fr_1fr] p-4 items-center">
               <div class="font-medium text-[#24292f]">Save & Share Without Login</div>
               <div class="font-semibold text-[#1a7f37] flex items-center gap-1.5">
@@ -559,10 +559,10 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
     <!-- CTA Band Light (cta-band-light from DESIGN.md) -->
     <section class="relative isolate overflow-hidden py-16 sm:py-24 bg-[#ffffff]">
-      <div class="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
+      <div class="relative z-content mx-auto max-w-[1280px] px-6 lg:px-12">
         <div class="relative isolate overflow-hidden rounded-[12px] bg-[#eaeef2] p-8 sm:p-14 text-[#24292f]">
           <div class="max-w-2xl">
-            <h2 class="text-[28px] sm:text-[36px] font-normal leading-[1.2] tracking-tight text-[#24292f]">
+            <h2 class="text-[clamp(24px,5vw,36px)] font-normal leading-[1.2] tracking-tight text-[#24292f]">
               Start building with LadeCompile right now.
             </h2>
             <p class="mt-4 text-[16px] leading-[1.5] text-[#32383f]">

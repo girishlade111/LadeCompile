@@ -1,31 +1,93 @@
 ---
 const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
 ---
-<header class="sticky top-0 z-40 w-full border-b border-[#d0d7de] bg-[#ffffff]">
-  <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6 lg:px-12">
-    <div class="flex items-center gap-8">
-      <a href="/" class="flex items-center gap-2.5" aria-label="LadeCompile home">
+<header class="sticky top-0 z-sticky w-full border-b border-[#d0d7de] bg-[#ffffff]">
+  <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-3 px-4 sm:px-6 lg:px-12">
+    <div class="flex min-w-0 items-center gap-8">
+      <a href="/" class="flex shrink-0 items-center gap-2.5" aria-label="LadeCompile home">
         <span class="inline-flex h-8 w-8 items-center justify-center rounded-[6px] bg-[#24292f] text-[12px] font-bold tracking-wider text-white">LC</span>
         <span class="text-[16px] font-medium tracking-tight text-[#24292f]">LadeCompile</span>
         <span class="hidden rounded-[4px] border border-[#d0d7de] bg-[#f6f8fa] px-2 py-0.5 text-[10px] font-semibold tracking-widest text-[#656d76] sm:inline-flex">LADESTACK</span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
-        <a href="/#features" class="text-[14px] font-normal text-[#32383f] hover:text-[#24292f] transition-colors">Features</a>
-        <a href="/#starters" class="text-[14px] font-normal text-[#32383f] hover:text-[#24292f] transition-colors">Templates</a>
-        <a href="/#comparison" class="text-[14px] font-normal text-[#32383f] hover:text-[#24292f] transition-colors">Comparison</a>
-        <a href="/blog" class="text-[14px] font-normal text-[#32383f] hover:text-[#24292f] transition-colors">Blog</a>
+      <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+        <a href="/#features" class="inline-flex items-center text-[14px] font-normal text-[#32383f] transition-colors hover:text-[#24292f]">Features</a>
+        <a href="/#starters" class="inline-flex items-center text-[14px] font-normal text-[#32383f] transition-colors hover:text-[#24292f]">Templates</a>
+        <a href="/#comparison" class="inline-flex items-center text-[14px] font-normal text-[#32383f] transition-colors hover:text-[#24292f]">Comparison</a>
+        <a href="/blog" class="inline-flex items-center text-[14px] font-normal text-[#32383f] transition-colors hover:text-[#24292f]">Blog</a>
       </nav>
     </div>
 
-    <div class="flex items-center gap-3">
-      <a href="/blog" class="md:hidden text-[14px] font-medium text-[#32383f] px-2 py-1">Blog</a>
-      <a href="/#starters" class="hidden sm:inline-flex items-center justify-center rounded-[12px] border border-[#d0d7de] bg-[#ffffff] px-4 py-2 text-[14px] font-medium text-[#24292f] hover:bg-[#f6f8fa] transition-colors">
+    <div class="flex shrink-0 items-center gap-2 sm:gap-3">
+      <a href="/#starters" class="hidden items-center justify-center rounded-[12px] border border-[#d0d7de] bg-[#ffffff] px-4 py-2.5 text-[14px] font-medium text-[#24292f] transition-colors hover:bg-[#f6f8fa] sm:inline-flex">
         Templates
       </a>
-      <a href={editorUrl} class="inline-flex items-center justify-center rounded-[12px] bg-[#24292f] px-5 py-2 text-[14px] font-medium text-white hover:bg-[#0d1218] transition-colors shadow-sm">
+      <a href={editorUrl} class="inline-flex items-center justify-center rounded-[12px] bg-[#24292f] px-4 py-2.5 text-[14px] font-medium text-white shadow-sm transition-colors hover:bg-[#0d1218] sm:px-5">
         Open Editor
       </a>
+
+      <!-- Hamburger toggle — below md (768px) only -->
+      <button
+        id="menu-toggle"
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-[10px] text-[#24292f] transition-colors hover:bg-[#f6f8fa] md:hidden"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="menu-icon-open" class="h-5 w-5" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5.5H17M3 10H17M3 14.5H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <svg id="menu-icon-close" class="hidden h-5 w-5" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
   </div>
+
+  <!-- Mobile nav sheet — lives inside the sticky header so it always covers page content (z-sticky context) -->
+  <div id="mobile-menu" hidden class="relative z-overlay border-t border-[#d0d7de] bg-[#ffffff] md:hidden">
+    <nav class="mx-auto flex max-w-[1280px] flex-col px-4 py-2" aria-label="Mobile navigation">
+      <a href="/#features" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">Features</a>
+      <a href="/#starters" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">Templates</a>
+      <a href="/#comparison" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">Comparison</a>
+      <a href="/blog" class="flex items-center border-b border-[#d0d7de]/60 px-1 py-3 text-[15px] font-medium text-[#32383f] transition-colors hover:text-[#24292f]">Blog</a>
+      <a href={editorUrl} class="btn-primary mt-3 mb-2 w-full text-[15px]">
+        Open Web Editor — it’s free
+      </a>
+    </nav>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+
+  function setMenu(open: boolean) {
+    if (!toggle || !menu || !iconOpen || !iconClose) return;
+    menu.hidden = !open;
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    iconOpen.classList.toggle("hidden", open);
+    iconClose.classList.toggle("hidden", !open);
+  }
+
+  toggle?.addEventListener("click", () => {
+    setMenu(menu?.hidden ?? false);
+  });
+
+  // Close after tapping any link in the sheet
+  menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false);
+  });
+
+  // Reset when resizing up to desktop
+  window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
+    if (e.matches) setMenu(false);
+  });
+</script>
