@@ -1,16 +1,16 @@
 ---
 import { getUiMessages, t } from "../i18n/index";
-import { normalizeLocale, parseLocale } from "../i18n/locales";
+import { normalizeLocale, parseLocale, localePath } from "../i18n/locales";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
 const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
 const ui = await getUiMessages(locale);
-const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+const editorUrl = localePath(locale, import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor"));
 const { pathnameWithoutLocale } = parseLocale(Astro.url.pathname);
 ---
 <header class="sticky top-0 z-sticky w-full border-b border-[#d0d7de] bg-[#ffffff]">
   <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-3 px-4 sm:px-6 lg:px-12">
     <div class="flex min-w-0 items-center gap-8">
-      <a href="/" class="flex shrink-0 items-center gap-2.5" aria-label="LadeCompile home">
+      <a href={localePath(locale, "/")} class="flex shrink-0 items-center gap-2.5" aria-label="LadeCompile home">
         <span class="inline-flex h-8 w-8 items-center justify-center rounded-[6px] bg-[#24292f] text-[12px] font-bold tracking-wider text-white">LC</span>
         <span class="text-[16px] font-medium tracking-tight text-[#24292f]">LadeCompile</span>
         <span class="hidden rounded-[4px] border border-[#d0d7de] bg-[#f6f8fa] px-2 py-0.5 text-[10px] font-semibold tracking-widest text-[#656d76] sm:inline-flex">LADESTACK</span>
