@@ -2,8 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-
-const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+import { normalizeLocale, localePath } from "../i18n/locales";
+const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
+const editorUrl = localePath(locale, import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor"));
 ---
 
 <BaseLayout
@@ -69,10 +70,10 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
 
           <!-- Actions: 44px+ touch targets via btn-primary / btn-secondary + coarse-pointer rule -->
           <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a href="/" class="btn-primary">
+            <a href={localePath(locale, "/")} class="btn-primary">
               Back to Homepage
             </a>
-            <a href="/blog" class="btn-secondary">
+            <a href={localePath(locale, "/blog")} class="btn-secondary">
               Read the Blog
             </a>
             <a href={editorUrl} class="inline-flex min-h-[44px] items-center justify-center px-2 py-3 text-[14px] font-medium text-[#0969da] underline decoration-[#d0d7de] underline-offset-4 hover:decoration-[#0969da]">
