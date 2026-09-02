@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    },
+    "siteTitle": "LadeCompile — Ücretsiz Çevrimiçi HTML CSS JS Derleyici, Giriş Gerektirmez",
+    "siteDescription": "Ücretsiz, giriş gerektirmeyen kurumsal seviye HTML/CSS/JS çevrimiçi derleyici ve canlı editör. Kodunuzu anında yazın, çalıştırın ve paylaşın — kayıt yok, paywall yok. LadeStack'ten hızlı OneCompiler alternatifi.",
+    "languageSwitcherLabel": "Dil seç",
+    "languageSwitcherAriaLabel": "Dil seçici"
+  },
+  "nav": {
+    "features": "Özellikler",
+    "templates": "Şablonlar",
+    "comparison": "Karşılaştırma",
+    "blog": "Blog",
+    "openEditor": "Editörü Aç",
+    "openEditorFree": "Web Editörü Aç — ücretsiz",
+    "openInWebEditor": "Web Editörde Aç",
+    "openMenu": "Navigasyon menüsünü aç",
+    "closeMenu": "Navigasyon menüsünü kapat",
+    "mobileNavigation": "Mobil navigasyon",
+    "home": "LadeCompile ana sayfa",
+    "skipToContent": "İçeriğe atla"
+  },
+  "footer": {
+    "description": "Ücretsiz, giriş gerektirmeyen HTML/CSS/JS çevrimiçi derleyici. Hesap veya paywall olmadan hızlı, sürtünmesiz prototipleme isteyen geliştiriciler, eğitmenler ve öğrenciler için.",
+    "ecosystem": "LadeStack açık geliştirici yardımcı programları ekosisteminin bir parçası.",
+    "headings": {
+      "product": "Ürün",
+      "ladestackSuite": "LadeStack Paketi",
+      "resources": "Kaynaklar & Açık Spec"
+    },
+    "links": {
+      "webEditor": "Web Editör",
+      "coreCapabilities": "Temel Yetenekler",
+      "starterTemplates": "Başlangıç Şablonları",
+      "comparisonMatrix": "Karşılaştırma Matrisi",
+      "articles": "Makaleler & Kılavuzlar",
+      "faq": "SSS",
+      "ladestackHub": "LadeStack Hub",
+      "ladecompile": "LadeCompile",
+      "gbCoder": "GB Coder",
+      "apiPlayground": "API Playground",
+      "sitemap": "Site Haritası XML",
+      "robots": "Robots.txt",
+      "llms": "LLMs.txt Spec",
+      "soon": "YAKINDA",
+      "privacy": "Gizlilik",
+      "terms": "Şartlar",
+      "github": "GitHub"
+    },
+    "copyright": "© {year} LadeStack · LadeCompile. Ücretsiz, giriş yok, sandbox yürütme. Sıfır telemetri, paywall yok.",
+    "byLadestack": "by LadeStack"
+  },
+  "index": {
+    "hero": {
+      "kicker": "Ücretsiz · Giriş yok · Paywall yok — sonsuza kadar",
+      "titleLine1": "Ücretsiz HTML, CSS ve JS derleyici,",
+      "titleLine2": "giriş gerektirmez.",
+      "description1": "LadeCompile, geliştiriciler, öğrenciler ve eğitimciler için sessiz, kurumsal seviyede <strong>çevrimiçi kod derleyici</strong>dir. Tek bir sekmeli editörde HTML, CSS ve JavaScript yazın ve korumalı canlı önizlemenizi anında görün — kayıt duvarı olmayan temiz <strong>OneCompiler alternatifi</strong>.",
+      "description2": "LadeStack ücretsiz geliştirici araçları paketinin bir parçası. Duyarlı düzenleri prototipleyin, JavaScript mantığını hata ayıklayın veya bağımsız dosyaları saniyeler içinde dışa aktarın.",
+      "primaryCta": "Web Editörü Aç — ücretsiz",
+      "secondaryCta": "Başlangıç Şablonlarını Keşfet",
+      "footnote": "Yazmak, kaydetmek veya paylaşmak için hesap gerekmez. Tarayıcınızda local-first yürütme.",
+      "trust": {
+        "sharing": "Girişsiz URL Paylaşımı",
+        "preview": "400ms Debounce Önizleme",
+        "export": "İstemci Tarafı ZIP Dışa Aktarma"
+      }
+    },
+    "snapshot": {
+      "tabHtml": "index.html",
+      "tabCss": "styles.css",
+      "tabJs": "script.js",
+      "live": "Live",
+      "fastPrototyping": "Hızlı Prototipleme",
+      "zeroLogin": "Giriş yok. 400ms derleme.",
+      "runComponent": "Bileşeni Çalıştır",
+      "sandboxed": "Sandbox önizleme 60fps'de render edildi",
+      "console": "Konsol:",
+      "ready": "Hazır",
+      "warnings": "0 uyarı, 0 hata",
+      "bridgeActive": "PostMessage Köprüsü Aktif",
+      "lookingFor": "Tam Monaco özelliklerini mi arıyorsunuz?",
+      "openComplete": "Tam web editörünü aç"
+    },
+    "standards": {
+      "label": "Açık web standartları ve modern bulut altyapısıyla oluşturuldu",
+      "items": {
+        "html": "HTML5 Living Standard",
+        "css": "CSS3 Grid & Flexbox",
+        "ecma": "ECMAScript 2024",
+        "monaco": "Monaco Motoru",
+        "sandbox": "Sandbox Iframe",
+        "cloudflare": "Cloudflare Edge"
+      }
+    },
+    "coral": {
+      "title": "Girişsiz kod yürütme ve anında canlı önizleme.",
+      "description": "Bir HTML snippet'ini test etmek veya bir CSS numarası denemek için hesap kaydetmekle ya da paywall'larla zaman kaybetmeyi bırakın. LadeCompile üç dosyanızı debounce'lu, izole bir worker köprüsüyle doğrudan istemcinizde derler.",
+      "cta": "Canlı Derleyiciyi Başlat",
+      "pipeline": {
+        "title": "Derleme Hattı",
+        "badge": "400ms Debounce",
+        "step1": "1. İstemci Monaco Girdileri (HTML/CSS/JS)",
+        "step1Meta": "Local-first",
+        "step2": "2. Sandbox Iframe PostMessage Köprüsü",
+        "step2Meta": "İzole Kaynak",
+        "step3": "3. Sıfır Depolama URL Hash Sıkıştırma",
+        "step3Meta": "LZ-String",
+        "footer": "Yüksek güvenilirlik · Sıfır takip · Engelsiz performans"
+      }
+    },
+    "features": {
+      "heading": "İhtiyacınız olan her özellik — paywall yok.",
+      "subheading": "Geleneksel web playground'larının sürtünmesini ortadan kaldıran odaklanmış bir çalışma tezgahı.",
+      "cards": {
+        "sharingEyebrow": "Sıfır Depolama Paylaşımı",
+        "sharingTitle": "Anında Durum Sıkıştırma",
+        "sharingBody": "Kodunuz LZ-String kullanılarak doğrudan tarayıcı URL hash'ine sıkıştırılır. Hesap oluşturmadan veya verileri bir veritabanına göndermeden meslektaşlarınızla snippet paylaşın.",
+        "sharingCode": "compile.ladestack.in/#code=H4sIAAAAAAA...",
+        "exportEyebrow": "Dışa Aktarma Paketi",
+        "exportTitle": "ZIP, HTML ve Ekran Görüntüsü",
+        "exportBody": "HTML, CSS ve JS paketinizi dağıtıma hazır ZIP olarak indirin, tek dosyalık bağımsız HTML'i kopyalayın veya render edilen UI'nızın yüksek çözünürlüklü ekran görüntüsünü alın.",
+        "badges": {
+          "zip": ".ZIP",
+          "html": "HTML",
+          "png": "PNG"
+        },
+        "monacoEyebrow": "Monaco Motoru",
+        "monacoTitle": "Tarayıcınızda VS Code Hassasiyeti",
+        "monacoBody": "Monaco Editor üzerine kurulu LadeCompile, yerel sözdizimi vurgulama, akıllı girinti, kod biçimlendirme, bul-değiştir ve yerel klavye kısayolları sunar.",
+        "monacoRows": {
+          "save": "Kaydet / Derle",
+          "shortcutSave": "Cmd/Ctrl + S",
+          "find": "Bul & Değiştir",
+          "shortcutFind": "Cmd/Ctrl + F",
+          "minimap": "Minimap'i Aç/Kapat",
+          "minimapMeta": "Tercihler Menüsü"
+        },
+        "monacoLink": "Editörde dene →",
+        "startersEyebrow": "Seçilmiş Başlangıçlar",
+        "startersTitle": "10 Üretime Hazır Başlangıç Boilerplate'i",
+        "startersBody": "Boş bir tuvalden başlayın veya doğrulanmış şablonlardan seçin: modern CSS Grid panoları, duyarlı açılış sayfaları, istemci doğrulamalı interaktif formlar, koyu mod kartları, HTML5 canvas animasyonları ve hava durumu API widget'ları.",
+        "startersTags": {
+          "grid": "CSS Grid",
+          "flexbox": "Flexbox Hero",
+          "canvas": "Canvas Animasyonu",
+          "weather": "Fetch API Hava Durumu",
+          "form": "Form Doğrulama"
+        }
+      }
+    },
+    "tabbed": {
+      "heading": "Dikkat dağıtmayan odak için tasarlandı.",
+      "subheading": "LadeCompile'ın her parçasının temiz, güvenilir bir kodlama iş akışı için nasıl bir araya geldiğini keşfedin.",
+      "tabs": {
+        "tab1Label": "Üç Dosya Uyumu",
+        "tab1Desc": "Otomatik sözdizimi biçimlendirmeli bağımsız HTML, CSS ve JS sekmeleri.",
+        "tab2Label": "Sandbox Konsol Köprüsü",
+        "tab2Desc": "Okunmadı rozetli canlı postMessage hata ve log iletimi.",
+        "tab3Label": "Local-First Depolama",
+        "tab3Desc": "Değişiklikler otomatik olarak localStorage'a kalıcı olur; çalışma yeniden yüklemelerde hayatta kalır.",
+        "tab4Label": "Kaydedilmemiş Çalışma Koruması",
+        "tab4Desc": "Starter yüklerken veya sıfırlarken onay korumaları kazara kaybı önler."
+      },
+      "activeCapability": "Aktif Yetenek",
+      "defaultTitle": "Özel Sekmeli Editör Ortamı",
+      "defaultDesc": "<code>index.html</code>, <code>styles.css</code> ve <code>script.js</code> arasında karmaşa olmadan sorunsuz geçiş yapın. Her sekme tam Monaco IntelliSense ve bağımsız geri alma geçmişine sahip hata işaretçileriyle çalışır.",
+      "readyToWrite": "Kod yazmaya hazır mısınız?",
+      "openEditor": "Editörü Aç →"
+    },
+    "starters": {
+      "heading": "Anında prototipleme için seçilmiş başlangıçlar.",
+      "cards": {
+        "gridTitle": "CSS Grid Panosu",
+        "gridCategory": "Düzen",
+        "gridDesc": "Modern CSS grid gap ve media query'lerle duyarlı çok sütunlu metrik kartları.",
+        "flexboxTitle": "Flexbox Açılış Sayfası",
+        "flexboxCategory": "Pazarlama",
+        "flexboxDesc": "Temiz hero bandı, navigasyon çubuğu, duyarlı fiyat ızgarası ve erişilebilir form.",
+        "formTitle": "Form Doğrulama Motoru",
+        "formCategory": "Etkileşim",
+        "formDesc": "Net görsel geri bildirim durumlarıyla gerçek zamanlı e-posta ve şifre regex doğrulaması.",
+        "particleTitle": "Parçacık Animasyonu",
+        "particleCategory": "Canvas",
+        "particleDesc": "İmleç hareketine yumuşakça tepki veren 60fps HTML5 canvas parçacıkları.",
+        "weatherTitle": "Hava Durumu API Widget'ı",
+        "weatherCategory": "API / Async",
+        "weatherDesc": "Yükleme durumları ve hata yönetimiyle asenkron Fetch API uygulaması.",
+        "todoTitle": "LocalStorage ile Todo Uygulaması",
+        "todoCategory": "Uygulama",
+        "todoDesc": "Filtre sekmeleri ve istemci tarafı kalıcılığı olan eksiksiz CRUD listesi.",
+        "loadTemplate": "Şablonu yükle →"
+      }
+    },
+    "cream": {
+      "title": "Geliştiriciler, eğitmenler ve öğrenciler için 10 kat daha hızlı prototiplemenin yolu.",
+      "body": "İster bir frontend bootcamp'i öğretiyor olun ister bir görüşmede hızlıca bir bug fix gösteriyor olun, kullanıcıların kodu görmeden veya düzenlemeden önce giriş yapmasını istemek kaçınılabilir bir sürtünme yaratır. LadeCompile tüm döngüyü zero-login tutar: bağlantıyı açın, hemen düzenleyin, yeni URL'yi paylaşın."
+    },
+    "comparison": {
+      "heading": "Ücretsiz bir OneCompiler alternatifi — yıldızsız.",
+      "subheading": "OneCompiler ve CodePen harika araçlar. Fark iş modelinde: LadeCompile, hesaplar, paywall'lar veya kısıtlı eylemler olmadan temel düzenleme deneyimini sunar.",
+      "headers": {
+        "capability": "Yetenek",
+        "ladecompile": "LadeCompile",
+        "onecompiler": "OneCompiler*"
+      },
+      "rows": {
+        "save": "Giriş Olmadan Kaydet & Paylaş",
+        "saveLadecompile": "%100 Ücretsiz (URL / KV)",
+        "saveOnecompiler": "Giriş gerekli",
+        "paywalled": "Paywall'lı Özellikler",
+        "paywalledLadecompile": "Yok — Hepsi Ücretsiz",
+        "paywalledOnecompiler": "AI Ajanı Yükseltme Ardında",
+        "preview": "Canlı Önizleme & Konsol",
+        "previewLadecompile": "Dahil (Sandbox)",
+        "previewOnecompiler": "Dahil",
+        "export": "Dışa Aktarma Paketi (ZIP / HTML / PNG)",
+        "exportLadecompile": "İstemci Tarafında Anında",
+        "exportOnecompiler": "Standart İndirme",
+        "privacy": "Gizlilik & Takip",
+        "privacyLadecompile": "Local-First (Telemetri Yok)",
+        "privacyOnecompiler": "Hesap Bazlı Takip"
+      },
+      "footnote": "*Karşılaştırma 2026 itibarıyla herkese açık web editörü özelliklerine dayanmaktadır. LadeCompile modern web geliştiricileri için engelsiz ücretsiz bir alternatif sunmak üzere inşa edilmiştir."
+    },
+    "cta": {
+      "title": "Hemen LadeCompile ile oluşturmaya başlayın.",
+      "body": "Kayıt formu, doğrulama e-postası ve kredi kartı yok. Doğrudan Monaco editörüne atlayın ve HTML, CSS ve JavaScript yazmaya başlayın.",
+      "primary": "Web Editörü Aç — Ücretsiz",
+      "secondary": "Makaleleri & Kılavuzları Oku"
+    }
+  },
+  "faq": {
+    "pageTitle": "SSS — Ücretsiz Çevrimiçi HTML Derleyici | LadeCompile",
+    "pageDescription": "LadeCompile'ın ücretsiz çevrimiçi HTML derleyicisi hakkında sık sorulan sorular: HTML derleyici nedir, HTML kodu çevrimiçi nasıl çalıştırılır, HTML'de görseller, tam ekran modu ve daha fazlası. Giriş gerekmez.",
+    "badge": "Yardım & Yanıtlar",
+    "heading": "<span>Çevrimiçi HTML derleyicimiz</span> hakkında sık sorulan sorular.",
+    "subheading": "LadeCompile hakkında bilmeniz gereken her şey — tarayıcınızda anında çalışan ücretsiz, giriş gerektirmeyen HTML, CSS ve JavaScript derleyicisi.",
+    "a11y": {
+      "sectionLabel": "Sık sorulan sorular"
+    },
+    "cta": {
+      "title": "Kendiniz denemeye hazır mısınız?",
+      "body": "Ücretsiz çevrimiçi HTML derleyicisini açın — hesap yok, indirme yok. Veya 2026'daki en iyi ücretsiz HTML, CSS ve JS derleyicileri ve OneCompiler alternatifleri hakkındaki kılavuzlarımızı okuyun.",
+      "links": {
+        "editor": "ücretsiz çevrimiçi HTML derleyici",
+        "best": "2026'daki en iyi ücretsiz HTML, CSS ve JS derleyicileri",
+        "alternatives": "OneCompiler alternatifleri"
+      }
+    }
+  },
+  "blog": {
+    "title": "Makaleler & Kılavuzlar — Web Geliştirme İçgörüleri",
+    "description": "HTML/CSS/JS derleyicileri, Canvas vs SVG ve modern frontend iş akışları hakkında öğreticiler, karşılaştırmalar ve kılavuzlar. LadeCompile ekibinden ücretsiz içgörüler.",
+    "heading": "Makaleler & Kılavuzlar",
+    "subheading": "Geliştiriciler, öğrenciler ve eğitimciler için pratik karşılaştırmalar ve öğreticiler.",
+    "onThisPage": "Bu sayfada",
+    "prevArticle": "← Önceki makale",
+    "nextArticle": "Sonraki makale →",
+    "relatedArticles": "İlgili makaleler",
+    "breadcrumbs": {
+      "home": "Ana Sayfa",
+      "blog": "Blog"
+    },
+    "meta": {
+      "by": "Yazar: {author}",
+      "publishedOn": "Yayınlanma {date}",
+      "updatedOn": "Güncellenme {date}",
+      "readTime": "{minutes} dk okuma",
+      "category": "Kategori: {category}",
+      "tags": "Etiketler"
+    },
+    "empty": "Makale bulunamadı.",
+    "backToBlog": "Blog'a dön",
+    "shareArticle": "Bu makaleyi paylaş"
+  },
+  "errors": {
+    "404": {
+      "title": "Sayfa bulunamadı",
+      "description": "Üzgünüz — aradığınız sayfa mevcut değil.",
+      "backHome": "Ana sayfaya dön",
+      "goToEditor": "Editörü aç",
+      "heading": "404 — Bulunamadı"
+    },
+    "500": {
+      "title": "Bir şeyler ters gitti",
+      "description": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.",
+      "retry": "Tekrar dene",
+      "backHome": "Ana sayfaya dön"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik Politikası — LadeCompile",
+      "description": "LadeCompile verilerinizi nasıl işler: local-first yürütme, takip yok, gizlilik öncelikli mimari.",
+      "lastUpdated": "Son güncelleme: {date}"
+    },
+    "terms": {
+      "title": "Hizmet Şartları — LadeCompile",
+      "description": "LadeCompile'ın ücretsiz çevrimiçi HTML/CSS/JS derleyicisini kullanma şartları.",
+      "lastUpdated": "Son güncelleme: {date}"
+    }
+  },
+  "common": {
+    "ladecompile": "LadeCompile",
+    "ladestack": "LadeStack",
+    "learnMore": "Daha fazla bilgi",
+    "loading": "Yükleniyor...",
+    "close": "Kapat",
+    "cancel": "İptal",
+    "confirm": "Onayla",
+    "search": "Ara",
+    "noResults": "Sonuç bulunamadı.",
+    "comingSoon": "YAKINDA"
+  },
+  "seo": {
+    "defaultTitle": "LadeCompile — Ücretsiz Çevrimiçi HTML CSS JS Derleyici, Giriş Gerektirmez",
+    "defaultDescription": "Ücretsiz, giriş gerektirmeyen kurumsal seviye HTML/CSS/JS çevrimiçi derleyici ve canlı editör. Kodunuzu anında yazın, çalıştırın ve paylaşın — kayıt yok, paywall yok. LadeStack'ten hızlı OneCompiler alternatifi.",
+    "ogLocale": "tr_TR"
+  }
+}
