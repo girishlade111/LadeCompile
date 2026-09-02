@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { RefreshCw } from "lucide-react";
+import { normalizeLocale, localePath } from "@/i18n/locales";
 
 export default function RootError({
   error,
