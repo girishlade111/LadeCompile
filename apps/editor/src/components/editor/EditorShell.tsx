@@ -1276,21 +1276,21 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
                 <DropdownMenuContent align="end" className="w-52">
                   <DropdownMenuItem onClick={handleFormatCode}>
                     <Code2 className="mr-2 h-4 w-4" />
-                    Format Code
+                    {tr("moreMenu.formatCode")}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={handleResetToDefault}>
                     <RotateCcw className="mr-2 h-4 w-4" />
-                    Reset to Default
+                    {tr("moreMenu.resetToDefault")}
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuCheckboxItem checked={minimapEnabled} onCheckedChange={handleToggleMinimap}>
                     <Map className="mr-2 h-4 w-4" />
-                    Minimap
+                    {tr("moreMenu.minimap")}
                   </DropdownMenuCheckboxItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={() => setShortcutsOpen(true)}>
                     <Keyboard className="mr-2 h-4 w-4" />
-                    Keyboard Shortcuts
+                    {tr("moreMenu.keyboardShortcuts")}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -1344,10 +1344,10 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
                   <TooltipContent>{tr("topbar.export")}</TooltipContent>
                 </Tooltip>
                 <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuLabel>Export</DropdownMenuLabel>
+                  <DropdownMenuLabel>{tr("moreMenu.export")}</DropdownMenuLabel>
                   <DropdownMenuItem onClick={handleDownloadZip}>
                     <FileArchive className="mr-2 h-4 w-4" />
-                    Download ZIP
+                    {tr("export.downloadZip")}
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleCopyActive}>
@@ -1356,17 +1356,17 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={handleCopyCombined}>
                     <FileText className="mr-2 h-4 w-4" />
-                    Copy combined HTML
+                    {tr("export.copyCombined")}
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuSub>
                     <DropdownMenuSubTrigger>
                       <ImageIcon className="mr-2 h-4 w-4" />
-                      Screenshot
+                      {tr("export.screenshot")}
                     </DropdownMenuSubTrigger>
                     <DropdownMenuSubContent className="w-48">
-                      <DropdownMenuItem onClick={() => handleScreenshot("png")}>Screenshot as PNG</DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => handleScreenshot("jpeg")}>Screenshot as JPEG</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleScreenshot("png")}>{tr("export.screenshotPng")}</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleScreenshot("jpeg")}>{tr("export.screenshotJpeg")}</DropdownMenuItem>
                     </DropdownMenuSubContent>
                   </DropdownMenuSub>
                 </DropdownMenuContent>
@@ -1393,7 +1393,7 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={handleDownloadZip}>
                     <FileArchive className="mr-2 h-4 w-4" />
-                    Download ZIP
+                    {tr("export.downloadZip")}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={handleCopyActive}>
                     <Copy className="mr-2 h-4 w-4" />
@@ -1402,7 +1402,7 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={() => setShortcutsOpen(true)}>
                     <Keyboard className="mr-2 h-4 w-4" />
-                    Keyboard Shortcuts
+                    {tr("moreMenu.keyboardShortcuts")}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={toggleTheme}>
                     {isDark ? <Sun className="mr-2 h-4 w-4" /> : <Moon className="mr-2 h-4 w-4" />}
@@ -1741,7 +1741,7 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
       <Dialog open={resetConfirmOpen} onOpenChange={setResetConfirmOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Reset to default?</DialogTitle>
+            <DialogTitle>{tr("save.resetConfirmTitle")}</DialogTitle>
             <DialogDescription>
               This will replace your current HTML, CSS, and JavaScript with the default starter template. Your current edits will be lost.
             </DialogDescription>
@@ -1769,10 +1769,10 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <Keyboard className="h-5 w-5 text-[#6366f1]" />
-              Keyboard Shortcuts
+              {tr("shortcuts.title")}
             </DialogTitle>
             <DialogDescription>
-              Quick reference for editor and navigation keyboard shortcuts.
+              {tr("shortcuts.description")}
             </DialogDescription>
           </DialogHeader>
           <div className="max-h-[60vh] space-y-4 overflow-y-auto pr-1 text-xs">
@@ -1920,8 +1920,8 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
             {/* Minimap toggle */}
             <div className="flex items-center justify-between rounded-lg border p-3">
               <div className="space-y-0.5">
-                <div className="text-xs font-semibold text-foreground">Code Minimap</div>
-                <div className="text-[11px] text-muted-foreground">Show overview minimap on the right of the editor</div>
+                <div className="text-xs font-semibold text-foreground">{tr("settings.minimap")}</div>
+                <div className="text-[11px] text-muted-foreground">{tr("settings.minimapDescription")}</div>
               </div>
               <Button
                 type="button"
@@ -1930,7 +1930,7 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
                 className={cn("h-8 text-xs", minimapEnabled && "bg-[#6366f1] text-white hover:bg-[#5456e5]")}
                 onClick={handleToggleMinimap}
               >
-                {minimapEnabled ? "Enabled" : "Disabled"}
+                {minimapEnabled ? tr("settings.minimapEnabled") : tr("settings.minimapDisabled")}
               </Button>
             </div>
 
