@@ -12,12 +12,12 @@
   // Placeholder domain — swap to real domain when ready.
   // Cloudflare route specificity: /editor/* (more specific) wins over /*.
   "workers_dev": true,
-  "routes": [
-    {
-      "pattern": "compile.ladestack.in/*",
-      "zone_name": "ladestack.in"
-    }
-  ],
+  // "routes": [
+  //   {
+  //     "pattern": "compile.ladestack.in/*",
+  //     "zone_name": "ladestack.in"
+  //   }
+  // ],
   "observability": {
     "enabled": true
   }
