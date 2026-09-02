@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "locale": "pt-br",
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    }
+  },
+  "app": {
+    "htmlLang": "pt-br",
+    "title": "LadeCompile — Free Online HTML/CSS/JS Editor",
+    "description": "Editor online rápido, gratuito e sem distrações para HTML, CSS e JavaScript com prévia ao vivo instantânea e zero configuração. Parte do LadeStack.",
+    "themeColor": "#6366f1"
+  },
+  "topNav": {
+    "home": "Início",
+    "features": "Recursos",
+    "templates": "Modelos",
+    "blog": "Blog",
+    "ladestack": "LadeStack ↗",
+    "overview": "Visão Geral",
+    "ariaLabel": "Navegação principal"
+  },
+  "topbar": {
+    "badge": "HTML / CSS / JS — sem login",
+    "htmlBadge": "HTML",
+    "run": "Executar",
+    "templates": "Modelos",
+    "moreOptions": "Mais opções",
+    "toggleTheme": "Alternar tema",
+    "save": "Salvar",
+    "share": "Compartilhar",
+    "export": "Exportar",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "filesMenu": "Menu de arquivos"
+  },
+  "tabs": {
+    "indexHtml": "index.html",
+    "stylesCss": "styles.css",
+    "scriptJs": "script.js"
+  },
+  "explorer": {
+    "title": "Explorador",
+    "closeExplorer": "Fechar Explorador",
+    "projectFiles": "Arquivos do Projeto",
+    "files": "Arquivos",
+    "search": "Buscar",
+    "searchHint": "Buscar (Ctrl+F)",
+    "settings": "Configurações"
+  },
+  "drawer": {
+    "title": "Arquivos",
+    "projectFiles": "Arquivos do Projeto",
+    "search": "Buscar",
+    "templates": "Modelos",
+    "settings": "Configurações",
+    "lightTheme": "Tema claro",
+    "darkTheme": "Tema escuro"
+  },
+  "settings": {
+    "title": "Configurações",
+    "description": "Personalize suas preferências do editor.",
+    "theme": "Tema",
+    "themeLight": "Claro",
+    "themeDark": "Escuro",
+    "toggleTheme": "Alternar tema",
+    "language": "Idioma",
+    "languageDescription": "Escolha o idioma da interface do editor.",
+    "fontSize": "Tamanho da fonte",
+    "fontSizeDescription": "Tamanho do texto do editor em pixels.",
+    "minimap": "Minimap",
+    "minimapDescription": "Mostrar minimapa de código no editor.",
+    "minimapEnabled": "Minimap ativado",
+    "minimapDisabled": "Minimap desativado",
+    "fontSizeSet": "Tamanho da fonte: {size}px",
+    "resetToDefault": "Redefinir para o padrão",
+    "keyboardShortcuts": "Atalhos de Teclado"
+  },
+  "moreMenu": {
+    "formatCode": "Formatar Código",
+    "resetToDefault": "Redefinir para o padrão",
+    "minimap": "Minimap",
+    "keyboardShortcuts": "Atalhos de Teclado",
+    "export": "Exportar"
+  },
+  "console": {
+    "title": "Console",
+    "badge": "Console",
+    "ready": "Pronto",
+    "warnings": "{warnings} avisos, {errors} erros",
+    "empty": "Console — Clique em Executar para iniciar · logs são limpos a cada execução",
+    "clear": "Limpar",
+    "clearAriaLabel": "Limpar console",
+    "toggleExpand": "Expandir console",
+    "toggleCollapse": "Recolher console",
+    "postBridgeActive": "Bridge PostMessage Ativa",
+    "livePreview": "Prévia ao vivo",
+    "consoleLabel": "Console:",
+    "unreadBadge": "{count} novos",
+    "truncated": "… (truncado)",
+    "autoScroll": "Auto-rolagem ativada"
+  },
+  "preview": {
+    "title": "Prévia ao vivo",
+    "sandboxedNote": "Prévia em sandbox renderizada a 60fps",
+    "postMessageActive": "Bridge PostMessage Ativa",
+    "loadingMonaco": "Carregando Monaco..."
+  },
+  "templates": {
+    "title": "Modelos",
+    "description": "Escolha um modelo inicial para começar a codar.",
+    "searchPlaceholder": "Buscar modelos…",
+    "noResults": "Nenhum modelo corresponde a \"{query}\"",
+    "loadTemplate": "Carregar modelo",
+    "useTemplate": "Usar modelo",
+    "categories": {
+      "starters": "Iniciais",
+      "layouts": "Layouts",
+      "components": "Componentes",
+      "forms": "Formulários"
+    },
+    "confirmOverwrite": {
+      "title": "Sobrescrever suas edições atuais?",
+      "description": "Carregar \"{name}\" substituirá seu HTML, CSS e JavaScript atuais. Isso não pode ser desfeito sem redefinir.",
+      "cancel": "Cancelar",
+      "load": "Carregar modelo",
+      "confirm": "Continuar"
+    }
+  },
+  "shortcuts": {
+    "title": "Atalhos de Teclado",
+    "description": "Referência rápida de atalhos do editor.",
+    "save": "Salvar / Compilar",
+    "saveShortcut": "Cmd/Ctrl + S",
+    "find": "Buscar & Substituir",
+    "findShortcut": "Cmd/Ctrl + F",
+    "format": "Formatar Código",
+    "formatAction": "editor.action.formatDocument",
+    "run": "Executar prévia",
+    "toggleMinimap": "Alternar Minimap",
+    "toggleMinimapHint": "Menu de Preferências",
+    "close": "Fechar"
+  },
+  "export": {
+    "downloadZip": "Baixar ZIP",
+    "copyActive": "Copiar {tab}",
+    "copyCombined": "Copiar HTML combinado",
+    "screenshot": "Captura",
+    "screenshotPng": "Captura como PNG",
+    "screenshotJpeg": "Captura como JPEG",
+    "generatingZip": "Gerando arquivo ZIP…",
+    "zipDownloaded": "ZIP baixado",
+    "zipDescription": "LadeCompile-export.zip — 3 arquivos",
+    "zipFailed": "Falha ao baixar ZIP",
+    "copiedToClipboard": "Copiado para a área de transferência",
+    "copiedActiveDesc": "{tab} — {count} caracteres",
+    "copiedCombinedTitle": "HTML combinado copiado",
+    "copiedCombinedDesc": "Documento de prévia completo copiado",
+    "copyFailed": "Falha ao copiar — permissão da área de transferência negada",
+    "capturingScreenshot": "Capturando prévia como {format}…",
+    "screenshotDownloaded": "Captura baixada como {format}",
+    "screenshotFailed": "Falha na captura",
+    "screenshotNotReady": "Falha na captura — prévia não pronta",
+    "screenshotExternal": "Falha na captura — a prévia pode conter conteúdo externo"
+  },
+  "share": {
+    "copiedTitle": "Link de compartilhamento copiado",
+    "hashCopiedDesc": "Link hash da URL copiado — sem login",
+    "kvGenerating": "Gerando link de compartilhamento…",
+    "kvCopiedDesc": "Link curto criado via Cloudflare KV — sem login",
+    "generatedTitle": "Link de compartilhamento gerado",
+    "failedTitle": "Falha ao compartilhar",
+    "failedDesc": "Falha ao criar link de compartilhamento.",
+    "kvFailed": "Failed to generate share link.",
+    "shareNotFound": "Link de compartilhamento não encontrado ou expirado",
+    "invalidResponse": "Formato de resposta inválido",
+    "couldNotLoad": "Não foi possível carregar código compartilhado — exibindo modelo padrão",
+    "loaded": "Código compartilhado carregado",
+    "loadedDesc": "Código restaurado do link de compartilhamento",
+    "confirmOverwrite": {
+      "title": "Carregar código compartilhado?",
+      "description": "Você tem alterações não salvas. Carregar código compartilhado sobrescreverá suas edições locais.",
+      "keepLocal": "Manter local",
+      "loadShared": "Carregar código compartilhado",
+      "discardLocal": "Descartar edições locais"
+    }
+  },
+  "save": {
+    "saved": "Salvo",
+    "saveFailed": "Falha ao salvar",
+    "alreadyDefault": "Já exibindo modelo inicial padrão",
+    "resetConfirmTitle": "Redefinir para o modelo padrão?",
+    "resetConfirmDesc": "Isso substituirá seu HTML, CSS e JavaScript pelo modelo padrão. Suas edições atuais serão perdidas.",
+    "resetCancel": "Cancelar",
+    "resetConfirm": "Redefinir",
+    "resetDone": "Redefinido para o modelo padrão"
+  },
+  "format": {
+    "success": "Código formatado",
+    "notAvailable": "Formatação não disponível para este arquivo",
+    "notReady": "Editor não pronto para formatação"
+  },
+  "search": {
+    "loadingEditor": "Editor carregando…"
+  },
+  "minimap": {
+    "enabled": "Minimap ativado",
+    "disabled": "Minimap desativado"
+  },
+  "mobile": {
+    "title": "Experiência Desktop Recomendada",
+    "body": "LadeCompile funciona melhor em tela maior. Mude para desktop ou gire seu tablet para modo paisagem para edição multi-aba e prévia ao vivo.",
+    "backToHomepage": "Voltar à Página Inicial",
+    "continueToMobile": "Continuar para Editor Mobile",
+    "mobileViewCode": "Código",
+    "mobileViewPreview": "Prévia",
+    "mobileViewConsole": "Console"
+  },
+  "tooltips": {
+    "explorer": "Explorador",
+    "search": "Buscar (Ctrl+F)",
+    "settings": "Configurações",
+    "templates": "Modelos",
+    "run": "Executar",
+    "moreOptions": "Mais opções",
+    "toggleTheme": "Alternar tema",
+    "save": "Salvar",
+    "share": "Compartilhar",
+    "export": "Exportar"
+  },
+  "editor": {
+    "ariaLabel": "Editor de código",
+    "tabAriaLabel": "Aba do editor {name}",
+    "activeTab": "Aba ativa"
+  },
+  "errors": {
+    "generic": {
+      "title": "Algo deu errado",
+      "description": "Ocorreu um erro inesperado. Tente novamente.",
+      "retry": "Tentar novamente",
+      "backHome": "Voltar ao início",
+      "goToEditor": "Ir para o editor"
+    },
+    "notFound": {
+      "title": "Página não encontrada",
+      "heading": "404 — Não Encontrado",
+      "description": "O editor neste endereço não existe.",
+      "backHome": "Voltar ao início",
+      "goToEditor": "Abrir editor",
+      "backToHomepage": "Voltar à Página Inicial"
+    },
+    "editorError": {
+      "title": "Erro no editor",
+      "description": "O editor falhou ao carregar. Tente redefinir.",
+      "retry": "Tentar novamente"
+    },
+    "shareError": "Link de compartilhamento não encontrado ou expirado",
+    "consoleTruncated": "… (truncado)",
+    "localStorageFailed": "Falha ao persistir estado do editor no localStorage"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "confirm": "Confirm",
+    "close": "Fechar",
+    "loading": "Carregando…",
+    "save": "Salvar",
+    "share": "Compartilhar",
+    "export": "Exportar",
+    "copy": "Copiar",
+    "download": "Baixar",
+    "reset": "Redefinir",
+    "continue": "Continuar",
+    "discard": "Descartar",
+    "retry": "Tentar novamente",
+    "soon": "EM BREVE"
+  }
+}
