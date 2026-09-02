@@ -593,7 +593,7 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
               <a href={editorUrl} class="btn-primary">
                 {t(ui as any, "index.cta.primary")}
               </a>
-              <a href="/blog" class="btn-secondary">
+              <a href={localePath(locale, "/blog")} class="btn-secondary">
                 {t(ui as any, "index.cta.secondary")}
               </a>
             </div>
