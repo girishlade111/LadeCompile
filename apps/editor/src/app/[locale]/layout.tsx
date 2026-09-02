@@ -27,8 +27,9 @@ export async function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  const locale = (params.locale as Locale) ?? "en";
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale = (raw as Locale) ?? "en";
   const bcp47 = LOCALE_TO_BCP47[locale] ?? "en";
   const site = "https://compile.ladestack.in";
 
