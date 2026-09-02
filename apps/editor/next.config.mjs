@@ -18,6 +18,7 @@ const nextConfig = {
   // maps to /editor (English). basePath is no longer needed — locale handling
   // is via middleware + [locale] segment. Kept commented for reference.
   // basePath: "/editor",
+  assetPrefix: "/editor",
   images: {
     unoptimized: true,
   },
