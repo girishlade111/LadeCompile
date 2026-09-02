@@ -16,7 +16,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { getFaqMessages, getUiMessages, t } from "../../i18n/index";
-import { normalizeLocale, toBcp47 } from "../../i18n/locales";
+import { normalizeLocale, toBcp47, localePath } from "../../i18n/locales";
 
 const locale = normalizeLocale(((Astro.params as any).locale as string) ?? (Astro.currentLocale as string) ?? "en");
 const bcp47 = toBcp47(locale);
