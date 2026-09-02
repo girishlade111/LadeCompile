@@ -4,6 +4,7 @@
   "compatibility_date": "2025-08-01",
   "compatibility_flags": ["nodejs_compat"],
   "main": ".open-next/worker.js",
+  "workers_dev": true,
   "routes": [
     { "pattern": "compile.ladestack.in/zh/editor*", "zone_name": "ladestack.in" },
     { "pattern": "compile.ladestack.in/zh/editor/*", "zone_name": "ladestack.in" },
