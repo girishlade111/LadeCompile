@@ -1,9 +1,11 @@
 ---
 import { getUiMessages, t } from "../i18n/index";
-import { normalizeLocale } from "../i18n/locales";
+import { normalizeLocale, parseLocale } from "../i18n/locales";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
 const ui = await getUiMessages(locale);
 const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+const { pathnameWithoutLocale } = parseLocale(Astro.url.pathname);
 ---
 <header class="sticky top-0 z-sticky w-full border-b border-[#d0d7de] bg-[#ffffff]">
   <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-3 px-4 sm:px-6 lg:px-12">
@@ -23,6 +25,7 @@ const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "h
     </div>
 
     <div class="flex shrink-0 items-center gap-2 sm:gap-3">
+      <LanguageSwitcher currentLocale={locale} currentPathWithoutLocale={pathnameWithoutLocale} class="hidden sm:inline-flex" />
       <a href="/#starters" class="hidden items-center justify-center rounded-[12px] border border-[#d0d7de] bg-[#ffffff] px-4 py-2.5 text-[14px] font-medium text-[#24292f] transition-colors hover:bg-[#f6f8fa] sm:inline-flex">
         {t(ui as any, "nav.templates")}
       </a>
