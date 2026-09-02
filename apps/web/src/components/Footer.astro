@@ -1,9 +1,9 @@
 ---
 import { getUiMessages, t } from "../i18n/index";
-import { normalizeLocale } from "../i18n/locales";
+import { normalizeLocale, localePath } from "../i18n/locales";
 const locale = normalizeLocale((Astro.currentLocale as string) ?? "en");
 const ui = await getUiMessages(locale);
-const editorUrl = import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor");
+const editorUrl = localePath(locale, import.meta.env.PUBLIC_EDITOR_URL || (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor"));
 const year = new Date().getFullYear();
 ---
 <footer class="relative isolate overflow-hidden border-t border-[#d0d7de] bg-[#ffffff]" aria-labelledby="footer-heading">
