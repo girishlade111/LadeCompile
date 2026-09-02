@@ -1,8 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider, themeInlineScript } from "@/components/theme-provider";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: "LadeCompile — Free Online HTML/CSS/JS Editor",
@@ -41,7 +47,7 @@ export default function RootLayout({
         <ThemeProvider>
           <TooltipProvider>
             {/* Global navigation header matching Airtable top-nav specification */}
-            <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b border-border bg-background px-6 lg:px-12">
+            <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b border-border bg-background px-4 sm:px-6 lg:px-12">
               <div className="flex items-center gap-8">
                 <a href={`${webUrl}/`} className="flex items-center gap-2.5 transition-opacity hover:opacity-90">
                   <span className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-[#181d26] dark:bg-white text-[12px] font-bold tracking-wider text-white dark:text-[#181d26]">

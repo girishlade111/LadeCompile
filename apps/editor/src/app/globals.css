@@ -82,3 +82,10 @@ html.theme-ready body,
 html.theme-ready body * {
   transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
 }
+
+/* Responsive: never allow horizontal page scroll (additive — no effect on desktop layout) */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}

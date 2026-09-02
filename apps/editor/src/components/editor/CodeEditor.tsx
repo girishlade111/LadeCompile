@@ -12,6 +12,8 @@ type Props = {
   theme: "light" | "dark";
   minimap?: boolean;
   fontSize?: number;
+  /** Mobile/touch mode: touch-friendly scrollbars, taller line height, no right-click menu */
+  touchMode?: boolean;
   onMount?: OnMount;
   onChange: (value: string | undefined) => void;
 };
@@ -101,6 +103,7 @@ export default function CodeEditor({
   theme,
   minimap = false,
   fontSize = 13,
+  touchMode = false,
   onMount,
   onChange,
 }: Props) {
@@ -119,12 +122,20 @@ export default function CodeEditor({
         options={{
           minimap: { enabled: minimap },
           fontSize: fontSize,
+          lineHeight: touchMode ? 20 : undefined,
           wordWrap: "on",
           scrollBeyondLastLine: false,
-          automaticLayout: true,
+          automaticLayout: true, // handles resize on orientation change without losing state
           lineNumbers: "on",
           tabSize: 2,
           padding: { top: 8, bottom: 8 },
+          // Touch-friendly scrolling on mobile
+          scrollbar: {
+            verticalScrollbarSize: touchMode ? 14 : 10,
+            horizontalScrollbarSize: touchMode ? 14 : 10,
+          },
+          contextmenu: !touchMode,
+          overviewRulerBorder: !touchMode,
         }}
         loading={<EditorSkeleton />}
       />

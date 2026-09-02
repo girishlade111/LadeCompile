@@ -34,6 +34,7 @@ import {
   Map,
   Keyboard,
   Monitor,
+  Menu,
 } from "lucide-react";
 import { Group as PanelGroup, Panel, Separator as PanelResizeHandle } from "react-resizable-panels";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -209,6 +210,39 @@ export default function EditorShell() {
   useEffect(() => {
     filesRef.current = files;
   }, [files]);
+
+  // ---- Responsive layout state (additive; desktop >=1024px unaffected) ----
+  // Mobile: <768px -> stacked Code/Preview/Console panels. Tablet-down: <1024px -> drawer rail.
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTabletDown, setIsTabletDown] = useState(false);
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const drawerQuery = window.matchMedia("(max-width: 1023px)");
+    const update = () => {
+      setIsMobile(mobileQuery.matches);
+      setIsTabletDown(drawerQuery.matches);
+    };
+    update();
+    mobileQuery.addEventListener("change", update);
+    drawerQuery.addEventListener("change", update);
+    return () => {
+      mobileQuery.removeEventListener("change", update);
+      drawerQuery.removeEventListener("change", update);
+    };
+  }, []);
+
+  // Slide-out drawer state (replaces left icon rail below lg)
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  useEffect(() => {
+    if (!isTabletDown) setDrawerOpen(false);
+  }, [isTabletDown]);
+
+  // Mobile panel switcher: Code / Preview / Console
+  const [mobileView, setMobileView] = useState<"code" | "preview" | "console">("code");
+
+  // Mobile defaults: no minimap (toggle stays in Settings), readable font size without zoom
+  const effectiveMinimap = minimapEnabled && !isMobile;
+  const effectiveFontSize = isMobile ? Math.max(fontSize, 14) : fontSize;
 
   // Debounce refs for onChange
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -884,6 +918,71 @@ export default function EditorShell() {
     { name: "script.js", icon: Braces },
   ];
 
+  // Shared preview iframe (single source of truth — used by desktop split-pane and mobile panel;
+  // only one is ever mounted at a time so previewRef stays valid)
+  const previewFrame = (
+    <iframe
+      ref={previewRef}
+      key={previewRevision}
+      title="Live preview"
+      srcDoc={previewHtml}
+      sandbox="allow-scripts allow-same-origin"
+      className="h-full w-full border-0"
+      loading="lazy"
+      referrerPolicy="no-referrer"
+    />
+  );
+
+  // Shared console log body (desktop split-pane + mobile console panel)
+  const consoleLogBody = (
+    <div
+      ref={consoleContainerRef}
+      onScroll={handleConsoleScroll}
+      className="flex-1 overflow-y-auto bg-zinc-950 p-2 font-mono text-xs"
+    >
+      {consoleEntries.length === 0 ? (
+        <div className="flex h-full items-center justify-center text-zinc-500">
+          <span className="flex items-center gap-1.5">
+            <Terminal className="h-3.5 w-3.5" />
+            Console — Click Run to start · logs clear per run
+          </span>
+        </div>
+      ) : (
+        <div className="space-y-1">
+          {consoleEntries.map((entry) => (
+            <div
+              key={entry.id}
+              className={cn(
+                "flex gap-2 rounded px-1 py-0.5",
+                entry.level === "error" && "bg-red-950/40 text-red-300",
+                entry.level === "warn" && "bg-amber-950/30 text-amber-300",
+                entry.level === "log" && "text-zinc-100"
+              )}
+            >
+              <span className="mt-0.5 shrink-0">
+                {entry.level === "error" ? (
+                  <AlertCircle className="h-3.5 w-3.5 text-red-400" />
+                ) : entry.level === "warn" ? (
+                  <AlertTriangle className="h-3.5 w-3.5 text-amber-400" />
+                ) : (
+                  <Terminal className="h-3.5 w-3.5 text-zinc-400" />
+                )}
+              </span>
+              <span className="min-w-0 flex-1 break-words whitespace-pre-wrap">{entry.message}</span>
+              <span className="shrink-0 text-[10px] text-zinc-500">
+                {new Date(entry.timestamp).toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  second: "2-digit",
+                })}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <TooltipProvider>
       {/* Mobile viewport barrier (< 768px) */}
@@ -919,8 +1018,89 @@ export default function EditorShell() {
 
       {/* Main editor workspace */}
       <div className={cn("h-[calc(100vh-3.5rem)] min-h-[540px] overflow-hidden bg-background", !dismissMobileWarning ? "hidden md:flex" : "flex")}>
+        {/* Mobile/tablet slide-out drawer — replaces the left icon rail below lg */}
+        {isTabletDown && drawerOpen && (
+          <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Files menu">
+            <div className="absolute inset-0 bg-black/60" onClick={() => setDrawerOpen(false)} aria-hidden="true" />
+            <div className="absolute inset-y-0 left-0 flex w-64 max-w-[80vw] flex-col border-r bg-background shadow-xl">
+              <div className="flex h-10 shrink-0 items-center justify-between border-b px-3 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                <span>Files</span>
+                <button
+                  onClick={() => setDrawerOpen(false)}
+                  aria-label="Close menu"
+                  className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+              <div className="space-y-0.5 overflow-y-auto p-2">
+                <div className="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Project Files
+                </div>
+                {tabs.map((tab) => {
+                  const isActive = activeTab === tab.name;
+                  return (
+                    <button
+                      key={tab.name}
+                      onClick={() => {
+                        handleTabSwitch(tab.name);
+                        setDrawerOpen(false);
+                      }}
+                      className={cn(
+                        "flex w-full items-center gap-2 rounded-md px-2.5 py-2.5 text-xs font-medium transition-colors",
+                        isActive
+                          ? "bg-accent font-semibold text-accent-foreground"
+                          : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                      )}
+                    >
+                      <tab.icon className={cn("h-4 w-4 shrink-0", isActive ? "text-[#6366f1]" : "text-muted-foreground")} />
+                      <span className="truncate">{tab.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="mt-auto space-y-0.5 border-t p-2">
+                <button
+                  onClick={() => {
+                    handleSearchClick();
+                    setDrawerOpen(false);
+                  }}
+                  className="flex w-full items-center gap-2 rounded-md px-2.5 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+                >
+                  <Search className="h-4 w-4 shrink-0" /> Search
+                </button>
+                <button
+                  onClick={() => {
+                    setTemplatesOpen(true);
+                    setDrawerOpen(false);
+                  }}
+                  className="flex w-full items-center gap-2 rounded-md px-2.5 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+                >
+                  <LayoutTemplate className="h-4 w-4 shrink-0" /> Templates
+                </button>
+                <button
+                  onClick={() => {
+                    setSettingsOpen(true);
+                    setDrawerOpen(false);
+                  }}
+                  className="flex w-full items-center gap-2 rounded-md px-2.5 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+                >
+                  <Settings className="h-4 w-4 shrink-0" /> Settings
+                </button>
+                <button
+                  onClick={toggleTheme}
+                  className="flex w-full items-center gap-2 rounded-md px-2.5 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+                >
+                  {isDark ? <Sun className="h-4 w-4 shrink-0" /> : <Moon className="h-4 w-4 shrink-0" />}
+                  {isDark ? "Light theme" : "Dark theme"}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Left icon rail */}
-        <aside className="flex w-12 shrink-0 flex-col items-center justify-between border-r bg-muted/20 py-3 dark:bg-zinc-900/40">
+        <aside className="hidden w-12 shrink-0 flex-col items-center justify-between border-r bg-muted/20 py-3 dark:bg-zinc-900/40 lg:flex">
           <div className="flex flex-col items-center gap-1">
             <IconButton
               icon={Files}
@@ -988,7 +1168,14 @@ export default function EditorShell() {
           {/* Top bar */}
           <div className="flex h-10 shrink-0 items-center justify-between border-b bg-background px-3">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-md border bg-muted/40 px-2 py-1 text-xs font-medium">
+              <button
+                onClick={() => setDrawerOpen(true)}
+                aria-label="Open menu"
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground lg:hidden"
+              >
+                <Menu className="h-4 w-4" />
+              </button>
+              <span className="inline-flex shrink-0 items-center gap-1.5 rounded-md border bg-muted/40 px-2 py-1 text-xs font-medium">
                 <span className="h-2 w-2 rounded-full bg-orange-500" />
                 HTML
               </span>
@@ -1000,7 +1187,7 @@ export default function EditorShell() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-7 w-7"
+                    className="hidden h-7 w-7 sm:inline-flex"
                     aria-label="Templates"
                     onClick={() => setTemplatesOpen(true)}
                   >
@@ -1027,7 +1214,7 @@ export default function EditorShell() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="More options">
+                      <Button variant="ghost" size="icon" className="hidden h-7 w-7 sm:inline-flex" aria-label="More options">
                         <MoreVertical className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
@@ -1055,13 +1242,13 @@ export default function EditorShell() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <div className="mx-1 h-4 w-px bg-border" />
+              <div className="mx-1 hidden h-4 w-px bg-border sm:block" />
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-7 w-7"
+                    className="hidden h-7 w-7 sm:inline-flex"
                     aria-label="Toggle theme"
                     onClick={toggleTheme}
                   >
@@ -1072,7 +1259,7 @@ export default function EditorShell() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Save" onClick={handleSave}>
+                  <Button variant="ghost" size="icon" className="hidden h-7 w-7 sm:inline-flex" aria-label="Save" onClick={handleSave}>
                     <Save className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
@@ -1083,7 +1270,7 @@ export default function EditorShell() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-7 w-7"
+                    className="hidden h-7 w-7 sm:inline-flex"
                     aria-label="Share"
                     onClick={handleShare}
                     disabled={isSharing}
@@ -1097,7 +1284,7 @@ export default function EditorShell() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Export">
+                      <Button variant="ghost" size="icon" className="hidden h-7 w-7 sm:inline-flex" aria-label="Export">
                         <Download className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
@@ -1132,6 +1319,45 @@ export default function EditorShell() {
                   </DropdownMenuSub>
                 </DropdownMenuContent>
               </DropdownMenu>
+              {/* Mobile overflow menu — collapses Save/Share/Export/Templates/More into "..." */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="h-7 w-7 sm:hidden" aria-label="More options">
+                    <MoreVertical className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem onClick={() => setTemplatesOpen(true)}>
+                    <LayoutTemplate className="mr-2 h-4 w-4" />
+                    Templates
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleSave}>
+                    <Save className="mr-2 h-4 w-4" />
+                    Save
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleShare} disabled={isSharing}>
+                    <Share2 className="mr-2 h-4 w-4" />
+                    Share
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleDownloadZip}>
+                    <FileArchive className="mr-2 h-4 w-4" />
+                    Download ZIP
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleCopyActive}>
+                    <Copy className="mr-2 h-4 w-4" />
+                    Copy {activeTab}
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => setShortcutsOpen(true)}>
+                    <Keyboard className="mr-2 h-4 w-4" />
+                    Keyboard Shortcuts
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={toggleTheme}>
+                    {isDark ? <Sun className="mr-2 h-4 w-4" /> : <Moon className="mr-2 h-4 w-4" />}
+                    {isDark ? "Light theme" : "Dark theme"}
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
 
@@ -1144,7 +1370,7 @@ export default function EditorShell() {
                   key={tab.name}
                   onClick={() => handleTabSwitch(tab.name)}
                   className={cn(
-                    "flex h-full items-center gap-1.5 border-r px-3 text-xs font-medium transition-colors",
+                    "flex h-full items-center gap-1.5 border-r px-2 text-[11px] font-medium transition-colors sm:px-3 sm:text-xs",
                     isActive
                       ? "bg-background text-foreground border-t-2 border-t-[#6366f1]"
                       : "bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground"
@@ -1178,7 +1404,8 @@ export default function EditorShell() {
             </span>
           </div>
 
-          {/* Main split */}
+          {/* Main split — desktop/tablet split-pane (unchanged at >=768px) */}
+          {!isMobile && (
           <div className="flex min-h-0 flex-1">
             <PanelGroup orientation="horizontal" className="flex-1">
               <Panel defaultSize={55} minSize={25} className="flex flex-col">
@@ -1190,8 +1417,8 @@ export default function EditorShell() {
                       language={LANGUAGE_MAP[activeTab]}
                       value={files[activeTab]}
                       theme={theme}
-                      minimap={minimapEnabled}
-                      fontSize={fontSize}
+                      minimap={effectiveMinimap}
+                      fontSize={effectiveFontSize}
                       onMount={handleEditorMount}
                       onChange={handleEditorChange}
                     />
@@ -1230,54 +1457,7 @@ export default function EditorShell() {
                         </Button>
                       </div>
                     </div>
-                    {consoleOpen ? (
-                      <div
-                        ref={consoleContainerRef}
-                        onScroll={handleConsoleScroll}
-                        className="flex-1 overflow-y-auto bg-zinc-950 p-2 font-mono text-xs"
-                      >
-                        {consoleEntries.length === 0 ? (
-                          <div className="flex h-full items-center justify-center text-zinc-500">
-                            <span className="flex items-center gap-1.5">
-                              <Terminal className="h-3.5 w-3.5" />
-                              Console — Click Run to start · logs clear per run
-                            </span>
-                          </div>
-                        ) : (
-                          <div className="space-y-1">
-                            {consoleEntries.map((entry) => (
-                              <div
-                                key={entry.id}
-                                className={cn(
-                                  "flex gap-2 rounded px-1 py-0.5",
-                                  entry.level === "error" && "bg-red-950/40 text-red-300",
-                                  entry.level === "warn" && "bg-amber-950/30 text-amber-300",
-                                  entry.level === "log" && "text-zinc-100"
-                                )}
-                              >
-                                <span className="mt-0.5 shrink-0">
-                                  {entry.level === "error" ? (
-                                    <AlertCircle className="h-3.5 w-3.5 text-red-400" />
-                                  ) : entry.level === "warn" ? (
-                                    <AlertTriangle className="h-3.5 w-3.5 text-amber-400" />
-                                  ) : (
-                                    <Terminal className="h-3.5 w-3.5 text-zinc-400" />
-                                  )}
-                                </span>
-                                <span className="min-w-0 flex-1 break-words whitespace-pre-wrap">{entry.message}</span>
-                                <span className="shrink-0 text-[10px] text-zinc-500">
-                                  {new Date(entry.timestamp).toLocaleTimeString([], {
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                    second: "2-digit",
-                                  })}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ) : null}
+                    {consoleOpen ? consoleLogBody : null}
                   </div>
                 </div>
               </Panel>
@@ -1288,22 +1468,86 @@ export default function EditorShell() {
                     <span className="text-xs font-semibold">Preview</span>
                     <span className="hidden text-[11px] text-muted-foreground sm:inline">sandboxed iframe · srcDoc — auto-updates after 400ms · Run to force</span>
                   </div>
-                  <div className="flex flex-1 bg-white dark:bg-zinc-950">
-                    <iframe
-                      ref={previewRef}
-                      key={previewRevision}
-                      title="Live preview"
-                      srcDoc={previewHtml}
-                      sandbox="allow-scripts allow-same-origin"
-                      className="h-full w-full border-0"
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
+                  <div className="flex flex-1 bg-white dark:bg-zinc-950">{previewFrame}</div>
                 </div>
               </Panel>
             </PanelGroup>
           </div>
+          )}
+
+          {/* Mobile stacked panels — Code / Preview / Console (< 768px) */}
+          {isMobile && (
+            <div className="flex min-h-0 flex-1 flex-col">
+              <div className="flex h-9 shrink-0 items-stretch border-b bg-muted/30" role="tablist" aria-label="Editor panels">
+                {(["code", "preview", "console"] as const).map((mv) => (
+                  <button
+                    key={mv}
+                    role="tab"
+                    aria-selected={mobileView === mv}
+                    onClick={() => {
+                      setMobileView(mv);
+                      if (mv === "console") setConsoleOpen(true);
+                    }}
+                    className={cn(
+                      "flex flex-1 items-center justify-center gap-1.5 border-r text-xs font-medium capitalize transition-colors last:border-r-0",
+                      mobileView === mv
+                        ? "border-t-2 border-t-[#6366f1] bg-background text-foreground"
+                        : "bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                    )}
+                  >
+                    {mv === "code" ? (
+                      <FileCode className="h-3.5 w-3.5" />
+                    ) : mv === "preview" ? (
+                      <Monitor className="h-3.5 w-3.5" />
+                    ) : (
+                      <Terminal className="h-3.5 w-3.5" />
+                    )}
+                    {mv}
+                    {mv === "console" && mobileView !== "console" && unreadCount > 0 && (
+                      <span className="inline-flex min-w-[16px] justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold leading-4 text-white">
+                        {unreadCount}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+              <div className="min-h-0 flex-1">
+                {/* All three panels stay mounted so editor state / iframe / console survive tab switches */}
+                <div className={cn("h-full", mobileView !== "code" && "hidden")}>
+                  <CodeEditor
+                    path={activeTab}
+                    language={LANGUAGE_MAP[activeTab]}
+                    value={files[activeTab]}
+                    theme={theme}
+                    minimap={effectiveMinimap}
+                    fontSize={effectiveFontSize}
+                    touchMode
+                    onMount={handleEditorMount}
+                    onChange={handleEditorChange}
+                  />
+                </div>
+                <div className={cn("flex h-full flex-col bg-muted/5", mobileView !== "preview" && "hidden")}>
+                  <div className="flex h-9 shrink-0 items-center justify-between border-b bg-muted/20 px-3">
+                    <span className="text-xs font-semibold">Preview</span>
+                    <span className="text-[11px] text-muted-foreground">sandboxed iframe · Run to refresh</span>
+                  </div>
+                  <div className="flex flex-1 bg-white dark:bg-zinc-950">{previewFrame}</div>
+                </div>
+                <div className={cn("flex h-full flex-col bg-background", mobileView !== "console" && "hidden")}>
+                  <div className="flex h-9 shrink-0 items-center justify-between border-b bg-muted/20 px-3">
+                    <span className="flex items-center gap-1.5 text-xs font-semibold">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                      Console
+                    </span>
+                    <Button variant="ghost" size="icon" className="h-6 w-6" aria-label="Clear console" onClick={clearConsole}>
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </Button>
+                  </div>
+                  {consoleLogBody}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Status bar */}
           <div className="flex h-6 shrink-0 items-center justify-between border-t bg-[#6366f1] px-3 text-[11px] font-medium text-white dark:bg-[#4f52e0]">
@@ -1331,7 +1575,7 @@ export default function EditorShell() {
 
       {/* Templates Library Dialog */}
       <Dialog open={templatesOpen} onOpenChange={(open) => { setTemplatesOpen(open); if (!open) setSearchQuery(""); }}>
-        <DialogContent className="max-h-[80vh] max-w-3xl overflow-hidden p-0">
+        <DialogContent className="sm:max-h-[80vh] sm:max-w-3xl overflow-hidden p-0">
           <DialogHeader className="border-b px-6 py-4">
             <DialogTitle className="flex items-center gap-2">
               <LayoutTemplate className="h-5 w-5 text-[#6366f1]" />
@@ -1386,7 +1630,7 @@ export default function EditorShell() {
 
       {/* Unsaved changes confirmation for Templates */}
       <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Replace your current code?</DialogTitle>
             <DialogDescription>
@@ -1411,7 +1655,7 @@ export default function EditorShell() {
 
       {/* Unsaved changes confirmation for Shared Code */}
       <Dialog open={shareConfirmOpen} onOpenChange={setShareConfirmOpen}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Replace your current code?</DialogTitle>
             <DialogDescription>
@@ -1443,7 +1687,7 @@ export default function EditorShell() {
 
       {/* Reset to Default confirmation dialog */}
       <Dialog open={resetConfirmOpen} onOpenChange={setResetConfirmOpen}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Reset to default?</DialogTitle>
             <DialogDescription>
@@ -1469,7 +1713,7 @@ export default function EditorShell() {
 
       {/* Keyboard Shortcuts Dialog */}
       <Dialog open={shortcutsOpen} onOpenChange={setShortcutsOpen}>
-        <DialogContent className="max-w-lg">
+        <DialogContent className="sm:max-w-lg">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <Keyboard className="h-5 w-5 text-[#6366f1]" />
@@ -1569,7 +1813,7 @@ export default function EditorShell() {
 
       {/* Settings / Preferences Dialog */}
       <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <Settings className="h-5 w-5 text-[#6366f1]" />
