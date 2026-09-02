@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "locale": "ja",
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    }
+  },
+  "app": {
+    "htmlLang": "ja",
+    "title": "LadeCompile — Free Online HTML/CSS/JS Editor",
+    "description": "高速・無料・集中できる HTML、CSS、JavaScript オンラインエディタ。インスタントライブプレビュー、ゼロセットアップ。LadeStack 製。",
+    "themeColor": "#6366f1"
+  },
+  "topNav": {
+    "home": "ホーム",
+    "features": "機能",
+    "templates": "テンプレート",
+    "blog": "ブログ",
+    "ladestack": "LadeStack ↗",
+    "overview": "概要",
+    "ariaLabel": "メインナビゲーション"
+  },
+  "topbar": {
+    "badge": "HTML / CSS / JS — ログイン不要",
+    "htmlBadge": "HTML",
+    "run": "実行",
+    "templates": "テンプレート",
+    "moreOptions": "その他",
+    "toggleTheme": "テーマ切替",
+    "save": "保存",
+    "share": "共有",
+    "export": "エクスポート",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "filesMenu": "ファイルメニュー"
+  },
+  "tabs": {
+    "indexHtml": "index.html",
+    "stylesCss": "styles.css",
+    "scriptJs": "script.js"
+  },
+  "explorer": {
+    "title": "エクスプローラー",
+    "closeExplorer": "エクスプローラーを閉じる",
+    "projectFiles": "プロジェクトファイル",
+    "files": "ファイル",
+    "search": "検索",
+    "searchHint": "検索 (Ctrl+F)",
+    "settings": "設定"
+  },
+  "drawer": {
+    "title": "ファイル",
+    "projectFiles": "プロジェクトファイル",
+    "search": "検索",
+    "templates": "テンプレート",
+    "settings": "設定",
+    "lightTheme": "ライトテーマ",
+    "darkTheme": "ダークテーマ"
+  },
+  "settings": {
+    "title": "設定",
+    "description": "エディタの設定をカスタマイズします。",
+    "theme": "テーマ",
+    "themeLight": "ライト",
+    "themeDark": "ダーク",
+    "toggleTheme": "テーマ切替",
+    "language": "言語",
+    "languageDescription": "エディタの表示言語を選択します。",
+    "fontSize": "フォントサイズ",
+    "fontSizeDescription": "エディタの文字サイズ（ピクセル）。",
+    "minimap": "ミニマップ",
+    "minimapDescription": "エディタにコードのミニマップを表示します。",
+    "minimapEnabled": "ミニマップを有効化しました",
+    "minimapDisabled": "ミニマップを無効化しました",
+    "fontSizeSet": "フォントサイズ: {size}px",
+    "resetToDefault": "デフォルトにリセット",
+    "keyboardShortcuts": "キーボードショートカット"
+  },
+  "moreMenu": {
+    "formatCode": "コードを整形",
+    "resetToDefault": "デフォルトにリセット",
+    "minimap": "ミニマップ",
+    "keyboardShortcuts": "キーボードショートカット",
+    "export": "エクスポート"
+  },
+  "console": {
+    "title": "コンソール",
+    "badge": "コンソール",
+    "ready": "準備完了",
+    "warnings": "{warnings} 警告、{errors} エラー",
+    "empty": "コンソール — 実行をクリックして開始 · ログは実行ごとにクリアされます",
+    "clear": "クリア",
+    "clearAriaLabel": "コンソールをクリア",
+    "toggleExpand": "コンソールを展開",
+    "toggleCollapse": "コンソールを折りたたむ",
+    "postBridgeActive": "PostMessage ブリッジ有効",
+    "livePreview": "ライブプレビュー",
+    "consoleLabel": "コンソール:",
+    "unreadBadge": "{count} 件の新着",
+    "truncated": "…（省略）",
+    "autoScroll": "自動スクロール有効"
+  },
+  "preview": {
+    "title": "ライブプレビュー",
+    "sandboxedNote": "サンドボックスプレビューを 60fps で描画",
+    "postMessageActive": "PostMessage ブリッジ有効",
+    "loadingMonaco": "Monaco を読み込み中..."
+  },
+  "templates": {
+    "title": "テンプレート",
+    "description": "スターターテンプレートを選んでコーディングを開始します。",
+    "searchPlaceholder": "テンプレートを検索…",
+    "noResults": "「{query}」に一致するテンプレートがありません",
+    "loadTemplate": "テンプレートを読み込む",
+    "useTemplate": "テンプレートを使用",
+    "categories": {
+      "starters": "スターター",
+      "layouts": "レイアウト",
+      "components": "コンポーネント",
+      "forms": "フォーム"
+    },
+    "confirmOverwrite": {
+      "title": "現在の編集を上書きしますか？",
+      "description": "「{name}」を読み込むと現在の HTML、CSS、JavaScript が置き換わります。リセットしない限り元に戻せません。",
+      "cancel": "キャンセル",
+      "load": "テンプレートを読み込む",
+      "confirm": "続行"
+    }
+  },
+  "shortcuts": {
+    "title": "キーボードショートカット",
+    "description": "エディタのキーボードショートカット早見表。",
+    "save": "保存 / コンパイル",
+    "saveShortcut": "Cmd/Ctrl + S",
+    "find": "検索 & 置換",
+    "findShortcut": "Cmd/Ctrl + F",
+    "format": "コードを整形",
+    "formatAction": "editor.action.formatDocument",
+    "run": "プレビューを実行",
+    "toggleMinimap": "ミニマップ切替",
+    "toggleMinimapHint": "設定メニュー",
+    "close": "閉じる"
+  },
+  "export": {
+    "downloadZip": "ZIP をダウンロード",
+    "copyActive": "{tab} をコピー",
+    "copyCombined": "結合 HTML をコピー",
+    "screenshot": "スクリーンショット",
+    "screenshotPng": "PNG でスクリーンショット",
+    "screenshotJpeg": "JPEG でスクリーンショット",
+    "generatingZip": "ZIP アーカイブを生成中...",
+    "zipDownloaded": "ZIP をダウンロードしました",
+    "zipDescription": "LadeCompile-export.zip — 3 ファイル",
+    "zipFailed": "ZIP のダウンロードに失敗しました",
+    "copiedToClipboard": "クリップボードにコピーしました",
+    "copiedActiveDesc": "{tab} — {count} 文字",
+    "copiedCombinedTitle": "結合 HTML をコピーしました",
+    "copiedCombinedDesc": "プレビュー全体をコピーしました",
+    "copyFailed": "コピーに失敗しました — クリップボードの権限がありません",
+    "capturingScreenshot": "プレビューを {format} としてキャプチャ中...",
+    "screenshotDownloaded": "スクリーンショットを {format} としてダウンロードしました",
+    "screenshotFailed": "スクリーンショットの取得に失敗しました",
+    "screenshotNotReady": "スクリーンショットの取得に失敗しました — プレビューの準備ができていません",
+    "screenshotExternal": "スクリーンショットの取得に失敗しました — プレビューに外部コンテンツが含まれている可能性があります"
+  },
+  "share": {
+    "copiedTitle": "共有リンクをコピーしました",
+    "hashCopiedDesc": "URL ハッシュリンクをコピーしました — ログイン不要",
+    "kvGenerating": "共有リンクを生成中...",
+    "kvCopiedDesc": "Cloudflare KV 経由で短縮リンクを作成しました — ログイン不要",
+    "generatedTitle": "共有リンクを生成しました",
+    "failedTitle": "共有に失敗しました",
+    "failedDesc": "共有リンクの作成に失敗しました。",
+    "kvFailed": "Failed to generate share link.",
+    "shareNotFound": "共有リンクが見つからないか期限切れです",
+    "invalidResponse": "レスポンス形式が無効です",
+    "couldNotLoad": "共有コードを読み込めませんでした — デフォルトテンプレートを表示します",
+    "loaded": "共有コードを読み込みました",
+    "loadedDesc": "共有リンクからコードを復元しました",
+    "confirmOverwrite": {
+      "title": "共有コードを読み込みますか？",
+      "description": "保存されていない変更があります。共有コードを読み込むとローカルの編集が上書きされます。",
+      "keepLocal": "ローカルを保持",
+      "loadShared": "共有コードを読み込む",
+      "discardLocal": "ローカルの編集を破棄"
+    }
+  },
+  "save": {
+    "saved": "保存しました",
+    "saveFailed": "保存に失敗しました",
+    "alreadyDefault": "すでにデフォルトのスターターテンプレートを表示しています",
+    "resetConfirmTitle": "デフォルトテンプレートにリセットしますか？",
+    "resetConfirmDesc": "HTML、CSS、JavaScript がデフォルトのスターターに置き換わります。現在の編集は失われます。",
+    "resetCancel": "キャンセル",
+    "resetConfirm": "リセット",
+    "resetDone": "デフォルトテンプレートにリセットしました"
+  },
+  "format": {
+    "success": "コードを整形しました",
+    "notAvailable": "このファイルでは整形を利用できません",
+    "notReady": "エディタはまだ整形の準備ができていません"
+  },
+  "search": {
+    "loadingEditor": "エディタを読み込み中..."
+  },
+  "minimap": {
+    "enabled": "ミニマップを有効化しました",
+    "disabled": "ミニマップを無効化しました"
+  },
+  "mobile": {
+    "title": "デスクトップでの利用を推奨",
+    "body": "LadeCompile は大きな画面で最適に動作します。デスクトップに切り替えるか、タブレットを横向きにして複数タブのコード編集とライブプレビューをご利用ください。",
+    "backToHomepage": "ホームに戻る",
+    "continueToMobile": "モバイルエディタで続行",
+    "mobileViewCode": "コード",
+    "mobileViewPreview": "プレビュー",
+    "mobileViewConsole": "コンソール"
+  },
+  "tooltips": {
+    "explorer": "エクスプローラー",
+    "search": "検索 (Ctrl+F)",
+    "settings": "設定",
+    "templates": "テンプレート",
+    "run": "実行",
+    "moreOptions": "その他",
+    "toggleTheme": "テーマ切替",
+    "save": "保存",
+    "share": "共有",
+    "export": "エクスポート"
+  },
+  "editor": {
+    "ariaLabel": "コードエディタ",
+    "tabAriaLabel": "エディタタブ {name}",
+    "activeTab": "アクティブなタブ"
+  },
+  "errors": {
+    "generic": {
+      "title": "問題が発生しました",
+      "description": "予期しないエラーが発生しました。もう一度お試しください。",
+      "retry": "再試行",
+      "backHome": "ホームに戻る",
+      "goToEditor": "エディタへ移動"
+    },
+    "notFound": {
+      "title": "ページが見つかりません",
+      "heading": "404 — 見つかりません",
+      "description": "このアドレスのエディタは存在しません。",
+      "backHome": "ホームに戻る",
+      "goToEditor": "エディタを開く",
+      "backToHomepage": "ホームに戻る"
+    },
+    "editorError": {
+      "title": "エディタエラー",
+      "description": "エディタの読み込みに失敗しました。リセットをお試しください。",
+      "retry": "再試行"
+    },
+    "shareError": "共有リンクが見つからないか期限切れです",
+    "consoleTruncated": "…（省略）",
+    "localStorageFailed": "エディタの状態を localStorage に保存できませんでした"
+  },
+  "common": {
+    "cancel": "キャンセル",
+    "confirm": "Confirm",
+    "close": "閉じる",
+    "loading": "読み込み中...",
+    "save": "保存",
+    "share": "共有",
+    "export": "エクスポート",
+    "copy": "コピー",
+    "download": "ダウンロード",
+    "reset": "リセット",
+    "continue": "続行",
+    "discard": "破棄",
+    "retry": "再試行",
+    "soon": "近日公開"
+  }
+}

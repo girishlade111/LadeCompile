@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "locale": "ko",
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    }
+  },
+  "app": {
+    "htmlLang": "ko",
+    "title": "LadeCompile — Free Online HTML/CSS/JS Editor",
+    "description": "빠르고 무료이며 방해 없는 HTML, CSS, JavaScript 온라인 에디터. 즉시 라이브 미리보기, 제로 설정. LadeStack 제공.",
+    "themeColor": "#6366f1"
+  },
+  "topNav": {
+    "home": "홈",
+    "features": "기능",
+    "templates": "템플릿",
+    "blog": "블로그",
+    "ladestack": "LadeStack ↗",
+    "overview": "개요",
+    "ariaLabel": "주 내비게이션"
+  },
+  "topbar": {
+    "badge": "HTML / CSS / JS — 로그인 불필요",
+    "htmlBadge": "HTML",
+    "run": "실행",
+    "templates": "템플릿",
+    "moreOptions": "더보기",
+    "toggleTheme": "테마 전환",
+    "save": "저장",
+    "share": "공유",
+    "export": "내보내기",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기",
+    "filesMenu": "파일 메뉴"
+  },
+  "tabs": {
+    "indexHtml": "index.html",
+    "stylesCss": "styles.css",
+    "scriptJs": "script.js"
+  },
+  "explorer": {
+    "title": "탐색기",
+    "closeExplorer": "탐색기 닫기",
+    "projectFiles": "프로젝트 파일",
+    "files": "파일",
+    "search": "검색",
+    "searchHint": "검색 (Ctrl+F)",
+    "settings": "설정"
+  },
+  "drawer": {
+    "title": "파일",
+    "projectFiles": "프로젝트 파일",
+    "search": "검색",
+    "templates": "템플릿",
+    "settings": "설정",
+    "lightTheme": "라이트 테마",
+    "darkTheme": "다크 테마"
+  },
+  "settings": {
+    "title": "설정",
+    "description": "에디터 환경설정을 사용자 정의하세요.",
+    "theme": "테마",
+    "themeLight": "라이트",
+    "themeDark": "다크",
+    "toggleTheme": "테마 전환",
+    "language": "언어",
+    "languageDescription": "에디터 인터페이스 언어를 선택하세요.",
+    "fontSize": "글자 크기",
+    "fontSizeDescription": "에디터 글자 크기(픽셀).",
+    "minimap": "미니맵",
+    "minimapDescription": "에디터에 코드 미니맵을 표시합니다.",
+    "minimapEnabled": "미니맵 켜짐",
+    "minimapDisabled": "미니맵 꺼짐",
+    "fontSizeSet": "글자 크기: {size}px",
+    "resetToDefault": "기본값으로 초기화",
+    "keyboardShortcuts": "키보드 단축키"
+  },
+  "moreMenu": {
+    "formatCode": "코드 포맷",
+    "resetToDefault": "기본값으로 초기화",
+    "minimap": "미니맵",
+    "keyboardShortcuts": "키보드 단축키",
+    "export": "내보내기"
+  },
+  "console": {
+    "title": "콘솔",
+    "badge": "콘솔",
+    "ready": "준비됨",
+    "warnings": "경고 {warnings}개, 오류 {errors}개",
+    "empty": "콘솔 — 실행을 클릭하여 시작 · 로그는 실행마다 초기화됩니다",
+    "clear": "지우기",
+    "clearAriaLabel": "콘솔 지우기",
+    "toggleExpand": "콘솔 펼치기",
+    "toggleCollapse": "콘솔 접기",
+    "postBridgeActive": "PostMessage 브리지 활성",
+    "livePreview": "라이브 미리보기",
+    "consoleLabel": "콘솔:",
+    "unreadBadge": "{count}개 새로 있음",
+    "truncated": "… (잘림)",
+    "autoScroll": "자동 스크롤 켜짐"
+  },
+  "preview": {
+    "title": "라이브 미리보기",
+    "sandboxedNote": "샌드박스 미리보기 60fps 렌더링",
+    "postMessageActive": "PostMessage 브리지 활성",
+    "loadingMonaco": "Monaco 로딩 중..."
+  },
+  "templates": {
+    "title": "템플릿",
+    "description": "코딩을 시작할 스타터 템플릿을 선택하세요.",
+    "searchPlaceholder": "템플릿 검색…",
+    "noResults": "\"{query}\"와 일치하는 템플릿이 없습니다",
+    "loadTemplate": "템플릿 불러오기",
+    "useTemplate": "템플릿 사용",
+    "categories": {
+      "starters": "스타터",
+      "layouts": "레이아웃",
+      "components": "컴포넌트",
+      "forms": "폼"
+    },
+    "confirmOverwrite": {
+      "title": "현재 편집 내용을 덮어쓰시겠습니까?",
+      "description": "\"{name}\"을(를) 불러오면 현재 HTML, CSS, JavaScript가 교체됩니다. 초기화 없이는 되돌릴 수 없습니다.",
+      "cancel": "취소",
+      "load": "템플릿 불러오기",
+      "confirm": "계속"
+    }
+  },
+  "shortcuts": {
+    "title": "키보드 단축키",
+    "description": "에디터 키보드 단축키 빠른 참조.",
+    "save": "저장 / 컴파일",
+    "saveShortcut": "Cmd/Ctrl + S",
+    "find": "찾기 및 바꾸기",
+    "findShortcut": "Cmd/Ctrl + F",
+    "format": "코드 포맷",
+    "formatAction": "editor.action.formatDocument",
+    "run": "미리보기 실행",
+    "toggleMinimap": "미니맵 전환",
+    "toggleMinimapHint": "환경설정 메뉴",
+    "close": "닫기"
+  },
+  "export": {
+    "downloadZip": "ZIP 다운로드",
+    "copyActive": "{tab} 복사",
+    "copyCombined": "결합된 HTML 복사",
+    "screenshot": "스크린샷",
+    "screenshotPng": "PNG로 스크린샷",
+    "screenshotJpeg": "JPEG로 스크린샷",
+    "generatingZip": "ZIP 아카이브 생성 중...",
+    "zipDownloaded": "ZIP 다운로드됨",
+    "zipDescription": "LadeCompile-export.zip — 3개 파일",
+    "zipFailed": "ZIP 다운로드 실패",
+    "copiedToClipboard": "클립보드에 복사됨",
+    "copiedActiveDesc": "{tab} — {count}자",
+    "copiedCombinedTitle": "결합된 HTML이 복사됨",
+    "copiedCombinedDesc": "전체 미리보기 문서가 복사됨",
+    "copyFailed": "복사 실패 — 클립보드 권한 거부됨",
+    "capturingScreenshot": "미리보기를 {format}(으)로 캡처 중...",
+    "screenshotDownloaded": "스크린샷이 {format}(으)로 다운로드됨",
+    "screenshotFailed": "스크린샷 캡처 실패",
+    "screenshotNotReady": "스크린샷 캡처 실패 — 미리보기가 준비되지 않음",
+    "screenshotExternal": "스크린샷 캡처 실패 — 미리보기에 외부 콘텐츠가 포함될 수 있음"
+  },
+  "share": {
+    "copiedTitle": "공유 링크가 클립보드에 복사됨",
+    "hashCopiedDesc": "URL 해시 링크 복사됨 — 로그인 불필요",
+    "kvGenerating": "공유 링크 생성 중...",
+    "kvCopiedDesc": "Cloudflare KV를 통해 단축 링크 생성됨 — 로그인 불필요",
+    "generatedTitle": "공유 링크 생성됨",
+    "failedTitle": "공유 실패",
+    "failedDesc": "공유 링크 생성 실패.",
+    "kvFailed": "Failed to generate share link.",
+    "shareNotFound": "공유 링크를 찾을 수 없거나 만료됨",
+    "invalidResponse": "잘못된 응답 형식",
+    "couldNotLoad": "공유 코드를 불러올 수 없음 — 기본 템플릿 표시",
+    "loaded": "공유 코드 불러옴",
+    "loadedDesc": "공유 링크에서 코드 복원됨",
+    "confirmOverwrite": {
+      "title": "공유 코드를 불러올까요?",
+      "description": "저장되지 않은 변경 사항이 있습니다. 공유 코드를 불러오면 로컬 편집이 덮어써집니다.",
+      "keepLocal": "로컬 유지",
+      "loadShared": "공유 코드 불러오기",
+      "discardLocal": "로컬 편집 버리기"
+    }
+  },
+  "save": {
+    "saved": "저장됨",
+    "saveFailed": "저장 실패",
+    "alreadyDefault": "이미 기본 스타터 템플릿이 표시 중",
+    "resetConfirmTitle": "기본 템플릿으로 초기화할까요?",
+    "resetConfirmDesc": "HTML, CSS, JavaScript가 기본 스타터로 교체됩니다. 현재 편집 내용은 사라집니다.",
+    "resetCancel": "취소",
+    "resetConfirm": "초기화",
+    "resetDone": "기본 템플릿으로 초기화됨"
+  },
+  "format": {
+    "success": "코드 포맷됨",
+    "notAvailable": "이 파일에서는 포맷을 사용할 수 없음",
+    "notReady": "에디터가 포맷 준비되지 않음"
+  },
+  "search": {
+    "loadingEditor": "에디터 로딩 중..."
+  },
+  "minimap": {
+    "enabled": "미니맵 켜짐",
+    "disabled": "미니맵 꺼짐"
+  },
+  "mobile": {
+    "title": "데스크톱 환경 권장",
+    "body": "LadeCompile은 큰 화면에서 가장 잘 작동합니다. 데스크톱으로 전환하거나 태블릿을 가로 모드로 회전하여 다중 탭 코드 편집과 라이브 미리보기를 이용하세요.",
+    "backToHomepage": "홈페이지로 돌아가기",
+    "continueToMobile": "모바일 에디터에서 계속",
+    "mobileViewCode": "코드",
+    "mobileViewPreview": "미리보기",
+    "mobileViewConsole": "콘솔"
+  },
+  "tooltips": {
+    "explorer": "탐색기",
+    "search": "검색 (Ctrl+F)",
+    "settings": "설정",
+    "templates": "템플릿",
+    "run": "실행",
+    "moreOptions": "더보기",
+    "toggleTheme": "테마 전환",
+    "save": "저장",
+    "share": "공유",
+    "export": "내보내기"
+  },
+  "editor": {
+    "ariaLabel": "코드 에디터",
+    "tabAriaLabel": "에디터 탭 {name}",
+    "activeTab": "활성 탭"
+  },
+  "errors": {
+    "generic": {
+      "title": "문제가 발생했습니다",
+      "description": "예기치 않은 오류가 발생했습니다. 다시 시도해 주세요.",
+      "retry": "다시 시도",
+      "backHome": "홈으로",
+      "goToEditor": "에디터로 이동"
+    },
+    "notFound": {
+      "title": "페이지를 찾을 수 없습니다",
+      "heading": "404 — 찾을 수 없음",
+      "description": "이 주소의 에디터가 존재하지 않습니다.",
+      "backHome": "홈으로",
+      "goToEditor": "에디터 열기",
+      "backToHomepage": "홈페이지로 돌아가기"
+    },
+    "editorError": {
+      "title": "에디터 오류",
+      "description": "에디터를 불러오지 못했습니다. 초기화를 시도해 보세요.",
+      "retry": "다시 시도"
+    },
+    "shareError": "공유 링크를 찾을 수 없거나 만료됨",
+    "consoleTruncated": "… (잘림)",
+    "localStorageFailed": "에디터 상태를 localStorage에 저장하지 못했습니다"
+  },
+  "common": {
+    "cancel": "취소",
+    "confirm": "Confirm",
+    "close": "닫기",
+    "loading": "로딩 중...",
+    "save": "저장",
+    "share": "공유",
+    "export": "내보내기",
+    "copy": "복사",
+    "download": "다운로드",
+    "reset": "초기화",
+    "continue": "계속",
+    "discard": "버리기",
+    "retry": "재시도",
+    "soon": "곧 출시"
+  }
+}

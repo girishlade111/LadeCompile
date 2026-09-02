@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "locale": "ru",
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    }
+  },
+  "app": {
+    "htmlLang": "ru",
+    "title": "LadeCompile — Free Online HTML/CSS/JS Editor",
+    "description": "Быстрый, бесплатный онлайн-редактор HTML, CSS и JavaScript без отвлечений с мгновенным предпросмотром и нулевой настройкой. Часть LadeStack.",
+    "themeColor": "#6366f1"
+  },
+  "topNav": {
+    "home": "Главная",
+    "features": "Возможности",
+    "templates": "Шаблоны",
+    "blog": "Блог",
+    "ladestack": "LadeStack ↗",
+    "overview": "Обзор",
+    "ariaLabel": "Основная навигация"
+  },
+  "topbar": {
+    "badge": "HTML / CSS / JS — без регистрации",
+    "htmlBadge": "HTML",
+    "run": "Запуск",
+    "templates": "Шаблоны",
+    "moreOptions": "Ещё",
+    "toggleTheme": "Сменить тему",
+    "save": "Сохранить",
+    "share": "Поделиться",
+    "export": "Экспорт",
+    "openMenu": "Открыть меню",
+    "closeMenu": "Закрыть меню",
+    "filesMenu": "Меню файлов"
+  },
+  "tabs": {
+    "indexHtml": "index.html",
+    "stylesCss": "styles.css",
+    "scriptJs": "script.js"
+  },
+  "explorer": {
+    "title": "Проводник",
+    "closeExplorer": "Закрыть проводник",
+    "projectFiles": "Файлы проекта",
+    "files": "Файлы",
+    "search": "Поиск",
+    "searchHint": "Поиск (Ctrl+F)",
+    "settings": "Настройки"
+  },
+  "drawer": {
+    "title": "Файлы",
+    "projectFiles": "Файлы проекта",
+    "search": "Поиск",
+    "templates": "Шаблоны",
+    "settings": "Настройки",
+    "lightTheme": "Светлая тема",
+    "darkTheme": "Тёмная тема"
+  },
+  "settings": {
+    "title": "Настройки",
+    "description": "Настройте предпочтения редактора.",
+    "theme": "Тема",
+    "themeLight": "Светлая",
+    "themeDark": "Тёмная",
+    "toggleTheme": "Сменить тему",
+    "language": "Язык",
+    "languageDescription": "Выберите язык интерфейса редактора.",
+    "fontSize": "Размер шрифта",
+    "fontSizeDescription": "Размер текста редактора в пикселях.",
+    "minimap": "Миникарта",
+    "minimapDescription": "Показывать миникарту кода в редакторе.",
+    "minimapEnabled": "Миникарта включена",
+    "minimapDisabled": "Миникарта отключена",
+    "fontSizeSet": "Размер шрифта: {size}px",
+    "resetToDefault": "Сброс",
+    "keyboardShortcuts": "Горячие клавиши"
+  },
+  "moreMenu": {
+    "formatCode": "Форматировать код",
+    "resetToDefault": "Сброс",
+    "minimap": "Миникарта",
+    "keyboardShortcuts": "Горячие клавиши",
+    "export": "Экспорт"
+  },
+  "console": {
+    "title": "Консоль",
+    "badge": "Консоль",
+    "ready": "Готово",
+    "warnings": "{warnings} предупреждений, {errors} ошибок",
+    "empty": "Консоль — нажмите Запуск для старта · логи очищаются при каждом запуске",
+    "clear": "Очистить",
+    "clearAriaLabel": "Очистить консоль",
+    "toggleExpand": "Развернуть консоль",
+    "toggleCollapse": "Свернуть консоль",
+    "postBridgeActive": "Мост PostMessage активен",
+    "livePreview": "Живой предпросмотр",
+    "consoleLabel": "Консоль:",
+    "unreadBadge": "{count} новых",
+    "truncated": "… (обрезано)",
+    "autoScroll": "Автопрокрутка включена"
+  },
+  "preview": {
+    "title": "Живой предпросмотр",
+    "sandboxedNote": "Предпросмотр в песочнице на 60fps",
+    "postMessageActive": "Мост PostMessage активен",
+    "loadingMonaco": "Загрузка Monaco..."
+  },
+  "templates": {
+    "title": "Шаблоны",
+    "description": "Выберите стартовый шаблон для начала.",
+    "searchPlaceholder": "Поиск шаблонов…",
+    "noResults": "Нет шаблонов по запросу \"{query}\"",
+    "loadTemplate": "Загрузить шаблон",
+    "useTemplate": "Использовать шаблон",
+    "categories": {
+      "starters": "Стартеры",
+      "layouts": "Макеты",
+      "components": "Компоненты",
+      "forms": "Формы"
+    },
+    "confirmOverwrite": {
+      "title": "Перезаписать текущие изменения?",
+      "description": "Загрузка \"{name}\" заменит текущий HTML, CSS и JavaScript. Это нельзя отменить без сброса.",
+      "cancel": "Отмена",
+      "load": "Загрузить шаблон",
+      "confirm": "Продолжить"
+    }
+  },
+  "shortcuts": {
+    "title": "Горячие клавиши",
+    "description": "Шпаргалка по горячим клавишам редактора.",
+    "save": "Сохранить / Компилировать",
+    "saveShortcut": "Cmd/Ctrl + S",
+    "find": "Найти и заменить",
+    "findShortcut": "Cmd/Ctrl + F",
+    "format": "Форматировать код",
+    "formatAction": "editor.action.formatDocument",
+    "run": "Запустить предпросмотр",
+    "toggleMinimap": "Переключить миникарту",
+    "toggleMinimapHint": "Меню настроек",
+    "close": "Закрыть"
+  },
+  "export": {
+    "downloadZip": "Скачать ZIP",
+    "copyActive": "Копировать {tab}",
+    "copyCombined": "Копировать объединённый HTML",
+    "screenshot": "Скриншот",
+    "screenshotPng": "Скриншот как PNG",
+    "screenshotJpeg": "Скриншот как JPEG",
+    "generatingZip": "Создание ZIP-архива…",
+    "zipDownloaded": "ZIP скачан",
+    "zipDescription": "LadeCompile-export.zip — 3 файла",
+    "zipFailed": "Ошибка скачивания ZIP",
+    "copiedToClipboard": "Скопировано в буфер обмена",
+    "copiedActiveDesc": "{tab} — {count} символов",
+    "copiedCombinedTitle": "Объединённый HTML скопирован",
+    "copiedCombinedDesc": "Полный документ предпросмотра скопирован",
+    "copyFailed": "Ошибка копирования — доступ к буферу обмена запрещён",
+    "capturingScreenshot": "Создание скриншота как {format}…",
+    "screenshotDownloaded": "Скриншот скачан как {format}",
+    "screenshotFailed": "Ошибка скриншота",
+    "screenshotNotReady": "Ошибка скриншота — предпросмотр не готов",
+    "screenshotExternal": "Ошибка скриншота — предпросмотр может содержать внешний контент"
+  },
+  "share": {
+    "copiedTitle": "Ссылка скопирована в буфер обмена",
+    "hashCopiedDesc": "Ссылка-хэш скопирована — без регистрации",
+    "kvGenerating": "Создание ссылки…",
+    "kvCopiedDesc": "Короткая ссылка создана через Cloudflare KV — без регистрации",
+    "generatedTitle": "Ссылка создана",
+    "failedTitle": "Ошибка шаринга",
+    "failedDesc": "Не удалось создать ссылку.",
+    "kvFailed": "Failed to generate share link.",
+    "shareNotFound": "Ссылка не найдена или просрочена",
+    "invalidResponse": "Неверный формат ответа",
+    "couldNotLoad": "Не удалось загрузить код по ссылке — показан шаблон по умолчанию",
+    "loaded": "Код по ссылке загружен",
+    "loadedDesc": "Код восстановлен по ссылке",
+    "confirmOverwrite": {
+      "title": "Загрузить код по ссылке?",
+      "description": "У вас есть несохранённые изменения. Загрузка кода по ссылке перезапишет локальные правки.",
+      "keepLocal": "Оставить локальный",
+      "loadShared": "Загрузить код",
+      "discardLocal": "Отбросить локальные правки"
+    }
+  },
+  "save": {
+    "saved": "Сохранено",
+    "saveFailed": "Ошибка сохранения",
+    "alreadyDefault": "Уже показан стартовый шаблон по умолчанию",
+    "resetConfirmTitle": "Сбросить к шаблону по умолчанию?",
+    "resetConfirmDesc": "Это заменит ваш HTML, CSS и JavaScript на стартовый шаблон по умолчанию. Текущие правки будут потеряны.",
+    "resetCancel": "Отмена",
+    "resetConfirm": "Сброс",
+    "resetDone": "Сброшено к шаблону по умолчанию"
+  },
+  "format": {
+    "success": "Код отформатирован",
+    "notAvailable": "Форматирование недоступно для этого файла",
+    "notReady": "Редактор не готов к форматированию"
+  },
+  "search": {
+    "loadingEditor": "Редактор загружается…"
+  },
+  "minimap": {
+    "enabled": "Миникарта включена",
+    "disabled": "Миникарта отключена"
+  },
+  "mobile": {
+    "title": "Рекомендуется десктоп",
+    "body": "LadeCompile лучше работает на большом экране. Переключитесь на десктоп или поверните планшет в альбомный режим для редактирования с вкладками и живого предпросмотра.",
+    "backToHomepage": "На главную",
+    "continueToMobile": "Продолжить в мобильном редакторе",
+    "mobileViewCode": "Код",
+    "mobileViewPreview": "Предпросмотр",
+    "mobileViewConsole": "Консоль"
+  },
+  "tooltips": {
+    "explorer": "Проводник",
+    "search": "Поиск (Ctrl+F)",
+    "settings": "Настройки",
+    "templates": "Шаблоны",
+    "run": "Запуск",
+    "moreOptions": "Ещё",
+    "toggleTheme": "Сменить тему",
+    "save": "Сохранить",
+    "share": "Поделиться",
+    "export": "Экспорт"
+  },
+  "editor": {
+    "ariaLabel": "Редактор кода",
+    "tabAriaLabel": "Вкладка {name}",
+    "activeTab": "Активная вкладка"
+  },
+  "errors": {
+    "generic": {
+      "title": "Что-то пошло не так",
+      "description": "Произошла непредвиденная ошибка. Попробуйте снова.",
+      "retry": "Попробовать снова",
+      "backHome": "На главную",
+      "goToEditor": "В редактор"
+    },
+    "notFound": {
+      "title": "Страница не найдена",
+      "heading": "404 — Не найдено",
+      "description": "Редактора по этому адресу не существует.",
+      "backHome": "На главную",
+      "goToEditor": "Открыть редактор",
+      "backToHomepage": "На главную"
+    },
+    "editorError": {
+      "title": "Ошибка редактора",
+      "description": "Не удалось загрузить редактор. Попробуйте сброс.",
+      "retry": "Попробовать снова"
+    },
+    "shareError": "Ссылка не найдена или просрочена",
+    "consoleTruncated": "… (обрезано)",
+    "localStorageFailed": "Не удалось сохранить состояние редактора в localStorage"
+  },
+  "common": {
+    "cancel": "Отмена",
+    "confirm": "Confirm",
+    "close": "Закрыть",
+    "loading": "Загрузка…",
+    "save": "Сохранить",
+    "share": "Поделиться",
+    "export": "Экспорт",
+    "copy": "Копировать",
+    "download": "Скачать",
+    "reset": "Сброс",
+    "continue": "Продолжить",
+    "discard": "Отбросить",
+    "retry": "Повторить",
+    "soon": "СКОРО"
+  }
+}

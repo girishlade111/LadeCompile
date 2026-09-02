@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "locale": "tr",
+    "languageNames": {
+      "en": "English",
+      "zh": "中文 (Chinese)",
+      "pt-br": "Português (Brasil)",
+      "ru": "Русский (Russian)",
+      "ja": "日本語 (Japanese)",
+      "tr": "Türkçe (Turkish)",
+      "ko": "한국어 (Korean)"
+    }
+  },
+  "app": {
+    "htmlLang": "tr",
+    "title": "LadeCompile — Free Online HTML/CSS/JS Editor",
+    "description": "Hızlı, ücretsiz ve dikkat dağılmayan HTML, CSS ve JavaScript çevrimiçi editörü; anında canlı önizleme ve sıfır kurulum. LadeStack parçası.",
+    "themeColor": "#6366f1"
+  },
+  "topNav": {
+    "home": "Ana Sayfa",
+    "features": "Özellikler",
+    "templates": "Şablonlar",
+    "blog": "Blog",
+    "ladestack": "LadeStack ↗",
+    "overview": "Genel Bakış",
+    "ariaLabel": "Ana navigasyon"
+  },
+  "topbar": {
+    "badge": "HTML / CSS / JS — giriş gerekmez",
+    "htmlBadge": "HTML",
+    "run": "Çalıştır",
+    "templates": "Şablonlar",
+    "moreOptions": "Diğer seçenekler",
+    "toggleTheme": "Temayı değiştir",
+    "save": "Kaydet",
+    "share": "Paylaş",
+    "export": "Dışa aktar",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "filesMenu": "Dosya menüsü"
+  },
+  "tabs": {
+    "indexHtml": "index.html",
+    "stylesCss": "styles.css",
+    "scriptJs": "script.js"
+  },
+  "explorer": {
+    "title": "Gezgin",
+    "closeExplorer": "Gezgini kapat",
+    "projectFiles": "Proje Dosyaları",
+    "files": "Dosyalar",
+    "search": "Ara",
+    "searchHint": "Ara (Ctrl+F)",
+    "settings": "Ayarlar"
+  },
+  "drawer": {
+    "title": "Dosyalar",
+    "projectFiles": "Proje Dosyaları",
+    "search": "Ara",
+    "templates": "Şablonlar",
+    "settings": "Ayarlar",
+    "lightTheme": "Açık tema",
+    "darkTheme": "Koyu tema"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "description": "Editör tercihlerinizi özelleştirin.",
+    "theme": "Tema",
+    "themeLight": "Açık",
+    "themeDark": "Koyu",
+    "toggleTheme": "Temayı değiştir",
+    "language": "Dil",
+    "languageDescription": "Editör arayüz dilini seçin.",
+    "fontSize": "Yazı boyutu",
+    "fontSizeDescription": "Editör yazı boyutu (piksel).",
+    "minimap": "Minimap",
+    "minimapDescription": "Editörde kod minimapini göster.",
+    "minimapEnabled": "Minimap etkin",
+    "minimapDisabled": "Minimap devre dışı",
+    "fontSizeSet": "Yazı boyutu: {size}px",
+    "resetToDefault": "Varsayılana sıfırla",
+    "keyboardShortcuts": "Klavye Kısayolları"
+  },
+  "moreMenu": {
+    "formatCode": "Kodu Biçimlendir",
+    "resetToDefault": "Varsayılana sıfırla",
+    "minimap": "Minimap",
+    "keyboardShortcuts": "Klavye Kısayolları",
+    "export": "Dışa aktar"
+  },
+  "console": {
+    "title": "Konsol",
+    "badge": "Konsol",
+    "ready": "Hazır",
+    "warnings": "{warnings} uyarı, {errors} hata",
+    "empty": "Konsol — Başlatmak için Çalıştır’a tıklayın · loglar her çalıştırmada temizlenir",
+    "clear": "Temizle",
+    "clearAriaLabel": "Konsolu temizle",
+    "toggleExpand": "Konsolu genişlet",
+    "toggleCollapse": "Konsolu daralt",
+    "postBridgeActive": "PostMessage Köprüsü Aktif",
+    "livePreview": "Canlı önizleme",
+    "consoleLabel": "Konsol:",
+    "unreadBadge": "{count} yeni",
+    "truncated": "… (kesildi)",
+    "autoScroll": "Otomatik kaydırma etkin"
+  },
+  "preview": {
+    "title": "Canlı önizleme",
+    "sandboxedNote": "Korumalı önizleme 60fps’de oluşturuldu",
+    "postMessageActive": "PostMessage Köprüsü Aktif",
+    "loadingMonaco": "Monaco yükleniyor..."
+  },
+  "templates": {
+    "title": "Şablonlar",
+    "description": "Kodlamaya başlamak için bir başlangıç şablonu seçin.",
+    "searchPlaceholder": "Şablonlarda ara…",
+    "noResults": "\"{query}\" ile eşleşen şablon yok",
+    "loadTemplate": "Şablonu yükle",
+    "useTemplate": "Şablonu kullan",
+    "categories": {
+      "starters": "Başlangıçlar",
+      "layouts": "Düzenler",
+      "components": "Bileşenler",
+      "forms": "Formlar"
+    },
+    "confirmOverwrite": {
+      "title": "Mevcut düzenlemelerinizin üzerine yazılsın mı?",
+      "description": "\"{name}\" yüklenmesi mevcut HTML, CSS ve JavaScript’inizi değiştirecek. Sıfırlamadan geri alınamaz.",
+      "cancel": "İptal",
+      "load": "Şablonu yükle",
+      "confirm": "Devam et"
+    }
+  },
+  "shortcuts": {
+    "title": "Klavye Kısayolları",
+    "description": "Editör klavye kısayolları için hızlı başvuru.",
+    "save": "Kaydet / Derle",
+    "saveShortcut": "Cmd/Ctrl + S",
+    "find": "Bul & Değiştir",
+    "findShortcut": "Cmd/Ctrl + F",
+    "format": "Kodu Biçimlendir",
+    "formatAction": "editor.action.formatDocument",
+    "run": "Önizlemeyi çalıştır",
+    "toggleMinimap": "Minimap’i Aç/Kapat",
+    "toggleMinimapHint": "Tercihler Menüsü",
+    "close": "Kapat"
+  },
+  "export": {
+    "downloadZip": "ZIP’i indir",
+    "copyActive": "{tab} kopyala",
+    "copyCombined": "Birleştirilmiş HTML’i kopyala",
+    "screenshot": "Ekran görüntüsü",
+    "screenshotPng": "PNG olarak ekran görüntüsü",
+    "screenshotJpeg": "JPEG olarak ekran görüntüsü",
+    "generatingZip": "ZIP arşivi oluşturuluyor…",
+    "zipDownloaded": "ZIP indirildi",
+    "zipDescription": "LadeCompile-export.zip — 3 dosya",
+    "zipFailed": "ZIP indirme başarısız",
+    "copiedToClipboard": "Panoya kopyalandı",
+    "copiedActiveDesc": "{tab} — {count} karakter",
+    "copiedCombinedTitle": "Birleştirilmiş HTML kopyalandı",
+    "copiedCombinedDesc": "Tam önizleme belgesi kopyalandı",
+    "copyFailed": "Kopyalama başarısız — pano izni reddedildi",
+    "capturingScreenshot": "Önizleme {format} olarak yakalanıyor…",
+    "screenshotDownloaded": "Ekran görüntüsü {format} olarak indirildi",
+    "screenshotFailed": "Ekran görüntüsü alınamadı",
+    "screenshotNotReady": "Ekran görüntüsü alınamadı — önizleme hazır değil",
+    "screenshotExternal": "Ekran görüntüsü alınamadı — önizleme harici içerik içerebilir"
+  },
+  "share": {
+    "copiedTitle": "Paylaşım bağlantısı kopyalandı",
+    "hashCopiedDesc": "URL hash bağlantısı kopyalandı — giriş gerekmez",
+    "kvGenerating": "Paylaşım bağlantısı oluşturuluyor…",
+    "kvCopiedDesc": "Cloudflare KV ile kısa bağlantı oluşturuldu — giriş gerekmez",
+    "generatedTitle": "Paylaşım bağlantısı oluşturuldu",
+    "failedTitle": "Paylaşım başarısız",
+    "failedDesc": "Paylaşım bağlantısı oluşturulamadı.",
+    "kvFailed": "Failed to generate share link.",
+    "shareNotFound": "Paylaşım bağlantısı bulunamadı veya süresi doldu",
+    "invalidResponse": "Geçersiz yanıt biçimi",
+    "couldNotLoad": "Paylaşılan kod yüklenemedi — varsayılan şablon gösteriliyor",
+    "loaded": "Paylaşılan kod yüklendi",
+    "loadedDesc": "Kod paylaşım bağlantısından geri yüklendi",
+    "confirmOverwrite": {
+      "title": "Paylaşılan kod yüklensin mi?",
+      "description": "Kaydedilmemiş değişiklikleriniz var. Paylaşılan kodun yüklenmesi yerel düzenlemelerinizin üzerine yazacak.",
+      "keepLocal": "Yereli koru",
+      "loadShared": "Paylaşılan kodu yükle",
+      "discardLocal": "Yerel düzenlemeleri sil"
+    }
+  },
+  "save": {
+    "saved": "Kaydedildi",
+    "saveFailed": "Kaydetme başarısız",
+    "alreadyDefault": "Zaten varsayılan başlangıç şablonu gösteriliyor",
+    "resetConfirmTitle": "Varsayılan şablona sıfırla?",
+    "resetConfirmDesc": "Bu, HTML, CSS ve JavaScript’inizi varsayılan başlangıçla değiştirecek. Mevcut düzenlemeleriniz kaybolacak.",
+    "resetCancel": "İptal",
+    "resetConfirm": "Sıfırla",
+    "resetDone": "Varsayılan şablona sıfırlandı"
+  },
+  "format": {
+    "success": "Kod biçimlendirildi",
+    "notAvailable": "Bu dosya için biçimlendirme kullanılamıyor",
+    "notReady": "Editör biçimlendirme için hazır değil"
+  },
+  "search": {
+    "loadingEditor": "Editör yükleniyor…"
+  },
+  "minimap": {
+    "enabled": "Minimap etkin",
+    "disabled": "Minimap devre dışı"
+  },
+  "mobile": {
+    "title": "Masaüstü Deneyimi Önerilir",
+    "body": "LadeCompile daha büyük ekranda en iyi çalışır. Çok sekmeli kod düzenleme ve canlı önizleme için masaüstüne geçin veya tabletinizi yatay moda çevirin.",
+    "backToHomepage": "Ana Sayfaya Dön",
+    "continueToMobile": "Mobil Editörde Devam Et",
+    "mobileViewCode": "Kod",
+    "mobileViewPreview": "Önizleme",
+    "mobileViewConsole": "Konsol"
+  },
+  "tooltips": {
+    "explorer": "Gezgin",
+    "search": "Ara (Ctrl+F)",
+    "settings": "Ayarlar",
+    "templates": "Şablonlar",
+    "run": "Çalıştır",
+    "moreOptions": "Diğer seçenekler",
+    "toggleTheme": "Temayı değiştir",
+    "save": "Kaydet",
+    "share": "Paylaş",
+    "export": "Dışa aktar"
+  },
+  "editor": {
+    "ariaLabel": "Kod editörü",
+    "tabAriaLabel": "Editör sekmesi {name}",
+    "activeTab": "Etkin sekme"
+  },
+  "errors": {
+    "generic": {
+      "title": "Bir şeyler ters gitti",
+      "description": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.",
+      "retry": "Tekrar dene",
+      "backHome": "Ana sayfaya dön",
+      "goToEditor": "Editöre git"
+    },
+    "notFound": {
+      "title": "Sayfa bulunamadı",
+      "heading": "404 — Bulunamadı",
+      "description": "Bu adresteki editör mevcut değil.",
+      "backHome": "Ana sayfaya dön",
+      "goToEditor": "Editörü aç",
+      "backToHomepage": "Ana Sayfaya Dön"
+    },
+    "editorError": {
+      "title": "Editör hatası",
+      "description": "Editör yüklenemedi. Lütfen sıfırlamayı deneyin.",
+      "retry": "Tekrar dene"
+    },
+    "shareError": "Paylaşım bağlantısı bulunamadı veya süresi doldu",
+    "consoleTruncated": "… (kesildi)",
+    "localStorageFailed": "Editör durumu localStorage’a kaydedilemedi"
+  },
+  "common": {
+    "cancel": "İptal",
+    "confirm": "Confirm",
+    "close": "Kapat",
+    "loading": "Yükleniyor…",
+    "save": "Kaydet",
+    "share": "Paylaş",
+    "export": "Dışa aktar",
+    "copy": "Kopyala",
+    "download": "İndir",
+    "reset": "Sıfırla",
+    "continue": "Devam et",
+    "discard": "Sil",
+    "retry": "Tekrar dene",
+    "soon": "YAKINDA"
+  }
+}
