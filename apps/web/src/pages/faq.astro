@@ -1,12 +1,21 @@
 ---
-export const prerender = false;
+export const prerender = true;
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { getFaqMessages, getUiMessages, t } from "../i18n/index";
 import { normalizeLocale, toBcp47 } from "../i18n/locales";
 
-const rawLocale = (Astro.currentLocale as string) ?? "en";
+const SUPPORTED_LOCALES = ["en", "zh", "pt-br", "ru", "ja", "tr", "ko"] as const;
+
+export async function getStaticPaths() {
+  return SUPPORTED_LOCALES.map((locale) => ({
+    params: { locale: locale === "en" ? undefined : locale },
+  }));
+}
+
+const rawLocale = ((Astro.params as any).locale as string | undefined) ?? (Astro.currentLocale as string | undefined) ?? "en";
 const locale = normalizeLocale(rawLocale);
 const bcp47 = toBcp47(locale);
 const faqCatalog = await getFaqMessages(locale);
