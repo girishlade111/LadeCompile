@@ -87,11 +87,11 @@ function localeHref(loc: string) {
 <meta property="og:image:alt" content={imageAlt} />
 <meta property="og:locale" content={ogLocale} />
 
-<!-- hreflang alternates: 7 locales + x-default -->
-{SUPPORTED.map((loc) => (
+<!-- hreflang alternates: 7 locales + x-default — omitted on noindex fallback pages to avoid indexing duplicate English content under locale URLs -->
+{!noindex && SUPPORTED.map((loc) => (
   <link rel="alternate" hreflang={LOCALE_BCP47[loc] ?? loc} href={localeHref(loc)} />
 ))}
-<link rel="alternate" hreflang="x-default" href={localeHref("en")} />
+{!noindex && <link rel="alternate" hreflang="x-default" href={localeHref("en")} />}
 
 {type === "article" && publishedTime && (
   <meta property="article:published_time" content={publishedTime} />
