@@ -83,7 +83,7 @@ const { Content, headings } = post ? await render(post) : { Content: () => null,
         </div>
       </div>
     )}
-    <BlogPostLayout post={post} headings={headings} allPosts={allPosts}>
+    <BlogPostLayout post={post} headings={headings} allPosts={allPosts} isFallback={isFallback} currentLocale={currentLocale}>
       <Content />
     </BlogPostLayout>
   </>
