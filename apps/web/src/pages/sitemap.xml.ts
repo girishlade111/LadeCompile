@@ -45,9 +45,9 @@ export const GET: APIRoute = async () => {
   const publishedPosts = allPosts.filter((p) => !p.data.draft);
   // Group by slug and check which locales have it
   // For now, since only en has content, we will only emit blog post URLs for en
-  const blogSlugs = publishedPosts
-    .filter((p) => getPostLocale(p) === "en")
-    .map((p) => `/blog/${getPostSlug(p)}/`);
+  // Deduplicate: content/blog contains both src/content/blog/*.md and src/content/blog/en/*.md
+  // (legacy duplicate) — collapse to unique slugs so sitemap has 4 entries, not 8.
+  const blogSlugs = [...new Set(publishedPosts.filter((p) => getPostLocale(p) === "en").map((p) => `/blog/${getPostSlug(p)}/`))].sort();
 
   // Build all URLs: 7 locales × 3 static routes = 21, plus 4 English blog posts = 25 total
   // But per task: 21 (7×3 non-blog) + 4 English blog posts (not multiplied)
