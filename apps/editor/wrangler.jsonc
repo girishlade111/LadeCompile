@@ -31,8 +31,8 @@
   "kv_namespaces": [
     {
       "binding": "SHARE_KV",
-      "id": "SHARE_KV_NAMESPACE_ID",
-      "preview_id": "SHARE_KV_PREVIEW_NAMESPACE_ID"
+      "id": "72cb7d2ff70345c7afa4ffd2eeb4f972",
+      "preview_id": "dc705da971cd421a999196a7914a4bb2"
     }
   ],
   "observability": {
