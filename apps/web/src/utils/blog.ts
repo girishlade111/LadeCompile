@@ -6,10 +6,22 @@ export type BlogPost = CollectionEntry<"blog">;
  * Extracts the clean URL slug from a blog post entry.
  * Supports both Astro 5 Content Layer (id) and legacy Content Collections (slug).
  */
+const LOCALE_PREFIX_RE = /^(en|zh|pt-br|ru|ja|tr|ko)\//i;
+
+export function getPostLocale(post: BlogPost): string {
+  const raw = (post as unknown as { data?: { locale?: string } })?.data?.locale ?? "";
+  if (raw) return String(raw).toLowerCase();
+  const id = post.id ?? (post as unknown as { slug?: string }).slug ?? "";
+  const seg = id.split("/")[0]?.toLowerCase();
+  if (["en", "zh", "pt-br", "ru", "ja", "tr", "ko"].includes(seg)) return seg;
+  return "en";
+}
+
 export function getPostSlug(post: BlogPost): string {
   const raw = post.id ?? (post as unknown as { slug?: string }).slug ?? "";
-  // Remove file extension if present (e.g., .md, .mdx)
-  return raw.replace(/\.(md|mdx)$/, "");
+  const withoutExt = raw.replace(/\.(md|mdx)$/, "");
+  // Strip locale folder prefix if present (en/, zh/, pt-br/, etc.)
+  return withoutExt.replace(LOCALE_PREFIX_RE, "");
 }
 
 /**
