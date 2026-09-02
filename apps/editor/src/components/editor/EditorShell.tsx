@@ -132,11 +132,18 @@ function isEqualFiles(a: Record<EditorFile, string>, b: Record<EditorFile, strin
   return a["index.html"] === b["index.html"] && a["styles.css"] === b["styles.css"] && a["script.js"] === b["script.js"];
 }
 
-export default function EditorShell({ initialLocale }: { initialLocale?: string } = {}) {
+export default function EditorShell({ initialLocale, initialMessages }: { initialLocale?: string; initialMessages?: Record<string, unknown> } = {}) {
   const normalizedLocale = (initialLocale ? normalizeLocale(initialLocale) : "en") as Locale;
   const [locale] = useState<Locale>(normalizedLocale);
-  const [messages, setMessages] = useState<Record<string, unknown>>(enMessages as unknown as Record<string, unknown>);
+  const [messages, setMessages] = useState<Record<string, unknown>>(
+    (initialMessages as Record<string, unknown>) ?? (enMessages as unknown as Record<string, unknown>)
+  );
   useEffect(() => {
+    // If server already provided correct locale messages, don't reload
+    if (initialMessages) {
+      setMessages(initialMessages as Record<string, unknown>);
+      return;
+    }
     if (locale === "en") {
       setMessages(enMessages as unknown as Record<string, unknown>);
       return;
@@ -157,7 +164,7 @@ export default function EditorShell({ initialLocale }: { initialLocale?: string 
       }
       setMessages(merge(enMessages, loaded));
     }).catch(() => setMessages(enMessages as unknown as Record<string, unknown>));
-  }, [locale]);
+  }, [locale, initialMessages]);
   const tr = (key: string, params?: Record<string, string|number>) => {
     const parts = key.replace(/\[(\d+)\]/g, ".$1").split(".");
     let cur: any = messages;
