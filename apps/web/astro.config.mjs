@@ -37,7 +37,7 @@ export default defineConfig({
     },
     sessionKV: false,
   }),
-  output: "server",
+  output: "static",
   vite: {
     plugins: [tailwindcss()],
     ssr: {
