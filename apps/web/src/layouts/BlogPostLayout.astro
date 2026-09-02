@@ -83,6 +83,8 @@ const jsonLd = {
   modifiedTime={post.data.updatedDate ? (post.data.updatedDate instanceof Date ? post.data.updatedDate.toISOString() : new Date(post.data.updatedDate).toISOString()) : undefined}
   author={post.data.author}
   tags={post.data.tags}
+  noindex={noindex}
+  locale={seoLocale}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
