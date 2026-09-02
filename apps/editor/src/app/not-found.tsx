@@ -8,10 +8,21 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+"use client";
 export default function NotFound() {
   const webUrl =
     process.env.NEXT_PUBLIC_WEB_URL ||
     (process.env.NODE_ENV === "development" ? "http://localhost:4321" : "https://compile.ladestack.in");
+  const getLocale = () => {
+    if (typeof window === "undefined") return "en";
+    const segs = window.location.pathname.split("/").filter(Boolean);
+    const maybeLocale = segs[0]?.toLowerCase();
+    const supported = ["en", "zh", "pt-br", "ru", "ja", "tr", "ko"];
+    return supported.includes(maybeLocale) ? maybeLocale : "en";
+  };
+  const loc = normalizeLocale(getLocale());
+  const editorHref = localePath(loc, "/editor");
+  const homeHref = `${webUrl}${localePath(loc, "/")}`;
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center overflow-hidden bg-background p-4 sm:p-6">
