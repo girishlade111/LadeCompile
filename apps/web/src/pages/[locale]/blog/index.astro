@@ -1,0 +1,94 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import BlogGrid from "../../components/blog/BlogGrid.astro";
+import { filterPublishedPosts, getPostLocale } from "../../utils/blog";
+import { getUiMessages, t } from "../../i18n/index";
+import { normalizeLocale, localePath } from "../../i18n/locales";
+
+const rawLocale = (Astro.currentLocale as string) ?? "en";
+const locale = normalizeLocale(rawLocale);
+const ui = await getUiMessages(locale);
+
+const allPostsRaw = await getCollection("blog");
+// Filter to current locale only — untranslated slugs 404 cleanly (no cross-locale fallback)
+const allPostsForLocale = allPostsRaw.filter((p) => getPostLocale(p) === locale);
+const posts = filterPublishedPosts(allPostsForLocale, false);
+
+const title = t(ui as any, "blog.title") || "Blog & Guides — Free Online HTML/CSS/JS Compilers | LadeCompile";
+const description = t(ui as any, "blog.description") || "In-depth guides, architecture breakdowns, and tool comparisons for free HTML/CSS/JS compilers, sandboxed live previews, and zero-login developer tools by LadeStack.";
+
+const editorUrl = localePath(locale, import.meta.env.PUBLIC_EDITOR_URL ||
+  (import.meta.env.DEV ? "http://localhost:3000/editor" : "/editor"));
+
+// Extract distinct categories from published posts
+const uniqueCategories = Array.from(
+  new Set(posts.map((p) => p.data.category).filter(Boolean))
+);
+---
+
+<BaseLayout title={title} description={description} type="website">
+  <Header />
+
+  <main id="main-content" class="relative isolate overflow-hidden mx-auto max-w-[1280px] px-6 py-12 lg:px-12 sm:py-16">
+    <!-- Hero Header -->
+    <div class="relative z-content mx-auto max-w-3xl text-center">
+      <h1 class="text-[clamp(28px,7vw,46px)] font-normal leading-[1.15] tracking-tight text-[#24292f]">
+        Engineering, tooling & sandbox guides
+      </h1>
+      <p class="mt-4 text-[16px] sm:text-[18px] leading-relaxed text-[#32383f]">
+        Practical articles on building with <span class="font-medium text-[#24292f]">free HTML CSS JS compilers</span>, browser execution security, and zero-login web developer tooling.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href={localePath(locale, "/")} class="btn-secondary text-[14px] py-2.5 px-4 rounded-[10px]">
+          ← Back to Home
+        </a>
+        <a href={editorUrl} class="btn-primary text-[14px] py-2.5 px-4 rounded-[10px]">
+          Open Web Editor
+        </a>
+      </div>
+    </div>
+
+    <!-- Category Pills -->
+    {uniqueCategories.length > 0 && (
+      <div class="relative z-content mt-12 flex flex-wrap items-center justify-center gap-2 border-y border-[#d0d7de] py-4">
+        <span class="text-[13px] font-medium text-[#656d76] mr-2">Categories</span>
+        <span class="rounded-[6px] bg-[#24292f] px-3 py-1 text-[12px] font-medium text-white shadow-xs">
+          All ({posts.length})
+        </span>
+        {uniqueCategories.map((cat) => {
+          const count = posts.filter((p) => p.data.category === cat).length;
+          return (
+            <span class="rounded-[6px] border border-[#d0d7de] bg-[#ffffff] px-3 py-1 text-[12px] font-medium text-[#656d76]">
+              {cat} ({count})
+            </span>
+          );
+        })}
+      </div>
+    )}
+
+    <!-- Posts Grid -->
+    <div class="relative z-content mx-auto mt-12 max-w-4xl">
+      {posts.length === 0 ? (
+        <div class="rounded-[12px] border border-amber-200 bg-amber-50 p-8 text-center">
+          <p class="text-[16px] font-medium text-amber-900">No posts yet in this language.</p>
+          <p class="mt-2 text-[14px] text-amber-800">Blog is currently English-only. Switch to English to see all articles, or check back later for translations.</p>
+          <a href={localePath("en", "/blog")} class="mt-4 inline-flex items-center justify-center rounded-[8px] bg-[#24292f] px-4 py-2 text-[14px] font-medium text-white">View English Blog</a>
+        </div>
+      ) : (
+        <BlogGrid posts={posts} showFeaturedFirst={true} />
+      )}
+
+      <div class="relative z-content mt-16 rounded-[12px] border border-[#d0d7de] bg-[#f6f8fa] p-6 text-center text-[13px] leading-relaxed text-[#656d76]">
+        <p>
+          Want to write for the LadeStack ecosystem or suggest a tutorial? All articles are stored as Markdown files in <code class="rounded bg-white border border-[#d0d7de] px-1.5 py-0.5 text-[12px] font-mono text-[#24292f]">src/content/blog/</code> and automatically built into static pages.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,62 @@
+---
+export const prerender = false;
+import { getCollection, render } from "astro:content";
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+import { filterPublishedPosts, getPostSlug, getPostLocale } from "../../utils/blog";
+import { normalizeLocale } from "../../i18n/locales";
+
+const currentLocale = normalizeLocale((Astro.currentLocale as string) ?? "en");
+const slugParam = Astro.params.slug as string | string[] | undefined;
+const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam ?? "";
+
+// Load all posts and find the requested one, with fallback to English if locale has no translation
+const allPostsRaw = await getCollection("blog");
+const publishedAll = filterPublishedPosts(allPostsRaw, false);
+const allDeduped = (() => {
+  const seen = new Set<string>();
+  return publishedAll.filter((p) => {
+    const k = `${getPostLocale(p)}:${getPostSlug(p)}`;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+})();
+
+let post = allDeduped.find((p) => getPostSlug(p) === slug && getPostLocale(p) === currentLocale);
+let isFallback = false;
+if (!post) {
+  // No post for this locale+slug — fallback to English if exists
+  const enPost = allDeduped.find((p) => getPostSlug(p) === slug && getPostLocale(p) === "en");
+  if (enPost) {
+    post = enPost;
+    isFallback = currentLocale !== "en";
+  }
+}
+console.log(`[blog slug] slug=${slug} currentLocale=${currentLocale} postFound=${!!post} isFallback=${isFallback} allSlugs=${allDeduped.map(p=>getPostSlug(p)).join(",").slice(0,100)}`);
+if (!post) {
+  Astro.response.status = 404;
+}
+const postLocale = post ? getPostLocale(post) : currentLocale;
+const allPosts = allDeduped.filter((p) => getPostLocale(p) === currentLocale || getPostLocale(p) === "en");
+const { Content, headings } = post ? await render(post) : { Content: () => null, headings: [] };
+---
+
+{!post ? (
+  <main class="mx-auto max-w-[1280px] px-6 py-16 lg:px-12">
+    <p class="text-center text-[16px] text-[#32383f]">Post not found.</p>
+    <p class="mt-4 text-center"><a href={currentLocale === "en" ? "/blog" : `/${currentLocale}/blog`} class="text-[#0969da] hover:underline">Back to Blog</a></p>
+  </main>
+) : (
+  <>
+    {isFallback && (
+      <div class="mx-auto max-w-[1280px] px-6 lg:px-12 pt-6">
+        <div class="rounded-[8px] border border-amber-200 bg-amber-50 px-4 py-3 text-[13px] text-amber-900">
+          This article hasn't been translated to {currentLocale} yet — showing English version. <a href={currentLocale === "en" ? "/blog" : `/${currentLocale}/blog`} class="font-medium text-amber-900 underline">Browse all articles</a>
+        </div>
+      </div>
+    )}
+    <BlogPostLayout post={post} headings={headings} allPosts={allPosts}>
+      <Content />
+    </BlogPostLayout>
+  </>
+)}
