@@ -128,3 +128,7 @@ npm run deploy:editor
 4. Under **Workers & Pages**, verify routes for `ladecompile-web` (`compile.ladestack.in/*`) and `ladecompile-editor` (`compile.ladestack.in/editor*`).
 
 For the complete pre-launch checklist, see [DEPLOYMENT_CHECKLIST.md](file:///c:/Users/Girish%20Lade/Downloads/LadeCompile/DEPLOYMENT_CHECKLIST.md).
+
+---
+
+Built by [Girish Lade](https://ladestack.in)
